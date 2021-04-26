@@ -1,0 +1,50 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  @include mixins.responsive(portrait)   { font-size: 56.25%; }
+  @include mixins.responsive(narrow)     { font-size: 50%;    }
+  @include mixins.responsive(widescreen) { font-size: 75%;    }
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: variables.$color-dark;
+  background-image: variables.$background-gradient;
+  box-sizing: border-box;
+  // overflow-x: hidden;
+
+  @media (prefers-color-scheme: dark) {
+    color: variables.$color-light;
+    background-image: variables.$background-gradient-dark;
+  }
+}
+
+h6, h5, h4, h3, h2, h1, a, p, li {
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  white-space: pre-line;
+}
