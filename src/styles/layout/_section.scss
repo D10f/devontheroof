@@ -1,0 +1,40 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.section {
+  position: relative;
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+
+  &__banner {
+    position: fixed;
+    bottom: 0;
+    left: 1rem;
+    z-index: 1;
+    font-family: PanameraRegular;
+    font-size: 10rem;
+    opacity: .5;
+    pointer-events: none;
+
+    @include mixins.responsive(phone) {
+      display: none;
+    }
+
+    &::selection {
+      background: none;
+      color: inherit;
+    }
+  }
+
+  &--landing {}
+  &--webapps {}
+  &--graphics {}
+  &--scripts {}
+  &--sysadmin {}
+  &--blog {}
+}

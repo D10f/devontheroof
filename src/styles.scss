@@ -1,17 +1,20 @@
-/* ABSTRACT */
-
 /* BASE */
 @use './styles/base/base';
 @use './styles/base/typography';
+@use './styles/base/utilities';
 
 /* COMPONENTS */
+@use './styles/components/nav';
+@use './styles/components/card';
+@use './styles/components/icon';
+@use './styles/components/header';
+@use './styles/components/canvas';
+@use './styles/components/dropdown';
+@use './styles/components/showcase';
+@use './styles/components/roadmap';
+@use './styles/components/tooltip';
 
 /* LAYOUT */
 @use './styles/layout/grid';
 @use './styles/layout/section';
-@use './styles/layout/header';
 @use './styles/layout/footer';
-
-/* THEMES */
-
-/* VENDORS */

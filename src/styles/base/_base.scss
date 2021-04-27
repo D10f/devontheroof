@@ -25,7 +25,6 @@ body {
   color: variables.$color-dark;
   background-image: variables.$background-gradient;
   box-sizing: border-box;
-  // overflow-x: hidden;
 
   @media (prefers-color-scheme: dark) {
     color: variables.$color-light;

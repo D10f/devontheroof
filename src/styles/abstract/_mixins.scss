@@ -1,3 +1,5 @@
+@use './variables';
+
 /**
 *  MEDIA QUERY REFERENCE
 *  | Breakpoint     | Pixels |  Em   |
@@ -21,7 +23,7 @@
 }
 
 @mixin contain {
-  max-width: $max-width;
+  max-width: variables.$max-width;
   margin: 0 auto;
 
   @include responsive(landscape) {
@@ -43,14 +45,14 @@
 
 @mixin glass-effect {
   background-image: linear-gradient(
-    to right top,
+    120deg,
     rgba(241,241,241,.3),
-    rgba(255,255,255,.2));
-  box-shadow: 1rem 1rem 4rem rgba($color-darker, .15);
+    rgba(139,130,254,.15));
+  box-shadow: 1rem 1rem 4rem rgba(variables.$color-darker, .15);
 
-  @supports (backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px)) {
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
+  @supports (backdrop-filter: blur(3px)) or (-webkit-backdrop-filter: blur(3px)) {
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
   }
 
   @media (prefers-color-scheme: dark) {

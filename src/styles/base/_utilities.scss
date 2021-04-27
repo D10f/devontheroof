@@ -1,3 +1,5 @@
+@use '../abstract/mixins';
+
 .small-margin-y {
   margin: 2rem 0;
 }
@@ -7,6 +9,9 @@
 .margin-top {
   margin-top: 2rem;
 }
+.margin-top-4 {
+  margin-top: 4rem;
+}
 .margin-bottom {
   margin-bottom: 2rem;
 }
@@ -14,7 +19,7 @@
   overflow: hidden;
 }
 .hide-on-phone {
-  @include responsive(phone) {
+  @include mixins.responsive(phone) {
     display: none;
   }
 }
@@ -25,7 +30,7 @@
   text-align: center;
 }
 .contain {
-  @include contain;
+  @include mixins.contain;
 }
 .invisible {
   visibility: hidden;

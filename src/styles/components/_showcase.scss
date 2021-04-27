@@ -1,0 +1,22 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.showcase {
+  @include mixins.contain;
+  padding: 1rem;
+  // padding-top: 5rem;
+  margin: 2rem 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  &__description {
+    font-size: 1.8rem;
+    text-shadow: variables.$text-shadow;
+  }
+}

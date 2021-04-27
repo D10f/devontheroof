@@ -1,3 +1,5 @@
+@use '../abstract/variables';
+
 @font-face {
   font-family: 'PanameraRegular';
   src: url(../assets/fonts/PanameraRegular.otf) format('opentype');
@@ -5,10 +7,10 @@
   font-style: normal;
 }
 
-// ::selection {
-//   background-color: $color-dark;
-//   color: $color-light;
-// }
+::selection {
+  background-color: variables.$color-dark;
+  color: variables.$color-light;
+}
 
 // .header__headline {
 //   &--title,

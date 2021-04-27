@@ -16,9 +16,9 @@ $color-gray-dark: #7f8c8d;
 
 $background-gradient: linear-gradient(
   120deg,
-  #95d7f1,
-  #8a78ff,
-  #c8553a
+  $color-lighter,
+  $color-light,
+  $color-gray-light
 );
 
 $background-gradient-dark: linear-gradient(
@@ -47,7 +47,7 @@ $column-gap: 2rem;
 
 $box-shadow: 1rem 2rem 2rem rgba($color-darker, 0.3);
 $box-shadow-light: .25rem 1rem 2rem rgba($color-darker, 0.2);
-$text-shadow: 1rem 1rem 1.25rem rgba($color-darker, .2);
+$text-shadow: 1rem 1rem 1.25rem rgba($color-darker, .3);
 
 @media (prefers-color-scheme: dark) {
   $box-shadow: none;

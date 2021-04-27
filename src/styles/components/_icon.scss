@@ -1,0 +1,29 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  pointer-events: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @include mixins.responsive(phone) {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &--light-mode {
+    fill: variables.$color-light;
+  }
+
+  &--dark-mode {
+    fill: variables.$color-darker !important;
+
+    @media (prefers-color-scheme: dark) {
+      fill: variables.$color-light !important;
+    }
+  }
+}

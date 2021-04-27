@@ -1,0 +1,26 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.roadmap {
+  @include mixins.glass-effect;
+  height: 100%;
+  text-align: center;
+  border-radius: variables.$border-radius;
+  border: 1px solid variables.$color-dark;
+  padding: 4rem;
+
+  @media (prefers-color-scheme: dark) {
+    border: none;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  &__item {
+    position: relative;
+    margin: 2rem 0;
+    text-align: center;
+  }
+}

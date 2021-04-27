@@ -8,8 +8,7 @@ let mode = 'development';
 let target = 'web';
 let devtool = 'source-map';
 let plugins = [
-  new HtmlWebpackPlugin({ template: './src/index.html' }),
-  new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" })
+  new HtmlWebpackPlugin({ filename: 'index.html', template: './src/index.html' })
 ];
 
 if (process.env.NODE_ENV === 'production') {
@@ -17,20 +16,28 @@ if (process.env.NODE_ENV === 'production') {
   target = 'browserslist';
   devtool = false;
   plugins.push(new CleanWebpackPlugin());
-  plugins.push(new RunAfterCompile());
 }
+
+/* Do not use hashes while in development in order to benefit from HMR */
+plugins.push(new MiniCssExtractPlugin({
+  filename: mode === 'production' ? '[name].[contenthash].css' : '[name].css' }
+));
 
 module.exports = {
   mode: mode,
   target: target,
   entry: './src/app.js',
   output: {
-    filename: '[name].[contenthash].js',
+    filename: mode === 'production' ? '[name].[contenthash].js' : '[name].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[name][ext][query]'
   },
   module: {
     rules: [
+      {
+        test: /\.html$/,
+        use: ['html-loader']
+      },
       {
         test: /\.(webp|png|jpe?g|gif|svg)$/i,
         type: 'asset/resource'
@@ -71,9 +78,6 @@ module.exports = {
     ]
   },
   plugins: plugins,
-  resolve: {
-    extensions: ['.js']
-  },
   devtool: devtool,
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
@@ -82,5 +86,10 @@ module.exports = {
       ignored: /node_modules/
     },
     hot: true
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   }
 };
