@@ -6,9 +6,12 @@ const DEFAULT_SKETCH = bubbles;
 const SKETCH_LIST = { bubbles };
 
 class CanvasController {
-  constructor() {
+  constructor(isMobileDevice) {
     this.current  = new p5(DEFAULT_SKETCH, CANVAS_ELEMENT);
-    // this.observer = this.createObserver();tessst
+    if (isMobileDevice) {
+      setTimeout(() => this.current.stopLoop(), 0);
+    }
+    // this.observer = this.createObserver();
     // this.listen();
   };
 

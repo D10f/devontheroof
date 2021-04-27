@@ -8,6 +8,6 @@ const isMobileDevice = navigator.userAgent.match(
   /(Android|iPhone|iPad|iPod|webOS|Windows Phone|BlackBerry)/i
 );
 
-new CanvasController();
+new CanvasController(isMobileDevice);
 new Scroller(isMobileDevice);
 new VideoLoader(isMobileDevice);

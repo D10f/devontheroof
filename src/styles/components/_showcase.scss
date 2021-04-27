@@ -15,8 +15,29 @@
   align-items: center;
   z-index: 1;
 
+  @include mixins.responsive(portrait) {
+    grid-template:
+      "card"        auto
+      "description" auto /
+      1fr;
+  }
+
   &__description {
     font-size: 1.8rem;
     text-shadow: variables.$text-shadow;
+
+    @include mixins.responsive(portrait) {
+      grid-area: description;
+    }
+
+    p {
+      margin: 2rem 0;
+    }
+  }
+
+  & card {
+    @include mixins.responsive(portrait) {
+      grid-area: card;
+    }
   }
 }

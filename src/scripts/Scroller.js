@@ -18,7 +18,7 @@ class Scroller {
       document.getElementById('gamesgraphics'),
       document.getElementById('scripts'),
       document.getElementById('sysadmin'),
-      document.getElementById('blog')
+      // document.getElementById('blog')
     ];
 
     this.windowHeight = window.innerHeight;

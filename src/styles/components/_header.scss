@@ -15,7 +15,13 @@
 
   @include mixins.responsive(phone) {
     left: 0;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: variables.$color-light;
   }
 
   &--hide {

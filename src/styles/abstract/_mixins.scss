@@ -46,9 +46,16 @@
 @mixin glass-effect {
   background-image: linear-gradient(
     120deg,
-    rgba(241,241,241,.3),
-    rgba(139,130,254,.15));
+    rgba(255,255,255,.1),
+    rgba(189,195,199,.2));
   box-shadow: 1rem 1rem 4rem rgba(variables.$color-darker, .15);
+
+  @include responsive(tablet) {
+    background-image: linear-gradient(
+      120deg,
+      rgba(255,255,255,.4),
+      rgba(189,195,199,.5));
+  }
 
   @supports (backdrop-filter: blur(3px)) or (-webkit-backdrop-filter: blur(3px)) {
     -webkit-backdrop-filter: blur(3px);
@@ -57,10 +64,16 @@
 
   @media (prefers-color-scheme: dark) {
     background-image: linear-gradient(
-    to right top,
-    rgba(0,0,0,.3),
-    rgba(0,0,0,.2)
-    );
+      to right top,
+      rgba(44,83,100,.3),
+      rgba(15,32,39,.2));
+
+    @include responsive(tablet) {
+      background-image: linear-gradient(
+        to right top,
+        rgba(44,83,100,.4),
+        rgba(15,32,39,.3));
+    }
   }
 }
 

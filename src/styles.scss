@@ -13,8 +13,13 @@
 @use './styles/components/showcase';
 @use './styles/components/roadmap';
 @use './styles/components/tooltip';
+@use './styles/components/search';
+@use './styles/components/post';
 
 /* LAYOUT */
 @use './styles/layout/grid';
 @use './styles/layout/section';
 @use './styles/layout/footer';
+
+/* PAGES */
+@use './styles/pages/blog';

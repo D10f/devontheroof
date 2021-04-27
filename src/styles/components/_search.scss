@@ -1,0 +1,70 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+.search {
+  flex: 1 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__label {
+    position: absolute;
+    right: 2rem;
+    z-index: 1;
+
+    @media (prefers-color-scheme: dark) {
+      color: variables.$color-light;
+    }
+  }
+
+  &__input {
+    border: variables.$border-color;
+    border-radius: variables.$border-radius;
+    padding: 1rem;
+    width: 100%;
+    transition: opacity 0.2s, transform 0.2s;
+    opacity: 0;
+    transform: translateX(10rem);
+    pointer-events: none;
+    font-size: 1.8rem;
+
+    &:focus {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @include mixins.responsive(tablet) {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      color: variables.$color-light;
+      background: variables.$color-dark;
+      border: variables.$color-light;
+    }
+  }
+
+  &__results {
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+    border: variables.$border-color;
+    border-radius: variables.$border-radius;
+    background-color: variables.$color-light;
+    transition: opacity 0.3s, transform 0.4s;
+    opacity: 0;
+    transform: translateY(10rem);
+    pointer-events: none;
+    z-index: 99;
+
+    &--show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+  }
+}

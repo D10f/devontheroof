@@ -11,6 +11,20 @@
   align-items: center;
   padding: 2rem 0;
 
+  @include mixins.responsive(landscape) {
+    min-height: auto;
+    height: min-content;
+    margin-top: 5rem;
+  }
+
+  @include mixins.responsive(tablet) {
+    margin-top: 2rem;
+  }
+
+  @include mixins.responsive(phone) {
+    min-height: auto;
+  }
+
   &__banner {
     position: fixed;
     bottom: 0;
@@ -31,7 +45,12 @@
     }
   }
 
-  &--landing {}
+  &--landing {
+    @include mixins.responsive(tablet) {
+      margin-top: 0;
+      padding-top: 10rem;
+    }
+  }
   &--webapps {}
   &--graphics {}
   &--scripts {}

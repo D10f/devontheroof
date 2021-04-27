@@ -28,15 +28,14 @@
   </nav>
 
   <section class="section section--landing" id="about">
-    <h2 class="section__header invisible"></h2>
+    <!-- <h2 class="section__header show-on-tablet">About</h2> -->
 
     <article class="showcase">
-      <p class="showcase__description">Hi! I'm a web developer based in Madrid, Spain.
-
-        The idea that computers are just rocks we tricked into thinking defines exactly how I always felt about technology but never knew how to put into words. This is exactly why I learned to code, I like to mess with things until they work.
-
-        This website is a perpetual playground to experiment and learn so stay tuned for new things coming. I also write notes and share some thoughts about computers in general.
-      </p>
+      <div class="showcase__description">
+        <p>Hi! I'm a web developer based in Madrid, Spain.</p>
+        <p>The idea that computers are just rocks we tricked into thinking defines exactly how I always felt about technology but never knew how to put into words. This is exactly why I learned to code, I like to mess with things until they work.</p>
+        <p>This website is a perpetual playground to experiment and learn so stay tuned for new things coming. I also write notes and share some thoughts about computers in general.</p>
+      </div>
 
       <ul class="roadmap">
         <p class="roadmap__title">Currently working on:</p>
@@ -49,21 +48,20 @@
   </section>
 
   <section class="section section--webapps" id="webapps">
-    <h2 class="section__header invisible"></h2>
+    <h2 class="section__header show-on-tablet">WebApps</h2>
 
     <article class="showcase">
-      <p class="showcase__description">Share files privately and securely, over the browser.
-
-        Bytes And Pipes is a web application to share large files easily from any device using only a web browser. Files are protected using end-to-end encryption, which means its contents remain unknown to the server and potential eavesdroppers, and expire after they're downloaded or after 24 hours.
-
-        Built using the MERN stack.
-      </p>
+      <div class="showcase__description">
+        <p>Share files privately and securely, over the browser.</p>
+        <p>Bytes And Pipes is a web application to share large files easily from any device using only a web browser. Files are protected using end-to-end encryption, which means its contents remain unknown to the server and potential eavesdroppers, and expire after they're downloaded or after 24 hours.</p>
+        <p>Built using the MERN stack.</p>
+      </div>
 
       <div class="card">
         <div class="card__side card__side--front-x">
           <img
           class="card__img"
-          src="../assets/images/bytes-and-pipes-480.jpeg"
+          src="../assets/images/bytes-and-pipes.jpeg"
           >
         </div>
 
@@ -87,12 +85,46 @@
   </section>
 
   <section class="section section--graphics" id="gamesgraphics">
-    <h2 class="section__header invisible"></h2>
+    <h2 class="section__header show-on-tablet">Games & Graphics</h2>
 
     <article class="showcase">
-      <p class="showcase__description">Ray casting algorithms are used in computer graphics to create 3D representations out of 2D images. This demo written in C follows the steps made popular by Wolfenstein 3D to build a simple engine capable of drawing walls, render textures and sprites.
+      <div class="card x-300 y-400 is-centered">
+        <div class="card__side card__side--front-y">
+          <video
+          class="card__video card__video--fill"
+          src="../assets/videos/tetris.webm"
+          poster="../assets/images/tetris-thumb.png"
+          preload="none"
+          muted
+          loop>
+        </video>
+      </div>
+      <div class="card__side card__side--back-y">
+        <h3 class="card__title">Tetris</h3>
+        <ul class="card__social">
+          <li><a href="https://github.com/herokunt/javascript_ramblings/blob/main/2D/tetris.js">
+            <svg class="card__gh" width=24 height=24 viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+            </svg>
+          </a></li>
+          <li><a href="https://editor.p5js.org/fall-parameter/sketches/-8YjzbeP0">
+            <svg class="card__p5" width=24 height=24 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+              <path d="M16.909 10.259l8.533-2.576 1.676 5.156-8.498 2.899 5.275 7.48-4.447 3.225-5.553-7.348-5.408 7.155-4.318-3.289 5.275-7.223L.88 12.647l1.678-5.16 8.598 2.771V1.364h5.754v8.895z"/>
+            </svg>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="showcase__description center-text">
+      <p>An all-time 8-bit classic: Tetris!</p>
+    </div>
+  </article>
 
-        Link to a web-based demo is written in JavaScript.</p>
+    <article class="showcase">
+      <div class="showcase__description">
+        <p>Ray casting algorithms are used in computer graphics to create 3D representations out of 2D images. This demo written in C follows the steps made popular by Wolfenstein 3D to build a simple engine capable of drawing walls, render textures and sprites.</p>
+        <p>Link to a web-based demo is written in JavaScript.</p>
+      </div>
         <div class="card">
           <div class="card__side card__side--front-x">
             <video
@@ -150,25 +182,27 @@
         </ul>
       </div>
     </div>
-    <p class="showcase__description">Steering behaviors algorithms are used to provide autonomous agents with realistic behavior that reacts to surrounding forces. They are simple to understand and effective in creating interesting movement patterns.
-
-      This demo was inspired by Daniel Shiffman to represent text that reacts to mouse movement.</p>
+    <div class="showcase__description">
+      <p>Steering behaviors algorithms are used to provide autonomous agents with realistic behavior that reacts to surrounding forces. They are simple to understand and effective in creating interesting movement patterns.</p>
+      <p>This demo was inspired by Daniel Shiffman to represent text that reacts to mouse movement.</p>
+    </div>
     </article>
   </section>
 
   <section class="section section--scripts" id="scripts">
-    <h2 class="section__header invisible"></h2>
+    <h2 class="section__header show-on-tablet">Scripts</h2>
 
     <article class="showcase">
-      <p class="showcase__description">Images make the bulk of the modern web and is crucial to optimize them to reduce bandwidth costs and computing processing. This script can convert images to different formats, create different sized copies for desktop and mobile use, and compress them to convenient archives that are easy to upload to the cloud.
-
-        Written in Python, can handle hundreds of images efficiently.</p>
+      <div class="showcase__description">
+        <p>Images make the bulk of the modern web and is crucial to optimize them to reduce bandwidth costs and computing processing. This script can convert images to different formats, create different sized copies for desktop and mobile use, and compress them to convenient archives that are easy to upload to the cloud.</p>
+        <p>Written in Python, can handle hundreds of images efficiently.</p>
+      </div>
         <div class="card">
           <div class="card__side card__side--front-x">
             <video
               class="card__video card__video--fill"
               src="../assets/videos/resizer.webm"
-              poster="../assets/images/raycasting-thumb.jpeg"
+              poster="../assets/images/python.png"
               preload="none"
               muted
               loop>
@@ -193,7 +227,7 @@
           <video
             class="card__video card__video--fill"
             src="../assets/videos/passwords.webm"
-            poster="../assets/images/steering-behavior-thumb.jpeg"
+            poster="../assets/images/python.png"
             preload="none"
             muted
             loop>
@@ -210,36 +244,37 @@
         </ul>
       </div>
     </div>
-    <p class="showcase__description">Check your passwords against the popular "Have I Been Pwned?" website and find out if they've been leaked in any of the increasingly common data breaches. Seriously, start using better passwords!
-
-      You can provide passwords inline or through a CSV file, ideal if your password manager (such as KeePassXC) supports exporting data in CSV format. Your passwords will remain secured as only a computed hash is ever sent, as per the Have I Been Pwned API requires.</p>
+    <div class="showcase__description">
+      <p>Check your passwords against the popular "Have I Been Pwned?" website and find out if they've been leaked in any of the increasingly common data breaches. Seriously, start using better passwords!</p>
+      <p>You can provide passwords inline or through a CSV file, ideal if your password manager (such as KeePassXC) supports exporting data in CSV format. Your passwords will remain secured as only a computed hash is ever sent, as per the Have I Been Pwned API requires.</p>
+    </div>
     </article>
   </section>
 
   <section class="section section--sysadmin" id="sysadmin">
-    <h2 class="section__header invisible"></h2>
+    <h2 class="section__header show-on-tablet">System Administration</h2>
 
     <article class="showcase">
-      <p class="showcase__description">Installed, configured and manage this site using the LEMP stack.</p>
+      <div class="showcase__description">
+        <p>This is diagram of the internal network this site is running on, along with some other webapps and services for internal use.</p>
+        <p>Service availability monitoring using Icinga.</p>
+        <p>System performance metric collection and graphing using Telegraf, InfluxDB and Grafana.</p>
+        <p>Centralized syslog server using the ELK stack (Elasticsearch, Logstash and Kibana).</p>
+    </div>
 
       <div class="card">
         <div class="card__side card__side--front-x">
           <img
           class="card__img"
-          src="../assets/images/server.png"
+          src="../assets/images/network.webp"
           >
         </div>
         <div class="card__side card__side--back-x">
-          <h3 class="card__title">Bytes And Pipes</h3>
+          <h3 class="card__title">Network Diagram</h3>
           <ul class="card__social">
-            <li><a href="https://github.com/herokunt/javascript_ramblings/blob/main/2D/angry_matter.js">
+            <li><a href="../assets/images/network.png">
               <svg class="card__gh" width=24 height=24 viewBox="0 0 16 16" aria-hidden="true">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-              </svg>
-            </a></li>
-            <li><a href="https://editor.p5js.org/fall-parameter/sketches/Q6PcOhQBl">
-              <svg class="card__p5" width=24 height=24 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
-                <path d="M16.909 10.259l8.533-2.576 1.676 5.156-8.498 2.899 5.275 7.48-4.447 3.225-5.553-7.348-5.408 7.155-4.318-3.289 5.275-7.223L.88 12.647l1.678-5.16 8.598 2.771V1.364h5.754v8.895z"/>
               </svg>
             </a></li>
           </ul>
@@ -250,7 +285,7 @@
 
   <!-- UNDER CONSTRUCTION -->
   <!-- <section class="section section--blog" id="blog">
-    <h2 class="section__header invisible"></h2>
+    <h2 class="section__header show-on-tablet">Blog</h2>
     <h3 class="is-centered">Latest Posts</h3>
     <article class="showcase">
       <p class="showcase__description">Installed, configured and manage this site using the LEMP stack.</p>

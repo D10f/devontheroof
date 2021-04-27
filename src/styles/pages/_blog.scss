@@ -1,0 +1,136 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.blog {
+  &__header {
+    @include mixins.contain;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    width: 80vw;
+    padding: 1rem 2rem;
+    border-radius: variables.$border-radius;
+    border: 1px solid variables.$color-dark;
+    box-shadow: variables.$box-shadow-light;
+    z-index: 99;
+    transition: width .4s, right .4s;
+
+    @media (prefers-color-scheme: dark) {
+      color: variables.$color-light;
+      border: 1px solid #2C5364;
+    }
+
+    @include mixins.responsive(tablet) {
+      flex-direction: column;
+    }
+
+    @include mixins.responsive(phone) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__title {
+    font-family: PanameraRegular;
+    flex: 1 0 auto;
+  }
+
+  &__main {
+    @include mixins.contain;
+    margin-top: 5rem;
+
+    @include mixins.responsive(tablet) {
+      margin-top: 2rem;
+    }
+
+    // A single post page
+    &--single {
+      display: grid;
+      grid-template-columns: 25% 1fr;
+
+      @include mixins.responsive(tablet) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  &__aside {
+    text-align: center;
+
+    @include mixins.responsive(tablet) {
+      margin-bottom: 2rem;
+      width: 80%;
+      justify-self: center;
+    }
+  }
+
+  &__table-of-contents {
+    transition: all 0.25s;
+
+    @include mixins.responsive(tablet) {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 2rem);
+      opacity: 0;
+      pointer-events: none;
+      border-radius: variables.$border-radius;
+      border: 1px solid variables.$color-dark;
+      box-shadow: variables.$box-shadow-light;
+      background-color: variables.$color-light;
+      padding: 1.25rem;
+    }
+
+    @media (prefers-color-scheme:dark) {
+      color: variables.$color-light;
+      background-color: variables.$color-darker;
+      border: 1px solid variables.$color-light;
+      box-shadow: none;
+    }
+  }
+
+  &__table-item {}
+  &__table-link {}
+
+  &__toggle {
+    text-align: left;
+    display: none;
+    pointer-events: none;
+  }
+
+  &__toggle-label {
+    display: none;
+    position: relative;
+    text-decoration: underline;
+
+    @include mixins.responsive(tablet) {
+      display: inline-block;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      content: '\25BA';
+      position: absolute;
+      left: calc(100% + .75rem);
+      transition: transform 0.24s;
+    }
+  }
+
+  &__toggle:checked ~ &__table-of-contents {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+  }
+
+  &__toggle:checked + &__toggle-label::before {
+    transform: rotate(90deg);
+  }
+
+  &__latest {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr) );
+  }
+}
