@@ -58,17 +58,18 @@ class PostLoader {
 
       const a = document.createElement('a');
       a.className = 'post__permalink';
-      a.textContent = 'Post Title';
-      a.href = '#';
+      a.textContent = post.title;
+      a.href = post.link;
 
       const p = document.createElement('p');
-      p.textContent = 'Content preview';
+      p.textContent = post.excerpt;
 
       h3.appendChild(a);
       article.appendChild(h3);
       article.appendChild(p);
 
       this.searchResults.appendChild(article);
+      this.searchResults.classList.add('search__results--show');
     });
   }
 }

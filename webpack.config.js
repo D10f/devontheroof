@@ -25,7 +25,7 @@ class BuildWordPressFiles{
 
         if (file.match(cssfiles)) {
           fs.copyFile(`./dist/${file}`, `./src/wp_theme/css/${file}`, (err) => {
-            if (err) throw err
+            if (err) throw err;
           });
           functionsphp = functionsphp.replace(cssfiles, file);
         }

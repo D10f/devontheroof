@@ -17,7 +17,7 @@ remove_action('admin_print_styles', 'print_emoji_styles');
 
 // CSS file is updated by webpack on each build
 function load_scripts_and_styles() {
-  wp_enqueue_scripts('main_js', get_theme_file_uri('/js/postLoader.js'), NULL, '1.0', true);
+  wp_enqueue_script('main_js', get_theme_file_uri('/js/postLoader.js'), NULL, '1.0', true);
   wp_enqueue_style('main_css', get_theme_file_uri('/css/main.af68aafd705671497e61.css'), NULL, '1.0', true);
 }
 
@@ -45,6 +45,7 @@ function load_post_data() {
       'title'   => get_the_title(),
       'excerpt' => get_the_excerpt(),
       'content' => get_the_content(),
+      'link'    => get_the_permalink(),
       'tags'    => get_tag_names(get_the_ID())
     ));
   }
