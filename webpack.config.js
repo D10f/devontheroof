@@ -13,6 +13,8 @@ class BuildWordPressFiles{
       // const jsfiles = new RegExp(/^main\..+\.js/ig);
       const cssfiles = new RegExp(/main\..+\.css/ig);
 
+      fs.readdirSync('./src/wp_theme/css').forEach(file => fs.unlinkSync(`./src/wp_theme/css/${file}`));
+
       fs.readdirSync('./dist').forEach(file => {
         // if (file.match(jsfiles)) {
         //   fs.copyFile(`./dist/${file}`, `./src/wp_theme/js/${file}`, (err) => {
@@ -34,6 +36,20 @@ class BuildWordPressFiles{
   }
 };
 
+class MoveFilesAfterCompile {
+  apply(compiler){
+    compiler.hooks.done.tap('Move files not compiled by Webpack into dist/ directory', function(){
+      fs.copyFile('./assets/images/network.png', './dist/images/network.png', (err) => {
+        if (err) throw err
+      });
+
+      fs.copyFile('./assets/publickey.devsojourn@pm.me.asc', './dist/publickey.devsojourn@pm.me.asc', (err) => {
+        if (err) throw err
+      });
+    });
+  }
+}
+
 let mode = 'development';
 let target = 'web';
 let devtool = 'source-map';
@@ -45,7 +61,11 @@ if (process.env.NODE_ENV === 'production') {
   mode = 'production';
   target = 'browserslist';
   devtool = false;
-  plugins.push(new CleanWebpackPlugin(), new BuildWordPressFiles());
+  plugins.push(
+    new CleanWebpackPlugin(),
+    new BuildWordPressFiles(),
+    new MoveFilesAfterCompile()
+  );
 }
 
 /* Do not use hashes while in development in order to benefit from HMR */
