@@ -7,22 +7,21 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 class BuildWordPressFiles{
   apply(compiler){
-    compiler.hooks.done.tap('Link compiled JS and CSS files to custom theme', function(){
+    compiler.hooks.done.tap('Link compiled CSS files to custom theme', function(){
+
+      // Delete old css files (but leave directories) in wp_theme directory
+      fs.readdirSync('./src/wp_theme/css').forEach(file => {
+        const isFile = fs.lstatSync(`./src/wp_theme/css/${file}`).isFile();
+        if (isFile) {
+          fs.unlinkSync(`./src/wp_theme/css/${file}`);
+        }
+      });
 
       let functionsphp = fs.readFileSync('./src/wp_theme/functions.php', 'utf-8');
-      // const jsfiles = new RegExp(/^main\..+\.js/ig);
       const cssfiles = new RegExp(/main\..+\.css/ig);
 
-      fs.readdirSync('./src/wp_theme/css').forEach(file => fs.unlinkSync(`./src/wp_theme/css/${file}`));
-
+      // Copy bundled css files from dist into wp_theme directory
       fs.readdirSync('./dist').forEach(file => {
-        // if (file.match(jsfiles)) {
-        //   fs.copyFile(`./dist/${file}`, `./src/wp_theme/js/${file}`, (err) => {
-        //     if (err) throw err
-        //   });
-        //   functionsphp = functionsphp.replace(/main\..+\.js/ig, file);
-        // }
-
         if (file.match(cssfiles)) {
           fs.copyFile(`./dist/${file}`, `./src/wp_theme/css/${file}`, (err) => {
             if (err) throw err;
@@ -40,11 +39,11 @@ class MoveFilesAfterCompile {
   apply(compiler){
     compiler.hooks.done.tap('Move files not compiled by Webpack into dist/ directory', function(){
       fs.copyFile('./assets/images/network.png', './dist/images/network.png', (err) => {
-        if (err) throw err
+        if (err) throw err;
       });
 
       fs.copyFile('./assets/publickey.devsojourn@pm.me.asc', './dist/publickey.devsojourn@pm.me.asc', (err) => {
-        if (err) throw err
+        if (err) throw err;
       });
     });
   }

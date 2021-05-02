@@ -15,6 +15,7 @@ class PostLoader {
   events(){
     this.form.addEventListener('submit', (e) => e.preventDefault());
     this.searchField.addEventListener('keyup', () => this.handleKeyPress());
+    document.addEventListener('click', () => this.hideResults());
   }
 
   loadData(){
@@ -44,6 +45,10 @@ class PostLoader {
         this.loadData();
       }, 500);
     }
+  }
+
+  hideResults() {
+    this.searchResults.classList.remove('search__results--show');
   }
 
   renderPosts(posts) {

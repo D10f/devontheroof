@@ -88,8 +88,17 @@
     }
   }
 
-  &__table-item {}
-  &__table-link {}
+  &__table-item {
+    margin: 0.25rem 0;
+  }
+
+  &__table-link {
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      border-bottom: 2px solid variables.$color-dark;
+    }
+  }
 
   &__toggle {
     text-align: left;
@@ -132,5 +141,21 @@
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr) );
+  }
+}
+
+pre.wp-block-code {
+  margin: 2rem 0;
+
+  & code {
+    padding: 2rem;
+    background: variables.$color-dark;
+    color: variables.$color-light;
+    border-radius: variables.$border-radius;
+
+    &::selection {
+      background: variables.$color-light;
+      color: variables.$color-dark;
+    }
   }
 }

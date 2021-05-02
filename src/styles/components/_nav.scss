@@ -63,6 +63,12 @@
     right: 3vw;
     width: 23vw;
     min-width: min-content;
+    background-image: none;
+    background-color: rgba(variables.$color-light, 0.8);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(variables.$color-dark, 0.8);
+    }
 
     @include mixins.responsive(tablet) {
       opacity: 1;

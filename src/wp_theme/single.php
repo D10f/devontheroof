@@ -2,12 +2,6 @@
 
 <main class="blog__main blog__main--single">
   <aside class="blog__table-of-contents">
-    <ul>
-      <li><a href="#">Link to content</a></li>
-      <li><a href="#">Link to content</a></li>
-      <li><a href="#">Link to content</a></li>
-      <li><a href="#">Link to content</a></li>
-    </ul>
   </aside>
 
   <?php while(have_posts()) {
