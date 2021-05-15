@@ -30,6 +30,10 @@
       color: variables.$color-light;
       background-color: variables.$color-dark;
     }
+
+    h3 {
+      margin: 2rem 0;
+    }
   }
 
   &__preview {

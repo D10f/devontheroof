@@ -5,7 +5,7 @@
       <header class="footer__heading">
         <h3 class="footer__title is-centered">Developer Sojourn</h3>
         <picture class="footer__logo-container">
-          <img class="footer__logo" src="../images/dev.svg" alt="Logo">
+          <img class="footer__logo" src="<?php echo get_theme_file_uri('/images/dev.svg') ?>" alt="Logo">
         </picture>
         <div class="copyleft">
           <a class="copyleft__text" href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a>
@@ -24,17 +24,17 @@
       <ul class="footer__icons">
         <li>
           <a class="tooltip tooltip--right" data-tooltip="GitHub" href="https://github.com/herokunt">
-            <svg class="icon icon--light-mode"><use xlink:href="../images/sprite.svg#icon-github"></use></svg>
+            <svg class="icon icon--light-mode"><use xlink:href="<?php echo get_theme_file_uri('/images/sprite.svg#icon-github') ?>"></use></svg>
           </a>
         </li>
         <li>
           <a class="tooltip tooltip--right" data-tooltip="devsojourn@pm.me" href="mailto:devsojourn@pm.me">
-            <svg class="icon icon--light-mode"><use xlink:href="../images/sprite.svg#icon-envelope"></use></svg>
+            <svg class="icon icon--light-mode"><use xlink:href="<?php echo get_theme_file_uri('/images/sprite.svg#icon-envelope') ?>"></use></svg>
           </a>
         </li>
         <li>
           <a class="tooltip tooltip--right" data-tooltip="PGP&nbsp;Key" href="publickey.devsojourn@pm.me.asc" download>
-            <svg class="icon icon--light-mode"><use xlink:href="../images/sprite.svg#icon-key1"></use></svg>
+            <svg class="icon icon--light-mode"><use xlink:href="<?php echo get_theme_file_uri('/images/sprite.svg#icon-key1') ?>"></use></svg>
           </a>
         </li>
       </ul>

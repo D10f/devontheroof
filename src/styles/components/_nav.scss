@@ -2,13 +2,13 @@
 @use '../abstract/mixins';
 
 .nav {
-  @include mixins.glass-effect;
+  // @include mixins.glass-effect;
   position: fixed;
   top: 3rem;
   right: 10vw;
   width: 80vw;
   padding: 1rem 2rem;
-  // background-color: variables.$color-light;
+  background-color: variables.$color-light;
   border-radius: variables.$border-radius;
   border: variables.$border-color;
   box-shadow: variables.$box-shadow-light;
@@ -64,7 +64,8 @@
     width: 23vw;
     min-width: min-content;
     background-image: none;
-    background-color: rgba(variables.$color-light, 0.8);
+    // background-color: rgba(variables.$color-light, 0.8);
+    background-color: variables.$color-light;
 
     @media (prefers-color-scheme: dark) {
       background-color: rgba(variables.$color-dark, 0.8);

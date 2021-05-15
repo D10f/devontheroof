@@ -2,7 +2,8 @@
 @use '../abstract/variables';
 
 .roadmap {
-  @include mixins.glass-effect;
+  // @include mixins.glass-effect;
+  background-color: variables.$color-light;
   height: 100%;
   text-align: center;
   border-radius: variables.$border-radius;

@@ -14,12 +14,13 @@ class PostLoader {
 
   events(){
     this.form.addEventListener('submit', (e) => e.preventDefault());
-    this.searchField.addEventListener('keyup', () => this.handleKeyPress());
+    this.form.addEventListener('focus', () => this.posts.length ? this.showResults() : '');
     document.addEventListener('click', () => this.hideResults());
+    this.searchField.addEventListener('keyup', () => this.handleKeyPress());
   }
 
   loadData(){
-    fetch('https://developersojourn.site/wp-json/content/posts')
+    fetch(`https://developersojourn.site/wp-json/content/posts?q=${this.prevQuery}`)
       .then(res => res.json())
       .then(posts => {
         this.renderPosts(posts);
@@ -30,7 +31,7 @@ class PostLoader {
 
   handleKeyPress(){
     // Prevent unnecessary queries if input value hasn't changed
-    if (this.previousSearchTerm !== this.searchField.value){
+    if (this.prevQuery !== this.searchField.value){
       clearTimeout(this.timer);
 
       // if search field is empty or too short, no results should show at all
@@ -40,7 +41,7 @@ class PostLoader {
       // Fail-safe in case data wasn't loaded earlier for some reason.
       // if (!this.posts) this.loadData();
 
-      this.previousSearchTerm = this.searchField.value;
+      this.prevQuery = this.searchField.value;
       this.timer = setTimeout(() => {
         this.loadData();
       }, 500);
@@ -49,6 +50,10 @@ class PostLoader {
 
   hideResults() {
     this.searchResults.classList.remove('search__results--show');
+  }
+
+  showResults() {
+    this.searchResults.classList.add('search__results--show');
   }
 
   renderPosts(posts) {
@@ -74,7 +79,7 @@ class PostLoader {
       article.appendChild(p);
 
       this.searchResults.appendChild(article);
-      this.searchResults.classList.add('search__results--show');
+      this.showResults();
     });
   }
 }
