@@ -19,7 +19,7 @@ remove_action('admin_print_styles', 'print_emoji_styles');
 function load_scripts_and_styles() {
   wp_enqueue_script('searchbar', get_theme_file_uri('/js/postLoader.js'), NULL, '1.0', true);
   wp_enqueue_script('content_table', get_theme_file_uri('/js/contentTable.js'), NULL, '1.0', true);
-  wp_enqueue_style('main_css', get_theme_file_uri('/css/main.87273b89883cd0e5ec78.css'));
+  wp_enqueue_style('main_css', get_theme_file_uri('/css/main.ccc4596e0e0671a3266c.css'));
 }
 
 // Sets up event a custom endpoint: /content/posts
@@ -46,8 +46,7 @@ function load_post_data($request) {
     array_push($result, array(
       'id'      => get_the_ID(),
       'title'   => get_the_title(),
-      'excerpt' => get_the_excerpt(),
-      'content' => get_the_content(),
+      'excerpt' => wp_trim_words(get_the_content(), 25),
       'link'    => get_the_permalink(),
       'tags'    => get_tag_names(get_the_ID())
     ));

@@ -14,6 +14,7 @@
   box-shadow: variables.$box-shadow-light;
   z-index: 99;
   transition: width .4s, right .4s;
+  will-change: right, width;
 
   @include mixins.responsive(phone) {
     right: 110vw;
@@ -21,7 +22,7 @@
 
   @media (prefers-color-scheme: dark) {
     color: variables.$color-light;
-    border: variables.$border-color-dark;
+    background: variables.$background-gradient-dark;
   }
 
   &--hide {
@@ -68,7 +69,7 @@
     background-color: variables.$color-light;
 
     @media (prefers-color-scheme: dark) {
-      background-color: rgba(variables.$color-dark, 0.8);
+      background-color: #2C5364;
     }
 
     @include mixins.responsive(tablet) {

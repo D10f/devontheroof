@@ -24,7 +24,7 @@
     height: 100%;
     height: 100%;
     border-radius: variables.$border-radius;
-    object-fit: cover;
+    object-fit: none;
     background-color: variables.$color-darker;
   }
 
@@ -75,7 +75,7 @@
       align-items: center;
 
       @include mixins.responsive(tablet) {
-        background-color: rgba(variables.$color-darker, .9);
+        background-color: rgba(variables.$color-darker, .8);
         transform: rotateY(0);
         flex-direction: row;
         justify-content: space-between;
@@ -98,7 +98,7 @@
       align-items: center;
 
       @include mixins.responsive(tablet) {
-        background-color: rgba(variables.$color-darker, .9);
+        background-color: rgba(variables.$color-darker, .8);
         transform: rotateX(0);
         justify-content: space-between;
         padding: 0 4rem;

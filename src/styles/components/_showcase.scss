@@ -36,7 +36,7 @@
     }
   }
 
-  & card {
+  & .card {
     @include mixins.responsive(portrait) {
       grid-area: card;
     }

@@ -12,6 +12,8 @@
 
   @media (prefers-color-scheme: dark) {
     border: 1px solid #2C5364;
+    color: variables.$color-light;
+    background: variables.$background-gradient-dark;
   }
 
   &__title {
@@ -22,6 +24,33 @@
   &__item {
     position: relative;
     margin: 2rem 0;
-    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: color 0.2s ease-out;
+
+    &--1,
+    &--2,
+    &--3,
+    &--4 {
+      font-weight: bold;
+      cursor: default;
+    }
+
+    &--1:hover {
+      color: #45ae45;
+    }
+
+    &--2:hover {
+      color: #e36534;
+    }
+
+    &--3:hover {
+      color: #3838b0;
+    }
+
+    &--4:hover {
+      color: #e14a64;
+    }
+
   }
 }

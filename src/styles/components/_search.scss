@@ -17,7 +17,7 @@
     fill: variables.$color-dark;
 
     @media (prefers-color-scheme: dark) {
-      color: variables.$color-light;
+      fill: #2C5364;
     }
 
     &:hover {
@@ -40,18 +40,18 @@
       transform: translateX(0);
       opacity: 1;
       pointer-events: auto;
+
+      @media (prefers-color-scheme: dark) {
+        color: variables.$color-light;
+        background: variables.$color-dark;
+        border: variables.$color-light;
+      }
     }
 
     @include mixins.responsive(tablet) {
       transform: translateX(0);
       opacity: 1;
       pointer-events: auto;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      color: variables.$color-light;
-      background: variables.$color-dark;
-      border: variables.$color-light;
     }
   }
 

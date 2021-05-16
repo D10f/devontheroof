@@ -9,7 +9,7 @@
         <h3>
           <a class="post__permalink" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
         </h3>
-        <p><?php the_excerpt(); ?></p>
+        <p><?php echo wp_trim_words(get_the_content(), 20) ?></p>
       </article>
     <?php } ?>
   </div>

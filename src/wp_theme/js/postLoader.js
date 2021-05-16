@@ -72,7 +72,7 @@ class PostLoader {
       a.href = post.link;
 
       const p = document.createElement('p');
-      p.textContent = post.excerpt;
+      p.textContent = post.excerpt.replace('&hellip;', '...');
 
       h3.appendChild(a);
       article.appendChild(h3);

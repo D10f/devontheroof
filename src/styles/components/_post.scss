@@ -37,17 +37,26 @@
   }
 
   &__preview {
-    height: 10rem;
+    // height: 10rem;
 
     &:hover {
       background-color: variables.$color-gray-light;
+
+      @media (prefers-color-scheme:dark) {
+        background-color: variables.$color-gray-dark;
+      }
     }
 
-    & p {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 140ch;
+    // & p {
+    //   overflow: hidden;
+    //   text-overflow: ellipsis;
+    //   white-space: nowrap;
+    //   max-width: 140ch;
+    // }
+
+    @media (prefers-color-scheme:dark) {
+      color: variables.$color-light;
+      background-color: variables.$color-dark;
     }
   }
 

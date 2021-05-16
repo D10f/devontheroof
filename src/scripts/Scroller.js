@@ -11,10 +11,10 @@ class Scroller {
     }
 
     this.sectionCoords = [];
-    this.sectionTitles = ['About', 'WebApps', 'Games & Graphics', 'Scripting', 'System Administration', 'Blog'];
+    this.sectionTitles = ['About', 'Websites', 'Games & Graphics', 'Scripting', 'System Administration', 'Blog'];
     this.sections = [
       document.getElementById('about'),
-      document.getElementById('webapps'),
+      document.getElementById('websites'),
       document.getElementById('gamesgraphics'),
       document.getElementById('scripts'),
       document.getElementById('sysadmin'),
