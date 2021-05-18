@@ -47,13 +47,6 @@
       }
     }
 
-    // & p {
-    //   overflow: hidden;
-    //   text-overflow: ellipsis;
-    //   white-space: nowrap;
-    //   max-width: 140ch;
-    // }
-
     @media (prefers-color-scheme:dark) {
       color: variables.$color-light;
       background-color: variables.$color-dark;

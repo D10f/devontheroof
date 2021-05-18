@@ -38,10 +38,6 @@ class BuildWordPressFiles{
 class MoveFilesAfterCompile {
   apply(compiler){
     compiler.hooks.done.tap('Move files not compiled by Webpack into dist/ directory', function(){
-      fs.copyFile('./assets/images/network.png', './dist/images/network.png', (err) => {
-        if (err) throw err;
-      });
-
       fs.copyFile('./assets/publickey.devsojourn@pm.me.asc', './dist/publickey.devsojourn@pm.me.asc', (err) => {
         if (err) throw err;
       });

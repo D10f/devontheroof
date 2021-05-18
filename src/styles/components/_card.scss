@@ -252,7 +252,7 @@
     }
   }
 
-  &__social {
+  &__links {
     display: flex;
     justify-content: space-between;
     width: 6rem;
@@ -262,12 +262,14 @@
     }
   }
 
+  &__web,
   &__gh,
   &__p5 {
     transition: fill .2s;
     fill: variables.$color-light;
   }
 
+  &__web,
   &__gh {
     &:hover {
       fill: variables.$color-gray-light;
