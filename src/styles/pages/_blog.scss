@@ -1,6 +1,8 @@
 @use '../abstract/mixins';
 @use '../abstract/variables';
 
+/* MAIN BLOG PAGE STYLES */
+
 .blog {
   &__header {
     @include mixins.contain;
@@ -145,22 +147,6 @@
   }
 }
 
-pre.wp-block-code {
-  margin: 2rem 0;
-
-  & code {
-    padding: 2rem;
-    background: variables.$color-dark;
-    color: variables.$color-light;
-    border-radius: variables.$border-radius;
-
-    &::selection {
-      background: variables.$color-light;
-      color: variables.$color-dark;
-    }
-  }
-}
-
 /** POST STYLES */
 
 .post {
@@ -183,6 +169,7 @@ pre.wp-block-code {
   &__content {
     padding: 2rem 4rem;
     background-color: variables.$color-light;
+    overflow-x: hidden;
 
     @include mixins.responsive(phone) {
       margin: 0;
@@ -224,5 +211,36 @@ pre.wp-block-code {
     &:hover {
       border-bottom: 2px solid variables.$color-dark;
     }
+  }
+}
+
+/* CODE BLOCKS */
+
+pre.wp-block-code {
+  margin: 2rem 0;
+  overflow: auto;
+
+  & code {
+    padding: 2rem;
+    background: variables.$color-dark;
+    color: variables.$color-light;
+    border-radius: variables.$border-radius;
+    min-width: max-content;
+
+    &::selection {
+      background: variables.$color-light;
+      color: variables.$color-dark;
+    }
+  }
+}
+
+p code {
+  padding: .2rem .5rem;
+  background-color: variables.$color-dark;
+  color: variables.$color-light;
+
+  &::selection {
+    background: variables.$color-light;
+    color: variables.$color-dark;
   }
 }
