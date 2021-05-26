@@ -29,13 +29,18 @@
     }
 
     @include mixins.responsive(phone) {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+      margin-bottom: 6rem;
     }
   }
 
   &__title {
     font-family: PanameraRegular;
     flex: 1 0 auto;
+
+    @include mixins.responsive(phone) {
+      line-height: initial;
+    }
   }
 
   &__main {
@@ -160,13 +165,15 @@
 
   &__content,
   &__preview {
-    border-radius: variables.$border-radius;
+    border: 2px solid transparent;
     border-bottom: 2px solid variables.$color-dark;
+    border-radius: variables.$border-radius;
     box-shadow: variables.$box-shadow-light;
     padding: 1rem 2rem;
   }
 
   &__content {
+    font-size: 1.7rem;
     padding: 2rem 4rem;
     background-color: variables.$color-light;
     overflow-x: hidden;
@@ -186,14 +193,9 @@
   }
 
   &__preview {
-    // height: 10rem;
 
     &:hover {
-      background-color: variables.$color-gray-light;
-      //
-      // @media (prefers-color-scheme:dark) {
-      //   background-color: variables.$color-gray-dark;
-      // }
+      border: 2px solid variables.$color-dark;
     }
 
     @media (prefers-color-scheme:dark) {
@@ -238,6 +240,7 @@ p code {
   padding: .2rem .5rem;
   background-color: variables.$color-dark;
   color: variables.$color-light;
+  border-radius: variables.$border-radius;
 
   &::selection {
     background: variables.$color-light;
