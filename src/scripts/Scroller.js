@@ -75,6 +75,7 @@ class Scroller {
   }
 
   updateNavbar() {
+    // TODO: Implement throttle for this function call
     // At the top, navbar and menu are visible
     if (window.scrollY === 0 && !this.isMobileDevice) {
       this.navbar.className = 'nav';

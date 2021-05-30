@@ -6,10 +6,11 @@
 class VideoLoader {
   constructor(isMobileDevice) {
     if (isMobileDevice) {
-      document.querySelectorAll('.card__video').forEach(video => video.src = '');
+      document.querySelectorAll('.card__video').forEach(vid => vid.src = '');
       return;
     }
 
+    this.cards = document.querySelectorAll('.card');
     this.videos = document.querySelectorAll('.card__video');
     this.createObservers();
     this.checkVideoSupport();
@@ -27,26 +28,42 @@ class VideoLoader {
 
   createObservers() {
 
-    const targets = [
-      document.getElementById('gamesgraphics'),
-      document.getElementById('scripts')
-    ];
+    // const targets = [
+    //   document.getElementById('gamesgraphics'),
+    //   document.getElementById('scripts')
+    // ];
 
     const options = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: '10px',
       threshold: 0.0
     };
 
-    targets.forEach(target => {
+    this.cards.forEach(card => {
       new IntersectionObserver(([entry]) => {
         const moveIntoView = entry.intersectionRatio > 0;
-        target
-          .querySelectorAll('.card__video')
-          .forEach(video => moveIntoView ? video.play() : video.pause());
+
+        const video = card.querySelector('.card__video');
+        if (moveIntoView) {
+          card.classList.remove('card--flip-x');
+          card.classList.remove('card--flip-y');
+          if (video) video.play();
+        } else {
+          if (video) video.pause();
+        }
       }, options)
-      .observe(target);
+      .observe(card);
     });
+
+    // targets.forEach(target => {
+    //   new IntersectionObserver(([entry]) => {
+    //     const moveIntoView = entry.intersectionRatio > 0;
+    //     target
+    //       .querySelector('.card__video')
+    //       .forEach(video => moveIntoView ? video.play() : video.pause());
+    //   }, options)
+    //   .observe(target);
+    // });
   };
 }
 

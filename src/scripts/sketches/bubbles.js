@@ -1,7 +1,7 @@
 import p5 from 'p5';
 import sprite from '../../../assets/images/sprite.png';
 
-const FRAME_RATE = 20;
+const FRAME_RATE = 25;
 const TOTAL_BUBBLES = 25;
 
 class Bubble {

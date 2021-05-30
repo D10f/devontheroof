@@ -142,6 +142,33 @@
     }
   }
 
+  // Special effect removed with JS when element first appears
+  // This is made to give a hint to the user that cards can be flipped.
+  &--flip-x &__side--front-x {
+    transform: rotateX(-180deg) !important;
+    @include mixins.responsive(tablet){
+      transform: rotateX(0) !important;
+    }
+  }
+  &--flip-x &__side--back-x {
+    transform: rotateX(0deg) !important;
+    @include mixins.responsive(tablet){
+      transform: rotateX(0) !important;
+    }
+  }
+  &--flip-y &__side--front-y {
+    transform: rotateY(-180deg) !important;
+    @include mixins.responsive(tablet){
+      transform: rotateY(0) !important;
+    }
+  }
+  &--flip-y &__side--back-y {
+    transform: rotateY(0deg) !important;
+    @include mixins.responsive(tablet){
+      transform: rotateY(0) !important;
+    }
+  }
+
   &--1 { // flowfield
     grid-column: 1 / 4;
     grid-row: 1 / 2;
