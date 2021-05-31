@@ -48,7 +48,7 @@
     margin-top: 5rem;
 
     @include mixins.responsive(tablet) {
-      margin-top: 2rem;
+      margin-top: 6rem;
     }
 
     // A single post page
@@ -58,6 +58,11 @@
 
       @include mixins.responsive(tablet) {
         grid-template-columns: 1fr;
+      }
+
+      @include mixins.responsive(phone) {
+        margin-left: 0;
+        margin-right: 0;
       }
     }
   }
@@ -90,8 +95,7 @@
 
     @media (prefers-color-scheme:dark) {
       color: variables.$color-light;
-      background-color: variables.$color-darker;
-      border: 1px solid variables.$color-light;
+      border-right: 1px solid variables.$color-light;
       box-shadow: none;
     }
   }
@@ -178,8 +182,12 @@
     background-color: variables.$color-light;
     overflow-x: hidden;
 
-    @include mixins.responsive(phone) {
+    @include mixins.responsive(tablet) {
       margin: 0;
+    }
+
+    @include mixins.responsive(phone) {
+      width: 100vw;
     }
 
     @media (prefers-color-scheme:dark) {
@@ -222,6 +230,11 @@ pre.wp-block-code {
   margin: 2rem 0;
   overflow: auto;
 
+  @media (prefers-color-scheme:dark) {
+    color: variables.$color-dark;
+    background-color: variables.$color-light;
+  }
+
   & code {
     padding: 2rem;
     background: variables.$color-dark;
@@ -232,6 +245,11 @@ pre.wp-block-code {
     &::selection {
       background: variables.$color-light;
       color: variables.$color-dark;
+    }
+
+    @media (prefers-color-scheme:dark) {
+      color: variables.$color-dark;
+      background-color: variables.$color-light;
     }
   }
 }
@@ -245,5 +263,10 @@ p code {
   &::selection {
     background: variables.$color-light;
     color: variables.$color-dark;
+  }
+
+  @media (prefers-color-scheme:dark) {
+    color: variables.$color-dark;
+    background-color: variables.$color-light;
   }
 }

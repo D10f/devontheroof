@@ -1,12 +1,12 @@
 class BannerController {
-  constructor(isMobileDevice) {
+  constructor() {
     this.banner = document.getElementById('banner');
 
     this.sectionCoords = [];
 
     this.sectionTitles = [
       'About',
-      'Websites',
+      'Webapps',
       'Games & Graphics',
       'Scripting',
       'System Administration',
@@ -15,7 +15,7 @@ class BannerController {
 
     this.sections = [
       document.getElementById('about'),
-      document.getElementById('websites'),
+      document.getElementById('webapps'),
       document.getElementById('gamesgraphics'),
       document.getElementById('scripts'),
       document.getElementById('sysadmin')

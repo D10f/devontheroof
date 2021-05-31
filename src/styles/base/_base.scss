@@ -26,9 +26,19 @@ body {
   background-image: variables.$background-gradient;
   box-sizing: border-box;
 
+  @media only screen and (hover: none){
+    background-image: none;
+    background-color: variables.$color-light;
+  }
+
   @media (prefers-color-scheme: dark) {
     color: variables.$color-light;
     background-image: variables.$background-gradient-dark;
+
+    @media only screen and (hover: none){
+      background-image: none;
+      background-color: #2C5364;
+    }
   }
 }
 

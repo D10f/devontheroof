@@ -19,8 +19,8 @@
 
   @include mixins.responsive(phone) {
     width: 100vw;
-    height: 10rem;
-    top: 2.5rem;
+    height: 12rem;
+    top: 1rem;
     left: 0;
     right: 0;
   }
@@ -71,6 +71,10 @@
     &::after {
       background-image: url(../assets/images/hamburger.svg);
       opacity: 1;
+
+      @media (prefers-color-scheme: dark) {
+        background-image: url(../assets/images/hamburger-dark.svg);
+      }
     }
   }
 
@@ -118,7 +122,7 @@
 
     @include mixins.responsive(phone) {
       justify-content: center;
-      padding-top: 4rem;
+      padding-top: 6rem;
     }
 
     &--hide {
