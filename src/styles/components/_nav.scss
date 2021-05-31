@@ -3,7 +3,8 @@
 
 .nav {
   // @include mixins.glass-effect;
-  position: fixed;
+  // position: fixed;
+  position: absolute;
   top: 3rem;
   right: 10vw;
   width: 80vw;
@@ -13,16 +14,38 @@
   border: variables.$border-color;
   box-shadow: variables.$box-shadow-light;
   z-index: 99;
-  transition: width .4s, right .4s;
+  transition: width .4s, right .4s, transform .4s;
   will-change: right, width;
 
   @include mixins.responsive(phone) {
-    right: 110vw;
+    width: 100vw;
+    height: 10rem;
+    top: 2.5rem;
+    left: 0;
+    right: 0;
   }
 
   @media (prefers-color-scheme: dark) {
     color: variables.$color-light;
     background: variables.$background-gradient-dark;
+    border: variables.$border-color-dark;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  &::after {
+    opacity: 0;
+    transition: opacity .2s .8s ease-out;
+    background-image: none;
   }
 
   &--hide {
@@ -45,18 +68,9 @@
       right: 4vw;
     }
 
-    &:before {
-      content: '+';
-      font-size: 3rem;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-45%, -50%);
-      animation: small-navbar .2s 1s forwards;
-
-      @include mixins.responsive(phone) {
-        font-size: 2rem;
-      }
+    &::after {
+      background-image: url(../assets/images/hamburger.svg);
+      opacity: 1;
     }
   }
 
@@ -104,6 +118,7 @@
 
     @include mixins.responsive(phone) {
       justify-content: center;
+      padding-top: 4rem;
     }
 
     &--hide {

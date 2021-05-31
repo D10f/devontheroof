@@ -49,6 +49,8 @@ class VideoLoader {
           card.classList.remove('card--flip-y');
           if (video) video.play();
         } else {
+          card.classList.add('card--flip-x');
+          card.classList.add('card--flip-y');
           if (video) video.pause();
         }
       }, options)

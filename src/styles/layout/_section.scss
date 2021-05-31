@@ -32,7 +32,7 @@
     z-index: 1;
     font-family: PanameraRegular;
     font-size: 10rem;
-    opacity: .5;
+    opacity: .25;
     pointer-events: none;
 
     @include mixins.responsive(phone) {
@@ -47,8 +47,14 @@
 
   &--landing {
     min-height: 100vh;
+
     @include mixins.responsive(tablet) {
       margin-top: 0;
+      padding-top: 10rem;
+    }
+
+    @include mixins.responsive(phone) {
+      margin-top: 2rem;
       padding-top: 10rem;
     }
   }
