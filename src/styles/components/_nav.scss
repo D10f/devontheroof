@@ -52,7 +52,8 @@
     right: 3vw;
     width: 5rem;
     height: 5rem;
-    border-radius: 50%;
+    // border-radius: 50%;
+    border-radius: 5px;
     transition:
       width 0.8s cubic-bezier(1,0,0,1),
       right 0.4s,
