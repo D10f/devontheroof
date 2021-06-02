@@ -117,10 +117,6 @@
     padding: 0.5rem;
     transition: transform .4s, opacity .2s;
 
-    &:hover {
-      cursor: pointer;
-    }
-
     @include mixins.responsive(phone) {
       justify-content: center;
       padding-top: 6rem;

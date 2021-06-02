@@ -4,6 +4,7 @@
 .dropdown {
   position: relative;
 
+  &:focus &__content,
   &:hover &__content {
     opacity: 1;
     pointer-events: auto;
@@ -11,7 +12,7 @@
 
   &__content {
     position: absolute;
-    top: 2.5rem;
+    top: 2rem;
     left: 1rem;
     width: 16rem;
     opacity: 0;
@@ -20,9 +21,14 @@
     pointer-events: none;
     background-color: variables.$color-light;
     border-radius: variables.$border-radius;
+    border: 1px solid variables.$color-dark;
     box-shadow: variables.$box-shadow-light;
     transition: opacity 0.2s;
     padding: 0.5rem 0;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     @media (prefers-color-scheme: dark) {
       color: variables.$color-light;
