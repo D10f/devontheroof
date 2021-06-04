@@ -1,22 +1,21 @@
+import { throttle } from './utils';
+
 class NavbarController {
   constructor(isMobileDevice) {
     this.navbar = document.getElementById('nav');
     this.menu   = document.getElementById('nav__menu');
     this.header = document.getElementById('header');
-    this.timer;
-
     this.navbar.style.position = 'fixed';
-
+    this._updateNavbar = throttle(this.updateNavbar.bind(this), 80);
     this.listen();
   }
 
   listen() {
     this.navbar.addEventListener('click', () => this.updateMenu());
-    window.addEventListener('scroll', () => this.updateNavbar());
+    window.addEventListener('scroll', this._updateNavbar);
   }
 
   updateNavbar() {
-    // TODO: Implement throttle for this function call
     // At the top, navbar and menu are visible
     if (window.scrollY === 0 && !this.isMobileDevice) {
       this.navbar.className = 'nav';
