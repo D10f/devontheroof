@@ -6,7 +6,7 @@ class NavbarController {
     this.menu   = document.getElementById('nav__menu');
     this.header = document.getElementById('header');
     this.navbar.style.position = 'fixed';
-    this._updateNavbar = throttle(this.updateNavbar.bind(this), 80);
+    this._updateNavbar = throttle(this.updateNavbar.bind(this), 10);
     this.listen();
   }
 

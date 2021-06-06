@@ -24,7 +24,7 @@ class BannerController {
     this.windowHeight = window.innerHeight;
     this.threshold = 100;
     this.timer;
-    this._updateBanner = throttle(this.updateBanner.bind(this), 500);
+    this._updateBanner = throttle(this.updateBanner.bind(this), 100);
     this._getSectionCoords = debounce(this.getSectionCoords.bind(this), 1000);
     this._getSectionCoords();
     this.listen();

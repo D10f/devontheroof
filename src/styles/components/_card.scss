@@ -108,6 +108,10 @@
         }
       }
     }
+
+    & img {
+      object-fit: cover;
+    }
   }
 
   &:hover &__side--front-y {
