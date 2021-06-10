@@ -237,7 +237,8 @@ pre.wp-block-code {
 
   & code {
     padding: 2rem;
-    background: variables.$color-dark;
+    background: #333; // to match with prism.js theme
+    // background: variables.$color-dark;
     color: variables.$color-light;
     border-radius: variables.$border-radius;
     min-width: max-content;

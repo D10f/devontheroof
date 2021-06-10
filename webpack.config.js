@@ -9,28 +9,32 @@ class BuildWordPressFiles{
   apply(compiler){
     compiler.hooks.done.tap('Link compiled CSS files to custom theme', function(){
 
-      // Delete old css files (but leave directories) in wp_theme directory
-      fs.readdirSync('./src/wp_theme/css').forEach(file => {
-        const isFile = fs.lstatSync(`./src/wp_theme/css/${file}`).isFile();
-        if (isFile) {
-          fs.unlinkSync(`./src/wp_theme/css/${file}`);
-        }
-      });
-
-      let functionsphp = fs.readFileSync('./src/wp_theme/functions.php', 'utf-8');
       const cssfiles = new RegExp(/main\..+\.css/ig);
 
-      // Copy bundled css files from dist into wp_theme directory
+      fs.readdirSync('./src/wp_blog/theme/css').forEach(file => {
+        if (file.match(cssfiles)) {
+          fs.unlinkSync(`./src/wp_blog/theme/css/${file}`);
+        }
+
+        // const isFile = fs.lstatSync(`./src/wp_blog/theme/css/${file}`).isFile();
+        // if (isFile) {
+        //   fs.unlinkSync(`./src/wp_blog/theme/css/${file}`);
+        // }
+      });
+
+      let functionsphp = fs.readFileSync('./src/wp_blog/theme/functions.php', 'utf-8');
+
+      // Copy bundled css files from dist into wp_blog directory
       fs.readdirSync('./dist').forEach(file => {
         if (file.match(cssfiles)) {
-          fs.copyFile(`./dist/${file}`, `./src/wp_theme/css/${file}`, (err) => {
+          fs.copyFile(`./dist/${file}`, `./src/wp_blog/theme/css/${file}`, (err) => {
             if (err) throw err;
           });
           functionsphp = functionsphp.replace(cssfiles, file);
         }
       });
 
-      fs.writeFileSync('./src/wp_theme/functions.php', functionsphp);
+      fs.writeFileSync('./src/wp_blog/theme/functions.php', functionsphp);
     });
   }
 };
