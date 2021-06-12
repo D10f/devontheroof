@@ -4,13 +4,19 @@ import empty from './sketches/empty';
 import tetris from './sketches/tetris';
 import snake from './sketches/snake';
 import hangingLightbulb from './sketches/hangingLightbulb';
+import angryMatter from './sketches/angryMatter/sketch';
+import flowField from './sketches/flowfield/sketch';
+// raycasting rendering doesnt work for some reason :/
+// import raycastRendering from './sketches/raycasting/sketch';
 
 export const SKETCH_LIST = {
   empty,
   bubbles,
   tetris,
   snake,
-  hangingLightbulb
+  hangingLightbulb,
+  angryMatter,
+  flowField
 };
 
 class CanvasController {

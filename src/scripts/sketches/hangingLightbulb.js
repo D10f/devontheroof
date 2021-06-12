@@ -233,7 +233,6 @@ class Polygon {
   }
 }
 
-
 export default p => {
 
   let canvasDOM;

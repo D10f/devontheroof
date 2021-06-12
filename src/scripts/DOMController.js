@@ -26,6 +26,33 @@ const projectData = {
       'https://editor.p5js.org/fall-parameter/sketches/iRAe03G1W'
     ]
   },
+  angryMatter: {
+    title: 'Angry Matter',
+    description: 'Inspired on the classic Angry Birds, only they are Polygons instead.',
+    controls: [ 'Esc', 'P', 'Click', 'Click & Drag' ],
+    links: [
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/angry_matter.js',
+      'https://editor.p5js.org/fall-parameter/sketches/Q6PcOhQBl'
+    ]
+  },
+  raycastRendering: {
+    title: 'Raycasting 3D Projection',
+    description: 'A raycasting algorithm is used to project walls on a 2D grid, giving a realistic 3D feeling, a la Wolfenstein 3D.',
+    controls: [ 'Esc', 'P', '&uarr;', '&darr;', '&larr;',' &rarr;' ],
+    links: [
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/raycasting_rendering.js',
+      'https://editor.p5js.org/fall-parameter/sketches/lDJjXSG6o'
+    ]
+  },
+  flowField: {
+    title: 'Flowfield Particle System',
+    description: 'A flowfield where paricles automatically follow a path decided algorithmically, very useful to generate interesting patterns',
+    controls: [ 'Esc', 'P' ],
+    links: [
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/noc_flowfield.js',
+      'https://editor.p5js.org/fall-parameter/sketches/PxvmM0PMq'
+    ]
+  },
 };
 
 class DOMController {
@@ -63,6 +90,7 @@ class DOMController {
     document.querySelectorAll('.project__list button').forEach(btn => {
       btn.addEventListener('click', () => {
         this.changeSketch(btn.dataset.w, btn.dataset.h, btn.id);
+        btn.blur();
       });
     });
 
@@ -70,6 +98,7 @@ class DOMController {
       if (e.target.className === 'project__information--close') {
         this.resetCanvas();
         this.unlockScrolling();
+        this.removeProjectOverlay();
       }
     });
 
@@ -110,7 +139,6 @@ class DOMController {
     this.currentSketch = sketch
       ? new this.canvasController(sketch, this.canvasDOM)
       : new this.canvasController('empty', this.canvasDOM);
-    this.removeProjectOverlay();
   }
 
   // some sketches use up and down arrows, this prevents body from scrolling
