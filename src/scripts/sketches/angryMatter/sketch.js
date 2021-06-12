@@ -151,6 +151,15 @@ export default p => {
         options: { isStatic: true }
       });
 
+      const platformToRebounce = new Box(p, {
+        x: p.width * 0.2,
+        y: rheight - 100,
+        w: 75,
+        h: 20,
+        c: 50,
+        options: { isStatic: true, angle: -0.8 }
+      });
+
       const sidess = p.random([8,12]);
       const pyramid = Composites.pyramid(rwidth - 120, rheight - 130, 5, 4, 0, 0, (x, y) => {
         const poly = new Polygon(p, { x, y, s: sidess, r: 15});

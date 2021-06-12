@@ -7,7 +7,7 @@ import hangingLightbulb from './sketches/hangingLightbulb';
 import angryMatter from './sketches/angryMatter/sketch';
 import flowField from './sketches/flowfield/sketch';
 // raycasting rendering doesnt work for some reason :/
-// import raycastRendering from './sketches/raycasting/sketch';
+import raycastRendering from './sketches/raycasting';
 
 export const SKETCH_LIST = {
   empty,
@@ -16,6 +16,7 @@ export const SKETCH_LIST = {
   snake,
   hangingLightbulb,
   angryMatter,
+  raycastRendering,
   flowField
 };
 
