@@ -23,33 +23,32 @@ body {
   font-size: 1.6rem;
   line-height: 1.6;
   color: variables.$color-dark;
-  background-image: variables.$background-gradient;
+  background-color: variables.$color-light;
   box-sizing: border-box;
+  overflow-x: hidden;
 
-  @media only screen and (hover: none){
-    background-image: none;
-    background-color: variables.$color-light;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    color: variables.$color-light;
-    background-image: variables.$background-gradient-dark;
-
-    @media only screen and (hover: none){
-      background-image: none;
-      background-color: #2C5364;
-    }
-  }
+  @media only screen and (hover: none){}
 }
 
 h6, h5, h4, h3, h2, h1, a, p, li {
   color: inherit;
 }
 
-a {
+a,
+a:focus,
+a:hover {
   text-decoration: none;
+  border: none;
+  outline: none;
 }
 
 li {
   list-style: none;
+}
+
+button,
+button:focus,
+button:hover {
+  border: none;
+  outline: none;
 }

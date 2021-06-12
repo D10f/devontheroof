@@ -1,6 +1,6 @@
-import { throttle, debounce } from './utils';
+import { debounce } from './utils';
 
-class BannerController {
+class ScrollController {
   constructor() {
     this.banner = document.getElementById('banner');
     this.sectionCoords = [];
@@ -24,7 +24,7 @@ class BannerController {
     this.windowHeight = window.innerHeight;
     this.threshold = 100;
     this.timer;
-    this._updateBanner = throttle(this.updateBanner.bind(this), 100);
+    this._updateBanner = debounce(this.updateBanner.bind(this), 100);
     this._getSectionCoords = debounce(this.getSectionCoords.bind(this), 1000);
     this._getSectionCoords();
     this.listen();
@@ -53,4 +53,4 @@ class BannerController {
   }
 }
 
-export default BannerController;
+export default ScrollController;

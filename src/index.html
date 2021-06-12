@@ -1,352 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Developer Sojourn</title>
 </head>
+<body>
+  <!-- <aside class="banner" id="banner"></aside> -->
 
-<body id="p5canvas">
-  <aside class="section__banner" id="banner"></aside>
-  <h1 class="header" id="header">Developer Sojourn</h1>
-
-  <nav class="nav" id="nav">
-    <ul class="nav__menu" id="nav__menu">
-      <li class="nav__item"><a href="#about">About</a></li>
-      <li class="nav__item dropdown">
-        Projects
-        <ul class="dropdown__content">
-          <li class="dropdown__item"><a class="dropdown__link" href="#webapps">Webapps</a></li>
-          <li class="dropdown__item"><a class="dropdown__link" href="#gamesgraphics">Games & Graphics</a></li>
-          <li class="dropdown__item"><a class="dropdown__link" href="#scripts">Scripts</a></li>
-          <li class="dropdown__item"><a class="dropdown__link" href="#sysadmin">SysAdmin</a></li>
-          <li class="dropdown__item"><a class="dropdown__link" href="https://developersojourn.site/blog">Blog</a></li>
-        </ul>
-      </li>
-      <li class="nav__item"><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <section class="section section--landing" id="about">
-    <!-- <h2 class="section__header show-on-tablet">About</h2> -->
-
-    <article class="showcase">
-      <div class="showcase__description">
-        <p>Hi! I'm a web developer based in Madrid, Spain.</p>
-        <p>The idea that computers are just rocks we tricked into thinking defines exactly how I always felt about technology but never knew how to put into words. This is exactly why I learned to code, I like to mess with things until they work.</p>
-        <p>This website is a perpetual playground to experiment and learn so stay tuned for new things coming. I also write notes and share some thoughts about computers in general.</p>
+  <header class="landing">
+    <nav class="navbar mt-4">
+      <h1 class="section__title">Developer Sojourn</h1>
+      <div>
+        <a class="btn btn--cta btn--has-icon" href="https://developersojourn.site/blog" target="_blank">
+          Blog
+          <svg class="icon" width=24 height=24 viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
+            <path d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
+          </svg>
+        </a>
+        <a class="btn btn--cta" href="#contact">Contact</a>
       </div>
+    </nav>
 
-      <ul class="roadmap">
-        <p class="roadmap__title">Currently working on:</p>
-        <li class="roadmap__item roadmap__item--1">2D & 3D Graphics</li>
-        <li class="roadmap__item roadmap__item--2">Data Visualization</li>
-        <li class="roadmap__item roadmap__item--3">Progressive Web Apps</li>
-        <li class="roadmap__item roadmap__item--4">Web Streams</li>
-      </ul>
-    </article>
-  </section>
+    <h2 class="headline mt-8">
+      <span class="headline__subtitle">Hi! &#128075;</span>
+      <span class="headline__title">I'm a JavaScript Developer based in Madrid, Spain.</span>
+    </h2>
 
-  <section class="section section--webapps" id="webapps">
-    <h2 class="section__header show-on-tablet">Webapps</h2>
+    <div class="flex-container vertical-on-mobile  mt-4">
+      <a class="btn btn--cta" href="#webapps">Take A Look Around</a>
+      <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt" target="_blank">
+        What I'm Working On Next
+        <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+      </a>
+    </div>
+  </header>
 
-    <!-- <article class="showcase">
-      <div class="card card--flip-x">
-        <div class="card__side card__side--front-x">
+  <section id="webapps" class="section section__webapps">
+    <div class="container">
+      <h2 class="section__title mb-2" id="about">WebApps</h2>
+      <article class="project">
+        <div class="card">
           <img
-          loading="lazy"
-          class="card__img"
-          src="../assets/images/seguros-512.webp"
+            class="card__image"
+            alt="Screenshot of a website named Bytes And Pipes"
+            src="../assets/images/bytes-and-pipes-576.webp"
           >
         </div>
-        <div class="card__side card__side--back-x">
-          <h3 class="card__title">Seguros De Santos</h3>
-          <ul class="card__links">
-            <li><a class="tooltip" data-tooltip="Website" href="https://seguroscdesantos.xyz" target="_blank">
-              <svg class="card__web" width=24 height=24 viewBox="0 0 32 32" aria-hidden="true">
+
+        <div class="project__description mt-2">
+          <h3 class="section__subtitle">Bytes And Pipes</h3>
+          <p>An open-source web application to share files of up to 1GB easily and privately, using AES256-GCM end-to-end encryption.</p>
+
+          <footer class="flex-container mt-4">
+            <a class="btn btn--cta btn--has-icon" href="https://bytesandpipes.com" target="_blank">
+              Visit Page
+              <svg class="icon" width=24 height=24 viewBox="0 0 40 40" aria-hidden="true">
                 <path d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
                 <path d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
               </svg>
-            </a></li>
-            <li><a class="tooltip" data-tooltip="Source Code" href="https://github.com/herokunt/seguros_de_santos" target="_blank">
-              <svg class="card__gh" width=24 height=24 viewBox="0 0 16 16" aria-hidden="true">
+            </a>
+            <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/bytes-and-pipes" target="_blank">
+              Source Code
+              <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
               </svg>
-            </a></li>
-          </ul>
+            </a>
+          </footer>
         </div>
-      </div>
-      <div class="showcase__description">
-        <p>"Seguros C. De Santos" is a local insurance business.</p>
-        <p>I built this site with simplicity in mind, keeping information easily accessible and introducing an interactive contact form.</p>
-      </div>
-    </article> -->
+      </article>
+    </div>
+  </section>
 
-    <article class="showcase">
-      <div class="showcase__description">
-        <p>Bytes And Pipes is an open-source web application to share large files easily and privately over the browser.</p>
-        <p>Files are protected using AES256 end-to-end encryption.</p>
-      </div>
+  <section class="section section__graphics" id="graphics0">
+    <div class="container">
+      <h2 class="section__title mt-4 mb-2">Games & Graphics</h2>
+      <article class="project">
+        <div class="project__list is-relative">
+          <button
+            id="tetris"
+            class="project__item btn btn--cta"
+            data-w="400"
+            data-h="400"
+          >
+            Tetris
+          </button>
+          <button
+            id="snake"
+            class="project__item btn btn--cta"
+            data-w="400"
+            data-h="400"
+          >
+            Snake
+          </button>
+          <button
+            id="hangingLightbulb"
+            class="project__item btn btn--cta"
+            data-w="600"
+            data-h="400"
+          >
+            Hanging
+            Lightbulb</button>
+        </div>
+        <div class="card card--canvas-container is-relative" id="graphics1">
+          <p class="show-on-mobile">Unsupported device</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-      <div class="card card--flip-x">
-        <div class="card__side card__side--front-x">
+  <section class="section section__scripting">
+    <div class="container">
+      <h2 class="section__title mb-2">Scripting</h2>
+      <article class="project">
+        <div class="card">
           <img
-          loading="lazy"
-          class="card__img"
-          src="../assets/images/bytes-and-pipes-576.webp"
+            class="card__image"
+            alt="An image with the Python programming language logo"
+            src="../assets/images/python.png"
           >
         </div>
 
-        <div class="card__side card__side--back-x">
-          <h3 class="card__title">Bytes And Pipes</h3>
-          <ul class="card__links">
-            <li><a class="tooltip" data-tooltip="Website" href="https://bytesandpipes.com" target="_blank">
-              <svg class="card__web" width=24 height=24 viewBox="0 0 32 32" aria-hidden="true">
-                <path d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
-                <path d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
-              </svg>
-            </a></li>
-            <li><a class="tooltip" data-tooltip="Source Code" href="https://github.com/herokunt/bytes-and-pipes" target="_blank">
-              <svg class="card__gh" width=24 height=24 viewBox="0 0 16 16" aria-hidden="true">
+        <div class="project__description mt-1">
+          <h3 class="section__subtitle mt-2">Batch Image Resizer</h3>
+          <p>A command line utility to resize images, convert them into different formats, with an option to compress the output to share them or upload them to the cloud easily.</p>
+
+          <footer class="flex-container mt-4">
+            <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank">
+              Source Code
+              <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
               </svg>
-            </a></li>
-          </ul>
+            </a>
+          </footer>
         </div>
-      </div>
-    </article>
-  </section>
+      </article>
 
-  <section class="section section--graphics" id="gamesgraphics">
-    <h2 class="section__header show-on-tablet">Games & Graphics</h2>
+      <article class="project mt-8">
+        <div class="project__description mt-1">
+          <h3 class="section__subtitle mt-2">Password Checker</h3>
+          <p>Check your passwords agains the "Have I Been Pwned?" database. Only the first characters of a SHA-1 hash are sent so there is no way your password will be exposed to anyone.</p>
 
-    <article class="showcase">
-      <div class="card x-300 y-400 is-centered card--flip-y">
-        <div class="card__side card__side--front-y">
-          <video
-          class="card__video card__video--fill"
-          src="../assets/videos/tetris.webm"
-          poster="../assets/images/tetris-thumb.png"
-          preload="none"
-          muted
-          loop>
-        </video>
-      </div>
-      <div class="card__side card__side--back-y">
-        <h3 class="card__title">Tetris</h3>
-        <ul class="card__links">
-          <li><a class="tooltip" data-tooltip="Source Code" href="https://github.com/herokunt/javascript_ramblings/blob/main/2D/tetris.js" target="_blank">
-            <svg class="card__gh" width=24 height=24 viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-            </svg>
-          </a></li>
-          <li><a class="tooltip" data-tooltip="Demo" href="https://editor.p5js.org/fall-parameter/sketches/-8YjzbeP0" target="_blank">
-            <svg class="card__p5" width=24 height=24 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
-              <path d="M16.909 10.259l8.533-2.576 1.676 5.156-8.498 2.899 5.275 7.48-4.447 3.225-5.553-7.348-5.408 7.155-4.318-3.289 5.275-7.223L.88 12.647l1.678-5.16 8.598 2.771V1.364h5.754v8.895z"/>
-            </svg>
-          </a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="showcase__description center-text">
-      <p>An all-time 8-bit classic: Tetris!</p>
-    </div>
-  </article>
-
-    <article class="showcase">
-      <div class="showcase__description">
-        <p>This demo written in C follows the steps made popular by Wolfenstein 3D to build a simple engine capable of drawing walls, render textures and sprites.</p>
-        <p>Link to a web-based demo is written in JavaScript.</p>
-      </div>
-        <div class="card card--flip-x">
-          <div class="card__side card__side--front-x">
-            <video
-              class="card__video card__video--fill"
-              src="../assets/videos/raycasting.webm"
-              poster="../assets/images/raycasting-thumb.jpeg"
-              preload="none"
-              muted
-              loop>
-            </video>
-        </div>
-        <div class="card__side card__side--back-x">
-          <h3 class="card__title">Raycasting 3D rendering</h3>
-          <ul class="card__links">
-            <li><a class="tooltip" data-tooltip="Source Code" href="https://github.com/herokunt/raycasting" target="_blank">
-              <svg class="card__gh" width=24 height=24 viewBox="0 0 16 16" aria-hidden="true">
+          <footer class="flex-container mt-4">
+            <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank">
+              Source Code
+              <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
               </svg>
-            </a></li>
-            <li><a class="tooltip" data-tooltip="Demo" href="https://editor.p5js.org/fall-parameter/sketches/lDJjXSG6o" target="_blank">
-              <svg class="card__p5" width=24 height=24 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
-                <path d="M16.909 10.259l8.533-2.576 1.676 5.156-8.498 2.899 5.275 7.48-4.447 3.225-5.553-7.348-5.408 7.155-4.318-3.289 5.275-7.223L.88 12.647l1.678-5.16 8.598 2.771V1.364h5.754v8.895z"/>
-              </svg>
-            </a></li>
-          </ul>
+            </a>
+          </footer>
         </div>
-      </div>
-    </article>
-
-    <article class="showcase">
-      <div class="card card--flip-x">
-        <div class="card__side card__side--front-x">
-          <video
-            class="card__video card__video--fill"
-            src="../assets/videos/steering-behavior.webm"
-            poster="../assets/images/steering-behavior-thumb.jpeg"
-            preload="none"
-            muted
-            loop>
-          </video>
-      </div>
-      <div class="card__side card__side--back-x">
-        <h3 class="card__title">Particle Steering Behaviors</h3>
-        <ul class="card__links">
-          <li><a class="tooltip" data-tooltip="Source Code" href="https://github.com/herokunt/javascript_ramblings/blob/main/2D/steering_behavior.js" target="_blank">
-            <svg class="card__gh" width=24 height=24 viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-            </svg>
-          </a></li>
-          <li><a class="tooltip" data-tooltip="Demo" href="https://editor.p5js.org/fall-parameter/sketches/Po7qTPFag" target="_blank">
-            <svg class="card__p5" width=24 height=24 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
-              <path d="M16.909 10.259l8.533-2.576 1.676 5.156-8.498 2.899 5.275 7.48-4.447 3.225-5.553-7.348-5.408 7.155-4.318-3.289 5.275-7.223L.88 12.647l1.678-5.16 8.598 2.771V1.364h5.754v8.895z"/>
-            </svg>
-          </a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="showcase__description">
-      <p>Steering behaviors algorithms are used to provide autonomous agents with realistic behavior that reacts to surrounding forces. They are simple to understand and effective in creating interesting movement patterns.</p>
-      <p>This demo was inspired by Daniel Shiffman to represent text that reacts to mouse movement.</p>
-    </div>
-    </article>
-  </section>
-
-  <section class="section section--scripts" id="scripts">
-    <h2 class="section__header show-on-tablet">Scripts</h2>
-
-    <article class="showcase">
-      <div class="showcase__description">
-        <p>This script can convert images to different formats, create different sized copies for desktop and mobile use, and compress them to convenient archives that are easy to upload to the cloud.</p>
-        <p>Written in Python, can handle hundreds of images efficiently.</p>
-      </div>
-        <div class="card card--flip-x">
-          <div class="card__side card__side--front-x">
-            <video
-              class="card__video card__video--fill"
-              src="../assets/videos/resizer.webm"
-              poster="../assets/images/python.png"
-              preload="none"
-              muted
-              loop>
-            </video>
-        </div>
-        <div class="card__side card__side--back-x">
-          <h3 class="card__title">Image Batch Resizer</h3>
-          <ul class="card__links">
-            <li><a class="tooltip" data-tooltip="Source Code" href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank">
-              <svg class="card__gh" width=24 height=24 viewBox="0 0 16 16" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-              </svg>
-            </a></li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <article class="showcase">
-      <div class="card card--flip-x">
-        <div class="card__side card__side--front-x">
-          <video
-            class="card__video card__video--fill"
-            src="../assets/videos/passwords.webm"
-            poster="../assets/images/python.png"
-            preload="none"
-            muted
-            loop>
-          </video>
-      </div>
-      <div class="card__side card__side--back-x">
-        <h3 class="card__title">Password Checker</h3>
-        <ul class="card__links">
-          <li><a class="tooltip" data-tooltip="Source Code" href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank">
-            <svg class="card__gh" width=24 height=24 viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-            </svg>
-          </a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="showcase__description">
-      <p>Check your passwords against the popular "Have I Been Pwned?" website and find out if they've been leaked in any of the increasingly common data breaches.</p>
-      <p>You can provide passwords inline or through a CSV file, ideal if your password manager (such as KeePassXC) supports exporting data in CSV format.</p>
-    </div>
-    </article>
-  </section>
-
-  <section class="section section--sysadmin" id="sysadmin">
-    <h2 class="section__header show-on-tablet">System Administration</h2>
-
-    <article class="showcase">
-      <div class="showcase__description">
-        <p>Service availability monitoring using Icinga.</p>
-        <p>System performance metric collection and graphing using Telegraf, InfluxDB and Grafana.</p>
-        <p>Centralized syslog server using the ELK stack (Elasticsearch, Logstash and Kibana).</p>
-    </div>
-
-      <div class="card">
-        <div class="card__side">
+        <div class="card">
           <img
-          loading="lazy"
-          class="card__img"
-          src="../assets/images/sysadmin.webp"
+            class="card__image"
+            alt="An image with the Python programming language logo"
+            src="../assets/images/python.png"
           >
         </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </section>
 
-  <footer class="footer margin-top-4" id="contact">
-    <div class="row row--vertical-phone">
-      <div class="column column--quarter contain">
-        <header class="footer__heading">
-          <h3 class="footer__title is-centered">Developer Sojourn</h3>
-          <picture class="footer__logo-container">
-            <img class="footer__logo" src="../assets/images/dev.svg" alt="Logo" loading="lazy">
-          </picture>
-          <div class="copyleft">
-            <a class="copyleft__text" href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a>
-            <svg class="copyleft__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 980">
-              <circle cx="490" cy="490" r="440" fill="none" stroke-width="100"/>
-              <path d="M219,428H350a150,150 0 1 1 0,125H219a275,275 0 1 0 0-125z"/>
-            </svg>
-            2021
-          </div>
-        </header>
-      </div>
+  <section class="section section__sysadmin">
+    <div class="container">
+      <h2 class="section__title mb-3" id="sysadmin">Linux System Administration</h2>
+      <article class="project">
+        <div class="card">
+          <img
+            class="card__image card__image--cover"
+            alt="Several panels monitoring a computer's resources"
+            src="../assets/images/sysadmin.webp"
+          >
+        </div>
 
-      <div class="column column--third contain">
-        <h3 class="footer__title is-centered medium-margin-y">Get In Touch</h3>
-        <p>Thanks for visiting!&nbsp;If you'd like to know more about me or this site please don't hesitate to contact me and visit my GitHub page.</p>
-        <ul class="footer__icons">
+        <ul class="project__description is-left mt-2">
           <li>
-            <a class="tooltip tooltip--right" data-tooltip="GitHub" href="https://github.com/herokunt">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-github"></use></svg>
-            </a>
+            <svg class="product__image" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M12 21.328l-1.453-1.313q-2.484-2.25-3.609-3.328t-2.508-2.672-1.898-2.883-0.516-2.648q0-2.297 1.57-3.891t3.914-1.594q2.719 0 4.5 2.109 1.781-2.109 4.5-2.109 2.344 0 3.914 1.594t1.57 3.891q0 1.828-1.219 3.797t-2.648 3.422-4.664 4.359z"></path>
+            </svg>
+            <span>Shell scripting.</span>
           </li>
           <li>
-            <a class="tooltip tooltip--right" data-tooltip="devsojourn@pm.me" href="mailto:devsojourn@pm.me">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-envelope"></use></svg>
-            </a>
+            <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-nginx"></use></svg>
+            <span>Nginx web server and reverse proxy.</span>
           </li>
           <li>
-            <a class="tooltip tooltip--right" data-tooltip="PGP&nbsp;Key" href="publickey.devsojourn@pm.me.asc" download>
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-key1"></use></svg>
-            </a>
+            <svg class="product__image" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M12 21.328l-1.453-1.313q-2.484-2.25-3.609-3.328t-2.508-2.672-1.898-2.883-0.516-2.648q0-2.297 1.57-3.891t3.914-1.594q2.719 0 4.5 2.109 1.781-2.109 4.5-2.109 2.344 0 3.914 1.594t1.57 3.891q0 1.828-1.219 3.797t-2.648 3.422-4.664 4.359z"></path>
+            </svg>
+            <span>Service availability monitoring using Icinga.</span>
+          </li>
+          <li>
+            <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-grafana"></use></svg>
+            <span>Resource Monitoring with Grafana, Telegraf and InfluxDB.</span>
+          </li>
+          <li>
+            <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-elasticsearch"></use></svg>
+            <span>Centralized syslog server with Elasticsearch, Logstash and Kibana.</span>
           </li>
         </ul>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="row row--vertical-phone">
+        <div class="column column--quarter contain">
+          <header class="footer__heading">
+            <h3 class="footer__title is-centered">Developer Sojourn</h3>
+            <picture class="footer__logo-container">
+              <img class="footer__logo" src="../assets/images/dev.svg" alt="Logo" loading="lazy">
+            </picture>
+            <div class="copyleft">
+              <a class="copyleft__text" href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a>
+              <svg class="copyleft__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 980">
+                <circle cx="490" cy="490" r="440" fill="none" stroke-width="100"/>
+                <path d="M219,428H350a150,150 0 1 1 0,125H219a275,275 0 1 0 0-125z"/>
+              </svg>
+              2021
+            </div>
+          </header>
+        </div>
+
+        <div class="column column--third contain">
+          <h3 class="footer__title is-centered medium-margin-y">Get In Touch</h3>
+          <p>Thanks for visiting!&nbsp;If you'd like to know more about me or this site please don't hesitate to contact me and visit my GitHub page.</p>
+          <ul class="footer__icons">
+            <li>
+              <a class="tooltip tooltip--right" data-tooltip="GitHub" href="https://github.com/herokunt">
+                <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-github"></use></svg>
+              </a>
+            </li>
+            <li>
+              <a class="tooltip tooltip--right" data-tooltip="devsojourn@pm.me" href="mailto:devsojourn@pm.me">
+                <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-envelope"></use></svg>
+              </a>
+            </li>
+            <li>
+              <a class="tooltip tooltip--right" data-tooltip="PGP&nbsp;Key" href="publickey.devsojourn@pm.me.asc" download>
+                <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-key1"></use></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>
+
+  <template id="project__template">
+    <aside class="project__information">
+      <span class="project__information--close">&times;</span>
+      <h3 class="project__title"></h3>
+      <p class="project__description"></p>
+      <footer class="flex-container flex-container--row">
+        <a class="btn btn--cta btn--has-icon" href="https://bytesandpipes.com" target="_blank">
+          See Demo
+          <svg class="icon" width=24 height=24 viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
+            <path d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
+          </svg>
+        </a>
+        <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/bytes-and-pipes" target="_blank">
+          Source Code
+          <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+          </svg>
+        </a>
+      </footer>
+      <div class="project__controls flex-container flex-container--row"></div>
+
+    </aside>
+  </template>
+
 </body>
 </html>

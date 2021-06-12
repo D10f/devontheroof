@@ -1,8 +1,8 @@
 import p5 from 'p5';
 import sprite from '../../../assets/images/sprite.png';
 
-const FRAME_RATE = 16;
-const TOTAL_BUBBLES = 25;
+const FRAME_RATE = 30;
+const TOTAL_BUBBLES = 10;
 
 class Bubble {
   constructor(x, y, m, i, p){
@@ -129,7 +129,9 @@ export default p => {
   p.windowResized = () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
-      p.resizeCanvas(document.body.clientWidth, canvasDOM.scrollHeight);
+      // p.resizeCanvas(document.body.clientWidth, canvasDOM.scrollHeight);
+      p.resizeCanvas(canvasDOM.clientWidth, canvasDOM.clientHeight);
+
       initialSetup();
       p.draw();
     }, 100);
@@ -142,8 +144,10 @@ export default p => {
   p.setup = () => {
     const canvas = p.createCanvas(100, 100);
     canvasDOM = canvas.parent();
+
     // p.resizeCanvas(canvasDOM.scrollWidth, canvasDOM.scrollHeight);
-    p.resizeCanvas(window.innerWidth, window.innerHeight);
+    // p.resizeCanvas(window.innerWidth, window.innerHeight);
+    p.resizeCanvas(canvasDOM.clientWidth, canvasDOM.clientHeight);
 
     p.fill(20, 80, 100, 25);
     p.noStroke();

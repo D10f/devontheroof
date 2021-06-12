@@ -1,0 +1,18 @@
+@use '../abstract/mixins';
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  transform: translateY(0);
+  transition: transform 0.2s ease-out;
+
+  @include mixins.responsive(phone) {
+    transform: translateY(0);
+  }
+  
+  &--hide {
+    transform: translateY(-10rem);
+  }
+}

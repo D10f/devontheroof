@@ -4,17 +4,15 @@
 .footer {
   background-color: variables.$color-dark;
   color: variables.$color-light;
-  padding: 5rem 0;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+  margin-top: -25rem;
   position: relative;
-  z-index: 2;
+  z-index: 30;
 
   @media (prefers-color-scheme: dark) {
     background-color: variables.$color-darker;
     border-top: 1px dashed variables.$color-light;
-  }
-
-  @include mixins.responsive(phone) {
-    margin-top: 5rem;
   }
 
   &__title {
@@ -68,6 +66,11 @@
 
   &__text {
     display: inline;
+
+    &:focus,
+    &:hover {
+      outline: 2px solid variables.$color-primary;
+    }
   }
 
   &__icon {

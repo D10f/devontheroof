@@ -2,65 +2,143 @@
 @use '../abstract/variables';
 
 .section {
+  // position: relative;
+  // max-width: 100vw;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // padding: 2rem 0;
+  // border-bottom: 1px solid red;
+  min-height: 100vh;
+  padding: 5rem 0 0 0;
   position: relative;
-  max-width: 100vw;
-  // min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 0;
-
-  @include mixins.responsive(landscape) {
-    min-height: auto;
-    height: min-content;
-    margin-top: 5rem;
-  }
-
-  @include mixins.responsive(tablet) {
-    margin-top: 2rem;
-  }
+  box-shadow: variables.$box-shadow;
+  background-size: cover;
 
   @include mixins.responsive(phone) {
-    min-height: auto;
+    min-height: min-content;
   }
 
-  &__banner {
-    position: fixed;
-    bottom: 0;
-    left: 1rem;
-    z-index: 1;
-    font-family: PanameraRegular;
-    font-size: 10rem;
-    opacity: .25;
-    pointer-events: none;
+  &__webapps {
+    min-height: 80vh;
+    background-color: #f7f7f7;
+    transform: translateY(-10rem) skewY(-2deg);
+    z-index: 70;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+
+    // background-image:
+    //   linear-gradient(to top, rgba(variables.$color-white, 0.9), transparent),
+    //   url(../assets/images/workspace-1200.webp);
+    //
+    // @include mixins.responsive(tablet) {
+    //   background-image:
+    //     linear-gradient(to top, rgba(variables.$color-white, 0.9), transparent),
+    //     url(../assets/images/workspace-800.webp);
+    // }
+    // @include mixins.responsive(phone) {
+    //   background-image:
+    //     linear-gradient(to top, rgba(variables.$color-white, 0.9), transparent),
+    //     url(../assets/images/workspace-400.webp);
+    // }
+
+    & > * {
+      transform: skewY(2deg);
+    }
+  }
+
+  &__graphics {
+    background-color: #f1f1f1;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    transform: translateY(-16rem) skewY(3deg);
+    z-index: 60;
+    // background-image:
+    //   linear-gradient(to top, rgba(variables.$color-light, 0.9), transparent),
+    //   url(../assets/images/mountain-man-1200.webp);
+    //
+    // @include mixins.responsive(tablet) {
+    //   background-image:
+    //     linear-gradient(to top, rgba(variables.$color-white, 0.9), transparent),
+    //     url(../assets/images/mountain-man-800.webp);
+    // }
+    // @include mixins.responsive(phone) {
+    //   background-image:
+    //     linear-gradient(to top, rgba(variables.$color-white, 0.9), transparent),
+    //     url(../assets/images/mountain-man-400.webp);
+    // }
+
+    & > * {
+      transform: skewY(-3deg);
+    }
+  }
+
+  &__scripting {
+    min-height: 50rem;
+    background-color: #f7f7f7;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    transform: translateY(-22rem) skewY(-1deg);
+    z-index: 50;
+
+    // background-image:
+    //   linear-gradient(to right, rgba(variables.$color-gray-light, 0.9), transparent),
+    //   url(../assets/images/buildings-1200.webp);
+    //
+    // @include mixins.responsive(tablet) {
+    //   background-image:
+    //     linear-gradient(to top, rgba(variables.$color-white, 0.9), transparent),
+    //     url(../assets/images/buildings-800.webp);
+    // }
+    // @include mixins.responsive(phone) {
+    //   background-image:
+    //     linear-gradient(to top, rgba(variables.$color-white, 0.9), transparent),
+    //     url(../assets/images/buildings-400.webp);
+    // }
+
+    & > * {
+      transform: skewY(1deg);
+    }
+  }
+
+  &__sysadmin {
+    background-color: #f1f1f1;
+    padding-top: 10rem;
+    padding-bottom: 15rem;
+    transform: translateY(-24rem) skewY(1deg);
+    min-height: 101vh;
+    box-shadow: variables.$box-shadow;
+    z-index: 40;
 
     @include mixins.responsive(phone) {
-      display: none;
+      min-height: min-content;
     }
 
-    &::selection {
-      background: none;
-      color: inherit;
+    // background-image:
+    //   linear-gradient(to bottom right,
+    //     rgba(variables.$color-light, 0.7),
+    //     rgba(variables.$color-gray-dark, 0.75)),
+    //   url(../assets/images/happy-customers-1200.webp);
+    //
+    // @include mixins.responsive(tablet) {
+    //   background-image:
+    //     linear-gradient(to bottom right,
+    //       rgba(variables.$color-light, 0.7),
+    //       rgba(variables.$color-gray-dark, 0.75)),
+    //     url(../assets/images/happy-customers-800.webp);
+    // }
+    //
+    // @include mixins.responsive(phone) {
+    //   background-image:
+    //     linear-gradient(to bottom right,
+    //       rgba(variables.$color-light, 0.7),
+    //       rgba(variables.$color-gray-dark, 0.75)),
+    //     url(../assets/images/happy-customers-400.webp);
+    // }
+
+    & > * {
+      transform: skewY(-1deg);
     }
   }
-
-  &--landing {
-    min-height: 100vh;
-
-    @include mixins.responsive(tablet) {
-      margin-top: 0;
-      padding-top: 10rem;
-    }
-
-    @include mixins.responsive(phone) {
-      margin-top: 2rem;
-      padding-top: 10rem;
-    }
-  }
-  &--webapps {}
-  &--graphics {}
-  &--scripts {}
-  &--sysadmin {}
-  &--blog {}
 }

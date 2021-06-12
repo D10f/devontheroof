@@ -1,9 +1,21 @@
+/* p5.js creates these asynchronously and in unpredictable order */
+
+/* Games & Graphics section canvas */
 #defaultCanvas0 {
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  position: absolute;
   top: 0;
   left: 0;
-  opacity: .1;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
+
+/* Header Canvas */
+// #defaultCanvas1 { // You will need to reverse these again!!
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   opacity: .1;
+//   z-index: 0;
+// }

@@ -1,9 +1,22 @@
-// @keyframes small-navbar {
-//   0%  {
-//     opacity: 0;
-//   }
-//
-//   100% {
-//     opacity: 1;
-//   }
-// }
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes dropOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}

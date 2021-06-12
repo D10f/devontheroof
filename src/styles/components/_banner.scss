@@ -1,0 +1,22 @@
+@use '../abstract/mixins';
+
+.banner {
+  position: fixed;
+  bottom: 0;
+  left: 1rem;
+  z-index: 1;
+  font-family: PanameraRegular;
+  font-size: 10rem;
+  opacity: .25;
+  pointer-events: none;
+  z-index: 999;
+
+  @include mixins.responsive(phone) {
+    display: none;
+  }
+
+  &::selection {
+    background: none;
+    color: inherit;
+  }
+}

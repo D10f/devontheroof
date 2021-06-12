@@ -2,23 +2,21 @@
 @use './styles/base/base';
 @use './styles/base/typography';
 @use './styles/base/utilities';
+@use './styles/base/animations';
 
 /* COMPONENTS */
-@use './styles/components/nav';
+@use './styles/components/banner';
+@use './styles/components/button';
+@use './styles/components/canvas';
 @use './styles/components/card';
 @use './styles/components/icon';
-@use './styles/components/header';
-@use './styles/components/canvas';
-@use './styles/components/dropdown';
-@use './styles/components/showcase';
-@use './styles/components/roadmap';
+@use './styles/components/navbar';
 @use './styles/components/tooltip';
-@use './styles/components/search';
+@use './styles/components/project';
 
 /* LAYOUT */
-@use './styles/layout/grid';
+@use './styles/layout/landing';
 @use './styles/layout/section';
 @use './styles/layout/footer';
-
-/* PAGES */
-@use './styles/pages/blog';
+@use './styles/layout/grid';
+@use './styles/layout/container';

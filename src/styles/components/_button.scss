@@ -1,0 +1,89 @@
+@use '../abstract/variables';
+
+.btn {
+  border: none;
+  background: none;
+  display: inline-block;
+  border-radius: 3px;
+  border-width: 2px !important; /* For consistency with <a> and <button> */
+  border-style: solid !important;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .icon {
+    transition: all 0.4s 0.2s ease-out;
+  }
+
+  &--cta {
+    position: relative;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    font-family: inherit;
+    border-color: variables.$color-dark;
+    background-color: transparent;
+    transition: all 0.8s 0.3s ease-out, transform 0.2s ease;
+    z-index: 999;
+
+    &:active {
+      transform: translateY(.5rem);
+    }
+
+    &:hover,
+    &:focus {
+      // background-color: variables.$color-dark;
+      color: variables.$color-primary;
+      border-color: variables.$color-primary;
+
+      .icon {
+        fill: variables.$color-primary;
+      }
+    }
+
+    &:focus::before,
+    &:focus::after,
+    &:hover::before,
+    &:hover::after {
+      clip-path: circle(100% at center center);
+      opacity: 0;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      clip-path: circle(0% at center center);
+    }
+
+    &::before {
+      transition: all 0.4s ease-out, opacity 0.2s 0.4s ease;
+      background-color: variables.$color-secondary;
+    }
+
+    &::after {
+      transition: all 0.5s 0.2s ease-out, opacity 0.2s 0.6s ease;
+      background-color: variables.$color-primary;
+    }
+  }
+
+  &--has-icon {
+    padding-right: 5rem;
+
+    .icon {
+      position: absolute;
+      width: 2.6rem;
+      height: 2.6rem;
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+
+  &--hide {
+    display: none;
+  }
+}

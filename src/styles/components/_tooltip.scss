@@ -11,6 +11,11 @@
     transform: scale(1);
   }
 
+  &:hover .icon,
+  &:focus .icon {
+    fill: variables.$color-primary;
+  }
+
   &::before {
     content: attr(data-tooltip);
     position: absolute;

@@ -1,24 +1,24 @@
 import './styles.scss';
 
-import BannerController from './scripts/BannerController';
-import CanvasController from './scripts/CanvasController';
-import VideoLoader from './scripts/VideoLoader';
-import NavbarController from './scripts/NavbarController';
-
 const isMobileDevice = navigator.userAgent.match(
   /(Android|iPhone|iPad|iPod|webOS|Windows Phone|BlackBerry)/i
 );
 
-if (isMobileDevice) {
-  let sketch = new CanvasController();
-  setTimeout(() => {
-    sketch.current.stopLoop();
-    sketch = sketch.current.destroy();
-  }, 100);
+if (!isMobileDevice) {
+  // Import both p5.js and matter.js
+  Promise.all([
+    import('./scripts/CanvasController'),
+    import('./scripts/DOMController')
+  ])
+  .then(values => {
+    const CanvasController = values[0].default;
+    const DOMController = values[1].default;
+    new DOMController(CanvasController);
+  })
+  .catch(console.error);
 } else {
-  new CanvasController();
-  new BannerController();
-  new NavbarController();
+  // Imports the controller that handles a couple of DOM events only
+  import('./scripts/DOMController')
+    .then(DOMController => new DOMController.default(undefined, isMobileDevice))
+    .catch(console.error);
 }
-
-new VideoLoader(isMobileDevice);

@@ -1,315 +1,40 @@
-@use '../abstract/mixins';
 @use '../abstract/variables';
+@use '../abstract/mixins';
 
 .card {
-  position: relative;
-  perspective: 150rem;
-  contain: layout;
-  min-height: 20rem;
-  width: 100%;
-  // height: 100%;
-  height: 25rem;
+  border: 1px solid variables.$color-gray-dark;
+  border-radius: variables.$border-radius;
+  box-shadow: variables.$box-shadow;
 
-  &--y {
-    width: 30rem;
+  @include mixins.responsive(portrait) {
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+
+  &--canvas-container {
     min-height: 40rem;
-  }
+    min-width: 40rem;
 
-  @include mixins.responsive(tablet) {
-    height: 20rem;
-  }
-
-  &__img {
-    width: 100%;
-    height: 100%;
-    height: 100%;
-    border-radius: variables.$border-radius;
-    object-fit: none;
-    background-color: variables.$color-darker;
-  }
-
-  &__video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: variables.$border-radius;
-
-    &--fill {
-      object-fit: fill;
+    @include mixins.responsive(portrait) {
+      margin-top: 6rem;
+      max-width: 90vw;
     }
 
-    @include mixins.responsive(tablet) {
+    @include mixins.responsive(phone) {
+      min-height: unset;
+      min-width: unset;
+      width: 80vw;
+      height: 20rem
+    }
+  }
+
+  &__image {
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+
+    &--cover {
       object-fit: cover;
-    }
-  }
-
-  &__side {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: variables.$border-radius;
-    box-shadow: variables.$box-shadow;
-    backface-visibility: hidden;
-    transition: transform 0.75s ease;
-
-    @include mixins.responsive(tablet) {
-      box-shadow: variables.$box-shadow-light;
-    }
-    &--front-y,
-    &--front-x {
-      border: 1px solid variables.$color-dark;
-    }
-
-    &--front-y {
-      background-color: variables.$color-light;
-    }
-    &--back-y {
-      background-color: variables.$color-darker;
-      color: variables.$color-light;
-      transform: rotateY(180deg);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-
-      @include mixins.responsive(tablet) {
-        background-color: rgba(variables.$color-darker, .8);
-        transform: rotateY(0);
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0 4rem;
-
-        @media (prefers-color-scheme: dark) {
-          background-color: rgba(variables.$color-darker, .65);
-        }
-      }
-    }
-    &--front-x {
-      background-color: variables.$color-light;
-    }
-    &--back-x {
-      background-color: variables.$color-darker;
-      color: variables.$color-light;
-      transform: rotateX(180deg);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      @include mixins.responsive(tablet) {
-        background-color: rgba(variables.$color-darker, .8);
-        transform: rotateX(0);
-        justify-content: space-between;
-        padding: 0 4rem;
-
-        @media (prefers-color-scheme: dark) {
-          background-color: rgba(variables.$color-darker, .65);
-        }
-      }
-    }
-
-    & img {
-      object-fit: cover;
-    }
-  }
-
-  &:hover &__side--front-y {
-    transform: rotateY(-180deg);
-
-    @include mixins.responsive(tablet){
-      transform: rotateY(0);
-    }
-  }
-
-  &:hover &__side--back-y {
-    transform: rotateY(0);
-
-    @include mixins.responsive(tablet){
-      transform: rotateY(0);
-    }
-  }
-
-  &:hover &__side--front-x {
-    transform: rotateX(-180deg);
-
-    @include mixins.responsive(tablet){
-      transform: rotateX(0);
-    }
-  }
-
-  &:hover &__side--back-x {
-    transform: rotateX(0);
-
-    @include mixins.responsive(tablet){
-      transform: rotateX(0);
-    }
-  }
-
-  // Special effect removed with JS when element first appears
-  // This is made to give a hint to the user that cards can be flipped.
-  &--flip-x &__side--front-x {
-    transform: rotateX(-180deg) !important;
-    @include mixins.responsive(tablet){
-      transform: rotateX(0) !important;
-    }
-  }
-  &--flip-x &__side--back-x {
-    transform: rotateX(0deg) !important;
-    @include mixins.responsive(tablet){
-      transform: rotateX(0) !important;
-    }
-  }
-  &--flip-y &__side--front-y {
-    transform: rotateY(-180deg) !important;
-    @include mixins.responsive(tablet){
-      transform: rotateY(0) !important;
-    }
-  }
-  &--flip-y &__side--back-y {
-    transform: rotateY(0deg) !important;
-    @include mixins.responsive(tablet){
-      transform: rotateY(0) !important;
-    }
-  }
-
-  &--1 { // flowfield
-    grid-column: 1 / 4;
-    grid-row: 1 / 2;
-
-    @include mixins.responsive(portrait) {
-      grid-column: 1 / 3;
-      grid-row: 1 / 2;
-    }
-    @include mixins.responsive(tablet) {
-      grid-column: auto;
-      grid-row: auto;
-    }
-  }
-
-  &--2 { // raycast
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-
-    @include mixins.responsive(portrait) {
-      grid-column: 1 / 3;
-      grid-row: 2 / 3;
-    }
-    @include mixins.responsive(tablet) {
-      grid-column: auto;
-      grid-row: auto;
-    }
-  }
-
-  &--3 { // steering
-    grid-column: 2 / 4;
-    grid-row: 3 / 4;
-
-    @include mixins.responsive(portrait) {
-      grid-column: 2 / 4;
-      grid-row: 3 / 4;
-    }
-    @include mixins.responsive(tablet) {
-      grid-column: auto;
-      grid-row: auto;
-    }
-  }
-
-  &--4 { // tetris
-    grid-column: 4 / 5;
-    grid-row: 1 / 3;
-
-    @include mixins.responsive(portrait) {
-      grid-column: 3 / 4;
-      grid-row: 1 / 3;
-    }
-    @include mixins.responsive(tablet) {
-      grid-column: auto;
-      grid-row: auto;
-    }
-  }
-
-  &--5 { // snake
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-
-    @include mixins.responsive(portrait) {
-      grid-column: 1 / 2;
-      grid-row: 3 / 4;
-    }
-    @include mixins.responsive(tablet) {
-      grid-column: auto;
-      grid-row: auto;
-    }
-  }
-
-  &--6 { // maze
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-
-    @include mixins.responsive(portrait) {
-      grid-column: 3 / 4;
-      grid-row: 4 / 5;
-    }
-    @include mixins.responsive(tablet) {
-      grid-column: auto;
-      grid-row: auto;
-    }
-  }
-
-  &--7 { // matter.js
-    grid-column: 4 / 5;
-    grid-row: 3 / 4;
-
-    @include mixins.responsive(portrait) {
-      grid-column: 1 / 3;
-      grid-row: 4 / 5;
-    }
-    @include mixins.responsive(tablet) {
-      grid-column: auto;
-      grid-row: auto;
-    }
-  }
-
-  /* BACK OF THE CARD */
-
-  &__title {
-    &::selection {
-      background-color: turquoise;
-    }
-
-    &:hover {
-      cursor: default;
-    }
-  }
-
-  &__links {
-    display: flex;
-    justify-content: space-between;
-    width: 6rem;
-
-    @include mixins.responsive(tablet) {
-      width: 10rem;
-    }
-  }
-
-  &__web,
-  &__gh,
-  &__p5 {
-    transition: fill .2s;
-    fill: variables.$color-light;
-  }
-
-  &__web,
-  &__gh {
-    &:hover {
-      fill: variables.$color-gray-light;
-    }
-  }
-
-  &__p5 {
-    &:hover {
-      fill: variables.$color-p5;
     }
   }
 }

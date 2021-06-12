@@ -1,0 +1,24 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+.navbar {
+  position: absolute;
+  top: 3rem;
+  right: 10vw;
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 100;
+
+  @include mixins.responsive(tablet) {
+    padding: 1rem 0;
+  }
+
+  @include mixins.responsive(phone) {
+    padding: 0;
+    gap: 1rem;
+    flex-direction: column;
+  }
+}

@@ -1,19 +1,52 @@
 @use '../abstract/mixins';
 
-.small-margin-y {
-  margin: 2rem 0;
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.mt-4 { margin-top: 4rem; }
+.mt-5 { margin-top: 5rem; }
+.mt-8 { margin-top: 8rem; }
+.mt-10 { margin-top: 10rem; }
+
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+.mb-4 { margin-bottom: 4rem; }
+.mb-5 { margin-bottom: 5rem; }
+.mb-8 { margin-bottom: 8rem; }
+.mb-10 { margin-bottom: 10rem; }
+
+.pt-2 { padding-top: 2rem; }
+.pt-3 { padding-top: 3rem; }
+.pt-4 { padding-top: 4rem; }
+.pt-5 { padding-top: 5rem; }
+.pt-8 { padding-top: 8rem; }
+.pt-10 { padding-top: 10rem; }
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+
+  @include mixins.responsive(phone) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  &--row {
+    flex-direction: row;
+    align-items: stretch;
+  }
 }
-.medium-margin-y {
-  margin: 4rem 0;
+
+.is-left {
+  align-items: flex-start !important;
 }
-.margin-top {
-  margin-top: 2rem;
+.is-right {
+  align-self: flex-end;
 }
-.margin-top-4 {
-  margin-top: 4rem;
-}
-.margin-bottom {
-  margin-bottom: 2rem;
+.is-relative {
+  position: relative;
 }
 .no-overflow {
   overflow: hidden;
@@ -45,6 +78,19 @@
     display: block;
   }
 }
+
+.show-on-mobile {
+  display: none;
+
+  @media (hover: none) {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .x-300 {
   width: 30rem !important;
 }
