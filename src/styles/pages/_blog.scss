@@ -19,10 +19,10 @@
     z-index: 99;
     transition: width .4s, right .4s;
 
-    @media (prefers-color-scheme: dark) {
-      color: variables.$color-light;
-      border: 1px solid #2C5364;
-    }
+    // @media (prefers-color-scheme: dark) {
+    //   color: variables.$color-light;
+    //   border: 1px solid #2C5364;
+    // }
 
     @include mixins.responsive(tablet) {
       flex-direction: column;
@@ -79,6 +79,11 @@
 
   &__table-of-contents {
     transition: all 0.25s;
+    border-right: 2px solid #333;
+
+    ul {
+      position: fixed;
+    }
 
     @include mixins.responsive(tablet) {
       position: absolute;
@@ -93,11 +98,11 @@
       padding: 1.25rem;
     }
 
-    @media (prefers-color-scheme:dark) {
-      color: variables.$color-light;
-      border-right: 1px solid variables.$color-light;
-      box-shadow: none;
-    }
+    // @media (prefers-color-scheme:dark) {
+    //   color: variables.$color-light;
+    //   border-right: 1px solid variables.$color-light;
+    //   box-shadow: none;
+    // }
   }
 
   &__table-item {
@@ -150,15 +155,42 @@
   }
 
   &__latest {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr) );
+    display: flex;
+    flex-direction: column;
+    margin: 4rem;
   }
 }
 
 /** POST STYLES */
 
 .post {
+  position: relative;
+  padding: 1rem;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+  }
+
+  &:hover::before {
+    opacity: .9;
+    transform: translateY(0);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #333;
+    box-shadow: variables.$box-shadow;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all 0.25s;
+  }
+
   &__title {
     font-family: PanameraRegular;
     font-size: 3rem;
@@ -167,7 +199,7 @@
     text-align: center;
   }
 
-  &__content,
+  // As shown in the index.php page
   &__preview {
     border: 2px solid transparent;
     border-bottom: 2px solid variables.$color-dark;
@@ -190,13 +222,18 @@
       width: 100vw;
     }
 
-    @media (prefers-color-scheme:dark) {
-      color: variables.$color-light;
-      background-color: variables.$color-dark;
-    }
+    // @media (prefers-color-scheme:dark) {
+    //   color: variables.$color-light;
+    //   background-color: variables.$color-dark;
+    // }
 
     h3 {
       margin: 2rem 0;
+      font-size: 2.2rem;
+    }
+
+    p {
+      margin: 1rem 0;
     }
   }
 
@@ -206,20 +243,21 @@
       border: 2px solid variables.$color-dark;
     }
 
-    @media (prefers-color-scheme:dark) {
-      color: variables.$color-light;
-      background-color: variables.$color-dark;
-    }
+    // @media (prefers-color-scheme:dark) {
+    //   color: variables.$color-light;
+    //   background-color: variables.$color-dark;
+    // }
   }
 
   &__permalink {
     position: relative;
     overflow: hidden;
     z-index: 2;
-    border-bottom: 2px solid transparent;
-
+    // border-bottom: 2px solid transparent;
+    //
     &:hover {
-      border-bottom: 2px solid variables.$color-dark;
+      // border-bottom: 2px solid variables.$color-dark;
+      color: variables.$color-primary;
     }
   }
 }
@@ -230,10 +268,10 @@ pre.wp-block-code {
   margin: 2rem 0;
   overflow: auto;
 
-  @media (prefers-color-scheme:dark) {
-    color: variables.$color-dark;
-    background-color: variables.$color-light;
-  }
+  // @media (prefers-color-scheme:dark) {
+  //   color: variables.$color-dark;
+  //   background-color: variables.$color-light;
+  // }
 
   & code {
     padding: 2rem;
@@ -248,10 +286,10 @@ pre.wp-block-code {
       color: variables.$color-dark;
     }
 
-    @media (prefers-color-scheme:dark) {
-      color: variables.$color-dark;
-      background-color: variables.$color-light;
-    }
+    // @media (prefers-color-scheme:dark) {
+    //   color: variables.$color-dark;
+    //   background-color: variables.$color-light;
+    // }
   }
 }
 
@@ -266,8 +304,8 @@ p code {
     color: variables.$color-dark;
   }
 
-  @media (prefers-color-scheme:dark) {
-    color: variables.$color-dark;
-    background-color: variables.$color-light;
-  }
+  // @media (prefers-color-scheme:dark) {
+  //   color: variables.$color-dark;
+  //   background-color: variables.$color-light;
+  // }
 }

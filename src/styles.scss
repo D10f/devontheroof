@@ -12,6 +12,7 @@
 @use './styles/components/icon';
 @use './styles/components/navbar';
 @use './styles/components/tooltip';
+@use './styles/components/search';
 @use './styles/components/project';
 
 /* LAYOUT */
@@ -20,3 +21,6 @@
 @use './styles/layout/footer';
 @use './styles/layout/grid';
 @use './styles/layout/container';
+
+/* PAGES */
+@use './styles/pages/blog';

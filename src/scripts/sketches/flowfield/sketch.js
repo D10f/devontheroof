@@ -122,7 +122,7 @@ export default p => {
   };
 
   p.draw = () => {
-    p.background(0, 0);
+    p.background(5, 0);
 
     yoff = 0;
     for (let x = 0; x < cols; x++) {

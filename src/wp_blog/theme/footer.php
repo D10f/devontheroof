@@ -1,5 +1,5 @@
 <?php wp_footer(); ?>
-<footer class="footer margin-top-4" id="contact">
+<footer class="footer footer__blog margin-top-4" id="contact">
   <div class="row row--vertical-phone">
     <div class="column column--quarter contain">
       <header class="footer__heading">

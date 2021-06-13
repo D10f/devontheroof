@@ -53,6 +53,15 @@ const projectData = {
       'https://editor.p5js.org/fall-parameter/sketches/PxvmM0PMq'
     ]
   },
+  solveTheMaze: {
+    title: 'Maze In The Dark',
+    description: 'An algorithmically-generated maze and raycasting algorithm combined to create a solve the maze kind of game.',
+    controls: [ 'Esc', 'P', '&uarr;', '&darr;', '&larr;',' &rarr;' ],
+    links: [
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/solve_the_maze.js',
+      'https://editor.p5js.org/fall-parameter/sketches/IZi9kV1mB'
+    ]
+  },
 };
 
 class DOMController {

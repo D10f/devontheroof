@@ -99,11 +99,11 @@ export default p => {
       options: {
         restitution: 0.8,
         density: 0.01,
-        friction: 0.2
+        friction: 1
       }
     });
 
-    const slingshot = new Slingshot(p, poly.body, { stiffness: 0.1, length: 0 });
+    const slingshot = new Slingshot(p, poly.body, { stiffness: 1, length: 0 });
 
     /*
      * pixelDensity is a p5.js method that returns the density of the pixels
@@ -148,7 +148,7 @@ export default p => {
         w: 300,
         h: 10,
         c: 50,
-        options: { isStatic: true }
+        options: { isStatic: true, friction: 1 }
       });
 
       const platformToRebounce = new Box(p, {
@@ -157,7 +157,7 @@ export default p => {
         w: 75,
         h: 20,
         c: 50,
-        options: { isStatic: true, angle: -0.8 }
+        options: { isStatic: true, angle: -0.8, restitution: 0.8 }
       });
 
       const sidess = p.random([8,12]);

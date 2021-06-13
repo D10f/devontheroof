@@ -27,7 +27,7 @@ class Slingshot {
         x: 150,
         y: this.p.height * 0.66,
         s: Math.floor(this.p.random(5,10)),
-        r: 15,
+        r: 10,
         options: { density: 1 }
       });
       this.sling.bodyB = newPoly.body;

@@ -8,6 +8,7 @@ import angryMatter from './sketches/angryMatter/sketch';
 import flowField from './sketches/flowfield/sketch';
 // raycasting rendering doesnt work for some reason :/
 import raycastRendering from './sketches/raycasting';
+import solveTheMaze from './sketches/solveTheMaze';
 
 export const SKETCH_LIST = {
   empty,
@@ -17,7 +18,8 @@ export const SKETCH_LIST = {
   hangingLightbulb,
   angryMatter,
   raycastRendering,
-  flowField
+  flowField,
+  solveTheMaze
 };
 
 class CanvasController {
