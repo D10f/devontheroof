@@ -120,6 +120,7 @@ export default p => {
   p.destroy = () => {
     p.stopLoop();
     p.noCanvas();
+    gameSpeed = 12;
     return null;
   };
 

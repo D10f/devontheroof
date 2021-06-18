@@ -2,6 +2,7 @@ import p5 from 'p5';
 
 let grid, current, next;
 
+let gameSpeed = 30;
 const BLOCK_SIZE = 20;
 const BOARD_WIDTH = 300;
 const BOARD_HEIGHT = 400;
@@ -214,6 +215,9 @@ class Grid {
 
       // Loop the grid backwards, from bottom to top
       for (let i = this.cells.length - 1; i > 0; i--) {
+
+        // increase game speed for each finished row
+        this.p.frameRate(gameSpeed++);
 
         const cell = this.cells[i];
 
@@ -492,6 +496,7 @@ export default p => {
   p.destroy = () => {
     p.stopLoop();
     p.noCanvas();
+    gameSpeed = 30;
     return null;
   };
 
@@ -508,6 +513,7 @@ export default p => {
     const canvas = p.createCanvas(100, 100);
     canvasDOM = canvas.parent();
     p.resizeCanvas(400, 400);
+    p.frameRate(gameSpeed);
     // p.resizeCanvas(canvasDOM.clientWidth, canvasDOM.clientHeight);
 
     grid = new Grid(BOARD_WIDTH, BOARD_HEIGHT, p);

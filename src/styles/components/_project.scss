@@ -98,5 +98,8 @@
     background-color: variables.$color-dark;
     border-radius: variables.$border-radius;
     padding: 1rem;
+    min-width: 4rem;
+    min-height: 4rem;
+    text-align: center;
   }
 }

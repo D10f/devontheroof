@@ -152,8 +152,10 @@ class DOMController {
 
   // some sketches use up and down arrows, this prevents body from scrolling
   lockScrolling() {
-    document.body.style.overflowY = 'hidden';
     document.querySelector('#graphics0 h2').scrollIntoView();
+    setTimeout(() => {
+      document.body.style.overflowY = 'hidden';
+    }, 500);
   }
 
   unlockScrolling() {

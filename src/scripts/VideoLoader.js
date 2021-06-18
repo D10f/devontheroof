@@ -4,68 +4,47 @@
 */
 
 class VideoLoader {
-  constructor(isMobileDevice) {
-    if (isMobileDevice) {
-      document.querySelectorAll('.card__video').forEach(vid => vid.src = '');
-      return;
-    }
+  constructor() {
+    this.template = document.getElementById('img-replacement');
+    this.section  = document.querySelector('.section__scripting .container');
+    this.cards    = this.section.querySelectorAll('.card');
 
-    this.cards = document.querySelectorAll('.card');
-    this.videos = document.querySelectorAll('.card__video');
-    this.createObservers();
-    this.checkVideoSupport();
+    this.createObserver();
+    this.replaceImages();
+    this.videos   = this.section.querySelectorAll('.card__video');
   }
 
-  // This can be done with a <picture> element but I want to disable video
-  // altogether when on mobile which makes this a lot easier to manage.
-  checkVideoSupport() {
-    const video = document.createElement('video');
-    if (!video.canPlayType('video/webm; codecs="vp8, vorbis"')) {
-      this.videos.forEach(video => video.src.replace('webm', 'mp4'));
-    }
-    this.videos = null; //cleanup
+  replaceImages() {
+    const src = ['resizer', 'passwords']; // names of the video files
+
+    this.cards.forEach((card, idx) => {
+      const cloned = this.template.content.cloneNode(true);
+      const video = cloned.querySelector('video');
+
+      video.src = video.canPlayType('video/webm; codecs="vp8, vorbis"')
+        ? `https://developersojourn.site/videos/${src[idx]}.webm`
+        : `https://developersojourn.site/videos/${src[idx]}.mp4`
+
+      card.lastElementChild.remove(); // removes the image
+      card.appendChild(video);
+    });
   }
 
-  createObservers() {
-
-    // const targets = [
-    //   document.getElementById('gamesgraphics'),
-    //   document.getElementById('scripts')
-    // ];
+  createObserver() {
 
     const options = {
       root: null,
-      rootMargin: '10px',
+      rootMargin: '0px',
       threshold: 0.0
     };
 
-    this.cards.forEach(card => {
-      new IntersectionObserver(([entry]) => {
-        const moveIntoView = entry.intersectionRatio > 0;
+    const callback = ([entry]) => {
+      const moveIntoView = entry.intersectionRatio > 0;
+      this.videos.forEach(video => moveIntoView ? video.play() : video.pause());
+    };
 
-        const video = card.querySelector('.card__video');
-        if (moveIntoView) {
-          card.classList.remove('card--flip-x');
-          card.classList.remove('card--flip-y');
-          if (video) video.play();
-        } else {
-          card.classList.add('card--flip-x');
-          card.classList.add('card--flip-y');
-          if (video) video.pause();
-        }
-      }, options)
-      .observe(card);
-    });
+    new IntersectionObserver(callback, options).observe(this.section);
 
-    // targets.forEach(target => {
-    //   new IntersectionObserver(([entry]) => {
-    //     const moveIntoView = entry.intersectionRatio > 0;
-    //     target
-    //       .querySelector('.card__video')
-    //       .forEach(video => moveIntoView ? video.play() : video.pause());
-    //   }, options)
-    //   .observe(target);
-    // });
   };
 }
 
