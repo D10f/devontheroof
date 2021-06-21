@@ -4,8 +4,8 @@ const projectData = {
     description: 'An all time 8-bit classic, Tetris!',
     controls: [ 'Esc', 'P', '&uarr;', '&darr;', '&larr;',' &rarr;', 'Space' ],
     links: [
-      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/tetris.js',
-      'https://editor.p5js.org/fall-parameter/sketches/-8YjzbeP0'
+      'https://editor.p5js.org/fall-parameter/sketches/-8YjzbeP0',
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/tetris.js'
     ]
   },
   snake: {
@@ -13,8 +13,8 @@ const projectData = {
     description: 'Another oldie classic that needs no introduction.',
     controls: [ 'Esc', 'P', '&uarr;', '&darr;', '&larr;',' &rarr;' ],
     links: [
-      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/snake.js',
-      'https://editor.p5js.org/fall-parameter/sketches/_B_A8i0d1'
+      'https://editor.p5js.org/fall-parameter/sketches/_B_A8i0d1',
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/snake.js'
     ]
   },
   hangingLightbulb: {
@@ -22,8 +22,8 @@ const projectData = {
     description: 'One of my favorites, combines 2D physics with raycasting algorithm',
     controls: [ 'Esc', 'P', 'Click', 'Click & Drag' ],
     links: [
-      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/hanging_lightbulb.js',
-      'https://editor.p5js.org/fall-parameter/sketches/iRAe03G1W'
+      'https://editor.p5js.org/fall-parameter/sketches/iRAe03G1W',
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/hanging_lightbulb.js'
     ]
   },
   angryMatter: {
@@ -31,8 +31,8 @@ const projectData = {
     description: 'Inspired on the classic Angry Birds, only they are Polygons instead.',
     controls: [ 'Esc', 'P', 'Click', 'Click & Drag' ],
     links: [
-      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/angry_matter.js',
-      'https://editor.p5js.org/fall-parameter/sketches/Q6PcOhQBl'
+      'https://editor.p5js.org/fall-parameter/sketches/Q6PcOhQBl',
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/angry_matter.js'
     ]
   },
   raycastRendering: {
@@ -40,8 +40,8 @@ const projectData = {
     description: 'A raycasting algorithm is used to project walls on a 2D grid, giving a realistic 3D feeling, a la Wolfenstein 3D.',
     controls: [ 'Esc', 'P', '&uarr;', '&darr;', '&larr;',' &rarr;' ],
     links: [
-      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/raycasting_rendering.js',
-      'https://editor.p5js.org/fall-parameter/sketches/lDJjXSG6o'
+      'https://editor.p5js.org/fall-parameter/sketches/lDJjXSG6o',
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/raycasting_rendering.js'
     ]
   },
   flowField: {
@@ -49,8 +49,8 @@ const projectData = {
     description: 'A flowfield where paricles automatically follow a path decided algorithmically, very useful to generate interesting patterns',
     controls: [ 'Esc', 'P' ],
     links: [
-      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/noc_flowfield.js',
-      'https://editor.p5js.org/fall-parameter/sketches/PxvmM0PMq'
+      'https://editor.p5js.org/fall-parameter/sketches/PxvmM0PMq',
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/noc_flowfield.js'
     ]
   },
   solveTheMaze: {
@@ -58,8 +58,8 @@ const projectData = {
     description: 'An algorithmically-generated maze and raycasting algorithm combined to create a solve the maze kind of game.',
     controls: [ 'Esc', 'P', '&uarr;', '&darr;', '&larr;',' &rarr;' ],
     links: [
-      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/solve_the_maze.js',
-      'https://editor.p5js.org/fall-parameter/sketches/IZi9kV1mB'
+      'https://editor.p5js.org/fall-parameter/sketches/IZi9kV1mB',
+      'https://github.com/herokunt/javascript_ramblings/blob/main/2D/solve_the_maze.js'
     ]
   },
 };
