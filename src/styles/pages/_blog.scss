@@ -235,6 +235,14 @@
     p {
       margin: 1rem 0;
     }
+
+    a {
+      border-bottom: #f94c43;
+
+      &:hover {
+        color: #f94c43;
+      }
+    }
   }
 
   &__preview {
