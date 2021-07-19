@@ -6,7 +6,6 @@ import snake from './sketches/snake';
 import hangingLightbulb from './sketches/hangingLightbulb';
 import angryMatter from './sketches/angryMatter/sketch';
 import flowField from './sketches/flowfield/sketch';
-// raycasting rendering doesnt work for some reason :/
 import raycastRendering from './sketches/raycasting';
 import solveTheMaze from './sketches/solveTheMaze';
 

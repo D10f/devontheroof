@@ -10,6 +10,12 @@
   height: 100%;
 }
 
+#canvas3d {
+  position: absolute;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
 /* Header Canvas */
 // #defaultCanvas1 { // You will need to reverse these again!!
 //   position: absolute;

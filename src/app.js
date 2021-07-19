@@ -5,14 +5,18 @@ const isMobileDevice = navigator.userAgent.match(
 );
 
 if (!isMobileDevice) {
-  // Import both p5.js and matter.js
+  // Import p5js, matter.js and three.js sketch
   Promise.all([
     import('./scripts/CanvasController'),
-    import('./scripts/DOMController')
+    import('./scripts/DOMController'),
+    import('./scripts/3D')
   ]).then(values => {
     const CanvasController = values[0].default;
     const DOMController = values[1].default;
+    const threeJsAnimation = values[2].default;
+
     new DOMController(CanvasController);
+    threeJsAnimation();
   })
   .catch(console.error);
 
