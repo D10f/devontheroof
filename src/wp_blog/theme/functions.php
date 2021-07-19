@@ -21,7 +21,7 @@ function load_scripts_and_styles() {
   wp_enqueue_script('content_table', get_theme_file_uri('/js/contentTable.js'), NULL, '1.0', true);
   wp_enqueue_script('syntax_highlighter', get_theme_file_uri('/js/prism.js'), NULL, '1.0', true);
   wp_enqueue_style('syntax_highlighter', get_theme_file_uri('/css/prism.css'));
-  wp_enqueue_style('main_css', get_theme_file_uri('/css/main.fbab573952da9eb7f79d.css'));
+  wp_enqueue_style('main_css', get_theme_file_uri('/css/main.6d407cf40d8e28f0ff08.css'));
 }
 
 // Sets up event a custom endpoint: /content/posts

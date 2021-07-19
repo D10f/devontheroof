@@ -234,13 +234,13 @@
 
     p {
       margin: 1rem 0;
-    }
 
-    a {
-      border-bottom: #f94c43;
+      a {
+        border-bottom: 2px solid #f94c43;
 
-      &:hover {
-        color: #f94c43;
+        &:hover {
+          color: #f94c43;
+        }
       }
     }
   }
@@ -267,6 +267,10 @@
       // border-bottom: 2px solid variables.$color-dark;
       color: variables.$color-primary;
     }
+  }
+
+  pre {
+    border-radius: 3px;
   }
 }
 
