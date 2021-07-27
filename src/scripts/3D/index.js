@@ -81,9 +81,9 @@ const planeGeometry = new THREE.PlaneGeometry(
   10,
 );
 const planeMaterial = new THREE.MeshPhongMaterial({
-  side: THREE.DoubleSide,
+  // side: THREE.DoubleSide,
   flatShading: THREE.FlatShading,
-  vertexColors: true
+  // vertexColors: true
 });
 
 const initialColor = { r: 0.94, g: 0.94, b: 0.94 };
