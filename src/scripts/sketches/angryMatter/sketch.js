@@ -30,11 +30,15 @@ export default p => {
   let canvasDOM;
   let timer;
 
+  p.paused = false;
+
   p.stopLoop = () => {
+    p.paused = true;
     p.noLoop();
   };
 
   p.resumeLoop = () => {
+    p.paused = false;
     p.loop();
   };
 

@@ -13,12 +13,12 @@
   position: relative;
   overflow: hidden;
   z-index: 80;
-  // background-size: cover;
+  background-size: cover;
 
   // background-image:
-  //   linear-gradient(to top, rgba(variables.$color-white, 0.9), transparent),
-  //   url(../assets/images/business-man-1200.webp);
-  //
+  //   linear-gradient(to top, rgba(variables.$color-light, 0.9), transparent),
+  //   url(../assets/images/design.webp);
+
   // @include mixins.responsive(tablet) {
   //   background-image:
   //     linear-gradient(to top, rgba(variables.$color-white, 0.9), transparent),
@@ -39,6 +39,12 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: variables.$color-light;
+    background-color: rgba(variables.$color-light, 0.9);
+  }
+
+  &__nerd-mode {
+    position: absolute;
+    right: 5rem;
+    bottom: 5rem;
   }
 }

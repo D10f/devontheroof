@@ -16,6 +16,11 @@
     grid-template-columns: 1fr;
   }
 
+  &:hover .stack {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   &__description {
     display: flex;
     flex-direction: column;

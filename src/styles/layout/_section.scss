@@ -107,7 +107,8 @@
     padding-top: 10rem;
     padding-bottom: 15rem;
     transform: translateY(-24rem) skewY(1deg);
-    min-height: 101vh;
+    // min-height: 101vh;
+    min-height: 80vh;
     box-shadow: variables.$box-shadow;
     z-index: 40;
 

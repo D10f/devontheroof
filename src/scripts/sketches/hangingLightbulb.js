@@ -27,6 +27,12 @@ let bodies = [];
 let boxes = [];
 let surfaces = [];
 
+function removeFromWorld(body) {
+  World.remove(world, body);
+  boxes = boxes.filter(box => box.body.id !== body.id);
+  bodies = bodies.filter(currentBody => currentBody.body.id !== body.id);
+}
+
 class Ball {
   constructor({ p, x, y, r, options = {} }) {
     this.p = p;
@@ -35,6 +41,7 @@ class Ball {
     this.c = p.color(225);
     this.noRender = options.noRender || false;
     World.add(world, this.body);
+    setTimeout(() => removeFromWorld(this.body), 4000);
   }
 
   render() {
@@ -58,7 +65,7 @@ class Light {
     this.c = p.color(225);
     World.add(world, this.body);
     this.rays = [];
-    for (let i = 0; i <= 360; i += 1) {
+    for (let i = 0; i < 360; i += 1) {
       this.rays.push(new Ray(this.body.position, p.radians(i), p));
     }
   }
@@ -238,11 +245,15 @@ export default p => {
   let canvasDOM;
   let timer;
 
+  p.paused = false;
+
   p.stopLoop = () => {
+    p.paused = true;
     p.noLoop();
   };
 
   p.resumeLoop = () => {
+    p.paused = false;
     p.loop();
   };
 
@@ -383,34 +394,14 @@ export default p => {
     });
     mouse.pixelRatio = p.pixelDensity();
 
-    Events.on(mouseconstraint, 'mousedown', (e) => {
-
-      if (e.source.body && e.source.body.id === 2) {
-        return false;
-      }
-
-      const ball = new Ball({
-        p: p,
-        x: p.mouseX,
-        y: p.mouseY,
-        r: 10,
-        options: {
-          noRender: !RENDER_BODIES,
-          restitution: 0.55,
-          friction: 0.1
-        }
-      });
-
-      bodies.push(ball);
-      boxes.push(ball);
-
-      // changes color of the light on every click
-      // light.c = p.color(
-      //   p.random(100, 255),
-      //   p.random(100, 255),
-      //   p.random(100, 255)
-      // );
-    });
+    // Events.on(mouseconstraint, 'mousedown', (e) => {
+    //   // changes color of the light on every click
+    //   light.c = p.color(
+    //     p.random(100, 255),
+    //     p.random(100, 255),
+    //     p.random(100, 255)
+    //   );
+    // });
 
     if (CANVAS_WALLS) {
       surfaces.push(new Surface(0, 0, p.width, 0, p));
@@ -425,6 +416,24 @@ export default p => {
 
   p.draw = () => {
     p.background(50);
+
+    // new ball every 60 frames
+    if (p.frameCount % 60 === 0) {
+      const ball = new Ball({
+        p: p,
+        x: p.random(150, p.width - 150),
+        y: -20,
+        r: 10,
+        options: {
+          noRender: !RENDER_BODIES,
+          restitution: 0.55,
+          friction: 0.1
+        }
+      });
+
+      bodies.push(ball);
+      boxes.push(ball);
+    }
 
     // run the engine
     Engine.update(engine);
@@ -448,4 +457,9 @@ export default p => {
       surfaces = [];
     }
   };
+
+  p.keyPressed = () => {
+    if (p.keyCode !== 80) return;
+    p.paused ? p.resumeLoop() : p.stopLoop();
+  }
 };

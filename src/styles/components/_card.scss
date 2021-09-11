@@ -5,7 +5,7 @@
   border: 1px solid variables.$color-gray-dark;
   border-radius: variables.$border-radius;
   box-shadow: variables.$box-shadow;
-  max-height: 25rem;
+  // max-height: 25rem;
 
   @include mixins.responsive(portrait) {
     max-width: 50rem;
@@ -17,8 +17,8 @@
   }
 
   &--canvas-container {
-    min-height: 40rem;
-    min-width: 40rem;
+    min-height: 30rem;
+    min-width: 30rem;
 
     @include mixins.responsive(portrait) {
       margin-top: 6rem;
@@ -36,7 +36,7 @@
   &__image {
     height: 100%;
     max-width: 100%;
-    object-fit: contain;
+    object-fit: cover;
 
     &--cover {
       object-fit: cover;

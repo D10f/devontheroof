@@ -44,12 +44,17 @@ class MoveFilesAfterCompile {
   }
 }
 
+const HTMLPages = fs.readdirSync(path.resolve('src'))
+  .filter(page => page.endsWith('.html'))
+  .map(page => new HtmlWebpackPlugin({ filename: page, template: `./src/${page}` }));
+
 let mode = 'development';
 let target = 'web';
 let devtool = 'source-map';
-let plugins = [
-  new HtmlWebpackPlugin({ filename: 'index.html', template: './src/index.html' }),
-];
+let plugins = HTMLPages;
+// let plugins = [
+//   new HtmlWebpackPlugin({ filename: 'index.html', template: './src/index.html' }),
+// ];
 
 if (process.env.NODE_ENV === 'production') {
   mode = 'production';

@@ -485,11 +485,15 @@ export default p => {
   let canvasDOM;
   let timer;
 
+  p.paused = false;
+
   p.stopLoop = () => {
+    p.paused = true;
     p.noLoop();
   };
 
   p.resumeLoop = () => {
+    p.paused = false;
     p.loop();
   };
 
@@ -545,6 +549,10 @@ export default p => {
   };
 
   p.keyPressed = () => {
+
+    // Prevents updating current move while paused
+    if (p.paused && p.keyCode !== 80) return;
+
     switch (p.keyCode) {
       case p.UP_ARROW:
         current.turn();
@@ -560,6 +568,9 @@ export default p => {
         break;
       case 32:
         current.moveToBottom();
+        break;
+      case 80: // P for pause
+        p.paused ? p.resumeLoop() : p.stopLoop();
         break;
     }
   }

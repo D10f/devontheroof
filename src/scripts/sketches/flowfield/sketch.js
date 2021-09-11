@@ -74,11 +74,15 @@ export default p => {
   let canvasDOM;
   let timer;
 
+  p.paused = false;
+
   p.stopLoop = () => {
+    p.paused = true;
     p.noLoop();
   };
 
   p.resumeLoop = () => {
+    p.paused = false;
     p.loop();
   };
 
@@ -156,4 +160,9 @@ export default p => {
       particle.updatePrevious();
     });
   };
+
+  p.keyPressed = () => {
+    if (p.keyCode !== 80) return;
+    p.paused ? p.resumeLoop() : p.stopLoop();
+  }
 };

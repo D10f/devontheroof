@@ -109,11 +109,15 @@ export default p => {
   let canvasDOM;
   let timer;
 
+  p.paused = false;
+
   p.stopLoop = () => {
+    p.paused = true;
     p.noLoop();
   };
 
   p.resumeLoop = () => {
+    p.paused = false;
     p.loop();
   };
 
@@ -154,7 +158,13 @@ export default p => {
   };
 
   p.keyPressed = () => {
+    // Prevents updating current move while paused
+    if (p.paused && p.keyCode !== 80) return;
+
     switch (p.keyCode) {
+      case 80: // P for pause
+        p.paused ? p.resumeLoop() : p.stopLoop();
+        break;
       case p.UP_ARROW:
         snake.turn(0, -10);
         break;

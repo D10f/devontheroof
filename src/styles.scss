@@ -12,6 +12,7 @@
 @use './styles/components/icon';
 @use './styles/components/navbar';
 @use './styles/components/tooltip';
+@use './styles/components/stack';
 @use './styles/components/search';
 @use './styles/components/project';
 
@@ -24,3 +25,4 @@
 
 /* PAGES */
 @use './styles/pages/blog';
+@use './styles/pages/nerdmode';
