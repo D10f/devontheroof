@@ -2,7 +2,7 @@
 
 .btn {
   border: none;
-  background: none;
+  background: variables.$color-light;
   display: inline-block;
   border-radius: 3px;
   border-width: 2px !important; /* For consistency with <a> and <button> */
@@ -22,7 +22,7 @@
     font-size: 1.6rem;
     font-family: inherit;
     border-color: variables.$color-dark;
-    background-color: transparent;
+    // background-color: transparent;
     transition: all 0.8s 0.3s ease-out, transform 0.2s ease;
     z-index: 999;
 

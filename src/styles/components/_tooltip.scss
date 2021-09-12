@@ -36,17 +36,8 @@
     position: relative;
 
     &::before {
-      content: attr(data-tooltip);
-      position: absolute;
-      top: 110%;
-      left: -100%;
-      padding: .5rem;
-      border-radius: variables.$border-radius;
-      background-color: variables.$color-dark;
-      color: variables.$color-light;
-      transform: scale(0);
-      opacity: 0;
-      transition: transform 0.2s opacity 0.3s;
+      top: 0;
+      left: 3rem;
     }
   }
 

@@ -181,4 +181,9 @@ export default p => {
     Engine.update(engine);
     renderQueue.render();
   };
+
+  p.keyPressed = () => {
+    if (p.keyCode !== 80) return;
+    p.paused ? p.resumeLoop() : p.stopLoop();
+  }
 };
