@@ -168,10 +168,12 @@
   padding: 1rem;
   transition: transform 0.25s ease;
 
+  &:focus,
   &:hover {
     transform: translateY(-0.5rem);
   }
 
+  &:focus::before,
   &:hover::before {
     opacity: .9;
     transform: translateY(0);
