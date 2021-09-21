@@ -17,13 +17,18 @@ class VideoLoader {
   replaceImages() {
     const src = ['resizer', 'passwords']; // names of the video files
 
+    // This is to work with CSP with and without www on the subdomain
+    const baseUrl = location.host.includes('www')
+      ? 'https://www.developersojourn.site/videos'
+      : 'https://developersojourn.site/videos';
+
     this.cards.forEach((card, idx) => {
       const cloned = this.template.content.cloneNode(true);
       const video = cloned.querySelector('video');
 
       video.src = video.canPlayType('video/webm; codecs="vp8, vorbis"')
-        ? `https://developersojourn.site/videos/${src[idx]}.webm`
-        : `https://developersojourn.site/videos/${src[idx]}.mp4`
+        ? `${baseUrl}/${src[idx]}.webm`
+        : `${baseUrl}/${src[idx]}.mp4`
 
       card.lastElementChild.remove(); // removes the image
       card.appendChild(video);
