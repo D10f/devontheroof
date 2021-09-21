@@ -181,11 +181,13 @@ class DOMController {
       link.href = projectData[project].links[idx];
     });
 
+    this.projects.children.forEach(el => el.style.opacity = 0);
     this.projects.appendChild(cloned);
   };
 
   // removes the generated template
   removeProjectOverlay() {
+    this.projects.children.forEach(el => el.style.opacity = 1);
     const overlay = this.projects.querySelector('aside');
     if (overlay) { // only remove the aside el, the overlay
       overlay.classList.add('project__information--remove');

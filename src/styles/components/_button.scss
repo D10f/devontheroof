@@ -23,7 +23,12 @@
     font-family: inherit;
     border-color: variables.$color-dark;
     // background-color: transparent;
-    transition: all 0.8s 0.3s ease-out, transform 0.2s ease;
+    // transition: all 0.8s 0.3s ease-out, transform 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      border-color 0.8s 0.3s ease-out,
+      color 0.8s 0.3s ease-out,
+      opacity 0.25s ease-in-out;
     z-index: 999;
 
     &:active {
