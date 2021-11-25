@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.png"
+      type="image/png"
+    />
+    <title>Developer Sojourn | Blog</title>
+  </head>
+  <body class="blog">
+    <header id="about" class="section__header">
+      <h1 class="section__title section__header--title">
+        <a aria-label="Back to main page" href="http://localhost:8080">
+          <small aria-label="hidden">&larr;</small>
+          Developer Sojourn</a
+        >
+      </h1>
+
+      <aside class="section__header-search">
+        <form class="search-form">
+          <label
+            class="search-form__label"
+            for="search-posts"
+            aria-label="search input for blog posts"
+          ></label>
+          <input
+            class="search-form__input"
+            id="search-posts"
+            name="text-input"
+            type="text"
+            placeholder="You know what to do."
+          />
+          <output class="search-form__results"></output>
+        </form>
+      </aside>
+
+      <div class="section__header-intro">
+        <h2>Welcome to the blog, looking for something?</h2>
+      </div>
+    </header>
+
+    <section class="section__blog-posts mt-2">
+      <ul class="blog-list">
+        <li class="blog-item blog-item--mongo">
+          <a class="blog-link" href="#"> MongoDB </a>
+          <svg aria-hidden="true">
+            <use xlink:href="../assets/images/sprite.svg#icon-mongo"></use>
+          </svg>
+        </li>
+
+        <li class="blog-item blog-item--wordpress">
+          <a class="blog-link" href="#"> Automate WordPress Backups </a>
+          <svg aria-hidden="true">
+            <use xlink:href="../assets/images/sprite.svg#icon-wordpress"></use>
+          </svg>
+        </li>
+
+        <li class="blog-item blog-item--wordpress">
+          <a class="blog-link" href="#"> Debug WordPress REST API Queries </a>
+          <svg aria-hidden="true">
+            <use xlink:href="../assets/images/sprite.svg#icon-wordpress"></use>
+          </svg>
+        </li>
+
+        <li class="blog-item blog-item--pwa">
+          <a class="blog-link" href="#"> Progressive Web Apps </a>
+          <svg aria-hidden="true">
+            <use xlink:href="../assets/images/sprite.svg#icon-pwa"></use>
+          </svg>
+        </li>
+
+        <li class="blog-item blog-item--nginx">
+          <a class="blog-link" href="#"> Basic Authentication With Nginx </a>
+          <svg aria-hidden="true">
+            <use xlink:href="../assets/images/sprite.svg#icon-nginx"></use>
+          </svg>
+        </li>
+
+        <li class="blog-item blog-item--bash">
+          <a class="blog-link" href="#"> Everyday Shell Scripts </a>
+          <svg aria-hidden="true">
+            <use xlink:href="../assets/images/sprite.svg#icon-bash"></use>
+          </svg>
+        </li>
+      </ul>
+    </section>
+
+    <footer id="contact" class="section__footer">
+      <h2 class="section__title">Thanks for visiting!</h2>
+      <p>
+        If you'd like to know more about me or this site please don't hesitate
+        to contact me and visit my GitHub page.
+      </p>
+      <ul class="section__footer-icons">
+        <li class="tooltip" data-tooltip="GitHub">
+          <a
+            href="https://github.com/herokunt"
+            target="_blank"
+            aria-label="external link to a github profile"
+          >
+            <svg aria-hidden="true">
+              <use
+                xlink:href="../assets/images/sprite.svg#icon-github-light"
+              ></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="tooltip" data-tooltip="devsojourn@pm.me">
+          <a
+            href="mailto:devsojourn@pm.me"
+            target="_blank"
+            aria-label="link to send an email"
+          >
+            <svg aria-hidden="true">
+              <use xlink:href="../assets/images/sprite.svg#icon-envelope"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="tooltip" data-tooltip="PGP">
+          <a
+            href="publickey.devsojourn@pm.me.asc"
+            download
+            aria-label="downloads a pgp public key file"
+          >
+            <svg aria-hidden="true">
+              <use xlink:href="../assets/images/sprite.svg#icon-key1"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

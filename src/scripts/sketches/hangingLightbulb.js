@@ -41,7 +41,7 @@ class Ball {
     this.c = p.color(225);
     this.noRender = options.noRender || false;
     World.add(world, this.body);
-    setTimeout(() => removeFromWorld(this.body), 4000);
+    setTimeout(() => removeFromWorld(this.body), 2000);
   }
 
   render() {

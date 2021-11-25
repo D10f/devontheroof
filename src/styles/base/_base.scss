@@ -1,5 +1,5 @@
-@use '../abstract/mixins';
-@use '../abstract/variables';
+@use "../abstract/mixins";
+@use "../abstract/variables";
 
 *,
 *::before,
@@ -7,49 +7,35 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  font-family: inherit;
 }
 
 html {
-  scroll-behavior: smooth;
   font-size: 62.5%;
-  @include mixins.responsive(portrait)   { font-size: 56.25%; }
-  @include mixins.responsive(narrow)     { font-size: 50%;    }
-  @include mixins.responsive(widescreen) { font-size: 75%;    }
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  @include mixins.contain;
+  font-family: "PanameraRegular", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.6;
-  color: variables.$color-dark;
-  background-color: variables.$color-light;
+  color: #333;
   box-sizing: border-box;
-  overflow-x: hidden;
-
-  @media only screen and (hover: none){}
+  background-color: variables.$color-lighter;
 }
 
-h6, h5, h4, h3, h2, h1, a, p, li {
+p,
+a,
+button {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
   color: inherit;
 }
 
-a,
-a:focus,
-a:hover {
-  text-decoration: none;
-  border: none;
-  outline: none;
-}
-
-li {
+ul {
   list-style: none;
-}
-
-button,
-button:focus,
-button:hover {
-  border: none;
-  outline: none;
 }

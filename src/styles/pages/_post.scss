@@ -1,0 +1,204 @@
+@use "../abstract/variables";
+@use "../abstract/mixins";
+@use "../layout/sections";
+
+// These are styles applied only on a post page and often override the main styles
+
+body.post {
+  .section__header {
+    grid-template:
+      "title search" auto /
+      auto auto;
+    gap: 2rem;
+
+    @include mixins.responsive(tablet) {
+      grid-template:
+        "title" auto
+        "search" auto /
+        1fr;
+      gap: 1rem;
+    }
+
+    &-search {
+      grid-area: search;
+      justify-self: flex-end;
+      align-self: center;
+      width: 100%;
+
+      @include mixins.responsive(tablet) {
+        justify-self: center;
+        width: 70%;
+      }
+      @include mixins.responsive(phone) {
+        width: 100%;
+        margin: 0;
+      }
+    }
+  }
+
+  .section__title a {
+    font-family: "PanameraRegular";
+
+    @include mixins.responsive(narrow) {
+      font-size: 3rem;
+    }
+  }
+
+  .section__post {
+    @extend %section;
+    min-height: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .post-index,
+  .post-content {
+    align-self: stretch;
+    flex: 1 0 auto;
+  }
+
+  .post-index {
+    text-align: center;
+
+    @include mixins.responsive(tablet) {
+      display: none;
+    }
+
+    &__link {
+     &:hover {
+       color: variables.$color-primary;
+     } 
+    }
+
+    ul {
+      position: fixed;
+      max-width: 20rem;
+    }
+  }
+
+  .post-content {
+    width: 60%;
+    padding: 0 2rem;
+
+    @include mixins.responsive(tablet) {
+      width: 70%;
+      padding: 0 2rem;
+    }
+
+    @include mixins.responsive(phone) {
+      width: 100%;
+      padding: 0;
+    }
+
+    p, h3 {
+      padding: 1rem 4rem;
+      max-width: 80ch;
+
+      @include mixins.responsive(portrait) {
+        padding: 1rem 2rem;
+      }
+
+      @include mixins.responsive(tablet) {
+        padding: 1rem 0;
+      }
+    }
+
+    h3 {
+      font-size: 2.4rem;
+    }
+  }
+
+  .post-header {
+    // position: relative;
+    border-radius: 5px;
+    box-shadow: variables.$box-shadow-light;
+    background-color: transparent;
+    padding: 2rem 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & svg {
+      width: 6rem;
+      height: 6rem;
+      pointer-events: none;
+
+      @include mixins.responsive(portrait) {
+        display: none;
+      }
+    }
+
+    &--nginx {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-nginx, 0.4),
+        rgba(variables.$color-nginx, 0.25)
+      );
+    }
+    &--mongo {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-mongo, 0.5),
+        rgba(variables.$color-mongo, 0.25)
+      );
+    }
+    &--wordpress {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-wordpress, 0.5),
+        rgba(variables.$color-wordpress, 0.25)
+      );
+    }
+    &--pwa {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-pwa, 0.35),
+        rgba(variables.$color-pwa, 0.25)
+      );
+    }
+    &--bash {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-bash, 0.5),
+        rgba(variables.$color-bash, 0.25)
+      );
+    }
+    &--react {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-react, 0.25),
+        rgba(variables.$color-react, 0.1)
+      );
+    }
+    &--js {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-js, 0.75),
+        rgba(variables.$color-js, 0.25)
+      );
+    }
+  }
+
+  .post-title {
+    width: 100%;
+    flex: 1 0 auto;
+    @include mixins.responsive(phone) {
+      font-size: 2rem;
+    }
+  }
+
+  .section__footer {
+    margin-top: 10rem;
+  }
+
+  code {
+    background-color: variables.$color-dark;
+    color: variables.$color-light;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    padding: 0.2rem 0.5rem;
+  }
+}

@@ -1,0 +1,63 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+.section__header {
+  display: grid;
+  align-items: flex-start;
+  row-gap: 5rem;
+  padding: 2rem 4rem;
+  grid-template: 
+    "title title title" 5rem
+    ".     .     blog"  5rem
+    "intro intro blog"  auto /
+    1fr    1fr    auto;
+
+  @include mixins.responsive(tablet) {
+    // row-gap: 3rem;
+    grid-template: 
+      "title"  1fr
+      "intro " auto
+      "blog  " auto /
+      auto;
+  }
+
+  @include mixins.responsive(phone) {
+    row-gap: 3rem;
+    grid-template: 
+      "title" auto
+      "intro " 2fr
+      "blog  " auto /
+      auto;
+  }
+
+  &--title {
+    width: 100%;
+    grid-area: title;
+  }
+
+  &-subtitle {
+    font-size: 2rem;
+  }
+
+  &-intro {
+    grid-area: intro;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-right: 15rem;
+
+    @include mixins.responsive(landscape) {
+      padding-right: 2rem;
+      margin-right: unset;
+    }
+  }
+
+  &-blog {
+    grid-area: blog;
+
+    @include mixins.responsive(portrait) {
+      justify-self: center;
+    }
+  }
+}

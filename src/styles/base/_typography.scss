@@ -1,50 +1,6 @@
-@use '../abstract/variables';
-@use '../abstract/mixins';
-
 @font-face {
   font-family: 'PanameraRegular';
   src: url(../assets/fonts/PanameraRegular.otf) format('opentype');
   font-weight: normal;
   font-style: normal;
-}
-
-.section__title,
-.section__subtitle {
-  font-family: PanameraRegular;
-}
-
-.section__title {
-  position: relative;
-  font-size: 3.5rem;
-}
-
-.section__subtitle {
-  font-size: 2rem;
-}
-
-.headline {
-  z-index: 10;
-
-  @include mixins.responsive(tablet) {
-    text-align: center;
-    max-width: 90vw;
-  }
-
-  &__title,
-  &__subtitle {
-    display: block;
-  }
-
-  &__title {
-    font-size: 3rem;
-  }
-
-  &__subtitle {
-    font-size: 2rem;
-  }
-}
-
-::selection {
-  background-color: variables.$color-primary;
-  color: variables.$color-light;
 }

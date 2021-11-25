@@ -1,144 +1,115 @@
-const path = require('path');
-const fs = require('fs');
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const plugins = [
+  new HtmlWebpackPlugin({
+    filename: "index.html",
+    template: "./src/index.html",
+  }),
+  new HtmlWebpackPlugin({ filename: "blog.html", template: "./src/blog.html" }),
+  new HtmlWebpackPlugin({ filename: "post.html", template: "./src/post.html" }),
+];
 
-class BuildWordPressFiles{
-  apply(compiler){
-    compiler.hooks.done.tap('Link compiled CSS files to custom theme', function(){
+let mode = "development";
+let target = "web";
+let devtool = "source-map";
 
-      const cssfiles = new RegExp(/main\..+\.css/ig);
-
-      fs.readdirSync('./src/wp_blog/theme/css').forEach(file => {
-        if (file.match(cssfiles)) {
-          fs.unlinkSync(`./src/wp_blog/theme/css/${file}`);
-        }
-      });
-
-      let functionsphp = fs.readFileSync('./src/wp_blog/theme/functions.php', 'utf-8');
-
-      // Copy bundled css files from dist into wp_blog directory
-      fs.readdirSync('./dist').forEach(file => {
-        if (file.match(cssfiles)) {
-          fs.copyFile(`./dist/${file}`, `./src/wp_blog/theme/css/${file}`, (err) => {
-            if (err) throw err;
-          });
-          functionsphp = functionsphp.replace(cssfiles, file);
-        }
-      });
-
-      fs.writeFileSync('./src/wp_blog/theme/functions.php', functionsphp);
-    });
-  }
-};
-
-class MoveFilesAfterCompile {
-  apply(compiler){
-    compiler.hooks.done.tap('Move files not compiled by Webpack into dist/ directory', function(){
-      fs.copyFile('./assets/publickey.devsojourn@pm.me.asc', './dist/publickey.devsojourn@pm.me.asc', (err) => {
-        if (err) throw err;
-      });
-    });
-  }
-}
-
-const HTMLPages = fs.readdirSync(path.resolve('src'))
-  .filter(page => page.endsWith('.html'))
-  .map(page => new HtmlWebpackPlugin({ filename: page, template: `./src/${page}` }));
-
-let mode = 'development';
-let target = 'web';
-let devtool = 'source-map';
-let plugins = HTMLPages;
-// let plugins = [
-//   new HtmlWebpackPlugin({ filename: 'index.html', template: './src/index.html' }),
-// ];
-
-if (process.env.NODE_ENV === 'production') {
-  mode = 'production';
-  target = 'browserslist';
+if (process.env.NODE_ENV === "production") {
+  mode = "production";
+  target = "browserslist";
   devtool = false;
+  plugins.push(new CleanWebpackPlugin());
   plugins.push(
-    new CleanWebpackPlugin(),
-    new BuildWordPressFiles(),
-    new MoveFilesAfterCompile()
+    new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" })
   );
+} else {
+  plugins.push(new MiniCssExtractPlugin({ filename: "[name].css" }));
 }
-
-/* Do not use hashes while in development in order to benefit from HMR */
-plugins.push(new MiniCssExtractPlugin({
-  filename: mode === 'production' ? '[name].[contenthash].css' : '[name].css' }
-));
 
 module.exports = {
   mode: mode,
   target: target,
-  entry: './src/app.js',
+  entry: "./src/index",
   output: {
-    filename: mode === 'production' ? '[name].[contenthash].js' : '[name].js',
-    path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: 'images/[name][ext][query]'
+    filename: mode === "development" ? "[name].js" : "[name].[contenthash].js",
+    path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "images/[name][ext][query]",
   },
   module: {
     rules: [
       {
-        test: /\.html$/,
-        use: ['html-loader']
+        test: /\.html$/i,
+        use: {
+          loader: "html-loader",
+        },
       },
       {
         test: /\.(webp|png|jpe?g|gif|svg)$/i,
-        type: 'asset/resource'
+        type: "asset/resource",
       },
       {
         test: /\.(webm|mp4)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'videos/[name][ext][query]'
-        }
+          filename: "videos/[name][ext][query]",
+        },
       },
       {
         test: /\.(ttf|otf|woff|woff2)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'fonts/[name][ext][query]'
-        }
+          filename: "fonts/[name][ext][query]",
+        },
       },
       {
-        test: /\.jsx?/,
+        test: /\.(j|t)sx?/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.(s[c|a]|c)ss/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: '' }
+            options: { publicPath: "" },
           },
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ]
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
       },
-    ]
+      {
+        test: /\.glsl$/,
+        loader: "webpack-glsl-loader",
+      },
+    ],
   },
   plugins: plugins,
+  resolve: {
+    extensions: [".js", ".ts"],
+  },
   devtool: devtool,
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    watchOptions: {
-      aggregateTimeout: 1000,
-      ignored: /node_modules/
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+      publicPath: "/assets",
     },
-    hot: true
+    watchFiles: {
+      paths: path.resolve(__dirname, "src"),
+      options: {
+        ignored: /node_modules/,
+      },
+    },
+    compress: false, // <- true is default
+    hot: true, // <- true is default
   },
   optimization: {
     splitChunks: {
-      chunks: 'all'
-    }
-  }
+      chunks: mode === "production" ? "all" : "async",
+    },
+  },
 };

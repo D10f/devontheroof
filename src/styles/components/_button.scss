@@ -1,94 +1,61 @@
-@use '../abstract/variables';
-
 .btn {
-  border: none;
-  background: variables.$color-light;
   display: inline-block;
-  border-radius: 3px;
-  border-width: 2px !important; /* For consistency with <a> and <button> */
-  border-style: solid !important;
+  position: relative;
+  padding: 1.3rem;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #333;
+  line-height: 1.5rem;
+  font-size: 1.4rem;
+  text-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  min-width: max-content;
+  transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+  backface-visibility: hidden;
 
-  &:hover {
+  &:hover,
+  &:focus {
     cursor: pointer;
+    transform: scale(1.1) skew(-7deg);
   }
 
-  .icon {
-    transition: all 0.4s 0.2s ease-out;
+  &:focus {
+    outline: none;
   }
 
-  &--cta {
-    position: relative;
-    padding: 1rem 2rem;
-    font-size: 1.6rem;
-    font-family: inherit;
-    border-color: variables.$color-dark;
-    // background-color: transparent;
-    // transition: all 0.8s 0.3s ease-out, transform 0.2s ease;
-    transition:
-      transform 0.2s ease,
-      border-color 0.8s 0.3s ease-out,
-      color 0.8s 0.3s ease-out,
-      opacity 0.25s ease-in-out;
-    z-index: 999;
-
-    &:active {
-      transform: translateY(.5rem);
-    }
-
-    &:hover,
-    &:focus {
-      // background-color: variables.$color-dark;
-      color: variables.$color-primary;
-      border-color: variables.$color-primary;
-
-      .icon {
-        fill: variables.$color-primary;
-      }
-    }
-
-    &:focus::before,
-    &:focus::after,
-    &:hover::before,
-    &:hover::after {
-      clip-path: circle(100% at center center);
-      opacity: 0;
-    }
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      clip-path: circle(0% at center center);
-    }
-
-    &::before {
-      transition: all 0.4s ease-out, opacity 0.2s 0.4s ease;
-      background-color: variables.$color-secondary;
-    }
-
-    &::after {
-      transition: all 0.5s 0.2s ease-out, opacity 0.2s 0.6s ease;
-      background-color: variables.$color-primary;
-    }
+  &:active {
+    opacity: 0.9;
   }
 
-  &--has-icon {
-    padding-right: 5rem;
-
-    .icon {
-      position: absolute;
-      width: 2.6rem;
-      height: 2.6rem;
-      top: 1rem;
-      right: 1rem;
-    }
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+    z-index: -1;
+    transform: translate(0 0);
+    transition: transform 0.3s 0.2s cubic-bezier(.68,-0.55,.27,1.55);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
   }
 
-  &--hide {
-    display: none;
+  &::before {
+    background-image: linear-gradient(to bottom right, #fb7158 45%, transparent);
+  }
+
+  &::after {
+    background-image: linear-gradient(to top left, rgba(244, 200, 98, 0.9) 35%, transparent);
+  }
+
+  &:focus::before,
+  &:hover::before {
+    transform: translate(4px, -5px) skew(7deg);
+  }
+  &:focus::after,
+  &:hover::after {
+    transform: translate(-4px, 5px) skew(7deg);
   }
 }

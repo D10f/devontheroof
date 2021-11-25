@@ -2,39 +2,27 @@
 
 $color-light: #F1F1F1;
 $color-lighter: #F4F4F4;
+
 $color-dark: #333;
 $color-darker: #212121;
 
-$color-gray: #95a5a6;
-$color-gray-light: #bdc3c7;
-$color-gray-dark: #7f8c8d;
-
-$color-primary: #f94c43;
-$color-secondary: #f4c862;
+$color-primary: #fb7158;
+$color-secondary: #f4c862e5;
 
 $color-p5: #ED225D;
-$color-logo: #7b92f9;
+$color-sojourn: #7b92f9;
+$color-nginx: #009639;
+$color-mongo: #47A248;
+$color-wordpress: #21759B;
+$color-pwa: #5A0FC8;
+$color-bash: #555753;
+$color-react: #61DAFB;
+$color-js: #f7d249;
 
-$background-gradient: linear-gradient(
-  120deg,
-  $color-lighter,
-  $color-gray-light
-);
-
-$background-gradient-dark: linear-gradient(
-  120deg,
-  #2C5364,
-  #203A43,
-  #0F2027
-);
 
 /* LAYOUT */
 
-$max-width: 100rem;
-$border-radius: 3px;
-$border-color: 1px solid $color-dark;
-$border-color-dark: 1px solid #2C5364;
-$column-gap: 2rem;
+$max-width: 120rem;
 
 /* EFFECTS */
 

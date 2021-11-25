@@ -1,0 +1,28 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+%section {
+  min-height: 100vh;
+  padding: 2rem 4rem;
+
+  @include mixins.responsive(phone) {
+    padding: 1rem 4rem;
+  }
+}
+
+.section {
+  &__webapps,
+  &__scripting,
+  &__graphics {
+    @extend %section;
+  }
+
+  &__title {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+
+    @include mixins.responsive(phone) {
+      font-size: 3.6rem;
+    }
+  }
+}

@@ -2,21 +2,26 @@
 
 .banner {
   position: fixed;
-  bottom: 0;
   left: 1rem;
+  bottom: 1rem;
   z-index: 1;
   font-family: PanameraRegular;
-  font-size: 10rem;
-  opacity: .25;
-  pointer-events: none;
+  font-size: 6rem;
+  font-weight: bold;
+  opacity: 0.75;
+  color: #333;
   z-index: 999;
+  pointer-events: none;
 
   @include mixins.responsive(phone) {
-    display: none;
+    font-size: 4rem;
+  }
+  @include mixins.responsive(narrow) {
+    font-size: 3rem;
   }
 
   &::selection {
-    background: none;
+    background-color: none;
     color: inherit;
   }
 }

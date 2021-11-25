@@ -1,456 +1,538 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="../assets/images/favicon.png">
-  <title>Developer Sojourn</title>
-</head>
-<body>
-  <header class="landing">
-    <nav class="navbar mt-4">
-      <h1 class="section__title">Developer Sojourn</h1>
-      <div>
-        <a class="btn btn--cta btn--has-icon mr-2" href="https://developersojourn.site/blog" target="_blank">
-          Blog
-          <svg class="icon" width=24 height=24 viewBox="0 0 40 40" aria-hidden="true">
-            <path d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
-            <path d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
-          </svg>
-        </a>
-        <a class="btn btn--cta" href="#contact">Contact</a>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.png"
+      type="image/png"
+    />
+    <title>Developer Sojourn</title>
+  </head>
+  <body>
+    <header id="about" class="section__header">
+      <h1 class="section__title section__header--title">Developer Sojourn</h1>
+      <div class="section__header-intro">
+        <h2>Lorem Ipsum Is Great</h2>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim illum
+          est impedit laboriosam dolorem, commodi aliquam quam quis a reiciendis
+          beatae, dolor corporis rerum cupiditate consequuntur? Cupiditate
+          reiciendis dolores perspiciatis!
+        </p>
+        <div>
+          <a href="#webapps" class="btn mt-1">Take A Look Around</a>
+          <a href="#contact" class="btn ml-2">Contact Me</a>
+        </div>
       </div>
-    </nav>
 
-    <h2 class="headline">
-      <span class="headline__subtitle">Hi! &#128075;</span>
-      <span class="headline__title">I'm a Web Developer based in Madrid, Spain.</span>
-    </h2>
-
-    <div class="flex-container vertical-on-mobile  mt-4">
-      <a class="btn btn--cta" href="#webapps">Take A Look Around</a>
-      <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt" target="_blank">
-        What I'm Working On Next
-        <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-        </svg>
-      </a>
-    </div>
-
-    <a class="landing__nerd-mode tooltip tooltip--left" href="/nerd_mode.html" data-tooltip="Nerd Mode">&#129299;</a>
-  </header>
-
-  <section id="webapps" class="section section__webapps">
-    <canvas id="canvas3d"></canvas>
-    <div class="container">
-      <h2 class="section__title mb-2" id="about">WebApps</h2>
-
-      <article class="project py-5">
-
-        <div class="card">
-          <img
-            class="card__image"
-            alt="Screenshot of a website named Bytes And Pipes"
-            src="../assets/images/bytesandpipes.webp"
-          >
-        </div>
-
-        <div class="project__description mt-2">
-          <h3 class="section__subtitle">Bytes And Pipes</h3>
-
-          <ul class="stack my-1">
-            <li class="stack__item tooltip" data-tooltip="Sass">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-sass"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="React">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-react"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="Redux">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-redux"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="Node">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-node"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="Express">
-              <svg class="icon icon--dark-mode"><use xlink:href="../assets/images/sprite.svg#icon-express"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="MongoDB">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-mongodb"></use></svg>
-            </li>
-          </ul>
-
-          <p>A file-sharing web application using AES256-GCM encryption.</p>
-
-          <footer class="flex-container mt-2">
-            <a class="btn btn--cta btn--has-icon" href="https://bytesandpipes.com" target="_blank">
-              Visit Page
-              <svg class="icon" width=24 height=24 viewBox="0 0 40 40" aria-hidden="true">
-                <path d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
-                <path d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
-              </svg>
-            </a>
-            <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/bytes-and-pipes" target="_blank">
-              Source Code
-              <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-              </svg>
-            </a>
-          </footer>
-        </div>
-      </article>
-
-      <article class="project py-5">
-        <div class="card y-250">
-          <img
-            class="card__image card__image--cover"
-            alt="Screenshot of a website named Bytes And Pipes"
-            src="../assets/images/budget.webp"
-          >
-        </div>
-        <div class="project__description mt-2">
-          <h3 class="section__subtitle">Pawn's Guard</h3>
-
-          <ul class="stack my-1">
-            <li class="stack__item tooltip" data-tooltip="Sass">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-sass"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="React">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-react"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="Redux">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-redux"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="Node">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-node"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="Express">
-              <svg class="icon icon--dark-mode"><use xlink:href="../assets/images/sprite.svg#icon-express"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="MongoDB">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-mongodb"></use></svg>
-            </li>
-          </ul>
-
-          <p>A modern expense tracker using AES256-GCM encryption.</p>
-
-          <footer class="flex-container mt-2">
-            <a class="btn btn--cta btn--has-icon" href="https://pawnsguard.com/" target="_blank">
-              Visit Page
-              <svg class="icon" width=24 height=24 viewBox="0 0 40 40" aria-hidden="true">
-                <path d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
-                <path d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
-              </svg>
-            </a>
-            <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/gadget-budget" target="_blank">
-              Source Code
-              <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-              </svg>
-            </a>
-          </footer>
-        </div>
-      </article>
-
-      <article class="project py-5">
-
-        <div class="card y-250">
-          <img
-            class="card__image card__image--horizontal"
-            alt="Screenshot of a website named Prismic Adventures"
-            src="../assets/images/nomads.webp"
-          >
-        </div>
-
-        <div class="project__description mt-2">
-          <h3 class="section__subtitle">Prismic Adventures</h3>
-
-          <ul class="stack my-1">
-            <li class="stack__item tooltip" data-tooltip="Material UI">
-              <svg class="icon icon--dark-mode"><use xlink:href="../assets/images/sprite.svg#icon-materialui"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="React">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-react"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="Apollo Client/Server">
-              <svg class="icon icon--dark-mode"><use xlink:href="../assets/images/sprite.svg#icon-apollo"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="GraphQL">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-graphql"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="Prisma">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-prisma"></use></svg>
-            </li>
-            <li class="stack__item tooltip" data-tooltip="MariaDB">
-              <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-mariadb"></use></svg>
-            </li>
-          </ul>
-
-          <p>A mini-social network site to share your adventures online.</p>
-
-          <footer class="flex-container mt-2">
-            <a class="btn btn--cta btn--has-icon" href="https://prismicadventures.xyz" target="_blank">
-              Visit Page
-              <svg class="icon" width=24 height=24 viewBox="0 0 40 40" aria-hidden="true">
-                <path d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
-                <path d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
-              </svg>
-            </a>
-            <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/react-graphql-prisma" target="_blank">
-              Source Code
-              <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-              </svg>
-            </a>
-          </footer>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section class="section section__graphics" id="graphics0">
-    <div class="container">
-      <h2 class="section__title mt-4 mb-2">Games & Graphics</h2>
-      <article class="project">
-        <div class="project__list is-relative">
-          <button
-            id="tetris"
-            class="project__item btn btn--cta"
-            data-w="400"
-            data-h="400"
-          >
-            Tetris
-          </button>
-          <button
-            id="snake"
-            class="project__item btn btn--cta"
-            data-w="400"
-            data-h="400"
-          >
-            Snake
-          </button>
-          <button
-            id="hangingLightbulb"
-            class="project__item btn btn--cta"
-            data-w="600"
-            data-h="400"
-          >
-            Hanging Lightbulb
-          </button>
-          <button
-            id="angryMatter"
-            class="project__item btn btn--cta"
-            data-w="600"
-            data-h="400"
-          >
-            Angry Matter
-          </button>
-          <button
-            id="flowField"
-            class="project__item btn btn--cta"
-            data-w="600"
-            data-h="400"
-          >
-            Flowfield
-          </button>
-          <button
-            id="raycastRendering"
-            class="project__item btn btn--cta"
-            data-w="600"
-            data-h="440"
-          >
-            Raycast Rendering
-          </button>
-          <button
-            id="solveTheMaze"
-            class="project__item btn btn--cta"
-            data-w="400"
-            data-h="400"
-          >
-            Maze In The Dark
-          </button>
-        </div>
-        <div class="card card--canvas-container is-relative" id="graphics1">
-          <p class="show-on-mobile">Unsupported device</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section section__scripting">
-    <div class="container">
-      <h2 class="section__title mb-2">Scripting</h2>
-      <article class="project">
-        <div class="card y-250">
-          <img
-            class="card__image"
-            alt="An image with the Python programming language logo"
-            src="../assets/images/python.png"
-            loading="lazy"
-          >
-        </div>
-
-        <div class="project__description mt-1">
-          <h3 class="section__subtitle mt-2">Batch Image Resizer</h3>
-          <p>A command line utility to resize images, convert them into different formats, with an option to compress the output to share them or upload them to the cloud easily.</p>
-
-          <footer class="flex-container mt-4">
-            <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank">
-              Source Code
-              <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-              </svg>
-            </a>
-          </footer>
-        </div>
-      </article>
-
-      <article class="project mt-8">
-        <div class="project__description mt-1">
-          <h3 class="section__subtitle mt-2">Password Checker</h3>
-          <p>Check your passwords agains the "Have I Been Pwned?" database. Only the first characters of a SHA-1 hash are sent so there is no way your password will be exposed to anyone.</p>
-
-          <footer class="flex-container mt-4">
-            <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank">
-              Source Code
-              <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-              </svg>
-            </a>
-          </footer>
-        </div>
-        <div class="card y-250">
-          <img
-            class="card__image"
-            alt="An image with the Python programming language logo"
-            src="../assets/images/python.png"
-            loading="lazy"
-          >
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section section__sysadmin">
-    <div class="container">
-      <h2 class="section__title mb-3" id="sysadmin">Linux System Administration</h2>
-      <article class="project">
-        <div class="card">
-          <img
-            class="card__image card__image--cover"
-            alt="Several panels monitoring a computer's resources"
-            src="../assets/images/sysadmin.webp"
-            loading="lazy"
-          >
-        </div>
-
-        <ul class="project__description is-left mt-2">
-          <li>
-            <svg class="product__image" version="1.1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32">
-              <path d="M29.64 6.269c-0.713 0-1.289-0.577-1.289-1.289 0-0.713 0.577-1.289 1.289-1.289s1.289 0.577 1.289 1.289c0.001 0.712-0.577 1.289-1.289 1.289zM16.829 28.311c-0.713 0-1.289-0.577-1.289-1.289 0-0.713 0.577-1.289 1.289-1.289s1.289 0.577 1.289 1.289c-0.001 0.711-0.577 1.289-1.289 1.289zM29.64 2.619c-1.304 0-2.361 1.057-2.361 2.361 0 0.279 0.071 0.537 0.159 0.785l-11.079 18.988c-1.071 0.224-1.891 1.129-1.891 2.267 0 1.304 1.057 2.361 2.361 2.361 1.303 0 2.36-1.057 2.36-2.361 0-0.263-0.071-0.501-0.148-0.737l11.135-19.051c1.039-0.249 1.827-1.139 1.827-2.253-0.001-1.303-1.059-2.36-2.363-2.36zM19.977 6.269c-0.713 0-1.289-0.577-1.289-1.289 0-0.713 0.577-1.289 1.289-1.289s1.289 0.577 1.289 1.289-0.577 1.289-1.289 1.289zM7.165 28.311c-0.712 0-1.289-0.577-1.289-1.289 0-0.713 0.577-1.289 1.289-1.289 0.713 0 1.289 0.577 1.289 1.289 0 0.711-0.577 1.289-1.289 1.289zM19.977 2.619c-1.305 0-2.361 1.057-2.361 2.361 0 0.279 0.071 0.537 0.159 0.785l-11.079 18.988c-1.072 0.224-1.892 1.129-1.892 2.267 0 1.304 1.057 2.361 2.361 2.361s2.361-1.057 2.361-2.361c0-0.263-0.071-0.501-0.148-0.737l11.135-19.051c1.039-0.249 1.827-1.139 1.827-2.253-0.001-1.303-1.059-2.36-2.363-2.36zM2.332 10.217c0.712 0 1.289 0.577 1.289 1.289s-0.577 1.289-1.289 1.289-1.289-0.576-1.289-1.288 0.577-1.291 1.289-1.291zM2.332 9.177c-1.285 0-2.331 1.045-2.331 2.331s1.045 2.331 2.331 2.331 2.331-1.045 2.331-2.331-1.045-2.331-2.331-2.331zM2.332 18.469c0.712 0 1.289 0.577 1.289 1.289s-0.577 1.289-1.289 1.289-1.289-0.577-1.289-1.289 0.577-1.289 1.289-1.289zM2.332 17.429c-1.285 0-2.331 1.045-2.331 2.331s1.045 2.331 2.331 2.331 2.331-1.045 2.331-2.331-1.045-2.331-2.331-2.331z"></path>
+      <div class="section__header-blog">
+        <ul class="blog-list">
+          <li class="blog-item blog-item--mongo">
+            <a class="blog-link" href="#"> <span class="blog-link--text">MongoDB</span> </a>
+            <svg aria-hidden="true">
+              <use xlink:href="../assets/images/sprite.svg#icon-mongo"></use>
             </svg>
-            <span>Shell scripting.</span>
           </li>
-          <li>
-            <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-nginx"></use></svg>
-            <span>Nginx web server and reverse proxy.</span>
+          <li class="blog-item blog-item--wordpress">
+            <a class="blog-link" href="#">
+              <span class="blog-link--text">Automate WordPress Backups</span>
+            </a>
+            <svg aria-hidden="true">
+              <use
+                xlink:href="../assets/images/sprite.svg#icon-wordpress"
+              ></use>
+            </svg>
           </li>
-          <li>
-            <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-icinga"></use></svg>
-            <span>Service availability monitoring using Icinga.</span>
+          <li class="blog-item blog-item--wordpress">
+            <a class="blog-link" href="#">
+              <span class="blog-link--text">Debug WordPress REST API Queries</span>
+            </a>
+            <svg aria-hidden="true">
+              <use
+                xlink:href="../assets/images/sprite.svg#icon-wordpress"
+              ></use>
+            </svg>
           </li>
-          <li>
-            <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-grafana"></use></svg>
-            <span>Resource Monitoring with Grafana, Telegraf and InfluxDB.</span>
+          <li class="blog-item blog-item--pwa">
+            <a class="blog-link" href="#">
+              <span class="blog-link--text">Progressive Web Apps</span>
+            </a>
+            <svg aria-hidden="true">
+              <use xlink:href="../assets/images/sprite.svg#icon-pwa"></use>
+            </svg>
           </li>
-          <li>
-            <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-elasticsearch"></use></svg>
-            <span>Centralized syslog server with Elasticsearch, Logstash and Kibana.</span>
+          <li class="blog-item blog-item--nginx">
+            <a class="blog-link" href="#">
+              <span class="blog-link--text">Basic Authentication With Nginx</span>
+            </a>
+            <svg aria-hidden="true">
+              <use xlink:href="../assets/images/sprite.svg#icon-nginx"></use>
+            </svg>
+          </li>
+          <li class="blog-item blog-item--bash">
+            <a class="blog-link" href="#">
+              <span class="blog-link--text">Everyday Shell Scripts</span>
+            </a>
+            <svg aria-hidden="true">
+              <use xlink:href="../assets/images/sprite.svg#icon-bash"></use>
+            </svg>
           </li>
         </ul>
-      </article>
-    </div>
-  </section>
+      </div>
+    </header>
 
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="row row--vertical-phone">
-        <div class="column column--quarter contain">
-          <header class="footer__heading">
-            <h3 class="footer__title is-centered">Developer Sojourn</h3>
-            <picture class="footer__logo-container">
-              <img class="footer__logo" src="../assets/images/dev.svg" alt="Logo" loading="lazy">
-            </picture>
-            <div class="copyleft">
-              <a class="copyleft__text" href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a>
-              <svg class="copyleft__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 980">
-                <circle cx="490" cy="490" r="440" fill="none" stroke-width="100"/>
-                <path d="M219,428H350a150,150 0 1 1 0,125H219a275,275 0 1 0 0-125z"/>
-              </svg>
-              2021
-            </div>
-          </header>
+    <section id="webapps" class="section__webapps">
+      <h2 class="section__title">Web Applications</h2>
+
+      <article class="project">
+        <div class="project__preview">
+          <img
+            src="../assets/images/bytesandpipes.webp"
+            alt="Screenshot of a website called bytes and pipes"
+            loading="lazy"
+          />
         </div>
-
-        <div class="column column--third contain">
-          <h3 class="footer__title is-centered medium-margin-y">Get In Touch</h3>
-          <p>Thanks for visiting!&nbsp;If you'd like to know more about me or this site please don't hesitate to contact me and visit my GitHub page.</p>
-          <ul class="footer__icons">
-            <li>
-              <a class="tooltip" data-tooltip="GitHub" href="https://github.com/herokunt">
-                <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-github"></use></svg>
-              </a>
+        <div class="project__description">
+          <h3 class="project__title">Bytes And Pipes</h3>
+          <ul class="project__stack">
+            <li class="tooltip" data-tooltip="TypeScript">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-ts"></use>
+              </svg>
             </li>
-            <li>
-              <a class="tooltip" data-tooltip="devsojourn@pm.me" href="mailto:devsojourn@pm.me">
-                <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-envelope"></use></svg>
-              </a>
+            <li class="tooltip" data-tooltip="SASS">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-sass"></use>
+              </svg>
             </li>
-            <li>
-              <a class="tooltip" data-tooltip="PGP&nbsp;Key" href="publickey.devsojourn@pm.me.asc" download>
-                <svg class="icon icon--light-mode"><use xlink:href="../assets/images/sprite.svg#icon-key1"></use></svg>
-              </a>
+            <li class="tooltip" data-tooltip="React.js">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-react"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="Redux">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-redux"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="Node.js">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-node"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="Express.js">
+              <svg aria-hidden="true">
+                <use
+                  xlink:href="../assets/images/sprite.svg#icon-express"
+                ></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="MongoDB">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-mongo"></use>
+              </svg>
             </li>
           </ul>
+          <p>
+            A file-sharing web application that protects your privacy using
+            AES-256 bit encryption. Upload files of up to 1GB and share them
+            easily with a link. Is that simple!
+          </p>
+          <a href="https://bytesandpipes.com" target="_blank" class="btn mt-2"
+            >Visit Page</a
+          >
+          <a
+            href="https://github.com/herokunt/bytes-and-pipes"
+            target="_blank"
+            class="btn ml-2"
+            >Source Code</a
+          >
         </div>
-      </div>
-    </div>
-  </footer>
+      </article>
 
-  <template id="project__template">
-    <aside class="project__information">
-      <span class="project__information--close">&times;</span>
-      <h3 class="project__title"></h3>
-      <p class="project__description"></p>
-      <footer class="flex-container flex-container--row">
-        <a class="btn btn--cta btn--has-icon" href="https://bytesandpipes.com" target="_blank">
-          See Demo
-          <svg class="icon" width=24 height=24 viewBox="0 0 40 40" aria-hidden="true">
-            <path d="M13.757 19.868c-0.416 0-0.832-0.159-1.149-0.476-2.973-2.973-2.973-7.81 0-10.783l6-6c1.44-1.44 3.355-2.233 5.392-2.233s3.951 0.793 5.392 2.233c2.973 2.973 2.973 7.81 0 10.783l-2.743 2.743c-0.635 0.635-1.663 0.635-2.298 0s-0.635-1.663 0-2.298l2.743-2.743c1.706-1.706 1.706-4.481 0-6.187-0.826-0.826-1.925-1.281-3.094-1.281s-2.267 0.455-3.094 1.281l-6 6c-1.706 1.706-1.706 4.481 0 6.187 0.635 0.635 0.635 1.663 0 2.298-0.317 0.317-0.733 0.476-1.149 0.476z"></path>
-            <path d="M8 31.625c-2.037 0-3.952-0.793-5.392-2.233-2.973-2.973-2.973-7.81 0-10.783l2.743-2.743c0.635-0.635 1.664-0.635 2.298 0s0.635 1.663 0 2.298l-2.743 2.743c-1.706 1.706-1.706 4.481 0 6.187 0.826 0.826 1.925 1.281 3.094 1.281s2.267-0.455 3.094-1.281l6-6c1.706-1.706 1.706-4.481 0-6.187-0.635-0.635-0.635-1.663 0-2.298s1.663-0.635 2.298 0c2.973 2.973 2.973 7.81 0 10.783l-6 6c-1.44 1.44-3.355 2.233-5.392 2.233z"></path>
-          </svg>
-        </a>
-        <a class="btn btn--cta btn--has-icon" href="https://github.com/herokunt/bytes-and-pipes" target="_blank">
-          Source Code
-          <svg class="icon" width=24 height=24 viewBox="0 0 18 18" aria-hidden="true">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-          </svg>
-        </a>
-      </footer>
-      <div class="project__controls flex-container flex-container--row"></div>
+      <article class="project">
+        <div class="project__preview">
+          <img
+            src="../assets/images/budget.webp"
+            alt="Screenshot of a website called bytes and pipes"
+            loading="lazy"
+          />
+        </div>
 
-    </aside>
-  </template>
+        <div class="project__description">
+          <h3 class="project__title">Gadget Budget</h3>
+          <ul class="project__stack">
+            <li class="tooltip" data-tooltip="TypeScript">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-ts"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="Styled Components">
+              <svg aria-hidden="true">
+                <use
+                  xlink:href="../assets/images/sprite.svg#icon-styled-components"
+                ></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="React.js">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-react"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="Redux Saga">
+              <svg aria-hidden="true">
+                <use
+                  xlink:href="../assets/images/sprite.svg#icon-redux-saga"
+                ></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="Node.js">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-node"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="Nest.js">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-nest"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="MongoDB">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-mongo"></use>
+              </svg>
+            </li>
+          </ul>
+          <p>
+            Expense management with support for multiple wallets and currencies.
+            Keep track of daily expenses, during holidays, business trips, etc.
+            Did I mention it uses AES-256 bit encryption?
+          </p>
+          <a href="https://pawnsguard.com" target="_blank" class="btn mt-2"
+            >Visit Page</a
+          >
+          <a
+            href="https://github.com/herokunt/gadget-budget"
+            target="_blank"
+            class="btn ml-2"
+            >Source Code</a
+          >
+        </div>
+      </article>
 
-  <template id="img-replacement">
-    <video
-      class="card__video"
-      autoplay
-      muted
-      loop
-    ></video>
-  </template>
+      <article class="project">
+        <div class="project__preview">
+          <img
+            src="../assets/images/nomads.webp"
+            alt="Screenshot of a website called bytes and pipes"
+            loading="lazy"
+          />
+        </div>
 
-</body>
+        <div class="project__description">
+          <h3 class="project__title">Prismic Adventures</h3>
+          <ul class="project__stack">
+            <li class="tooltip" data-tooltip="Material UI">
+              <svg aria-hidden="true">
+                <use
+                  xlink:href="../assets/images/sprite.svg#icon-materialui"
+                ></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="React.js">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-react"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="Apollo Server/Client">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-apollo"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="GraphQL">
+              <svg aria-hidden="true">
+                <use
+                  xlink:href="../assets/images/sprite.svg#icon-graphql"
+                ></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="Prisma">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-prisma"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="MariaDB">
+              <svg aria-hidden="true">
+                <use
+                  xlink:href="../assets/images/sprite.svg#icon-mariadb"
+                ></use>
+              </svg>
+            </li>
+          </ul>
+          <p>
+            A mini-social network to share pictures of your trips around the
+            world. Follow your friends to see their feeds, like and comment on
+            their publications and keep on living the adventure!
+          </p>
+          <a
+            href="https://prismicadventures.xyz"
+            target="_blank"
+            class="btn mt-2"
+            >Visit Page</a
+          >
+          <a
+            href="https://github.com/herokunt/react-graphql-prisma"
+            target="_blank"
+            class="btn ml-2"
+            >Source Code</a
+          >
+        </div>
+      </article>
+    </section>
+
+    <section class="section__scripting">
+      <h2 class="section__title">Scripting</h2>
+
+      <article class="project">
+        <div class="project__preview">
+          <video
+            aria-label="A terminal window running a Python script"
+            tabindex="-1"
+            class="card__video"
+            preload="none"
+            muted
+            loop
+            src="../assets/videos/resizer.mp4"
+          ></video>
+        </div>
+
+        <div class="project__description">
+          <h3 class="project__title">Image Batch Resizer</h3>
+          <ul class="project__stack">
+            <li class="tooltip" data-tooltip="Python">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-python"></use>
+              </svg>
+            </li>
+          </ul>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+            quidem, eveniet nam expedita voluptatem aspernatur illum labore?
+            Odit commodi rerum voluptates blanditiis quam, tempore rem!
+          </p>
+          <a
+            href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py"
+            target="_blank"
+            class="btn mt-2"
+            >Source Code</a
+          >
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__preview">
+          <video
+            aria-label="A terminal window running a Python script"
+            tabindex="-1"
+            class="card__video"
+            preload="none"
+            muted
+            loop
+            src="../assets/videos/passwords.mp4"
+          ></video>
+        </div>
+
+        <div class="project__description">
+          <h3 class="project__title">Password Checker</h3>
+          <ul class="project__stack">
+            <li class="tooltip" data-tooltip="Python">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-python"></use>
+              </svg>
+            </li>
+          </ul>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+            quidem, eveniet nam expedita voluptatem aspernatur illum labore?
+            Odit commodi rerum voluptates blanditiis quam, tempore rem!
+          </p>
+          <a
+            href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py"
+            target="_blank"
+            class="btn mt-2"
+            >Source Code</a
+          >
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__preview">
+          <video
+            aria-label="A terminal window running a Python script"
+            tabindex="-1"
+            class="card__video"
+            preload="none"
+            muted
+            loop
+            src="../assets/videos/tetris.mp4"
+          ></video>
+        </div>
+
+        <div class="project__description">
+          <h3 class="project__title">Oh, Node!</h3>
+          <ul class="project__stack">
+            <li class="tooltip" data-tooltip="Python">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-python"></use>
+              </svg>
+            </li>
+          </ul>
+          <p>
+            Aren't you curious how many files does your
+            <code>node_modules</code> folder have? How much does it weight? Run
+            this script to find out. Fun fact, this site is using 13179 files,
+            199.95MB in total!
+          </p>
+          <a
+            href="https://github.com/herokunt/python-scripts/blob/main/oh_node.py"
+            target="_blank"
+            class="btn mt-2"
+            >Source Code</a
+          >
+        </div>
+      </article>
+    </section>
+
+    <section class="section__graphics">
+      <h2 class="section__title">Games & Graphics</h2>
+
+      <article class="project">
+        <div class="project__preview">
+          <div id="lightbulb" class="project__canvas"></div>
+        </div>
+
+        <div class="project__description">
+          <h3 class="project__title">The Hanging Lightbulb</h3>
+          <ul class="project__stack">
+            <li class="tooltip" data-tooltip="p5.js">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-p5"></use>
+              </svg>
+            </li>
+            <li class="tooltip" data-tooltip="matter.js">
+              <svg aria-hidden="true" class="scale-3 ml-3">
+                <use
+                  xlink:href="../assets/images/sprite.svg#icon-matterjs"
+                ></use>
+              </svg>
+            </li>
+          </ul>
+          <p>
+            One of my favorite sketches. It combines a 2D physics engine with a
+            raycasting algorithm to project shadows off of moving objects. Feel
+            free to use your mouse to move the lightbulb around!
+          </p>
+          <button id="lightbulb" class="btn mt-2">Play</button>
+          <a href="#" class="btn ml-2">Source Code</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__preview">
+          <div id="earth" class="project__canvas"></div>
+        </div>
+
+        <div class="project__description">
+          <h3 class="project__title">Earth</h3>
+          <ul class="project__stack">
+            <li class="tooltip" data-tooltip="Three.js">
+              <svg aria-hidden="true">
+                <use
+                  xlink:href="../assets/images/sprite.svg#icon-threejs"
+                ></use>
+              </svg>
+            </li>
+          </ul>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+            quidem, eveniet nam expedita voluptatem aspernatur illum labore?
+            Odit commodi rerum voluptates blanditiis quam, tempore rem!
+          </p>
+          <button id="earth" class="btn mt-2">Play</button>
+          <a href="#" class="btn ml-2">Source Code</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__preview">
+          <div id="steering" class="project__canvas"></div>
+        </div>
+
+        <div class="project__description">
+          <h3 class="project__title">Particle Steering Forces</h3>
+          <ul class="project__stack">
+            <li class="tooltip" data-tooltip="p5.js">
+              <svg aria-hidden="true">
+                <use xlink:href="../assets/images/sprite.svg#icon-p5"></use>
+              </svg>
+            </li>
+          </ul>
+          <p>
+            A particle system simulating attraction-repulsion forces. These
+            particules don't like mouse pointers or cursors, try to catch them!
+          </p>
+          <button id="steering" class="btn mt-2">Play</button>
+          <a href="#" class="btn ml-2">Source Code</a>
+        </div>
+      </article>
+    </section>
+
+    <footer id="contact" class="section__footer">
+      <h2 class="section__title">Thanks for visiting!</h2>
+      <p>
+        If you'd like to know more about me or this site please don't hesitate
+        to contact me and visit my GitHub page.
+      </p>
+      <ul class="section__footer-icons">
+        <li class="tooltip" data-tooltip="GitHub">
+          <a
+            href="https://github.com/herokunt"
+            target="_blank"
+            aria-label="external link to a github profile"
+          >
+            <svg aria-hidden="true">
+              <use
+                xlink:href="../assets/images/sprite.svg#icon-github-light"
+              ></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="tooltip" data-tooltip="devsojourn@pm.me">
+          <a
+            href="mailto:devsojourn@pm.me"
+            target="_blank"
+            aria-label="link to send an email"
+          >
+            <svg aria-hidden="true">
+              <use xlink:href="../assets/images/sprite.svg#icon-envelope"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="tooltip" data-tooltip="PGP">
+          <a
+            href="publickey.devsojourn@pm.me.asc"
+            download
+            aria-label="downloads a pgp public key file"
+          >
+            <svg aria-hidden="true">
+              <use xlink:href="../assets/images/sprite.svg#icon-key1"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </body>
 </html>

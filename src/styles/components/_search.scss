@@ -1,81 +1,59 @@
 @use '../abstract/variables';
 @use '../abstract/mixins';
 
-.search {
-  flex: 1 0 auto;
+.search-form {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @include mixins.responsive(phone) {
-    top: 2rem;
-  }
-
   &__label {
-    position: absolute;
-    right: 2rem;
-    z-index: 1;
-    width: 3.2rem;
-    height: 3.2rem;
-    fill: variables.$color-dark;
-
-    @media (prefers-color-scheme: dark) {
-      fill: #2C5364;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
+    position: relative;
+    left: -5rem;
   }
 
   &__input {
-    border: variables.$border-color;
-    border-radius: variables.$border-radius;
-    padding: 1rem;
+    border: 1px solid variables.$color-dark;
+    border-radius: 5px;
+    box-shadow: variables.$box-shadow-light;
+    padding: 1.25rem;
     width: 100%;
-    transition: opacity 0.2s, transform 0.2s;
-    opacity: 0;
-    transform: translateX(10rem);
-    pointer-events: none;
+    outline: none;
     font-size: 1.8rem;
-
-    &:focus {
-      transform: translateX(0);
-      opacity: 1;
-      pointer-events: auto;
-
-      @media (prefers-color-scheme: dark) {
-        color: variables.$color-light;
-        background: variables.$color-dark;
-        border: variables.$color-light;
-      }
-    }
-
-    @include mixins.responsive(tablet) {
-      transform: translateX(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
+    font-family: inherit;
   }
 
   &__results {
     position: absolute;
-    top: 5rem;
     width: 100%;
-    border: variables.$border-color;
-    border-radius: variables.$border-radius;
-    background-color: variables.$color-light;
-    transition: opacity 0.3s, transform 0.4s;
-    opacity: 0;
-    transform: translateY(10rem);
-    pointer-events: none;
-    z-index: 99;
+    top: 100%;
+    left: 0;
+    // padding: 1.25rem;
+    border-radius: 5px;
+    border: 1px solid variables.$color-dark;
+    box-shadow: variables.$box-shadow-light;
+    background-color: variables.$color-lighter; 
+    color: variables.$color-dark;
+    z-index: 11;
 
-    &--show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
+    &-card {}
+
+    &-link {
+      padding: 1.25rem;
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      &:focus,
+      &:hover {
+        background: variables.$color-secondary;
+        color: variables.$color-dark;
+      }
+    }
+
+    &:empty {
+      display: none;
     }
   }
+
 }
