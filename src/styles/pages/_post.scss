@@ -73,8 +73,9 @@ body.post {
     }
 
     ul {
-      position: fixed;
-      max-width: 20rem;
+      // position: fixed;
+      // max-width: 20rem;
+      text-align: left;
     }
   }
 
@@ -93,7 +94,7 @@ body.post {
     }
 
     p, h3 {
-      padding: 1rem 4rem;
+      padding: 1rem 2rem;
       max-width: 80ch;
 
       @include mixins.responsive(portrait) {
@@ -194,11 +195,26 @@ body.post {
     margin-top: 10rem;
   }
 
-  code {
+
+  pre {
     background-color: variables.$color-dark;
-    color: variables.$color-light;
+    overflow-y: auto;
     border-radius: 5px;
-    font-size: 1.4rem;
-    padding: 0.2rem 0.5rem;
+    padding: 2rem;
+    margin: 1rem 2rem;
+    
+    @include mixins.responsive(tablet) {
+      margin: 1rem;
+    }
+
+    @include mixins.responsive(phone) {
+      margin: 1rem 0;
+    }
+
+    code {
+      font-size: 1.4rem;
+      padding: 0.2rem 0.5rem;
+      color: variables.$color-light;
+    }
   }
 }

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-TOP_LVL_DIR=$(pwd)
-
 # Remove pre-exisint tar files
 rm sojourn.tar.gz 
 
@@ -26,13 +24,17 @@ mkdir -p src/wp_theme/js/images
 mv src/wp_theme/images/earth.jpg src/wp_theme/js/images/
 
 # Build Gutenberg plugin
-cd src/wp_plugin/prism
+pushd src/wp_plugin/prism
 
 npm run build &
 build_process_id=$!
 wait $build_process_id
 
 # Create archive with theme and plugin files
-cd $TOP_LVL_DIR
-tar -czf sojourn.tar.gz src/wp_plugin/build src/wp_theme/*
+popd
+tar -czf sojourn.tar.gz \
+  src/wp_plugin/prism/index.php \
+  src/wp_plugin/prism/src/index.js \
+  src/wp_plugin/prism/build \
+  src/wp_theme/*
 
