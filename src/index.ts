@@ -25,16 +25,18 @@ function main() {
 }
 
 function loadMainJS() {
-  const isNotReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isNotMobileDevice = !navigator.userAgent.match(
+  const hasReducedMotionEnabled = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  const isMobileDevice = navigator.userAgent.match(
     /(Android|iPhone|iPad|iPod|webOS|Windows Phone|BlackBerry)/i
   );
 
-  // Don't load on mobile devices or with reduced motion enabled
-  if (isNotMobileDevice && isNotReducedMotion) {
+  // Don't load on mobile devices, or with reduced motion enabled
+  if (!isMobileDevice || !hasReducedMotionEnabled) {
     new SectionTitleTransitioner();
   }
-  
+
   new SketchController();
   new VideoController();
 }
@@ -47,7 +49,7 @@ function loadSinglePostJS() {
   new SearchController();
   new SinglePostController();
   // @ts-ignore
-  import('./scripts/prism.js');
+  import("./scripts/prism.js"); // syntax highlighter
 }
 
 main();

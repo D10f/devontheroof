@@ -1,6 +1,10 @@
 node_modules/
 dist/
 build/
+src/wp_theme/css
+src/wp_theme/js
+src/wp_theme/images
+src/wp_theme/videos
 
 *.tar.gz
 

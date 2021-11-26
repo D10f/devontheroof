@@ -61,21 +61,20 @@ body.post {
 
   .post-index {
     text-align: center;
+    border-right: 2px dashed #333;
 
     @include mixins.responsive(tablet) {
       display: none;
     }
 
-    &__link {
-     &:hover {
-       color: variables.$color-primary;
-     } 
-    }
-
     ul {
       // position: fixed;
-      // max-width: 20rem;
+      max-width: 25rem;
       text-align: left;
+    }
+
+    li:hover {
+      color: variables.$color-primary;
     }
   }
 
@@ -197,7 +196,7 @@ body.post {
 
 
   pre {
-    background-color: variables.$color-dark;
+    background-color: variables.$color-one-dark;
     overflow-y: auto;
     border-radius: 5px;
     padding: 2rem;

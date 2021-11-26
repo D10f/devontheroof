@@ -47,7 +47,6 @@
     align-self: normal;
     box-shadow: variables.$box-shadow-light;
     border-radius: 5px;
-    border: 1px solid variables.$color-dark;
     overflow: hidden;
 
     img {
@@ -85,8 +84,8 @@
       height: 3rem;
       
       @include mixins.responsive(tablet) {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
       }
     }
   }
