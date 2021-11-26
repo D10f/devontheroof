@@ -94,7 +94,7 @@ export default (p, customText) => {
   };
 
   p.preload = () => {
-    font = p.loadFont('https://developersojourn.site/wp-content/themes/sojourn/css/fonts/PanameraRegular.otf');
+    font = p.loadFont('https://developersojourn.site/wp-content/themes/sojourn/fonts/PanameraRegular.otf');
   };
 
   p.setup = () => {
