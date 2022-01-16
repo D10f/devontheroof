@@ -114,6 +114,17 @@
       rgba(variables.$color-wordpress, 0.25)
     );
   }
+  &--webpack {
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(variables.$color-webpack, 0.5),
+      rgba(variables.$color-webpack, 0.25)
+    );
+
+    & svg {
+      opacity: 0.4;
+    }
+  }
   &--pwa {
     background-image: linear-gradient(
       to bottom right,

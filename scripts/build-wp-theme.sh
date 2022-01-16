@@ -18,7 +18,7 @@ cp assets/publickey.devsojourn@pm.me.asc dist/
 rm dist/*.html dist/*.txt
 
 # Remove pre-existing tar files
-rm sojourn-theme.tar.gz 
+rm sojourn-theme.tar* 
 
 # Create archive with theme files
 tar -czf sojourn-theme.tar.gz dist

@@ -2,7 +2,7 @@
 
 <body>
   <header id="about" class="section__header">
-    <h1 class="section__title section__header--title">Developer Sojourn</h1>
+    <h1 class="section__title section__header--title">Dev On The Roof</h1>
     <div class="section__header-intro">
       <h2>Lorem Ipsum Is Great</h2>
       <p>
@@ -146,10 +146,10 @@
               <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-react" ?>"></use>
             </svg>
           </li>
-          <li class="tooltip" data-tooltip="Redux Saga">
+          <li class="tooltip" data-tooltip="Redux">
             <svg aria-hidden="true">
               <use
-                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-redux" ?>-saga"
+                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-redux" ?>"
               ></use>
             </svg>
           </li>
@@ -166,6 +166,16 @@
           <li class="tooltip" data-tooltip="MongoDB">
             <svg aria-hidden="true">
               <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mongo" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Docker">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-docker" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Jenkins">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-jenkins" ?>"></use>
             </svg>
           </li>
         </ul>

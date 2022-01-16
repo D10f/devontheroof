@@ -32,7 +32,7 @@ export class SectionTitleTransitioner {
           textTransition({
             element: el as HTMLElement,
             newText: originalText,
-            maxDuration: 750,
+            maxDuration: 1000,
             highlight: ["#fb7158", "#f4c862e5"],
           });
           this.unobserve(el);
