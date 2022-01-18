@@ -5,11 +5,9 @@ import { SketchController } from "./scripts/SketchController";
 import { VideoController } from "./scripts/VideoController";
 import "./styles.scss";
 
-// const BLOG_REGEXP = new RegExp(/\/blog(\/)?/i);
 const POST_REGEXP = new RegExp(/^\/\w+/i);
 
 function main() {
-  // if (BLOG_REGEXP.test(window.location.pathname)) {
   if (
     window.location.pathname === "/blog" ||
     window.location.pathname === "/blog/"
