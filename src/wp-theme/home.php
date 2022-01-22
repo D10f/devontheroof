@@ -99,6 +99,16 @@
               <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mongo" ?>"></use>
             </svg>
           </li>
+          <li class="tooltip" data-tooltip="Docker">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-docker" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Jenkins">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-jenkins" ?>"></use>
+            </svg>
+          </li>
         </ul>
         <p>
           A file-sharing web application that protects your privacy using

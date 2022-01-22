@@ -9,7 +9,6 @@ import {
   Constraint,
   Mouse,
   MouseConstraint,
-  Events
 } from 'matter-js';
 
 const CANVAS_WALLS = true;
@@ -314,10 +313,10 @@ export default p => {
     // create the pendulum
     const pendulum = new Pendulum(p, {
       x: p.width / 2,
-      y: 100,
+      y: 70,
       body: light.body,
       options: {
-        stiffness: 1,
+        stiffness: 0.5,
         length: 100
       }
     });
@@ -336,10 +335,10 @@ export default p => {
     });
 
     const box1 = new Box(p, {
-      x: 100,
+      x: 120,
       y: 100,
-      w: 100,
-      h: 100,
+      w: 75,
+      h: 75,
       options: {
         noRender: !RENDER_BODIES,
         isStatic: true,
@@ -348,10 +347,10 @@ export default p => {
     });
 
     const poly1 = new Polygon(p, {
-      x: 200,
-      y: 270,
-      s: 7,
-      r: 40,
+      x: 180,
+      y: 240,
+      s: 6,
+      r: 50,
       options: {
         noRender: !RENDER_BODIES,
         isStatic: true,
@@ -363,7 +362,7 @@ export default p => {
       x: 400,
       y: 250,
       s: 6,
-      r: 50,
+      r: 40,
       options: {
         noRender: !RENDER_BODIES,
         isStatic: true
@@ -373,8 +372,8 @@ export default p => {
     const box2 = new Box(p, {
       x: 470,
       y: 100,
-      w: 100,
-      h: 100,
+      w: 75,
+      h: 75,
       options: {
         noRender: !RENDER_BODIES,
         isStatic: true,
@@ -418,7 +417,7 @@ export default p => {
     p.background(50);
 
     // new ball every 60 frames
-    if (p.frameCount % 60 === 0) {
+    if (p.frameCount % 80 === 0) {
       const ball = new Ball({
         p: p,
         x: p.random(150, p.width - 150),

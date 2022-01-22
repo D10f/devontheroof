@@ -94,7 +94,11 @@ export default (p, customText) => {
   };
 
   p.preload = () => {
-    font = p.loadFont('https://developersojourn.site/wp-content/themes/sojourn/fonts/PanameraRegular.otf');
+    // font = p.loadFont('https://developersojourn.site/wp-content/themes/sojourn/fonts/PanameraRegular.otf');
+    // for development locally use this
+    // font = p.loadFont('../../../assets/fonts/PanameraRegular.otf');
+    // for development with docker use this
+    font = p.loadFont('/wp-content/themes/sojourn/fonts/PanameraRegular.otf');
   };
 
   p.setup = () => {
@@ -105,7 +109,7 @@ export default (p, customText) => {
     p.stroke(255);
 
     font
-      .textToPoints(text, 30, 200, 132, { sampleFactor: 0.16 })
+      .textToPoints(text, 15, 175, 124, { sampleFactor: 0.16 })
       .forEach(({ x, y }) => particles.push(new Particle(p, x, y)));
   };
 

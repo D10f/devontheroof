@@ -17,7 +17,7 @@ remove_action('admin_print_styles', 'print_emoji_styles');
 
 /* CSS file is updated by webpack on each build */
 function load_scripts_and_styles() {
-  wp_enqueue_script('scripts', get_theme_file_uri('main.81500048db817fcb50fb.js'), NULL, '1.0', true);
+  wp_enqueue_script('scripts', get_theme_file_uri('main.b9a9e10622384e0e9d46.js'), NULL, '1.0', true);
   wp_enqueue_style('styles', get_theme_file_uri('main.55c823c1ba874b656003.css'), NULL);
 }
 

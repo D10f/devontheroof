@@ -106,6 +106,7 @@ module.exports = {
     },
     compress: false, // <- true is default
     hot: true, // <- true is default
+    allowedHosts: "all", // <- make it work inside docker-compose
   },
   optimization: {
     splitChunks: {
