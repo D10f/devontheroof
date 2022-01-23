@@ -12,26 +12,6 @@ services:
     networks:
       - webpack
 
-  wordpress:
-    image: wordpress:php7.4-fpm
-    healthcheck:
-      test: "php-fpm --test"
-      retries: 3
-    volumes:
-      - wp_data:/var/www/html
-      - ./src/wp-theme:/var/www/html/wp-content/themes/sojourn
-    networks:
-      - frontend
-      - backend
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
-    depends_on:
-      db:
-        condition: service_healthy
-    
   nginx:
     image: nginx:1.21
     healthcheck:
@@ -54,6 +34,26 @@ services:
       webpack:
         condition: service_healthy
 
+  wordpress:
+    image: wordpress:php7.4-fpm
+    healthcheck:
+      test: "php-fpm --test"
+      retries: 3
+    volumes:
+      - wp_data:/var/www/html
+      - ./src/wp-theme:/var/www/html/wp-content/themes/sojourn
+    networks:
+      - frontend
+      - backend
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+    depends_on:
+      db:
+        condition: service_healthy
+  
   db:
     image: mariadb
     healthcheck:

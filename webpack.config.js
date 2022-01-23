@@ -8,8 +8,8 @@ const plugins = [
     filename: "index.html",
     template: "./src/index.html",
   }),
-  new HtmlWebpackPlugin({ filename: "blog.html", template: "./src/blog.html" }),
-  new HtmlWebpackPlugin({ filename: "post.html", template: "./src/post.html" }),
+  // new HtmlWebpackPlugin({ filename: "blog.html", template: "./src/blog.html" }),
+  // new HtmlWebpackPlugin({ filename: "post.html", template: "./src/post.html" }),
 ];
 
 let mode = "development";

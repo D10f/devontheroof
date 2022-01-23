@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Build Docker image
+docker build -t developer-sojourn_webpack .
+
+# Spin up container and build frontend files
+docker run \
+  --rm \
+  -v $(pwd):/app \
+  -v /app/node_modules \
+  developer-sojourn_webpack sh -c "npm run build"
+
 # Update WordPress theme css
 MAIN_CSS=$(ls dist/main.*.css | cut -d "/" -f2)
 sed -i "s/main.*.css/${MAIN_CSS}/i" src/wp-theme/functions.php

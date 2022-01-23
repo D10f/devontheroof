@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "webpack serve",
+    "start": "docker-compose up -d",
     "build": "NODE_ENV=production webpack",
-    "build:theme": "NODE_ENV=production webpack && scripts/build-wp-theme.sh",
+    "build:theme": "scripts/build-wp-theme.sh",
     "build:plugins": "NODE_ENV=production webpack && scripts/build-wp-plugins.sh",
     "types": "tsc"
   },
