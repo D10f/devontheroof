@@ -5,7 +5,7 @@
     <h1 class="section__title section__header--title">
       <a aria-label="Back to main page" href="<?php echo site_url('blog'); ?>">
         <small aria-label="hidden">&larr;</small>
-        Developer Sojourn</a
+        Back To Blog</a
       >
     </h1>
     <aside class="section__header-search">

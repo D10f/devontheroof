@@ -7,8 +7,9 @@
   row-gap: 5rem;
   padding: 2rem 4rem;
   grid-template: 
-    "title title title" 5rem
-    ".     .     blog"  5rem
+    // "title title title" 5rem
+    // "intro intro blog"  5rem
+    ".     .     ."     2rem
     "intro intro blog"  auto /
     1fr    1fr    auto;
 
@@ -24,15 +25,22 @@
   @include mixins.responsive(phone) {
     row-gap: 3rem;
     grid-template: 
-      "title" auto
-      "intro " 2fr
-      "blog  " auto /
-      auto;
+    "title" auto
+    "intro " 2fr
+    "blog  " auto /
+    auto;
+    text-align: center;
+    padding: 2rem;
   }
 
   &--title {
     width: 100%;
+    font-size: 5rem;
     grid-area: title;
+
+    @include mixins.responsive(phone) {
+      font-size: 3rem;
+    }
   }
 
   &-subtitle {
@@ -43,13 +51,19 @@
     grid-area: intro;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
+    // height: 100%;
     gap: 2rem;
     margin-right: 15rem;
 
     @include mixins.responsive(landscape) {
       padding-right: 2rem;
       margin-right: unset;
+    }
+
+    @include mixins.responsive(phone) {
+      align-items: center;
     }
   }
 
@@ -59,5 +73,9 @@
     @include mixins.responsive(portrait) {
       justify-self: center;
     }
+  }
+
+  &-scroll {
+    font-size: 4rem;
   }
 }

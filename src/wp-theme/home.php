@@ -2,9 +2,10 @@
 
 <body>
   <header id="about" class="section__header">
-    <h1 class="section__title section__header--title">Dev On The Roof</h1>
-    <div class="section__header-intro">
-      <h2>Lorem Ipsum Is Great</h2>
+    <!-- <h1 class="section__title section__header--title">Dev On The Roof</h1> -->
+    <section class="section__header-intro">
+      <!-- <h2>Lorem Ipsum Is Great</h2> -->
+      <h1 class="section__title section__header--title">Lorem Ipsum Is Great</h1>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim illum
         est impedit laboriosam dolorem, commodi aliquam quam quis a reiciendis
@@ -12,40 +13,42 @@
         reiciendis dolores perspiciatis!
       </p>
       <div>
-        <a href="#webapps" class="btn mt-1">Take A Look Around</a>
-        <a href="#contact" class="btn ml-2">Contact Me</a>
+        <!-- <a href="#webapps" class="btn mt-1">Take A Look Around</a>
+        <a href="#contact" class="btn ml-2">Contact Me</a> -->
+        <a class="section__header-scroll" href="#webapps">&darr;</a>
       </div>
-    </div>
+    </section>
 
-    <div class="section__header-blog">
+    <section class="section__header-blog">
       <ul class="blog-list">
         <?php
-          $latestPosts = new WP_Query(array(
-            'post_type' => 'post',
-            'posts_per_page' => 6
-          ));
+        $latestPosts = new WP_Query(array(
+          'post_type' => 'post',
+          'posts_per_page' => 6
+        ));
 
-          while($latestPosts->have_posts()) {
-            $latestPosts->the_post();
-            $categories = get_the_category();
-            $post_category = '';
-            if ( ! empty( $categories ) ) {
-              $post_category = $post_category . esc_html( $categories[0]->name );
-            }
-          ?>
-          
-            <li class="<?php echo 'blog-item blog-item--' . $post_category ?>">
-              <a class="blog-link" href="<?php the_permalink(); ?>">
-                <span class="blog-link--text"><?php the_title(); ?> </span>
-              </a>
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . '#icon-' .$post_category ?>"></use>
-              </svg>
-            </li>
-          <?php } wp_reset_postdata();
+        while ($latestPosts->have_posts()) {
+          $latestPosts->the_post();
+          // $categories = get_the_category();
+          $post_category = '';
+          if (!empty($categories)) {
+            $post_category = $post_category . esc_html($categories[0]->name);
+          }
+        ?>
+
+          <li class="<?php echo 'blog-item blog-item--' . $post_category ?>">
+            <a class="blog-link" href="<?php the_permalink(); ?>">
+              <span class="blog-link--text"><?php the_title(); ?> </span>
+            </a>
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . '#icon-' . $post_category ?>"></use>
+            </svg>
+          </li>
+        <?php }
+        wp_reset_postdata();
         ?>
       </ul>
-    </div>
+    </section>
   </header>
 
   <section id="webapps" class="section__webapps">
@@ -53,11 +56,7 @@
 
     <article class="project">
       <div class="project__preview">
-        <img
-          src="<?php echo get_theme_file_uri('images/bytesandpipes.webp'); ?>"
-          alt="Screenshot of a website called bytes and pipes"
-          loading="lazy"
-        />
+        <img src="<?php echo get_theme_file_uri('images/bytesandpipes.webp'); ?>" alt="Screenshot of a website called bytes and pipes" loading="lazy" />
       </div>
       <div class="project__description">
         <h3 class="project__title">Bytes And Pipes</h3>
@@ -89,9 +88,7 @@
           </li>
           <li class="tooltip" data-tooltip="Express.js">
             <svg aria-hidden="true">
-              <use
-                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-express" ?>"
-              ></use>
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-express" ?>"></use>
             </svg>
           </li>
           <li class="tooltip" data-tooltip="MongoDB">
@@ -111,29 +108,18 @@
           </li>
         </ul>
         <p>
-          A file-sharing web application that protects your privacy using
-          AES-256 bit encryption. Upload files of up to 1GB and share them
+          A <span class="highlight">file-sharing</span> web application that protects your privacy using
+          <span class="highlight">AES-256 bit encryption</span>. Upload files of up to 1GB and share them
           easily with a link. Is that simple!
         </p>
-        <a href="https://bytesandpipes.com" target="_blank" class="btn mt-2"
-          >Visit Page</a
-        >
-        <a
-          href="https://github.com/herokunt/bytes-and-pipes"
-          target="_blank"
-          class="btn ml-2"
-          >Source Code</a
-        >
+        <a href="https://bytesandpipes.com" target="_blank" class="btn mt-2">Visit Page</a>
+        <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn ml-2">Source Code</a>
       </div>
     </article>
 
     <article class="project">
       <div class="project__preview">
-        <img
-          src="<?php echo get_theme_file_uri('images/budget.webp'); ?>"
-          alt="Screenshot of a website called bytes and pipes"
-          loading="lazy"
-        />
+        <img src="<?php echo get_theme_file_uri('images/budget.webp'); ?>" alt="Screenshot of a website called bytes and pipes" loading="lazy" />
       </div>
 
       <div class="project__description">
@@ -146,9 +132,7 @@
           </li>
           <li class="tooltip" data-tooltip="Styled Components">
             <svg aria-hidden="true">
-              <use
-                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-styled" ?>-components"
-              ></use>
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-styled" ?>-components"></use>
             </svg>
           </li>
           <li class="tooltip" data-tooltip="React.js">
@@ -158,9 +142,7 @@
           </li>
           <li class="tooltip" data-tooltip="Redux">
             <svg aria-hidden="true">
-              <use
-                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-redux" ?>"
-              ></use>
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-redux" ?>"></use>
             </svg>
           </li>
           <li class="tooltip" data-tooltip="Node.js">
@@ -190,29 +172,18 @@
           </li>
         </ul>
         <p>
-          Expense management with support for multiple wallets and currencies.
+          <span class="highlight">Expense management</span> with support for multiple wallets and currencies.
           Keep track of daily expenses, during holidays, business trips, etc.
-          Did I mention it uses AES-256 bit encryption?
+          Did I mention it uses <span class="highlight">AES-256 bit encryption?</span>
         </p>
-        <a href="https://pawnsguard.com" target="_blank" class="btn mt-2"
-          >Visit Page</a
-        >
-        <a
-          href="https://github.com/herokunt/gadget-budget"
-          target="_blank"
-          class="btn ml-2"
-          >Source Code</a
-        >
+        <a href="https://pawnsguard.com" target="_blank" class="btn mt-2">Visit Page</a>
+        <a href="https://github.com/herokunt/gadget-budget" target="_blank" class="btn ml-2">Source Code</a>
       </div>
     </article>
 
     <article class="project">
       <div class="project__preview">
-        <img
-          src="<?php echo get_theme_file_uri('images/nomads.webp'); ?>"
-          alt="Screenshot of a website called bytes and pipes"
-          loading="lazy"
-        />
+        <img src="<?php echo get_theme_file_uri('images/nomads.webp'); ?>" alt="Screenshot of a website called bytes and pipes" loading="lazy" />
       </div>
 
       <div class="project__description">
@@ -220,9 +191,7 @@
         <ul class="project__stack">
           <li class="tooltip" data-tooltip="Material UI">
             <svg aria-hidden="true">
-              <use
-                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-materialui" ?>"
-              ></use>
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-materialui" ?>"></use>
             </svg>
           </li>
           <li class="tooltip" data-tooltip="React.js">
@@ -237,9 +206,7 @@
           </li>
           <li class="tooltip" data-tooltip="GraphQL">
             <svg aria-hidden="true">
-              <use
-                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-graphql" ?>"
-              ></use>
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-graphql" ?>"></use>
             </svg>
           </li>
           <li class="tooltip" data-tooltip="Prisma">
@@ -249,29 +216,17 @@
           </li>
           <li class="tooltip" data-tooltip="MariaDB">
             <svg aria-hidden="true">
-              <use
-                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mariadb" ?>"
-              ></use>
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mariadb" ?>"></use>
             </svg>
           </li>
         </ul>
         <p>
-          A mini-social network to share pictures of your trips around the
-          world. Follow your friends to see their feeds, like and comment on
+          A <span class="highlight">social network</span> to share pictures of your trips around the
+          world. Follow your friends to see their feeds, <span class="highlight">like and comment</span> on
           their publications and keep on living the adventure!
         </p>
-        <a
-          href="https://prismicadventures.xyz"
-          target="_blank"
-          class="btn mt-2"
-          >Visit Page</a
-        >
-        <a
-          href="https://github.com/herokunt/react-graphql-prisma"
-          target="_blank"
-          class="btn ml-2"
-          >Source Code</a
-        >
+        <a href="https://prismicadventures.xyz" target="_blank" class="btn mt-2">Visit Page</a>
+        <a href="https://github.com/herokunt/react-graphql-prisma" target="_blank" class="btn ml-2">Source Code</a>
       </div>
     </article>
   </section>
@@ -281,15 +236,7 @@
 
     <article class="project">
       <div class="project__preview">
-        <video
-          aria-label="A terminal window running a Python script"
-          tabindex="-1"
-          class="card__video"
-          preload="none"
-          muted
-          loop
-          src="<?php echo get_theme_file_uri('videos/resizer.mp4'); ?>"
-        ></video>
+        <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/resizer.mp4'); ?>"></video>
       </div>
 
       <div class="project__description">
@@ -306,26 +253,13 @@
           quidem, eveniet nam expedita voluptatem aspernatur illum labore?
           Odit commodi rerum voluptates blanditiis quam, tempore rem!
         </p>
-        <a
-          href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py"
-          target="_blank"
-          class="btn mt-2"
-          >Source Code</a
-        >
+        <a href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank" class="btn mt-2">Source Code</a>
       </div>
     </article>
 
     <article class="project">
       <div class="project__preview">
-        <video
-          aria-label="A terminal window running a Python script"
-          tabindex="-1"
-          class="card__video"
-          preload="none"
-          muted
-          loop
-          src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"
-        ></video>
+        <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"></video>
       </div>
 
       <div class="project__description">
@@ -342,26 +276,13 @@
           quidem, eveniet nam expedita voluptatem aspernatur illum labore?
           Odit commodi rerum voluptates blanditiis quam, tempore rem!
         </p>
-        <a
-          href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py"
-          target="_blank"
-          class="btn mt-2"
-          >Source Code</a
-        >
+        <a href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank" class="btn mt-2">Source Code</a>
       </div>
     </article>
 
     <article class="project">
       <div class="project__preview">
-        <video
-          aria-label="A terminal window running a Python script"
-          tabindex="-1"
-          class="card__video"
-          preload="none"
-          muted
-          loop
-          src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"
-        ></video>
+        <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"></video>
       </div>
 
       <div class="project__description">
@@ -374,17 +295,11 @@
           </li>
         </ul>
         <p>
-          Aren't you curious how many files does your
-          <code>node_modules</code> folder have? How much does it weight? Run
-          this script to find out. Fun fact, this site is using 13179 files,
-          199.95MB in total!
+          Aren't you curious how many files does your node_modules folder have? How much does it weight? Run
+          this script to find out. Fun fact, <span class="highlight">this site is using 13239 files,
+          200.78MB in total!</span>
         </p>
-        <a
-          href="https://github.com/herokunt/python-scripts/blob/main/oh_node.py"
-          target="_blank"
-          class="btn mt-2"
-          >Source Code</a
-        >
+        <a href="https://github.com/herokunt/python-scripts/blob/main/oh_node.py" target="_blank" class="btn mt-2">Source Code</a>
       </div>
     </article>
   </section>
@@ -407,18 +322,16 @@
           </li>
           <li class="tooltip" data-tooltip="matter.js">
             <svg aria-hidden="true" class="scale-3 ml-3">
-              <use
-                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-matterjs" ?>"
-              ></use>
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-matterjs" ?>"></use>
             </svg>
           </li>
         </ul>
         <p>
-          One of my favorite sketches. It combines a 2D physics engine with a
-          raycasting algorithm to project shadows off of moving objects. Feel
+          One of my favorite sketches. It combines a <span class="highlight">2D physics engine</span> with a
+          <span class="highlight">raycasting algorithm</span> to project shadows off of moving objects. Feel
           free to use your mouse to move the lightbulb around!
         </p>
-        <button id="lightbulb" class="btn mt-2">Play</button>
+        <button data-id="lightbulb" class="btn mt-2">Play</button>
         <a href="#" class="btn ml-2">Source Code</a>
       </div>
     </article>
@@ -433,9 +346,7 @@
         <ul class="project__stack">
           <li class="tooltip" data-tooltip="Three.js">
             <svg aria-hidden="true">
-              <use
-                xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-threejs" ?>"
-              ></use>
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-threejs" ?>"></use>
             </svg>
           </li>
         </ul>
@@ -444,7 +355,7 @@
           quidem, eveniet nam expedita voluptatem aspernatur illum labore?
           Odit commodi rerum voluptates blanditiis quam, tempore rem!
         </p>
-        <button id="earth" class="btn mt-2">Play</button>
+        <button data-id="earth" class="btn mt-2">Play</button>
         <a href="#" class="btn ml-2">Source Code</a>
       </div>
     </article>
@@ -464,13 +375,13 @@
           </li>
         </ul>
         <p>
-          A particle system simulating attraction-repulsion forces. These
-          particules don't like mouse pointers or cursors, try to catch them!
+          A particle system simulating <span class="highlight">attraction-repulsion forces</span>. These
+          particules don't like mouse pointers or cursors, <span class="highlight">try to catch them!</span>
         </p>
-        <button id="steering" class="btn mt-2">Play</button>
+        <button data-id="steering" class="btn mt-2">Play</button>
         <a href="#" class="btn ml-2">Source Code</a>
       </div>
     </article>
   </section>
 
-<?php get_footer(); ?>
+  <?php get_footer(); ?>

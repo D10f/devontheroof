@@ -13,7 +13,11 @@
   justify-content: center;
   align-items: center;
   margin: 5rem 0;
-  
+
+  // &:hover &__stack {
+  //   filter: grayscale(0);
+  // }
+
   &:not(:last-child) {
     margin-bottom: 10rem;
   }
@@ -23,15 +27,26 @@
     grid-template:
       "preview"     25rem
       "description" auto /
-      70vw;
+      80vw;
   }
   
-  @include mixins.responsive(tablet) {
-    // grid-template-columns: 75vw;
+  // @include mixins.responsive(tablet) {
+  //   // grid-template-columns: 75vw;
+  //   grid-template:
+  //     "preview"     25rem
+  //     "description" auto /
+  //     70vw;
+  // }
+
+  @include mixins.responsive(phone) {
+    text-align: center;
+  }
+  
+  @include mixins.responsive(narrow) {
     grid-template:
       "preview"     25rem
       "description" auto /
-      75vw;
+      100%;
   }
 
   &__title {
@@ -76,8 +91,17 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     gap: 2rem;
     padding: 1rem 0;
+    margin: 0.5rem 0;
+    // transition: filter 0.5s;
+    // filter: grayscale(1);
+
+    @include mixins.responsive(phone) {
+      justify-content: center;
+    }
+    backface-visibility: hidden;
 
     & svg {
       width: 3rem;
