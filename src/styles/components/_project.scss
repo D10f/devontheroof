@@ -38,6 +38,10 @@
     grid-area: title; // see .project__description below
     font-size: 2.2rem;
 
+    @include mixins.responsive(phone) {
+      font-size: 2.8rem;
+    }
+
     &:focus {
       background-color: red;
     }
@@ -79,6 +83,16 @@
     justify-items: flex-start;
     align-items: center;
     overflow-x: hidden;
+
+    @include mixins.responsive(phone) {
+      justify-items: center;
+      grid-template:
+      "title    title   " min-content
+      "checkbox checkbox" auto
+      "content  content " auto
+      "footer   footer  " min-content /
+      auto      auto;
+    }
   }
 
   &__checkbox {
@@ -109,8 +123,17 @@
     grid-area: checkbox;
     margin-left: auto;
 
+    @include mixins.responsive(phone) {
+      display: block;
+      width: 100%;
+    }
+
     &:hover {
       cursor: pointer;
+      color: variables.$color-primary;
+    }
+    
+    &:focus {
       color: variables.$color-primary;
     }
 

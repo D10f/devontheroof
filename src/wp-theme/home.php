@@ -61,7 +61,7 @@
       <div class="project__description">
         <h3 class="project__title">Bytes And Pipes</h3>
         <input class="project__checkbox" type="checkbox" name="stack-bytes" id="stack-bytes">
-        <label class="project__label" for="stack-bytes">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-bytes">tech stack</label>
         <div class="project__content">
           <p class="project__content--text">
             A <span class="highlight">file-sharing</span> web application that protects your privacy using
@@ -193,7 +193,7 @@
       <div class="project__description">
         <h3 class="project__title">Gadget Budget</h3>
         <input class="project__checkbox" type="checkbox" name="stack-gadget" id="stack-gadget">
-        <label class="project__label" for="stack-gadget">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-gadget">tech stack</label>
         <div class="project__content">
           <p class="project__content--text">
             <span class="highlight">Expense management</span> with support for multiple wallets and currencies.
@@ -265,7 +265,7 @@
       <div class="project__description">
         <h3 class="project__title">Prismic Adventures</h3>
         <input class="project__checkbox" type="checkbox" name="stack-prismic" id="stack-prismic">
-        <label class="project__label" for="stack-prismic">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-prismic">tech stack</label>
         <div class="project__content">
           <p class="project__content--text">
             A <span class="highlight">social network</span> to share pictures of your trips around the
@@ -324,7 +324,7 @@
       <div class="project__description">
         <h3 class="project__title">Image Batch Resizer</h3>
         <input class="project__checkbox" type="checkbox" name="stack-resizer" id="stack-resizer">
-        <label class="project__label" for="stack-resizer">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-resizer">tech stack</label>
         <div class="project__content">
           <p class="project__content--text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
@@ -354,7 +354,7 @@
       <div class="project__description">
         <h3 class="project__title">Password Checker</h3>
         <input class="project__checkbox" type="checkbox" name="stack-password" id="stack-password">
-        <label class="project__label" for="stack-password">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-password">tech stack</label>
         <div class="project__content">
           <p class="project__content--text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
@@ -383,7 +383,7 @@
       <div class="project__description">
         <h3 class="project__title">Oh, Node!</h3>
         <input class="project__checkbox" type="checkbox" name="stack-node" id="stack-node">
-        <label class="project__label" for="stack-node">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-node">tech stack</label>
         <div class="project__content">
           <p class="project__content--text">
             Aren't you curious how many files does your node_modules folder have? How much does it weight? Run
@@ -417,7 +417,7 @@
       <div class="project__description">
         <h3 class="project__title">The Hanging Lightbulb</h3>
         <input class="project__checkbox" type="checkbox" name="stack-lightbulb" id="stack-lightbulb">
-        <label class="project__label" for="stack-lightbulb">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-lightbulb">tech stack</label>
         <div class="project__content">
           <p class="project__content--text">
             One of my favorite sketches. It combines a <span class="highlight">2D physics engine</span> with a
@@ -452,7 +452,7 @@
       <div class="project__description">
         <h3 class="project__title">Earth</h3>
         <input class="project__checkbox" type="checkbox" name="stack-earth" id="stack-earth">
-        <label class="project__label" for="stack-earth">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-earth">tech stack</label>
         <div class="project__content">
           <p class="project__content--text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
@@ -482,7 +482,7 @@
       <div class="project__description">
         <h3 class="project__title">Particle Steering Forces</h3>
         <input class="project__checkbox" type="checkbox" name="stack-particles" id="stack-particles">
-        <label class="project__label" for="stack-particles">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-particles">tech stack</label>
         <div class="project__content">
           <p class="project__content--text">
             A particle system simulating <span class="highlight">attraction-repulsion forces</span>. These

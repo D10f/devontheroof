@@ -19,10 +19,31 @@
     border-radius: 5px;
     z-index: -1;
     background-image: linear-gradient(to right, rgba(251, 113, 88, 0.4), rgba(244, 200, 98, 0.8));
-    transition: left 0.8s 0.8s cubic-bezier(.9,.84,.22,1);
+    transition: left 0.6s 0.8s cubic-bezier(.9,.84,.22,1), transform 1.6s 0.8s;
   }
 
-  &--visible::before {
+  &--visible-1::before,
+  &--visible-2::before,
+  &--visible-3::before,
+  &--visible-4::before {
     left: 0;
+  }
+  
+  &--visible-1::before {
+    transform: rotateZ(-1deg);
+    bottom: -0.05rem;
+  }
+
+  &--visible-2::before {
+    transform: rotateZ(1deg);
+  }
+
+  &--visible-3::before {
+    transform: rotateY(-1deg);
+  }
+
+  &--visible-4::before {
+    transform: rotateY(1deg);
+    bottom: -0.1rem;
   }
 }
