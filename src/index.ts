@@ -3,6 +3,7 @@ import { SinglePostController } from "./scripts/SinglePostController";
 import { SectionTitleTransitioner } from "./scripts/SectionTitleTransitioner";
 import { SketchController } from "./scripts/SketchController";
 import { VideoController } from "./scripts/VideoController";
+import { ProjectController } from "./scripts/ProjectController";
 import "./styles.scss";
 
 const POST_REGEXP = new RegExp(/^\/\w+/i);
@@ -34,7 +35,8 @@ function loadMainJS() {
   if (!isMobileDevice || !hasReducedMotionEnabled) {
     new SectionTitleTransitioner();
   }
-
+  
+  new ProjectController();
   new SketchController();
   new VideoController();
 }

@@ -74,8 +74,8 @@ export class SketchController {
   listen() {
     this.canvasTriggerBtn.forEach((btn) => {
       btn.addEventListener("click", () => {
-        this.toggleBtnText(btn.id);
-        this.changeSketch(btn.id);
+        this.toggleBtnText(btn.getAttribute('data-id')!);
+        this.changeSketch(btn.getAttribute('data-id')!);
         btn.blur();
       });
     });
@@ -83,7 +83,7 @@ export class SketchController {
 
   toggleBtnText(canvasId: string) {
     this.canvasTriggerBtn.forEach((btn) => {
-      if (btn.id === canvasId) {
+      if (btn.getAttribute('data-id') === canvasId) {
         btn.textContent = btn.textContent === "Play" ? "Stop" : "Play";
       } else {
         btn.textContent = "Play";
