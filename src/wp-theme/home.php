@@ -2,9 +2,7 @@
 
 <body>
   <header id="about" class="section__header">
-    <!-- <h1 class="section__title section__header--title">Dev On The Roof</h1> -->
     <section class="section__header-intro">
-      <!-- <h2>Lorem Ipsum Is Great</h2> -->
       <h1 class="section__title section__header--title">Lorem Ipsum Is Great</h1>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim illum
@@ -13,8 +11,6 @@
         reiciendis dolores perspiciatis!
       </p>
       <div>
-        <!-- <a href="#webapps" class="btn mt-1">Take A Look Around</a>
-        <a href="#contact" class="btn ml-2">Contact Me</a> -->
         <a class="section__header-scroll" href="#webapps">&darr;</a>
       </div>
     </section>
@@ -29,7 +25,7 @@
 
         while ($latestPosts->have_posts()) {
           $latestPosts->the_post();
-          // $categories = get_the_category();
+          $categories = get_the_category();
           $post_category = '';
           if (!empty($categories)) {
             $post_category = $post_category . esc_html($categories[0]->name);
@@ -58,76 +54,27 @@
       <div class="project__preview">
         <img src="<?php echo get_theme_file_uri('images/bytesandpipes.webp'); ?>" alt="Screenshot of a website called bytes and pipes" loading="lazy" />
       </div>
-      <div class="project__description">
-        <h3 class="project__title">Bytes And Pipes</h3>
+      <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-bytes" id="stack-bytes">
-        <label class="project__label" tabindex="0" for="stack-bytes">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-bytes">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
         <div class="project__content">
-          <p class="project__content--text">
+          <h3 class="project__title">Bytes And Pipes</h3>
+          <p class="project__description">
             A <span class="highlight">file-sharing</span> web application that protects your privacy using
             <span class="highlight">AES-256 bit encryption</span>. Upload files of up to 1GB and share them
             easily with a link. Is that simple!
           </p>
 
-          <ul class="project__stack">
-          <li class="tooltip" data-tooltip="TypeScript">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-ts" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="SASS">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-sass" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="React.js">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-react" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="Redux">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-redux" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="Node.js">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-node" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="Express.js">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-express" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="MongoDB">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mongo" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="Docker">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-docker" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="Jenkins">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-jenkins" ?>"></use>
-            </svg>
-          </li>
-        </ul>
+          <footer class="project__footer">
+            <a href="https://bytesandpipes.com" target="_blank" class="btn">Visit Page</a>
+            <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn ml-2">Source Code</a>
+          </footer>
         </div>
 
-        <footer class="project__footer">
-          <a href="https://bytesandpipes.com" target="_blank" class="btn">Visit Page</a>
-          <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn ml-2">Source Code</a>
-        </footer>
-      </div>
-      <!-- <div class="project__preview">
-        <img src="<?php echo get_theme_file_uri('images/bytesandpipes.webp'); ?>" alt="Screenshot of a website called bytes and pipes" loading="lazy" />
-      </div>
-      <div class="project__description">
-        <h3 class="project__title">Bytes And Pipes</h3>
         <ul class="project__stack">
           <li class="tooltip" data-tooltip="TypeScript">
             <svg aria-hidden="true">
@@ -175,85 +122,82 @@
             </svg>
           </li>
         </ul>
-        <p>
-          A <span class="highlight">file-sharing</span> web application that protects your privacy using
-          <span class="highlight">AES-256 bit encryption</span>. Upload files of up to 1GB and share them
-          easily with a link. Is that simple!
-        </p>
-        <a href="https://bytesandpipes.com" target="_blank" class="btn mt-2">Visit Page</a>
-        <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn ml-2">Source Code</a>
-      </div> -->
+      </div>
     </article>
 
     <article class="project">
       <div class="project__preview">
         <img src="<?php echo get_theme_file_uri('images/budget.webp'); ?>" alt="Screenshot of a website called bytes and pipes" loading="lazy" />
       </div>
-
-      <div class="project__description">
-        <h3 class="project__title">Gadget Budget</h3>
+      <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-gadget" id="stack-gadget">
-        <label class="project__label" tabindex="0" for="stack-gadget">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-gadget">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
         <div class="project__content">
-          <p class="project__content--text">
+          <h3 class="project__title">Gadget Budget</h3>
+          <p class="project__description">
             <span class="highlight">Expense management</span> with support for multiple wallets and currencies.
             Keep track of daily expenses, during holidays, business trips, etc.
             Did I mention it uses <span class="highlight">AES-256 bit encryption?</span>
           </p>
           
-          <ul class="project__stack">
-            <li class="tooltip" data-tooltip="TypeScript">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-ts" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="Styled Components">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-styled" ?>-components"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="React.js">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-react" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="Redux">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-redux" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="Node.js">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-node" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="Nest.js">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-nest" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="MongoDB">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mongo" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="Docker">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-docker" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="Jenkins">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-jenkins" ?>"></use>
-              </svg>
-            </li>
-          </ul>
+          <footer class="project__footer">
+            <a href="https://pawnsguard.com" target="_blank" class="btn">Visit Page</a>
+            <a href="https://github.com/herokunt/gadget-budget" target="_blank" class="btn ml-2">Source Code</a>
+          </footer>
+          
         </div>
 
-        <footer class="project__footer">
-          <a href="https://pawnsguard.com" target="_blank" class="btn">Visit Page</a>
-          <a href="https://github.com/herokunt/gadget-budget" target="_blank" class="btn ml-2">Source Code</a>
-        </footer>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="TypeScript">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-ts" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Styled Components">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-styled" ?>-components"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="React.js">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-react" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Redux">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-redux" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Node.js">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-node" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Nest.js">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-nest" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="MongoDB">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mongo" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Docker">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-docker" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Jenkins">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-jenkins" ?>"></use>
+            </svg>
+          </li>
+        </ul>
       </div>
     </article>
 
@@ -262,53 +206,57 @@
         <img src="<?php echo get_theme_file_uri('images/nomads.webp'); ?>" alt="Screenshot of a website called bytes and pipes" loading="lazy" />
       </div>
 
-      <div class="project__description">
-        <h3 class="project__title">Prismic Adventures</h3>
+      <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-prismic" id="stack-prismic">
-        <label class="project__label" tabindex="0" for="stack-prismic">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-prismic">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
         <div class="project__content">
-          <p class="project__content--text">
+          <h3 class="project__title">Prismic Adventures</h3>
+          <p class="project__description">
             A <span class="highlight">social network</span> to share pictures of your trips around the
             world. Follow your friends to see their feeds, <span class="highlight">like and comment</span> on
             their publications and keep on living the adventure!
           </p>
-          <ul class="project__stack">
-            <li class="tooltip" data-tooltip="Material UI">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-materialui" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="React.js">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-react" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="Apollo Server/Client">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-apollo" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="GraphQL">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-graphql" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="Prisma">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-prisma" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="MariaDB">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mariadb" ?>"></use>
-              </svg>
-            </li>
-          </ul>
+          <footer class="project__footer">
+            <a href="https://prismicadventures.xyz" target="_blank" class="btn">Visit Page</a>
+            <a href="https://github.com/herokunt/react-graphql-prisma" target="_blank" class="btn ml-2">Source Code</a>
+          </footer>
         </div>
-        <footer class="project__footer">
-          <a href="https://prismicadventures.xyz" target="_blank" class="btn">Visit Page</a>
-          <a href="https://github.com/herokunt/react-graphql-prisma" target="_blank" class="btn ml-2">Source Code</a>
-        </footer>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Material UI">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-materialui" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="React.js">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-react" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Apollo Server/Client">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-apollo" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="GraphQL">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-graphql" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Prisma">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-prisma" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="MariaDB">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mariadb" ?>"></use>
+            </svg>
+          </li>
+        </ul>
       </div>
     </article>
   </section>
@@ -321,28 +269,32 @@
         <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/resizer.mp4'); ?>"></video>
       </div>
 
-      <div class="project__description">
-        <h3 class="project__title">Image Batch Resizer</h3>
+      <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-resizer" id="stack-resizer">
-        <label class="project__label" tabindex="0" for="stack-resizer">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-resizer">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
         <div class="project__content">
-          <p class="project__content--text">
+          <h3 class="project__title">Image Batch Resizer</h3>
+          <p class="project__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
             quidem, eveniet nam expedita voluptatem aspernatur illum labore?
             Odit commodi rerum voluptates blanditiis quam, tempore rem!
           </p>
-          <ul class="project__stack">
-            <li class="tooltip" data-tooltip="Python">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
-              </svg>
-            </li>
-          </ul>
+          <footer class="project__footer">
+            <a href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank" class="btn">Source Code</a>
+          </footer>
         </div>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Python">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
+            </svg>
+          </li>
+        </ul>
         
-        <footer class="project__footer">
-          <a href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank" class="btn">Source Code</a>
-        </footer>
       </div>
     </article>
 
@@ -351,27 +303,31 @@
         <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"></video>
       </div>
 
-      <div class="project__description">
-        <h3 class="project__title">Password Checker</h3>
+      <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-password" id="stack-password">
-        <label class="project__label" tabindex="0" for="stack-password">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-password">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
         <div class="project__content">
-          <p class="project__content--text">
+          <h3 class="project__title">Password Checker</h3>
+          <p class="project__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
             quidem, eveniet nam expedita voluptatem aspernatur illum labore?
             Odit commodi rerum voluptates blanditiis quam, tempore rem!
           </p>
-          <ul class="project__stack">
-            <li class="tooltip" data-tooltip="Python">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
-              </svg>
-            </li>
-          </ul>
+          <footer class="project__footer">
+            <a href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank" class="btn">Source Code</a>
+          </footer>
         </div>
-        <footer class="project__footer">
-          <a href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank" class="btn">Source Code</a>
-        </footer>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Python">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
+            </svg>
+          </li>
+        </ul>
       </div>
     </article>
 
@@ -380,28 +336,32 @@
         <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"></video>
       </div>
 
-      <div class="project__description">
-        <h3 class="project__title">Oh, Node!</h3>
+      <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-node" id="stack-node">
-        <label class="project__label" tabindex="0" for="stack-node">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-node">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
         <div class="project__content">
-          <p class="project__content--text">
+          <h3 class="project__title">Oh, Node!</h3>
+          <p class="project__description">
             Aren't you curious how many files does your node_modules folder have? How much does it weight? Run
             this script to find out. Fun fact, <span class="highlight">this site is using 13239 files,
             200.78MB in total!</span>
           </p>
-          <ul class="project__stack">
-            <li class="tooltip" data-tooltip="Python">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
-              </svg>
-            </li>
-          </ul>
+          <footer class="project__footer">
+            <a href="https://github.com/herokunt/python-scripts/blob/main/oh_node.py" target="_blank" class="btn">Source Code</a>
+          </footer>
         </div>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Python">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
+            </svg>
+          </li>
+        </ul>
         
-        <footer class="project__footer">
-          <a href="https://github.com/herokunt/python-scripts/blob/main/oh_node.py" target="_blank" class="btn">Source Code</a>
-        </footer>
       </div>
     </article>
   </section>
@@ -414,33 +374,37 @@
         <div id="lightbulb" class="project__canvas"></div>
       </div>
 
-      <div class="project__description">
-        <h3 class="project__title">The Hanging Lightbulb</h3>
+      <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-lightbulb" id="stack-lightbulb">
-        <label class="project__label" tabindex="0" for="stack-lightbulb">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-lightbulb">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
         <div class="project__content">
-          <p class="project__content--text">
+          <h3 class="project__title">The Hanging Lightbulb</h3>
+          <p class="project__description">
             One of my favorite sketches. It combines a <span class="highlight">2D physics engine</span> with a
             <span class="highlight">raycasting algorithm</span> to project shadows off of moving objects. Feel
             free to use your mouse to move the lightbulb around!
           </p>
-          <ul class="project__stack">
-            <li class="tooltip" data-tooltip="p5.js">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-p5" ?>"></use>
-              </svg>
-            </li>
-            <li class="tooltip" data-tooltip="matter.js">
-              <svg aria-hidden="true" class="scale-3 ml-3">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-matterjs" ?>"></use>
-              </svg>
-            </li>
-          </ul>
+          <footer class="project__footer">
+            <button data-id="lightbulb" class="btn">Play</button>
+            <a href="#" class="btn ml-2">Source Code</a>
+          </footer>
         </div>
-        <footer class="project__footer">
-          <button data-id="lightbulb" class="btn">Play</button>
-          <a href="#" class="btn ml-2">Source Code</a>
-        </footer>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="p5.js">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-p5" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="matter.js">
+            <svg aria-hidden="true" class="scale-3 ml-3">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-matterjs" ?>"></use>
+            </svg>
+          </li>
+        </ul>
       </div>
     </article>
 
@@ -449,28 +413,32 @@
         <div id="earth" class="project__canvas"></div>
       </div>
 
-      <div class="project__description">
-        <h3 class="project__title">Earth</h3>
+      <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-earth" id="stack-earth">
-        <label class="project__label" tabindex="0" for="stack-earth">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-earth">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
         <div class="project__content">
-          <p class="project__content--text">
+          <h3 class="project__title">Earth</h3>
+          <p class="project__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
             quidem, eveniet nam expedita voluptatem aspernatur illum labore?
             Odit commodi rerum voluptates blanditiis quam, tempore rem!
           </p>
-          <ul class="project__stack">
-            <li class="tooltip" data-tooltip="Three.js">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-threejs" ?>"></use>
-              </svg>
-            </li>
-          </ul>
+          <footer class="project__footer">
+            <button data-id="earth" class="btn">Play</button>
+            <a href="#" class="btn ml-2">Source Code</a>
+          </footer>
         </div>
-        <footer class="project__footer">
-          <button data-id="earth" class="btn">Play</button>
-          <a href="#" class="btn ml-2">Source Code</a>
-        </footer>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Three.js">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-threejs" ?>"></use>
+            </svg>
+          </li>
+        </ul>
       </div>
     </article>
 
@@ -479,27 +447,31 @@
         <div id="steering" class="project__canvas"></div>
       </div>
 
-      <div class="project__description">
-        <h3 class="project__title">Particle Steering Forces</h3>
+      <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-particles" id="stack-particles">
-        <label class="project__label" tabindex="0" for="stack-particles">tech stack</label>
+        <label class="project__label" tabindex="0" for="stack-particles">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
         <div class="project__content">
-          <p class="project__content--text">
+          <h3 class="project__title">Particle Steering Forces</h3>
+          <p class="project__description">
             A particle system simulating <span class="highlight">attraction-repulsion forces</span>. These
             particules don't like mouse pointers or cursors, <span class="highlight">try to catch them!</span>
           </p>
-          <ul class="project__stack">
-            <li class="tooltip" data-tooltip="p5.js">
-              <svg aria-hidden="true">
-                <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-p5" ?>"></use>
-              </svg>
-            </li>
-          </ul>
+          <footer class="project__footer">
+            <button data-id="steering" class="btn">Play</button>
+            <a href="#" class="btn ml-2">Source Code</a>
+          </footer>
         </div>
-        <footer class="project__footer">
-          <button data-id="steering" class="btn">Play</button>
-          <a href="#" class="btn ml-2">Source Code</a>
-        </footer>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="p5.js">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-p5" ?>"></use>
+            </svg>
+          </li>
+        </ul>
       </div>
     </article>
   </section>
