@@ -5,7 +5,8 @@
   border: none;
   border-radius: 5px;
   background-color: transparent;
-  color: #333;
+  // color: #333;
+  color: #111;
   line-height: 1.5rem;
   font-size: 1.4rem;
   text-shadow: 5px 5px 10px rgba(0,0,0,0.2);
@@ -43,11 +44,13 @@
   }
 
   &::before {
+    // background-image: linear-gradient(to bottom right, rgba(251, 113, 88, 0.8) 45%, transparent);
     background-image: linear-gradient(to bottom right, rgba(251, 113, 88, 0.8) 45%, transparent);
   }
 
   &::after {
-    background-image: linear-gradient(to top left, rgba(244, 200, 98, 0.9) 35%, transparent);
+    // background-image: linear-gradient(to top left, rgba(244, 200, 98, 0.9) 35%, transparent);
+    background-image: linear-gradient(to top left, rgba(244, 200, 98, 1) 35%, transparent);
   }
 
   &:focus::before,

@@ -61,7 +61,7 @@
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
         </label>
-        <div class="project__content">
+        <div class="project__content ml-1">
           <h3 class="project__title">Bytes And Pipes</h3>
           <p class="project__description">
             A <span class="highlight">file-sharing</span> web application that protects your privacy using
@@ -70,8 +70,8 @@
           </p>
 
           <footer class="project__footer">
-            <a href="https://bytesandpipes.com" target="_blank" class="btn">Visit Page</a>
-            <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn ml-2">Source Code</a>
+            <a href="https://bytesandpipes.com" target="_blank" class="btn">View</a>
+            <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn ml-2">Code</a>
           </footer>
         </div>
 
@@ -136,7 +136,7 @@
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
         </label>
-        <div class="project__content">
+        <div class="project__content ml-1">
           <h3 class="project__title">Gadget Budget</h3>
           <p class="project__description">
             <span class="highlight">Expense management</span> with support for multiple wallets and currencies.
@@ -145,8 +145,8 @@
           </p>
           
           <footer class="project__footer">
-            <a href="https://pawnsguard.com" target="_blank" class="btn">Visit Page</a>
-            <a href="https://github.com/herokunt/gadget-budget" target="_blank" class="btn ml-2">Source Code</a>
+            <a href="https://pawnsguard.com" target="_blank" class="btn">View</a>
+            <a href="https://github.com/herokunt/gadget-budget" target="_blank" class="btn ml-2">Code</a>
           </footer>
           
         </div>
@@ -213,7 +213,7 @@
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
         </label>
-        <div class="project__content">
+        <div class="project__content ml-1">
           <h3 class="project__title">Prismic Adventures</h3>
           <p class="project__description">
             A <span class="highlight">social network</span> to share pictures of your trips around the
@@ -221,8 +221,8 @@
             their publications and keep on living the adventure!
           </p>
           <footer class="project__footer">
-            <a href="https://prismicadventures.xyz" target="_blank" class="btn">Visit Page</a>
-            <a href="https://github.com/herokunt/react-graphql-prisma" target="_blank" class="btn ml-2">Source Code</a>
+            <a href="https://prismicadventures.xyz" target="_blank" class="btn">View</a>
+            <a href="https://github.com/herokunt/react-graphql-prisma" target="_blank" class="btn ml-2">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
@@ -276,7 +276,7 @@
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
         </label>
-        <div class="project__content">
+        <div class="project__content ml-1">
           <h3 class="project__title">Image Batch Resizer</h3>
           <p class="project__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
@@ -284,7 +284,7 @@
             Odit commodi rerum voluptates blanditiis quam, tempore rem!
           </p>
           <footer class="project__footer">
-            <a href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank" class="btn">Source Code</a>
+            <a href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank" class="btn">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
@@ -310,7 +310,7 @@
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
         </label>
-        <div class="project__content">
+        <div class="project__content ml-1">
           <h3 class="project__title">Password Checker</h3>
           <p class="project__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
@@ -318,7 +318,7 @@
             Odit commodi rerum voluptates blanditiis quam, tempore rem!
           </p>
           <footer class="project__footer">
-            <a href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank" class="btn">Source Code</a>
+            <a href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank" class="btn">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
@@ -343,7 +343,7 @@
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
         </label>
-        <div class="project__content">
+        <div class="project__content ml-1">
           <h3 class="project__title">Oh, Node!</h3>
           <p class="project__description">
             Aren't you curious how many files does your node_modules folder have? How much does it weight? Run
@@ -351,7 +351,7 @@
             200.78MB in total!</span>
           </p>
           <footer class="project__footer">
-            <a href="https://github.com/herokunt/python-scripts/blob/main/oh_node.py" target="_blank" class="btn">Source Code</a>
+            <a href="https://github.com/herokunt/python-scripts/blob/main/oh_node.py" target="_blank" class="btn">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
@@ -381,7 +381,7 @@
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
         </label>
-        <div class="project__content">
+        <div class="project__content ml-1">
           <h3 class="project__title">The Hanging Lightbulb</h3>
           <p class="project__description">
             One of my favorite sketches. It combines a <span class="highlight">2D physics engine</span> with a
@@ -390,7 +390,7 @@
           </p>
           <footer class="project__footer">
             <button data-id="lightbulb" class="btn">Play</button>
-            <a href="#" class="btn ml-2">Source Code</a>
+            <a href="#" class="btn ml-2">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
@@ -420,7 +420,7 @@
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
         </label>
-        <div class="project__content">
+        <div class="project__content ml-1">
           <h3 class="project__title">Earth</h3>
           <p class="project__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
@@ -429,7 +429,7 @@
           </p>
           <footer class="project__footer">
             <button data-id="earth" class="btn">Play</button>
-            <a href="#" class="btn ml-2">Source Code</a>
+            <a href="#" class="btn ml-2">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
@@ -454,7 +454,7 @@
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
         </label>
-        <div class="project__content">
+        <div class="project__content ml-1">
           <h3 class="project__title">Particle Steering Forces</h3>
           <p class="project__description">
             A particle system simulating <span class="highlight">attraction-repulsion forces</span>. These
@@ -462,7 +462,7 @@
           </p>
           <footer class="project__footer">
             <button data-id="steering" class="btn">Play</button>
-            <a href="#" class="btn ml-2">Source Code</a>
+            <a href="#" class="btn ml-2">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
