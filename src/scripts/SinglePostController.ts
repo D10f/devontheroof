@@ -1,14 +1,22 @@
 export class SinglePostController {
 
-  private readonly post: HTMLElement | null;
-  private readonly sideMenu: HTMLElement | null;
+  private readonly post: HTMLElement;
+  private readonly sideMenu: HTMLElement;
+  private readonly postHeader: HTMLElement;
+  private postHeaderPosY: number;
 
   constructor() {
     // document.addEventListener('DOMContentLoaded', this.loadTableOfContents, { once: true });
-    this.post = document.querySelector('.post-content');
-    this.sideMenu = document.querySelector('.post-index');
-
+    this.post = document.querySelector('.post-content')!;
+    this.sideMenu = document.querySelector('.post-index')!;
+    this.postHeader = document.querySelector('.post-header')!;
+    this.postHeaderPosY = this.postHeader.getBoundingClientRect().y;
     this.loadTableOfContents();
+    this.listeners();
+  }
+
+  listeners() {
+    document.addEventListener('scroll', () => this.scrollBehavior());
   }
 
   loadTableOfContents() {
@@ -34,5 +42,13 @@ export class SinglePostController {
     });
 
     this.sideMenu.appendChild(ul);
+  }
+
+  scrollBehavior() {
+    if (window.scrollY >= this.postHeaderPosY) {
+      this.postHeader.classList.add('fixed');
+    } else {
+      this.postHeader.classList.remove('fixed');
+    }
   }
 }

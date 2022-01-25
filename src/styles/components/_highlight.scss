@@ -4,8 +4,6 @@
   display: inline-flex;
   padding: 0 0.2rem;
   transition: color 0.2s 1s;
-  z-index: -1;
-  word-wrap: break-word;
   border-radius: 5px;
 
   &::before {

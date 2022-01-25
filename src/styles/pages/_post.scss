@@ -57,9 +57,14 @@ body.post {
   .post-content {
     align-self: stretch;
     flex: 1 0 auto;
+    margin: 0 auto;
+    max-width: 80ch;
   }
 
   .post-index {
+    // TEST
+    display: none;
+
     text-align: center;
     border-right: 2px dashed #333;
 
@@ -111,7 +116,7 @@ body.post {
   }
 
   .post-header {
-    // position: relative;
+    width: 100%;
     border-radius: 5px;
     box-shadow: variables.$box-shadow-light;
     background-color: transparent;
@@ -120,6 +125,15 @@ body.post {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.2s;
+
+    &.fixed {
+      position: fixed;
+      width: 100vw;
+      top: 0;
+      left: 0;
+      height: 5rem;
+    }
 
     & svg {
       width: 6rem;

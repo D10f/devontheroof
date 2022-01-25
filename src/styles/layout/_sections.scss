@@ -4,7 +4,6 @@
 %section {
   min-height: 100vh;
   padding: 2rem 4rem;
-  overflow: hidden; // fixes overflow bug on phones
 
   @include mixins.responsive(phone) {
     padding: 1rem 3rem;
