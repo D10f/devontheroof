@@ -25,7 +25,7 @@
 
   &__title {
     text-align: left;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
 
     @include mixins.responsive(phone) {
       font-size: 2.8rem;
@@ -81,12 +81,19 @@
     opacity: 1;
     pointer-events: auto;
   }
+
+  &__checkbox:checked + &__label svg {
+    fill: variables.$color-primary;
+  }
   
   &__label {
     position: absolute;
-    z-index: variables.$depth-checkbox;
-    top: 1rem;
+    top: 0;
+    right: 0;
     right: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    z-index: variables.$depth-checkbox;
 
     @include mixins.responsive(phone) {
       top: unset;
@@ -95,16 +102,26 @@
 
     &:hover {
       cursor: pointer;
-      color: variables.$color-primary;
-    }
-    
-    &:focus {
-      color: variables.$color-primary;
     }
 
-    &::before {
-      content: 'Show';
-      margin-right: 0.5rem;
+    &:focus {
+      outline: none;
+    }
+
+    // &:hover,
+    // &:focus {
+    //   opacity: 1;
+    // }
+
+    &:hover svg,
+    &:focus svg {
+      fill: variables.$color-primary;
+    }
+
+    svg {
+      fill: variables.$color-dark;
+      width: 3.2rem;
+      height: 3.2rem;
     }
   }
 
