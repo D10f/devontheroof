@@ -56,7 +56,7 @@
       </div>
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-bytes" id="stack-bytes">
-        <label class="project__label" tabindex="0" for="stack-bytes">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-bytes">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
@@ -131,7 +131,7 @@
       </div>
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-gadget" id="stack-gadget">
-        <label class="project__label" tabindex="0" for="stack-gadget">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-gadget">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
@@ -208,7 +208,7 @@
 
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-prismic" id="stack-prismic">
-        <label class="project__label" tabindex="0" for="stack-prismic">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-prismic">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
@@ -271,7 +271,7 @@
 
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-resizer" id="stack-resizer">
-        <label class="project__label" tabindex="0" for="stack-resizer">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-resizer">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
@@ -305,7 +305,7 @@
 
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-password" id="stack-password">
-        <label class="project__label" tabindex="0" for="stack-password">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-password">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
@@ -338,7 +338,7 @@
 
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-node" id="stack-node">
-        <label class="project__label" tabindex="0" for="stack-node">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-node">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
@@ -376,7 +376,7 @@
 
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-lightbulb" id="stack-lightbulb">
-        <label class="project__label" tabindex="0" for="stack-lightbulb">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-lightbulb">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
@@ -415,7 +415,7 @@
 
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-earth" id="stack-earth">
-        <label class="project__label" tabindex="0" for="stack-earth">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-earth">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
@@ -449,7 +449,7 @@
 
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-particles" id="stack-particles">
-        <label class="project__label" tabindex="0" for="stack-particles">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-particles">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>

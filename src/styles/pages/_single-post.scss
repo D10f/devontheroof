@@ -1,0 +1,148 @@
+@use "../abstract/variables";
+@use "../abstract/mixins";
+@use "../layout/sections";
+
+// TODO EDIT LATER
+.post.section__header {
+  grid-area: header;
+}
+
+.single-post {
+  @extend %section;
+  max-width: 100ch;
+  margin: 0 auto;
+  display: grid;
+  grid-template:
+    "header header  header  header" auto
+    ".      navbar  navbar  .     " 10rem
+    ".      content content .     " auto /
+    1fr 40ch 40ch 1fr;
+
+  @include mixins.responsive(portrait) {
+    grid-template:
+    "header header  " auto
+    "navbar  navbar " 10rem
+    "content content" auto /
+    1fr      1fr;
+  }
+
+  @include mixins.responsive(tablet) {
+    grid-template:
+      "header " auto
+      "navbar " auto
+      "content" auto /
+      90vw;
+  }
+
+  &__header {
+    grid-area: navbar;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: variables.$box-shadow;
+    border-radius: 5px;
+
+    &--nginx {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-nginx, 0.4),
+        rgba(variables.$color-nginx, 0.25)
+      );
+    }
+    &--mongo {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-mongo, 0.5),
+        rgba(variables.$color-mongo, 0.25)
+      );
+    }
+    &--wordpress {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-wordpress, 0.5),
+        rgba(variables.$color-wordpress, 0.25)
+      );
+    }
+    &--pwa {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-pwa, 0.35),
+        rgba(variables.$color-pwa, 0.25)
+      );
+    }
+    &--bash {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-bash, 0.5),
+        rgba(variables.$color-bash, 0.25)
+      );
+    }
+    &--react {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-react, 0.25),
+        rgba(variables.$color-react, 0.1)
+      );
+    }
+    &--js {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-js, 0.75),
+        rgba(variables.$color-js, 0.25)
+      );
+    }
+  }
+
+  &__title {
+    padding: 3rem;
+
+    @include mixins.responsive(phone) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__content {
+    grid-area: content;
+
+    p {
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      font-size: 2.6rem;
+    }
+
+    h3,
+    p {
+      margin: 2rem 0;
+    }
+
+    @include mixins.responsive(phone) {
+      max-width: 90vw;
+      margin: 0;
+
+      p {
+        font-size: 1.6rem;
+      }
+
+      h3 {
+        font-size: 2.2rem;
+        margin: 4rem 0;
+      }
+    }
+  }
+
+  &__index {
+    position: relative;
+    padding: 3rem;
+
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

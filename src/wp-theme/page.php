@@ -10,20 +10,20 @@
     </h1>
 
     <aside class="section__header-search">
-      <form class="search-form">
+      <form class="search">
         <label
-          class="search-form__label"
+          class="search__label"
           for="search-posts"
           aria-label="search input for blog posts"
         ></label>
         <input
-          class="search-form__input"
+          class="search__input"
           id="search-posts"
           name="text-input"
           type="text"
           placeholder="You know what to do."
         />
-        <output class="search-form__results"></output>
+        <output class="search__results"></output>
       </form>
     </aside>
 

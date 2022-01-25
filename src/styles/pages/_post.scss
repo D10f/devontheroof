@@ -57,13 +57,13 @@ body.post {
   .post-content {
     align-self: stretch;
     flex: 1 0 auto;
-    margin: 0 auto;
     max-width: 80ch;
+    margin: 0 auto;
   }
 
   .post-index {
     // TEST
-    display: none;
+    // display: none;
 
     text-align: center;
     border-right: 2px dashed #333;
@@ -116,7 +116,9 @@ body.post {
   }
 
   .post-header {
+    position: relative;
     width: 100%;
+    height: min-content;
     border-radius: 5px;
     box-shadow: variables.$box-shadow-light;
     background-color: transparent;
@@ -125,15 +127,14 @@ body.post {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.2s;
 
-    &.fixed {
-      position: fixed;
-      width: 100vw;
-      top: 0;
-      left: 0;
-      height: 5rem;
-    }
+    // &.fixed {
+    //   position: fixed;
+    //   width: 80ch;
+    //   top: 0;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    // }
 
     & svg {
       width: 6rem;

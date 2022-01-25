@@ -7,6 +7,11 @@
     opacity: 1;
   }
 
+  &--left::before {
+    top: 0;
+    right: 110%;
+  }
+
   &::before {
     content: attr(data-tooltip);
     position: absolute;
@@ -20,5 +25,6 @@
     opacity: 0;
     z-index: variables.$depth-tooltip;
     pointer-events: none;
+    transition: opacity 0.2s 0.1s;
   }
 }

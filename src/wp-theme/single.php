@@ -1,35 +1,34 @@
 <?php get_header(); ?>
 
 <body class="post">
-  <header id="about" class="section__header">
-    <h1 class="section__title section__header--title">
-      <a aria-label="Back to main page" href="<?php echo site_url('blog'); ?>">
+  <header>
+    <h1>
+      <a href="<?php echo site_url('blog'); ?>" aria-label="Back to blog">
         <small aria-label="hidden">&larr;</small>
-        Back To Blog</a
-      >
+        Back To Blog
+      </a>
     </h1>
+
     <aside class="section__header-search">
-      <form class="search-form">
+      <form class="search">
         <input
-          class="search-form__input"
+          class="search__input"
           id="search-posts"
           name="text-input"
           type="text"
           placeholder="You know what to do."
         />
         <label
-          class="search-form__label"
+          class="search__label"
           for="search-posts"
           aria-label="search input for blog posts"
         ></label>
-        <output class="search-form__results"></output>
+        <output class="search__results"></output>
       </form>
     </aside>
   </header>
 
-  <section class="section__post mt-2">
-    <aside class="post-index"></aside>
-
+  <section class="single-post">
     <?php while(have_posts()) {
       the_post();
       $categories = get_the_category();
@@ -38,17 +37,25 @@
         $post_category = $post_category . esc_html( $categories[0]->name );
       }
     ?>
-      <main class="post-content">
-        <header class="<?php echo 'post-header post-header--' . $post_category ?>">
-          <h2 class="post-title"> <?php the_title(); ?> </h2>
-          <svg aria-hidden="true">
-            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . '#icon-' . $post_category ?>"></use>
-          </svg>
-        </header>
-        <?php the_content(); ?>
-      </main>
-    <?php } ?>
 
+    <header class="single-post__header <?php echo "single-post__header--" . $post_category ?>">
+      <h2 class="single-post__title">
+        <?php the_title(); ?>
+      </h2>
+
+      <nav class="single-post__index">
+        <svg aria-hidden="true">
+          <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . '#icon-hamburger' ?>"></use>
+        </svg>
+        <ul class="dropdown"></ul>
+      </nav>
+    </header>
+
+    <main class="single-post__content mt-3">
+      <?php the_content(); ?>
+    </main>
+
+    <?php } ?>
   </section>
 
 <?php get_footer(); ?>
