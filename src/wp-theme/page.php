@@ -13,6 +13,8 @@
     <?php include 'templates/search.php'; ?>
   </header>
 
+  <p>TODO: Masonry layout with categories and posts</p>
+
   <section class="section__blog-posts">
     <ul class="blog-list">
 

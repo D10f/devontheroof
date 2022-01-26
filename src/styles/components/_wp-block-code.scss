@@ -1,20 +1,20 @@
 @use '../abstract/variables';
 @use '../abstract/mixins';
 
-.wp-block-code {
-  padding: 0 4rem;
+// .wp-block-code {
+//   padding: 0 4rem;
 
-  @include mixins.responsive(portrait) {
-    padding: 0 2rem;
-  }
+//   @include mixins.responsive(portrait) {
+//     padding: 0 2rem;
+//   }
 
-  @include mixins.responsive(tablet) {
-    padding: 0;
-  }
+//   @include mixins.responsive(tablet) {
+//     padding: 0;
+//   }
 
-  pre {
-    padding: 2rem;
-    background-color: variables.$color-dark;
-    color: variables.$color-light;
-  }
-}
+//   pre {
+//     padding: 2rem;
+//     background-color: variables.$color-dark;
+//     color: variables.$color-light;
+//   }
+// }

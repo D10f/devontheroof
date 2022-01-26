@@ -34,6 +34,30 @@
 
 /* END HEADING OF SINGLE POST PAGE */
 
+/* Code blocks not using the custom plugin (no syntax highlighting) */
+
+pre {
+  background-color: variables.$color-one-dark;
+  overflow-y: auto;
+  border-radius: 5px;
+  padding: 2rem;
+  margin: 1rem 2rem;
+  
+  @include mixins.responsive(tablet) {
+    margin: 1rem;
+  }
+
+  @include mixins.responsive(phone) {
+    margin: 1rem 0;
+  }
+
+  code {
+    font-size: 1.4rem;
+    padding: 0.2rem 0.5rem;
+    color: variables.$color-light;
+  }
+}
+
 .single-post {
   @extend %section;
   max-width: 100ch;

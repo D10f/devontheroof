@@ -122,7 +122,8 @@ export class SearchController {
       useEl.setAttributeNS(
         "http://www.w3.org/1999/xlink",
         "xlink:href",
-        `http://localhost:8080/wp-content/themes/sojourn/images/sprite.svg#icon-${post.category}`
+        // `http://localhost:8080/wp-content/themes/sojourn/images/sprite.svg#icon-${post.category}`
+        `https://developersojourn.site/wp-content/themes/sojourn/images/sprite.svg#icon-${post.category}`
       );
 
       svgEl.appendChild(useEl);

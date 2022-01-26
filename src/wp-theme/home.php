@@ -64,8 +64,8 @@
         <div class="project__content ml-1">
           <h3 class="project__title">Bytes And Pipes</h3>
           <p class="project__description">
-            A <span class="highlight">file-sharing</span> web application that protects your privacy using
-            <span class="highlight">AES-256 bit encryption</span>. Upload files of up to 1GB and share them
+            A <span class="highlight">file-sharing</span> web application that protects your privacy by using
+            <span class="highlight">AES256-bit encryption</span>. Upload files of up to 1GB and share them
             easily with a link. Is that simple!
           </p>
 
@@ -139,9 +139,11 @@
         <div class="project__content ml-1">
           <h3 class="project__title">Gadget Budget</h3>
           <p class="project__description">
-            <span class="highlight">Expense management</span> with support for multiple wallets and currencies.
-            Keep track of daily expenses, during holidays, business trips, etc.
-            Did I mention it uses <span class="highlight">AES-256 bit encryption?</span>
+            <span class="highlight">Expense management</span> web application
+            with support for multiple wallets to keep your budget under control
+            in every situation, a <span class="highlight">visual dashboard
+            </span> to make sense of your spending habits, and complete privacy
+            using <span class="highlight">AES256-bit encryption.</span>
           </p>
           
           <footer class="project__footer">
@@ -216,9 +218,10 @@
         <div class="project__content ml-1">
           <h3 class="project__title">Prismic Adventures</h3>
           <p class="project__description">
-            A <span class="highlight">social network</span> to share pictures of your trips around the
-            world. Follow your friends to see their feeds, <span class="highlight">like and comment</span> on
-            their publications and keep on living the adventure!
+            Share all the pictures of your trips on this <span class="highlight">social network</span>.
+            Get a notification when you receive a <span class="highlight">follow,</span>
+            <span class="highlight">like</span> or <span class="highlight">comment</span> on your posts,
+            and stay up to date with your friends with an <span class="highlight">infinite scrolling</span> feed.
           </p>
           <footer class="project__footer">
             <a href="https://prismicadventures.xyz" target="_blank" class="btn">View</a>
@@ -279,9 +282,11 @@
         <div class="project__content ml-1">
           <h3 class="project__title">Image Batch Resizer</h3>
           <p class="project__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            quidem, eveniet nam expedita voluptatem aspernatur illum labore?
-            Odit commodi rerum voluptates blanditiis quam, tempore rem!
+            Run this handy utility script to <span class="highlight">
+            resize your image files</span> to different sizes. Choose between
+            any of the <span class="highlight">multiple formats</span> available.
+            It uses <span class="highlight">parallel processing</span> to work
+            on hundreds of image files with ease.
           </p>
           <footer class="project__footer">
             <a href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank" class="btn">Code</a>
@@ -313,9 +318,11 @@
         <div class="project__content ml-1">
           <h3 class="project__title">Password Checker</h3>
           <p class="project__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            quidem, eveniet nam expedita voluptatem aspernatur illum labore?
-            Odit commodi rerum voluptates blanditiis quam, tempore rem!
+            <span class="highlight">Verify your passwords</span> against the
+            increasing threat of online data braches. It compares a
+            <span class="highlight">computed hash</span> of your passwords to
+            privately check the popular "Have I Been Pwned" website. It is
+            <span class="highlight">compatible with CSV exports</span> from your password manager.
           </p>
           <footer class="project__footer">
             <a href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank" class="btn">Code</a>
@@ -346,9 +353,9 @@
         <div class="project__content ml-1">
           <h3 class="project__title">Oh, Node!</h3>
           <p class="project__description">
-            Aren't you curious how many files does your node_modules folder have? How much does it weight? Run
-            this script to find out. Fun fact, <span class="highlight">this site is using 13239 files,
-            200.78MB in total!</span>
+            Find out just how heavy that node_modules folder really is. Fun
+            fact, <span class="highlight">this site was built using 13239 files</span>,
+            for a grand total of 200.78MB!
           </p>
           <footer class="project__footer">
             <a href="https://github.com/herokunt/python-scripts/blob/main/oh_node.py" target="_blank" class="btn">Code</a>
@@ -423,9 +430,8 @@
         <div class="project__content ml-1">
           <h3 class="project__title">Earth</h3>
           <p class="project__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            quidem, eveniet nam expedita voluptatem aspernatur illum labore?
-            Odit commodi rerum voluptates blanditiis quam, tempore rem!
+            A beautiful model of the <span class="highlight">Earth rotating in 3D</span> that
+            reacts to the mouse movement to alter it's behavior.
           </p>
           <footer class="project__footer">
             <button data-id="earth" class="btn">Play</button>
@@ -455,10 +461,11 @@
           </svg>
         </label>
         <div class="project__content ml-1">
-          <h3 class="project__title">Particle Steering Forces</h3>
+          <h3 class="project__title">Steering Forces</h3>
           <p class="project__description">
-            A particle system simulating <span class="highlight">attraction-repulsion forces</span>. These
-            particules don't like mouse pointers or cursors, <span class="highlight">try to catch them!</span>
+            An <span class="highlight">interactive particle system</span> showcasing
+            steering behaviors with attraction-repulsion forces. These particules
+            don't like mouse pointers or cursors, <span class="highlight">try to catch them!</span>
           </p>
           <footer class="project__footer">
             <button data-id="steering" class="btn">Play</button>
