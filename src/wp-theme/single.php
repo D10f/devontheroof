@@ -1,31 +1,16 @@
 <?php get_header(); ?>
 
 <body class="post">
-  <header>
-    <h1>
+
+  <header class="header">
+    <h1 class="title">
       <a href="<?php echo site_url('blog'); ?>" aria-label="Back to blog">
         <small aria-label="hidden">&larr;</small>
         Back To Blog
       </a>
     </h1>
 
-    <aside class="section__header-search">
-      <form class="search">
-        <input
-          class="search__input"
-          id="search-posts"
-          name="text-input"
-          type="text"
-          placeholder="You know what to do."
-        />
-        <label
-          class="search__label"
-          for="search-posts"
-          aria-label="search input for blog posts"
-        ></label>
-        <output class="search__results"></output>
-      </form>
-    </aside>
+    <?php include 'templates/search.php'; ?>
   </header>
 
   <section class="single-post">

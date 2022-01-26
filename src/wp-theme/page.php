@@ -1,38 +1,19 @@
 <?php get_header(); ?>
 
-<body class="blog">
-  <header id="about" class="section__header">
-    <h1 class="section__title section__header--title">
-      <a aria-label="Back to main page" href="<?php echo site_url(); ?> ">
+<body class="blog post">
+
+  <header class="header">
+    <h1 class="title">
+      <a href="<?php echo site_url(''); ?>" aria-label="Back to blog">
         <small aria-label="hidden">&larr;</small>
-        Back To Main Page</a
-      >
+        Back To Main Page
+      </a>
     </h1>
 
-    <aside class="section__header-search">
-      <form class="search">
-        <label
-          class="search__label"
-          for="search-posts"
-          aria-label="search input for blog posts"
-        ></label>
-        <input
-          class="search__input"
-          id="search-posts"
-          name="text-input"
-          type="text"
-          placeholder="You know what to do."
-        />
-        <output class="search__results"></output>
-      </form>
-    </aside>
-
-    <div class="section__header-intro">
-      <h2>Welcome to the blog, looking for something?</h2>
-    </div>
+    <?php include 'templates/search.php'; ?>
   </header>
 
-  <section class="section__blog-posts mt-2">
+  <section class="section__blog-posts">
     <ul class="blog-list">
 
       <?php

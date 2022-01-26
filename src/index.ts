@@ -35,7 +35,7 @@ function loadMainJS() {
   if (!isMobileDevice || !hasReducedMotionEnabled) {
     new SectionTitleTransitioner();
   }
-  
+
   new ProjectController();
   new SketchController();
   new VideoController();

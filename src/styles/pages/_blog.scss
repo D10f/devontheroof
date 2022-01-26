@@ -5,33 +5,33 @@
 // These are styles applied only to the blog page and often override the main styled
 
 body.blog {
-  .section__header {
-    grid-template:
-      "title"
-      "intro"
-      "search" /
-      100%;
-    gap: 2rem;
+  // .section__header {
+  //   grid-template:
+  //     "title"
+  //     "intro"
+  //     "search" /
+  //     100%;
+  //   gap: 2rem;
 
-    &-search {
-      grid-area: search;
+  //   &-search {
+  //     grid-area: search;
 
-      @include mixins.responsive(tablet) {
-        width: 100%;
-      }
-    }
+  //     @include mixins.responsive(tablet) {
+  //       width: 100%;
+  //     }
+  //   }
 
-    &-intro {
-      padding: 0;
-      margin: 0;
-    }
+  //   &-intro {
+  //     padding: 0;
+  //     margin: 0;
+  //   }
 
-    &-intro,
-    &-search {
-      justify-self: center;
-      min-width: 60%;
-    }
-  }
+  //   &-intro,
+  //   &-search {
+  //     justify-self: center;
+  //     min-width: 60%;
+  //   }
+  // }
 
   .section__title a {
     font-family: "PanameraRegular";
@@ -58,6 +58,7 @@ body.blog {
     }
 
     @include mixins.responsive(tablet) {
+      padding: 0;
       grid-template-columns: repeat(2, 1fr);
     }
     @include mixins.responsive(phone) {

@@ -43,11 +43,12 @@ function load_post_data($request) {
     $post_data->the_post();
 
     array_push($result, array(
-      'id'      => get_the_ID(),
-      'title'   => get_the_title(),
-      'excerpt' => wp_trim_words(get_the_content(), 25),
-      'link'    => get_the_permalink(),
-      'tags'    => get_tag_names(get_the_ID())
+      'id'        => get_the_ID(),
+      'title'     => get_the_title(),
+      'excerpt'   => wp_trim_words(get_the_content(), 25),
+      'link'      => get_the_permalink(),
+      'tags'      => get_tag_names(get_the_ID()),
+      'category'  => get_the_category()[0]->name
     ));
   }
 
