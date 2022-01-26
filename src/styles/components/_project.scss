@@ -170,7 +170,12 @@
     }
 
     @include mixins.responsive(phone) {
-      padding: 5rem 2rem;
+      overflow: hidden;
+      padding: 5rem;
+
+      li:nth-child(even) {
+        margin-left: 4rem;
+      }
     }
 
     svg {
@@ -179,9 +184,9 @@
       z-index: 10;
       
       @include mixins.responsive(tablet) {
-        width: 2rem;
-        height: 2rem;
-      } 
+        width: 2.2rem;
+        height: 2.2rem;
+      }
     }
   }
 }
