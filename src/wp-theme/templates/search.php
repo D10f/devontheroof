@@ -14,9 +14,9 @@
       </svg>
     </label>
   </div>
-  <output class="search__output" for="search__input">
+  <div class="search__output" for="search__input">
     <ul class="search__results"></ul>
-  </output>
+  </div>
 </form>
 <!-- <aside>
 </aside> -->

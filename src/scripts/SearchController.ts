@@ -97,9 +97,9 @@ export class SearchController {
     this.searchResults.innerHTML = "";
 
     return posts.map((post) => {
-      const article = document.createElement("article");
-      article.className = `blog-item blog-item--${post.category}`;
-      article.id = post.id.toString();
+      const li = document.createElement("li");
+      li.className = `blog-item blog-item--${post.category}`;
+      li.id = post.id.toString();
 
       const link = document.createElement("a");
       link.className = "blog-link";
@@ -130,10 +130,10 @@ export class SearchController {
       link.appendChild(linkText);
       svgEl.appendChild(useEl);
 
-      article.appendChild(link);
-      article.appendChild(svgEl);
+      li.appendChild(link);
+      li.appendChild(svgEl);
 
-      return article;
+      return li;
     });
   }
   renderPosts() {

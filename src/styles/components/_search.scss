@@ -60,7 +60,7 @@
     width: 100%;
     height: max-content;
     max-width: 50vw;
-    max-height: 50vh;
+    max-height: 60rem;
     padding: 2rem;
     background-color: variables.$color-lighter;
     border: 2px solid #eee;
@@ -68,7 +68,7 @@
     box-shadow: variables.$box-shadow;
     z-index: variables.$depth-search-results;
     transition: all 0.1s ease-in-out;
-    overflow-y: scroll;
+    overflow-y: auto;
     opacity: 0;
     transform: translateY(-5rem);
     pointer-events: none;
@@ -87,9 +87,6 @@
   }
   
   &__results {
-    // position: absolute;
-    // top: 100%;
-    // right: 5.2rem; // label's padding + svg icon width
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -97,24 +94,5 @@
     @include mixins.responsive(narrow) {
       grid-template-columns: 1fr;
     }
-    // width: min-content;
-    // max-width: 50vw;
-    // height: min-content;
-    // max-height: 50vh;
-    // padding: 2rem;
-    // background-color: variables.$color-lighter;
-    // border: 2px solid #eee;
-    // border-radius: 5px;
-    // box-shadow: variables.$box-shadow;
-    // z-index: variables.$depth-search-results;
-    // transition: all 0.1s ease-in-out;
-    
-    // &--hide,
-    // &:empty {
-    //   opacity: 0;
-    //   transform: translateY(-5rem);
-    // }
-
-    
   }
 }
