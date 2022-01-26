@@ -19,7 +19,7 @@ MAIN_JS=$(ls dist/main.*.js | cut -d "/" -f2)
 sed -i "s/main.*.js/${MAIN_JS}/i" src/wp-theme/functions.php
 
 # Copy theme files over to dist
-cp src/wp-theme/* dist/
+cp -r src/wp-theme/* dist/
 
 # Copy PGP public-key to dist
 cp assets/publickey.devsojourn@pm.me.asc dist/
