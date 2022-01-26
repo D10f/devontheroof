@@ -18,9 +18,9 @@ export class SketchController {
 
   constructor() {
     this.canvasTriggerBtn = document.querySelectorAll(
-      ".project__description button"
+      ".project__info button"
     )!;
-    this.graphicsSection = document.querySelector(".section__graphics")!
+    this.graphicsSection = document.querySelector(".section__graphics")!;
     this.currentSketch = null;
     this.currentCanvas = null;
     this.observer = this.createObserver();
@@ -45,6 +45,7 @@ export class SketchController {
       }
 
       Promise.all([
+        // @ts-ignore
         import("p5"),
         // @ts-ignore
         import("./sketches/hangingLightbulb.js"),
@@ -74,8 +75,8 @@ export class SketchController {
   listen() {
     this.canvasTriggerBtn.forEach((btn) => {
       btn.addEventListener("click", () => {
-        this.toggleBtnText(btn.getAttribute('data-id')!);
-        this.changeSketch(btn.getAttribute('data-id')!);
+        this.toggleBtnText(btn.getAttribute("data-id")!);
+        this.changeSketch(btn.getAttribute("data-id")!);
         btn.blur();
       });
     });
@@ -83,7 +84,7 @@ export class SketchController {
 
   toggleBtnText(canvasId: string) {
     this.canvasTriggerBtn.forEach((btn) => {
-      if (btn.getAttribute('data-id') === canvasId) {
+      if (btn.getAttribute("data-id") === canvasId) {
         btn.textContent = btn.textContent === "Play" ? "Stop" : "Play";
       } else {
         btn.textContent = "Play";
