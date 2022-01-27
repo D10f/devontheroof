@@ -23,8 +23,9 @@
 @use './styles/layout/sections';
 
 /* PAGES */
-@use './styles/pages/blog';
+// @use './styles/pages/blog';
 // @use './styles/pages/post';
+@use './styles/pages/blog-page';
 @use './styles/pages/single-post';
 @use './styles/pages/dropdown';
 @use './styles/pages/prism';

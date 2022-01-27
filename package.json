@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "gsap": "^3.8.0",
+    "masonry-layout": "^4.2.2",
     "matter-js": "^0.17.1",
     "p5": "^1.4.0",
     "three": "^0.134.0"

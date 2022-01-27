@@ -1,0 +1,45 @@
+@use "../abstract/variables";
+@use "../abstract/mixins";
+
+.blog {
+  min-height: 100vh;
+  padding: 2rem;
+
+  @include mixins.responsive(phone) {
+    padding: 1rem;
+  }
+
+  &__categories {
+    display: grid;
+    // Using masonry
+    // grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  &__item {
+    margin: 0.6rem 0;
+
+    &--icon {
+      border-bottom: 2px solid variables.$color-dark;
+      padding-bottom: 1rem;
+      width: 100%;
+    }
+
+    &--icon svg {
+      height: 3.2rem;
+      width: 3.2rem;
+    }
+  }
+
+  &__link {
+    font-family: inherit;
+  }
+}
