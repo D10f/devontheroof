@@ -26,6 +26,8 @@
 
   &__item {
     margin: 0.6rem 0;
+    min-width: 10rem;
+    max-width: 20rem;
 
     &--icon {
       border-bottom: 2px solid variables.$color-dark;
@@ -41,5 +43,8 @@
 
   &__link {
     font-family: inherit;
+    &:hover {
+      color: variables.$color-primary;
+    }
   }
 }
