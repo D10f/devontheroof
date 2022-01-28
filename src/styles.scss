@@ -3,6 +3,7 @@
 @use './styles/abstract/mixins';
 
 /* BASE */
+@use './styles/base/animations';
 @use './styles/base/base';
 @use './styles/base/typography';
 @use './styles/base/utilities';

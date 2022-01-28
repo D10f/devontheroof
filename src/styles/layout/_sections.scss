@@ -26,7 +26,7 @@
     margin-bottom: 2rem;
 
     @include mixins.responsive(phone) {
-      font-size: 3rem;
+      font-size: 2.6rem;
     }
   }
 }

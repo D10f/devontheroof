@@ -3,16 +3,24 @@
 
 .section__header {
   display: grid;
-  align-items: flex-start;
-  row-gap: 5rem;
-  padding: 2rem 4rem;
-  overflow: hidden;
   grid-template: 
-    // "title title title" 5rem
-    // "intro intro blog"  5rem
-    ".     .     ."     2rem
     "intro intro blog"  auto /
     1fr    1fr    auto;
+  align-items: flex-start;
+  row-gap: 5rem;
+  margin: 5rem 2rem;
+  padding: 5rem 2rem;
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, red, coral);
+  }
+  
 
   @include mixins.responsive(tablet) {
     // row-gap: 3rem;
@@ -34,29 +42,15 @@
     padding: 2rem;
   }
 
-  &--title {
-    width: 100%;
-    font-size: 5rem;
-    grid-area: title;
-
-    @include mixins.responsive(phone) {
-      font-size: 3rem;
-    }
-  }
-
-  &-subtitle {
-    font-size: 2rem;
-  }
-
   &-intro {
     grid-area: intro;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
-    // height: 100%;
-    gap: 2rem;
+    // gap: 2rem;
     margin-right: 15rem;
+    height: 100%;
 
     @include mixins.responsive(landscape) {
       padding-right: 2rem;
@@ -68,15 +62,42 @@
     }
   }
 
+  &-title {
+    width: 100%;
+    font-size: 5rem;
+    grid-area: title;
+
+    @include mixins.responsive(phone) {
+      font-size: 3rem;
+    }
+  }
+
+  &-whoami {
+    animation: fadeUp 1.5s 1.5s backwards;
+    margin-left: 6rem;
+    font-family: FiraCode;
+    // &:nth-of-type(1) {
+    //   animation-delay: 1.5s;
+    // }
+
+    // &:nth-of-type(2) {
+    //   animation-delay: 1.8s;
+    // }
+  }
+
+  &-scroll {
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 4rem;
+    animation: scaleDown 0.5s 3s backwards, scrollDown 5s 3s infinite;
+  }
+
   &-blog {
     grid-area: blog;
+    justify-content: center;
 
     @include mixins.responsive(portrait) {
       justify-self: center;
     }
-  }
-
-  &-scroll {
-    font-size: 4rem;
   }
 }

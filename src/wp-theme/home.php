@@ -3,16 +3,22 @@
 <body>
   <header id="about" class="section__header">
     <section class="section__header-intro">
-      <h1 class="section__title section__header--title">Lorem Ipsum Is Great</h1>
-      <p>
+      <h1 class="section__header-title">Carlos Corrons {</h1>
+
+      <p class="section__header-whoami">
+        I'm a web developer based in Spain.
+      </p>
+
+      <p class="section__header-whoami">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim illum
         est impedit laboriosam dolorem, commodi aliquam quam quis a reiciendis
         beatae, dolor corporis rerum cupiditate consequuntur? Cupiditate
         reiciendis dolores perspiciatis!
       </p>
-      <div>
-        <a class="section__header-scroll" href="#webapps">&darr;</a>
-      </div>
+
+      <h1 class="section__header-title">}</h1>
+      
+      <a class="section__header-scroll" href="#webapps">&darr;</a>
     </section>
 
     <section class="section__header-blog">
