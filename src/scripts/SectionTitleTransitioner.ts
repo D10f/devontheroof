@@ -1,12 +1,14 @@
 import { textTransition } from "./textTransition";
 
 export class SectionTitleTransitioner {
-  constructor(
-    private readonly targets: NodeListOf<Element> = document.querySelectorAll(
-      ".section__title"
-    )!,
-    private readonly randomInitialValue: string = "}C[!8&DI^S?U"
-  ) {
+  private readonly randomInitialValue: string = "}C[!8&DI^S?U";
+  private readonly targets: Element[] = [
+    ...document.querySelectorAll(".section__title")!,
+    document.querySelector(".section__header-title")!,
+  ];
+
+  constructor() {
+    console.log(this.targets);
     this.createObservers();
   }
 
@@ -19,11 +21,14 @@ export class SectionTitleTransitioner {
 
     this.targets.forEach((el: Element) => {
       const originalText = el.textContent as string;
-      el.textContent = this.randomInitialValue;      
+      el.textContent = this.randomInitialValue;
 
       // use this is disabling observer after first pass
-      new IntersectionObserver(function (this: IntersectionObserver, entries: IntersectionObserverEntry[]) {
-      // new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+      new IntersectionObserver(function (
+        this: IntersectionObserver,
+        entries: IntersectionObserverEntry[]
+      ) {
+        // new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
         const entry: IntersectionObserverEntry = entries[0];
 
         // el.textContent = this.randomInitialValue;
@@ -37,7 +42,8 @@ export class SectionTitleTransitioner {
           });
           this.unobserve(el);
         }
-      }, options).observe(el);
+      },
+      options).observe(el);
     });
   }
 }
