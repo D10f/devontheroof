@@ -30,7 +30,7 @@ export class ProjectController {
 
         setTimeout(() => {
           el.classList.add(randomVariant());
-        }, randomDelayInMs());
+        }, randomDelayInMs(250, 1000));
 
         this.unobserve(el);
       },
@@ -38,8 +38,8 @@ export class ProjectController {
     });
   }
 
-  randomDelayInMs() {
-    return Math.floor(Math.random() * 1000 + 250);
+  randomDelayInMs(min: number = 0, max: number = 1000) {
+    return Math.floor(Math.random() * max + min);
   }
 
   randomVariant() {
