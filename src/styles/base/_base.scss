@@ -9,6 +9,10 @@
   box-sizing: inherit;
 }
 
+::selection {
+  background-color: rgba(variables.$color-secondary, 0.5);
+}
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;

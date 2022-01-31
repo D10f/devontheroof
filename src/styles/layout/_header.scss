@@ -38,17 +38,13 @@
     "intro " 2fr
     "blog  " auto /
     auto;
-    text-align: center;
     padding: 2rem;
   }
 
   &-intro {
     grid-area: intro;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    // gap: 2rem;
+    position: relative;
+    margin: auto;
     margin-right: 15rem;
     height: 100%;
 
@@ -56,40 +52,91 @@
       padding-right: 2rem;
       margin-right: unset;
     }
-
-    @include mixins.responsive(phone) {
-      align-items: center;
-    }
   }
-
+  
+  &-description {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 4rem 0;
+  }
+  
   &-title {
-    width: 100%;
+    position: absolute;
+    top: -4rem;
+    height: calc(100% + 4rem);
     font-size: 5rem;
-    grid-area: title;
+    animation: fadeUp 1.5s backwards;
 
-    @include mixins.responsive(phone) {
-      font-size: 3rem;
+    @include mixins.responsive(portrait) {
+      font-size: 4.4rem;
+    }
+
+    @include mixins.responsive(narrow) {
+      font-size: 3.6rem;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+    }
+
+    &::before {
+      content: '{';
+      right: -3rem;
+    }
+    &::after {
+      content: '}';
+      bottom: -2rem;
+      left: 0;
     }
   }
 
   &-whoami {
-    animation: fadeUp 1.5s 1.5s backwards;
-    margin-left: 6rem;
+    animation: fadeUp 1.5s backwards;
+    margin: 1rem 0 1rem 6rem;
     font-family: FiraCode;
-    // &:nth-of-type(1) {
-    //   animation-delay: 1.5s;
-    // }
+    
+    &:nth-of-type(1) {
+      animation-delay: 1.8s;
+    }
 
-    // &:nth-of-type(2) {
-    //   animation-delay: 1.8s;
-    // }
+    &:nth-of-type(2) {
+      animation-delay: 2s;
+    }
+
+    &:nth-of-type(3) {
+      animation-delay: 2.2s;
+    }
+
+    @include mixins.responsive(portrait) {
+      margin: 1rem 0 1rem 4rem;
+    }
+
+    @include mixins.responsive(phone) {
+      margin: 1rem 0 1rem 3rem;
+    }
+    
+    @include mixins.responsive(narrow) {
+      font-size: 1.5rem;
+      margin: 1rem 0 1rem 1rem;
+    }
   }
 
   &-scroll {
-    display: inline-block;
-    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
     font-size: 4rem;
-    animation: scaleDown 0.5s 3s backwards, scrollDown 5s 3s infinite;
+    animation: scaleDown 0.5s 3s backwards, scrollDown 3s 3s infinite;
+
+    &:focus {
+      color: variables.$color-secondary;
+    }
+
+    @include mixins.responsive(tablet) {
+      display: none;
+    }
   }
 
   &-blog {

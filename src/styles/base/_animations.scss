@@ -4,6 +4,18 @@
     transform: translateY(1rem);
   }
 
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
   60% {
     transform: translateY(-0.6rem);
   }
@@ -16,16 +28,13 @@
 
 @keyframes scrollDown {
   0% {
-    transform: translateY(0);
+    bottom: 0
   }
-  25% {
-    transform: translateY(-1rem);
-  }
-  75% {
-    transform: translateY(1rem);
+  50% {
+    bottom: 1rem
   }
   100% {
-    transform: translateY(0);
+    bottom: 0
   }
 }
 

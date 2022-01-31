@@ -1,5 +1,5 @@
     <footer id="contact" class="section__footer">
-      <h2 class="section__title">Thanks for visiting!</h2>
+      <h2 class="section__title transition">Thanks for visiting!</h2>
       <p>
         If you'd like to know more about me or this site please don't hesitate
         to contact me and visit my GitHub page.

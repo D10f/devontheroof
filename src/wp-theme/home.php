@@ -3,21 +3,24 @@
 <body>
   <header id="about" class="section__header">
     <section class="section__header-intro">
-      <h1 class="section__header-title">Carlos Corrons {</h1>
+      <div class="section__header-description">
+        <h1 class="section__header-title">Carlos Corrons</h1>
 
-      <p class="section__header-whoami">
-        I'm a web developer based in Spain.
-      </p>
+        <p class="section__header-whoami">
+          Hi! I'm a <span class="highlight">Web developer</span> based in Spain.
+        </p>
 
-      <p class="section__header-whoami">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim illum
-        est impedit laboriosam dolorem, commodi aliquam quam quis a reiciendis
-        beatae, dolor corporis rerum cupiditate consequuntur? Cupiditate
-        reiciendis dolores perspiciatis!
-      </p>
+        <p class="section__header-whoami">
+          Interested in <span class="highlight">all things web</span>, <span class="highlight">DevOps</span> and <span class="highlight">cybersecurity</span>.
+        </p>
+       
+        <p class="section__header-whoami">
+          Currently learning: <span class="highlight">Docker</span>, Jenkins, Next.js.
+        </p>
 
-      <h1 class="section__header-title">}</h1>
-      
+      </div>
+
+        
       <a class="section__header-scroll" href="#webapps">&darr;</a>
     </section>
 
@@ -54,7 +57,7 @@
   </header>
 
   <section id="webapps" class="section__webapps">
-    <h2 class="section__title">Web Applications</h2>
+    <h2 class="section__title transition">Web Applications</h2>
 
     <article class="project">
       <div class="project__preview">
@@ -271,7 +274,7 @@
   </section>
 
   <section class="section__scripting">
-    <h2 class="section__title">Scripting</h2>
+    <h2 class="section__title transition">Scripting</h2>
 
     <article class="project">
       <div class="project__preview">
@@ -380,7 +383,7 @@
   </section>
 
   <section class="section__graphics">
-    <h2 class="section__title">Games & Graphics</h2>
+    <h2 class="section__title transition">Games & Graphics</h2>
 
     <article class="project">
       <div class="project__preview">
