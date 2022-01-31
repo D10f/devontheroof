@@ -2,10 +2,11 @@ import { textTransition } from "./textTransition";
 
 export class SectionTitleTransitioner {
   private readonly randomInitialValue: string = "}C[!8&DI^S?U";
-  private readonly targets: Element[] = [
-    ...document.querySelectorAll(".section__title")!,
-    document.querySelector(".section__header-title")!,
-  ];
+  private readonly targets: NodeListOf<Element> = document.querySelectorAll('.transition');
+  // private readonly targets: Element[] = [
+  //   ...document.querySelectorAll(".section__title")!,
+  //   document.querySelector(".section__header-title")!,
+  // ];
 
   constructor() {
     console.log(this.targets);
