@@ -1,15 +1,12 @@
 import { textTransition } from "./textTransition";
 
 export class SectionTitleTransitioner {
-  private readonly randomInitialValue: string = "}C[!8&DI^S?U";
-  private readonly targets: NodeListOf<Element> = document.querySelectorAll('.transition');
-  // private readonly targets: Element[] = [
-  //   ...document.querySelectorAll(".section__title")!,
-  //   document.querySelector(".section__header-title")!,
-  // ];
+  private readonly randomInitialValue: string;
+  private readonly targets: NodeListOf<Element>;
 
   constructor() {
-    console.log(this.targets);
+    this.randomInitialValue = "}C[!8&DI^S?U";
+    this.targets = document.querySelectorAll('.transition');
     this.createObservers();
   }
 
@@ -24,7 +21,7 @@ export class SectionTitleTransitioner {
       const originalText = el.textContent as string;
       el.textContent = this.randomInitialValue;
 
-      // use this is disabling observer after first pass
+      // use this if disabling observer after first pass
       new IntersectionObserver(function (
         this: IntersectionObserver,
         entries: IntersectionObserverEntry[]
