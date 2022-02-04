@@ -15,7 +15,7 @@
         </p>
        
         <p class="section__header-whoami">
-          Currently learning: <span class="highlight">Docker</span>, Jenkins, Next.js.
+          Currently learning: <span class="highlight">Docker</span>, Ansible, Jenkins.
         </p>
 
       </div>
