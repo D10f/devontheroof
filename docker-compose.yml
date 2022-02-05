@@ -1,3 +1,4 @@
+---
 version: '2.4'
 
 services:
@@ -54,11 +55,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
-  
+
   db:
     image: mariadb
     healthcheck:
-      test: "/usr/bin/mysql --user=wordpress --password=wordpress --execute \"SHOW DATABASES;\""
+      test: "/usr/bin/mysql \
+            --user=wordpress \
+            --password=wordpress \
+            --execute \"SHOW DATABASES;\""
       timeout: 2s
       retries: 3
     volumes:
