@@ -4,7 +4,7 @@
   <header id="about" class="section__header">
     <section class="section__header-intro">
       <div class="section__header-description">
-        <h1 class="section__header-title">Carlos Corrons</h1>
+        <h1 class="section__header-title">Lorem Ipsum</h1>
 
         <p class="section__header-whoami">
           Hi! I'm a <span class="highlight">Web developer</span> based in Spain.
