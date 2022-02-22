@@ -365,7 +365,7 @@
             Wrapper bash script around the official Scaleway CLI. <span class="highlight">Manage your cloud instances</span> effectively, start up or tear down any number of servers <span class="highlight">within seconds</span>.
           </p>
           <footer class="project__footer">
-            <a href="https://github.com/herokunt/shell_scripts/blob/master/scw_setup.sh" target="_blank" class="btn">Code</a>
+            <a href="https://github.com/herokunt/shell_scripts/blob/master/scw_utils.sh" target="_blank" class="btn">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
