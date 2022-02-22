@@ -360,20 +360,23 @@
           </svg>
         </label>
         <div class="project__content ml-1">
-          <h3 class="project__title">Oh, Node!</h3>
+          <h3 class="project__title">SCW Cloud Utility</h3>
           <p class="project__description">
-            Find out just how heavy that node_modules folder really is. Fun
-            fact, <span class="highlight">this site was built using 13239 files</span>,
-            for a grand total of 200.78MB!
+            Wrapper bash script around the official Scaleway CLI. <span class="highlight">Manage your cloud instances</span> effectively, start up or tear down any number of servers <span class="highlight">within seconds</span>.
           </p>
           <footer class="project__footer">
-            <a href="https://github.com/herokunt/python-scripts/blob/main/oh_node.py" target="_blank" class="btn">Code</a>
+            <a href="https://github.com/herokunt/shell_scripts/blob/master/scw_setup.sh" target="_blank" class="btn">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
-          <li class="tooltip" data-tooltip="Python">
+          <li class="tooltip" data-tooltip="Bash">
             <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-bash" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Scaleway CLI">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-scw" ?>"></use>
             </svg>
           </li>
         </ul>
