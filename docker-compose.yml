@@ -3,7 +3,9 @@ version: '2.4'
 
 services:
   webpack:
-    build: .
+    build:
+      context: .
+      target: development
     healthcheck:
       test: "node -v"
       retries: 3
