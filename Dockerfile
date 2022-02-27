@@ -1,5 +1,5 @@
 #
-# Development image
+# Development stage
 ##
 
 FROM node:16-buster-slim AS development
@@ -16,8 +16,33 @@ RUN npm install
 
 CMD ["webpack", "serve"]
 
+
 #
-# Production image
+# Build stage
+##
+
+FROM development AS build
+
+COPY . .
+
+# Build theme files
+RUN npm run build && \
+  MAIN_CSS=$(ls ./dist/main.*.css | cut -d "/" -f2) && \
+  sed -i "s/main.*.css/${MAIN_CSS}/i" src/wp-theme/functions.php && \
+  MAIN_JS=$(ls ./dist/main.*.js | cut -d "/" -f2) && \
+  sed -i "s/main.*.js/${MAIN_JS}/i" src/wp-theme/functions.php && \
+  cp -r src/wp-theme/* dist/ && \
+  cp assets/publickey.devsojourn@pm.me.asc dist/ && \
+  rm dist/*.html dist/*.txt
+
+# Build wp custom block
+RUN cd src/wp-plugins/prism && \
+    npm install && \
+    npm run build
+
+
+#
+# Production stage
 ##
 
 FROM wordpress:php7.4-fpm AS production
@@ -25,10 +50,5 @@ FROM wordpress:php7.4-fpm AS production
 WORKDIR /var/www/html/wp-content
 
 # Copy theme over to themes directory
-COPY dist/ ./themes/my_theme/
-
-# Copy custom WP Block over to plugins
-COPY src/wp-plugins/prism/index.php ./plugins/prism
-COPY src/wp-plugins/prism/src/index.js ./plugins/prism
-COPY src/wp-plugins/prism/build ./plugins/prism
-
+COPY --from=build /app/dist/ ./themes/my_theme/
+COPY --from=build /app/src/wp-plugins/prism/ ./plugins/prism/
