@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "docker-compose up -d && docker logs -f developer-sojourn_webpack_1",
-    "build:theme": "NODE_ENV=production webpack",
+    "build": "NODE_ENV=production webpack",
     "build:prod": "docker build --tag folious/devontheroof:latest --target production .",
     "types": "tsc"
   },
