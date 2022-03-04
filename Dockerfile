@@ -25,7 +25,7 @@ FROM development AS build
 
 COPY . .
 
-# Build theme files
+# Update functions.php with webpack-generated js and css files
 RUN npm run build && \
   MAIN_CSS=$(ls ./dist/main.*.css | cut -d "/" -f2) && \
   sed -i "s/main.*.css/${MAIN_CSS}/i" src/wp-theme/functions.php && \
@@ -49,6 +49,7 @@ FROM wordpress:php7.4-fpm AS production
 
 WORKDIR /var/www/html/wp-content
 
-# Copy theme over to themes directory
 COPY --from=build /app/dist/ ./themes/my_theme/
 COPY --from=build /app/src/wp-plugins/prism/ ./plugins/prism/
+
+RUN chown -R www-data:www-data /var/www
