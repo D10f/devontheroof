@@ -1,9 +1,5 @@
 node_modules
 dist
-nginx
-scripts
-wp-plugins
-wp-theme
 .dockerignore
 .gitignore
 .git

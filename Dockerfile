@@ -40,16 +40,17 @@ RUN cd src/wp-plugins/prism && \
     npm install && \
     npm run build
 
-
 #
-# Production stage
+# Production stage (WordPress)
 ##
 
 FROM wordpress:php7.4-fpm AS production
 
-WORKDIR /var/www/html/wp-content
+# PHP site-specific configuration
+# COPY custom.ini $PHP_INI_DIR/conf.d/
 
-COPY --from=build /app/dist/ ./themes/my_theme/
-COPY --from=build /app/src/wp-plugins/prism/ ./plugins/prism/
+# WordPress themes and plugins
+COPY --from=build /app/dist/ /var/www/html/wp-content/themes/my_theme/
+COPY --from=build /app/src/wp-plugins/prism/ /var/www/html/wp-content/plugins/prism/
 
-RUN chown -R www-data:www-data /var/www
+
