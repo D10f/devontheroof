@@ -27,9 +27,9 @@ COPY . .
 
 # Update functions.php with webpack-generated js and css files
 RUN npm run build && \
-  MAIN_CSS=$(ls ./dist/main.*.css | cut -d "/" -f2) && \
+  MAIN_CSS=$(ls ./dist/main.*.css | cut -d "/" -f3) && \
   sed -i "s/main.*.css/${MAIN_CSS}/i" src/wp-theme/functions.php && \
-  MAIN_JS=$(ls ./dist/main.*.js | cut -d "/" -f2) && \
+  MAIN_JS=$(ls ./dist/main.*.js | cut -d "/" -f3) && \
   sed -i "s/main.*.js/${MAIN_JS}/i" src/wp-theme/functions.php && \
   cp -r src/wp-theme/* dist/ && \
   cp assets/publickey.devsojourn@pm.me.asc dist/ && \
