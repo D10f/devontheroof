@@ -2,11 +2,15 @@
 <html lang="en" dir="ltr">
   <body>
     <!--
-      This file exists for local development only!
-      
-      Add an element for each media resource needed to be loaded. This causes
-      Webpack to compile these resources and serve from the webpack-dev-server.
-      The structure of the site is processed by PHP.
+      THIS FILE EXISTS FOR LOCAL DEVELOPMENT ONLY!
+
+      Add a new img, svg, video or any other media element that is not loaded
+      dynamically through WordPress. Adding a media resource here will be picked
+      up by Webpack, and served during development, or bundled during build.
+
+      Ideally this file would be empty and all assets handled by WordPress. But
+      this makes it very easy during local development and testing, without
+      affecting the bundle size or response times once deployed in production.
     -->
 
     <svg aria-hidden="true">
