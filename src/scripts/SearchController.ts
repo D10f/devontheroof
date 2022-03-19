@@ -36,7 +36,8 @@ export class SearchController {
     this.timer = setTimeout(() => {});
     this.debounceTimeout = 500;
     // this.endpoint = "http://localhost:8080/wp-json/content/posts";
-    this.endpoint = "https://developersojourn.site/wp-json/content/posts";
+    // this.endpoint = "https://developersojourn.site/wp-json/content/posts";
+    this.endpoint = "https://devontheroof.top/wp-json/content/posts";
     this.listeners();
   }
 
@@ -123,7 +124,8 @@ export class SearchController {
         "http://www.w3.org/1999/xlink",
         "xlink:href",
         // `http://localhost:8080/wp-content/themes/sojourn/images/sprite.svg#icon-${post.category}`
-        `https://developersojourn.site/wp-content/themes/sojourn/images/sprite.svg#icon-${post.category}`
+        // `https://developersojourn.site/wp-content/themes/sojourn/images/sprite.svg#icon-${post.category}`
+        `https://devontheroof.top/wp-content/themes/devontheroof/images/sprite.svg#icon-${post.category}`
       );
 
       svgEl.appendChild(useEl);

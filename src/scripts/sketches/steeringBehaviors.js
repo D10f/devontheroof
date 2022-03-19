@@ -98,7 +98,8 @@ export default (p, customText) => {
     // for development locally use this
     // font = p.loadFont('../../../assets/fonts/PanameraRegular.otf');
     // for development with docker use this
-    font = p.loadFont('/wp-content/themes/sojourn/fonts/PanameraRegular.otf');
+    // font = p.loadFont('/wp-content/themes/sojourn/fonts/PanameraRegular.otf');
+    font = p.loadFont('/wp-content/themes/devontheroof/fonts/PanameraRegular.otf');
   };
 
   p.setup = () => {
