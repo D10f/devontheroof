@@ -1,10 +1,14 @@
-# Welcome
+Hi, there!
 
-[Developer Sojourn](https://developersojourn.site) is my personal site to experiment and learn more about all things web. I attempt to put into practice new ideas and using new technologies to me. I will also write about my personal experience learning web development and programming topics, but mostly this will be my go-to place to write notes to refresh my memory.
+I'm the [Dev On The Roof](https://devontheroof.top) and this my personal site, an ever work in progress where I attempt to put into practice new ideas and technologies that I find interesting.
 
-This portfolio is a work in progress and it will always be, as I change things around to stay up with design trends, throw in new technologies to the current stack and find other overly complicated ways to have some fun with code.
+From time to time I write about my personal experiences while learning about web development, design and other programming topics, but mostly you'll find notes about *the thing* that I'm currently working on. 
+
+In summary, this is where I come to find overly complicated ways of having fun with code. Feel free to stick around and enjoy the view.
 
 # TODO:
-- [ ] Write instructions for development (theme)
-- [ ] Write instructions for development (custom blocks)
-- [ ] Write instructions for production build
+- [ ] Add illustration with a nice view.
+- [ ] Write instructions to setup theme dev environment.
+- [ ] Write instructions to setup custom block dev environment.
+- [ ] Write instructions to create a production build.
+- [ ] Create IAC (infrastructure-as-code) section.
