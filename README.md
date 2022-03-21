@@ -10,5 +10,5 @@ In summary, this is where I come to find overly complicated ways of having fun w
 - [ ] Add illustration with a nice view.
 - [ ] Write instructions to setup theme dev environment.
 - [ ] Write instructions to setup custom block dev environment.
-- [ ] Write instructions to create a production build.
 - [ ] Create IAC (infrastructure-as-code) section.
+- [ ] Undo production step on Dockerfile in favor of bind volumes during deployment
