@@ -278,7 +278,7 @@
             on hundreds of image files with ease.
           </p>
           <footer class="project__footer">
-            <a href="https://github.com/herokunt/python-scripts/blob/main/batch-resizer.py" target="_blank" class="btn">Code</a>
+            <a href="https://github.com/herokunt/python-scripts/tree/main/batch_resizer" target="_blank" class="btn">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
