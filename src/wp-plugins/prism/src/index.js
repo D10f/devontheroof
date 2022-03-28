@@ -1,5 +1,5 @@
 import { RichText } from '@wordpress/block-editor';
-import { SelectControl, Flex, FlexBlock } from '@wordpress/components';
+import { SelectControl } from '@wordpress/components';
 
 wp.blocks.registerBlockType('sojourn/prism-syntax-highlighter', {
   title: 'Prism Highlighter',
