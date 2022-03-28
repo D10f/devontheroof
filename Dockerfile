@@ -38,7 +38,8 @@ RUN npm run build && \
 # Build wp custom block
 RUN cd src/wp-plugins/prism && \
     npm install && \
-    npm run build
+    npm run build && \
+    rm -rf node_modules package*
 
 #
 # Production stage (WordPress)
@@ -50,7 +51,7 @@ FROM wordpress:php7.4-fpm AS production
 # COPY custom.ini $PHP_INI_DIR/conf.d/
 
 # WordPress themes and plugins
-COPY --from=build /app/dist/ /var/www/html/wp-content/themes/my_theme/
-COPY --from=build /app/src/wp-plugins/prism/ /var/www/html/wp-content/plugins/prism/
+COPY --from=build /app/dist/ /usr/src/wordpress/wp-content/themes/devontheroof/
+COPY --from=build /app/src/wp-plugins/prism/ /usr/src/wordpress/wp-content/plugins/prism/
 
 
