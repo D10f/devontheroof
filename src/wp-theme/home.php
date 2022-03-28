@@ -409,7 +409,7 @@
           </p>
           <footer class="project__footer">
             <button data-id="lightbulb" class="btn">Play</button>
-            <a href="#" class="btn ml-2">Code</a>
+            <a href="https://github.com/herokunt/javascript_ramblings/blob/main/2D/hanging_lightbulb.js" class="btn ml-2">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
@@ -447,7 +447,7 @@
           </p>
           <footer class="project__footer">
             <button data-id="earth" class="btn">Play</button>
-            <a href="#" class="btn ml-2">Code</a>
+            <a href="https://github.com/herokunt/javascript_ramblings/tree/main/3D" class="btn ml-2">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
@@ -481,7 +481,7 @@
           </p>
           <footer class="project__footer">
             <button data-id="steering" class="btn">Play</button>
-            <a href="#" class="btn ml-2">Code</a>
+            <a href="https://github.com/herokunt/javascript_ramblings/blob/main/2D/steering_behavior.js" class="btn ml-2">Code</a>
           </footer>
         </div>
         <ul class="project__stack">
