@@ -495,4 +495,93 @@
     </article>
   </section>
 
+  <section id="devops" class="section__devops">
+    <h2 class="section__title transition">DevOps</h2>
+
+    <article class="project">
+
+      <div class="project__preview">
+        <img
+          class="project__preview--fullwidth"
+          src="<?php echo get_theme_file_uri('images/ansible.webp'); ?>"
+          alt="Screenshot of a code editor showing an ansible playbook"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="project__info">
+        <input class="project__checkbox" type="checkbox" name="stack-config-mgn" id="stack-config-mgn">
+        
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-config-mgn">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
+
+        <div class="project__content ml-1">
+          <h3 class="project__title">Configuration Management</h3>
+          <p class="project__description">
+            <span class="highlight">Automated configuration</span> on cloud servers and desktop machines, including firewall rules, intrusion detection systems, private networks, monitoring, container clusters and more.
+          </p>
+
+          <footer class="project__footer">
+            <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn">Code</a>
+          </footer>
+        </div>
+
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Ansible">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-ansible" ?>"></use>
+            </svg>
+          </li>
+        </ul>
+      </div>
+      
+    </article>
+
+    <article class="project">
+
+      <div class="project__preview">
+        <img
+          class="project__preview--fullwidth"
+          src="<?php echo get_theme_file_uri('images/docker.webp'); ?>"
+          alt="Screenshot of a code editor showing an ansible playbook"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="project__info">
+        <input class="project__checkbox" type="checkbox" name="stack-config-mgn" id="stack-containers">
+        
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack" tabindex="0" for="stack-containers">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
+
+        <div class="project__content ml-1">
+          <h3 class="project__title">Containerization</h3>
+          <p class="project__description">
+            Modern workflow using containers, from <span class="highlight">local development</span> to disposable <span class="highlight">testing environments</span>, to <span class="highlight">orchestrated production deployments</span>.
+          </p>
+
+          <footer class="project__footer">
+            <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn">Code</a>
+          </footer>
+        </div>
+
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Docker">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-docker" ?>"></use>
+            </svg>
+          </li>
+        </ul>
+      </div>
+      
+    </article>
+    
+  </section>
+
   <?php get_footer(); ?>
