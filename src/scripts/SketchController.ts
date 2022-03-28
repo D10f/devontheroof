@@ -2,6 +2,8 @@ interface ISketch {
   destroy: () => null;
 }
 
+const STEERING_SKETCH_TEXT = 'Hire Me!'
+
 /**
  * Manages 2D and 3D sketches so that only is running at the same time
  */
@@ -115,7 +117,7 @@ export class SketchController {
         break;
       case "steering":
         this.currentSketch = new this.p5(
-          (p: any) => this.steeringBehaviors(p, "Hire Me!"),
+          (p: any) => this.steeringBehaviors(p, STEERING_SKETCH_TEXT),
           document.getElementById(canvasId)
         );
         break;
