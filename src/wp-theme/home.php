@@ -13,14 +13,14 @@
         <p class="section__header-whoami">
           Interested in <span class="highlight">all things web</span>, <span class="highlight">DevOps</span> and <span class="highlight">cybersecurity</span>.
         </p>
-       
+
         <p class="section__header-whoami">
           Currently learning: <span class="highlight">Docker</span>, Ansible, Jenkins.
         </p>
 
       </div>
 
-        
+
       <a class="section__header-scroll" href="#webapps">&darr;</a>
     </section>
 
@@ -120,16 +120,6 @@
               <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mongo" ?>"></use>
             </svg>
           </li>
-          <li class="tooltip" data-tooltip="Docker">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-docker" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="Jenkins">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-jenkins" ?>"></use>
-            </svg>
-          </li>
         </ul>
       </div>
     </article>
@@ -154,12 +144,12 @@
             </span> to make sense of your spending habits, and complete privacy
             using <span class="highlight">AES256-bit encryption.</span>
           </p>
-          
+
           <footer class="project__footer">
             <a href="https://pawnsguard.com" target="_blank" class="btn">View</a>
             <a href="https://github.com/herokunt/gadget-budget" target="_blank" class="btn ml-2">Code</a>
           </footer>
-          
+
         </div>
 
         <ul class="project__stack">
@@ -196,16 +186,6 @@
           <li class="tooltip" data-tooltip="MongoDB">
             <svg aria-hidden="true">
               <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-mongo" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="Docker">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-docker" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="Jenkins">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-jenkins" ?>"></use>
             </svg>
           </li>
         </ul>
@@ -308,7 +288,7 @@
             </svg>
           </li>
         </ul>
-        
+
       </div>
     </article>
 
@@ -380,7 +360,7 @@
             </svg>
           </li>
         </ul>
-        
+
       </div>
     </article>
   </section>
@@ -511,7 +491,7 @@
 
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-config-mgn" id="stack-config-mgn">
-        
+
         <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-config-mgn">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
@@ -537,7 +517,7 @@
           </li>
         </ul>
       </div>
-      
+
     </article>
 
     <article class="project">
@@ -553,7 +533,7 @@
 
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-config-mgn" id="stack-containers">
-        
+
         <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack" tabindex="0" for="stack-containers">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
@@ -579,9 +559,9 @@
           </li>
         </ul>
       </div>
-      
+
     </article>
-    
+
   </section>
 
   <?php get_footer(); ?>
