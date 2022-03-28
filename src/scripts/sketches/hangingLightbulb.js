@@ -3,6 +3,7 @@
 
 import p5 from 'p5';
 import {
+  Body,
   Engine,
   World,
   Bodies,
@@ -200,10 +201,16 @@ class Box {
     this.w = w;
     this.h = h;
     this.noRender = options.noRender || false;
+    this.rotation = options.rotation;
     World.add(world, this.body);
   }
 
   render() {
+
+    if (this.rotation && this.rotation != 0) {
+      Body.rotate(this.body, this.rotation);
+    }
+
     if (this.noRender) return;
 
     this.p.push();
@@ -226,11 +233,18 @@ class Polygon {
     this.body = Bodies.polygon(x, y, s, r, options);
     this.radius = r;
     this.noRender = options.noRender || false;
+    this.rotation = options.rotation;
     World.add(world, this.body);
   }
 
   render() {
+    
+    if (this.rotation && this.rotation != 0) {
+      Body.rotate(this.body, this.rotation);
+    }
+
     if (this.noRender) return;
+
     this.p.push();
     this.p.beginShape();
     this.body.vertices.forEach(({ x, y }) => this.p.vertex(x, y));
@@ -313,26 +327,26 @@ export default p => {
     // create the pendulum
     const pendulum = new Pendulum(p, {
       x: p.width / 2,
-      y: 70,
+      y: 80,
       body: light.body,
       options: {
         stiffness: 0.5,
-        length: 100
+        length: 80
       }
     });
 
     // Create a few objects that project shadows...
-    const ball1 = new Ball({
-      p: p,
-      x: 150,
-      y: 50,
-      r: 10,
-      options: {
-        noRender: !RENDER_BODIES,
-        restitution: 0.55,
-        friction: 0.1
-      }
-    });
+    // const ball1 = new Ball({
+    //   p: p,
+    //   x: 150,
+    //   y: 50,
+    //   r: 10,
+    //   options: {
+    //     noRender: !RENDER_BODIES,
+    //     restitution: 0.55,
+    //     friction: 0.1
+    //   }
+    // });
 
     const box1 = new Box(p, {
       x: 120,
@@ -342,30 +356,33 @@ export default p => {
       options: {
         noRender: !RENDER_BODIES,
         isStatic: true,
-        angle: 1
+        angle: 1,
+        rotation: 0.01,
       }
     });
 
     const poly1 = new Polygon(p, {
-      x: 180,
-      y: 240,
+      x: 200,
+      y: 200,
       s: 6,
       r: 50,
       options: {
         noRender: !RENDER_BODIES,
         isStatic: true,
+        rotation: 0.02,
         angle: Math.PI + 0.2
       }
     });
 
     const poly2 = new Polygon(p, {
-      x: 400,
-      y: 250,
+      x: 360,
+      y: 210,
       s: 6,
       r: 40,
       options: {
         noRender: !RENDER_BODIES,
-        isStatic: true
+        isStatic: true,
+        rotation: 0.01,
       }
     });
 
@@ -377,14 +394,17 @@ export default p => {
       options: {
         noRender: !RENDER_BODIES,
         isStatic: true,
+        rotation: 0.025,
         angle: 1.8
       }
     });
 
 
     // ...and add them to the world
-    bodies.push(ball1, box1, box2, poly1, poly2);
-    boxes.push(ball1, box1, box2, poly1, poly2);
+    // bodies.push(ball1, box1, box2, poly1, poly2);
+    // boxes.push(ball1, box1, box2, poly1, poly2);
+    bodies.push(box1, box2, poly1, poly2);
+    boxes.push(box1, box2, poly1, poly2);
 
     // create mouse object and constraint
     const mouse = Mouse.create(canvas.elt);
@@ -417,22 +437,22 @@ export default p => {
     p.background(50);
 
     // new ball every 60 frames
-    if (p.frameCount % 80 === 0) {
-      const ball = new Ball({
-        p: p,
-        x: p.random(150, p.width - 150),
-        y: -20,
-        r: 10,
-        options: {
-          noRender: !RENDER_BODIES,
-          restitution: 0.55,
-          friction: 0.1
-        }
-      });
+    // if (p.frameCount % 80 === 0) {
+    //   const ball = new Ball({
+    //     p: p,
+    //     x: p.random(150, p.width - 150),
+    //     y: -20,
+    //     r: 10,
+    //     options: {
+    //       noRender: !RENDER_BODIES,
+    //       restitution: 0.55,
+    //       friction: 0.1
+    //     }
+    //   });
 
-      bodies.push(ball);
-      boxes.push(ball);
-    }
+    //   bodies.push(ball);
+    //   boxes.push(ball);
+    // }
 
     // run the engine
     Engine.update(engine);
@@ -457,8 +477,8 @@ export default p => {
     }
   };
 
-  p.keyPressed = () => {
-    if (p.keyCode !== 80) return;
-    p.paused ? p.resumeLoop() : p.stopLoop();
-  }
+  // p.keyPressed = () => {
+  //   if (p.keyCode !== 80) return;
+  //   p.paused ? p.resumeLoop() : p.stopLoop();
+  // }
 };
