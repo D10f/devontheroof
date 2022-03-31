@@ -370,6 +370,7 @@
 
     <article class="project">
       <div class="project__preview">
+        <noscript class="project__preview--unavailable">Please enable JavaScript</noscript>
         <div id="lightbulb" class="project__canvas"></div>
       </div>
 
@@ -409,6 +410,7 @@
 
     <article class="project">
       <div class="project__preview">
+        <noscript class="project__preview--unavailable">Please enable JavaScript</noscript>
         <div id="earth" class="project__canvas"></div>
       </div>
 
@@ -442,6 +444,7 @@
 
     <article class="project">
       <div class="project__preview">
+        <noscript class="project__preview--unavailable">Please enable JavaScript</noscript>
         <div id="steering" class="project__canvas"></div>
       </div>
 
@@ -483,7 +486,7 @@
       <div class="project__preview">
         <img
           class="project__preview--fullwidth"
-          src="<?php echo get_theme_file_uri('images/ansible.webp'); ?>"
+          src="<?php echo get_theme_file_uri('images/ansible.png'); ?>"
           alt="Screenshot of a code editor showing an ansible playbook"
           loading="lazy"
         />
@@ -525,7 +528,7 @@
       <div class="project__preview">
         <img
           class="project__preview--fullwidth"
-          src="<?php echo get_theme_file_uri('images/docker.webp'); ?>"
+          src="<?php echo get_theme_file_uri('images/docker.png'); ?>"
           alt="Screenshot of a code editor showing an ansible playbook"
           loading="lazy"
         />
