@@ -37,6 +37,7 @@
   }
 
   &__preview {
+    position: relative;
     grid-area: preview;
     min-width: 100%;
     align-self: normal;
@@ -51,6 +52,18 @@
         min-height: 100%;
         width: 100%;
       }
+    }
+
+    &--fullwidth {
+      max-width: unset;
+    }
+
+    &--unavailable {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: variables.$color-light;
     }
   }
 

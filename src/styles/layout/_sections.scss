@@ -17,7 +17,8 @@
 .section {
   &__webapps,
   &__scripting,
-  &__graphics {
+  &__graphics,
+  &__devops {
     @extend %section;
   }
 
