@@ -65,7 +65,7 @@ pre {
   display: grid;
   grid-template:
     "header header  header  header" auto
-    ".      navbar  navbar  .     " 10rem
+    ".      navbar  navbar  .     " min-content
     ".      content content .     " auto /
     1fr 40ch 40ch 1fr;
 
