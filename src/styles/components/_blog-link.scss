@@ -173,6 +173,13 @@
       rgba(variables.$color-js, 0.25)
     );
   }
+  &--ansible {
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(variables.$color-ansible, 0.7),
+      rgba(variables.$color-ansible, 0.25)
+    );
+  }
 }
 
 .blog-link {
