@@ -253,120 +253,8 @@
     </article>
   </section>
 
-  <section class="section__scripting">
-    <h2 class="section__title transition">Scripting</h2>
-
-    <article class="project">
-      <div class="project__preview">
-        <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/resizer.mp4'); ?>"></video>
-      </div>
-
-      <div class="project__info">
-        <input class="project__checkbox" type="checkbox" name="stack-resizer" id="stack-resizer">
-        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-resizer">
-          <svg aria-hidden="true">
-            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
-          </svg>
-        </label>
-        <div class="project__content ml-1">
-          <h3 class="project__title">Image Batch Resizer</h3>
-          <p class="project__description">
-            Run this handy utility script to <span class="highlight">
-            resize your image files</span> to different sizes. Choose between
-            any of the <span class="highlight">multiple formats</span> available.
-            It uses <span class="highlight">parallel processing</span> to work
-            on hundreds of image files with ease.
-          </p>
-          <footer class="project__footer">
-            <a href="https://github.com/herokunt/python-scripts/tree/main/batch_resizer" target="_blank" class="btn">Code</a>
-          </footer>
-        </div>
-        <ul class="project__stack">
-          <li class="tooltip" data-tooltip="Python">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
-            </svg>
-          </li>
-        </ul>
-
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="project__preview">
-        <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"></video>
-      </div>
-
-      <div class="project__info">
-        <input class="project__checkbox" type="checkbox" name="stack-password" id="stack-password">
-        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-password">
-          <svg aria-hidden="true">
-            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
-          </svg>
-        </label>
-        <div class="project__content ml-1">
-          <h3 class="project__title">Password Checker</h3>
-          <p class="project__description">
-            <span class="highlight">Verify your passwords</span> against the
-            increasing threat of online data braches. It compares a
-            <span class="highlight">computed hash</span> of your passwords to
-            privately check the popular "Have I Been Pwned" website. It is
-            <span class="highlight">compatible with CSV exports</span> from your password manager.
-          </p>
-          <footer class="project__footer">
-            <a href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank" class="btn">Code</a>
-          </footer>
-        </div>
-        <ul class="project__stack">
-          <li class="tooltip" data-tooltip="Python">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
-            </svg>
-          </li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="project__preview">
-        <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"></video>
-      </div>
-
-      <div class="project__info">
-        <input class="project__checkbox" type="checkbox" name="stack-node" id="stack-node">
-        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-node">
-          <svg aria-hidden="true">
-            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
-          </svg>
-        </label>
-        <div class="project__content ml-1">
-          <h3 class="project__title">SCW Cloud Utility</h3>
-          <p class="project__description">
-            Wrapper bash script around the official Scaleway CLI. <span class="highlight">Manage your cloud instances</span> effectively, start up or tear down any number of servers <span class="highlight">within seconds</span>.
-          </p>
-          <footer class="project__footer">
-            <a href="https://github.com/herokunt/shell_scripts/blob/master/scw_utils.sh" target="_blank" class="btn">Code</a>
-          </footer>
-        </div>
-        <ul class="project__stack">
-          <li class="tooltip" data-tooltip="Bash">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-bash" ?>"></use>
-            </svg>
-          </li>
-          <li class="tooltip" data-tooltip="Scaleway CLI">
-            <svg aria-hidden="true">
-              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-scw" ?>"></use>
-            </svg>
-          </li>
-        </ul>
-
-      </div>
-    </article>
-  </section>
-
   <section class="section__graphics">
-    <h2 class="section__title transition">Games & Graphics</h2>
+    <h2 class="section__title transition">Graphics</h2>
 
     <article class="project">
       <div class="project__preview">
@@ -478,6 +366,118 @@
     </article>
   </section>
 
+  <section class="section__scripting">
+    <h2 class="section__title transition">Scripting</h2>
+
+    <article class="project">
+      <div class="project__preview">
+        <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"></video>
+      </div>
+
+      <div class="project__info">
+        <input class="project__checkbox" type="checkbox" name="stack-node" id="stack-node">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-node">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
+        <div class="project__content ml-1">
+          <h3 class="project__title">SCW Cloud Utility</h3>
+          <p class="project__description">
+            Wrapper bash script around the official Scaleway CLI. <span class="highlight">Manage your cloud instances</span> effectively, start up or tear down any number of servers <span class="highlight">within seconds</span>.
+          </p>
+          <footer class="project__footer">
+            <a href="https://github.com/herokunt/shell_scripts/blob/master/scw_utils.sh" target="_blank" class="btn">Code</a>
+          </footer>
+        </div>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Bash">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-bash" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Scaleway CLI">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-scw" ?>"></use>
+            </svg>
+          </li>
+        </ul>
+
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project__preview">
+        <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/resizer.mp4'); ?>"></video>
+      </div>
+
+      <div class="project__info">
+        <input class="project__checkbox" type="checkbox" name="stack-resizer" id="stack-resizer">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-resizer">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
+        <div class="project__content ml-1">
+          <h3 class="project__title">Image Batch Resizer</h3>
+          <p class="project__description">
+            Run this handy utility script to <span class="highlight">
+            resize your image files</span> to different sizes. Choose between
+            any of the <span class="highlight">multiple formats</span> available.
+            It uses <span class="highlight">parallel processing</span> to work
+            on hundreds of image files with ease.
+          </p>
+          <footer class="project__footer">
+            <a href="https://github.com/herokunt/python-scripts/tree/main/batch_resizer" target="_blank" class="btn">Code</a>
+          </footer>
+        </div>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Python">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
+            </svg>
+          </li>
+        </ul>
+
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project__preview">
+        <video aria-label="A terminal window running a Python script" tabindex="-1" class="card__video" preload="none" muted loop src="<?php echo get_theme_file_uri('videos/passwords.mp4'); ?>"></video>
+      </div>
+
+      <div class="project__info">
+        <input class="project__checkbox" type="checkbox" name="stack-password" id="stack-password">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-password">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
+        <div class="project__content ml-1">
+          <h3 class="project__title">Password Checker</h3>
+          <p class="project__description">
+            <span class="highlight">Verify your passwords</span> against the
+            increasing threat of online data braches. It compares a
+            <span class="highlight">computed hash</span> of your passwords to
+            privately check the popular "Have I Been Pwned" website. It is
+            <span class="highlight">compatible with CSV exports</span> from your password manager.
+          </p>
+          <footer class="project__footer">
+            <a href="https://github.com/herokunt/python-scripts/blob/main/password_checker.py" target="_blank" class="btn">Code</a>
+          </footer>
+        </div>
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Python">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-python" ?>"></use>
+            </svg>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
   <section id="devops" class="section__devops">
     <h2 class="section__title transition">DevOps</h2>
 
@@ -546,7 +546,7 @@
         <div class="project__content ml-1">
           <h3 class="project__title">Containerization</h3>
           <p class="project__description">
-            Modern workflow using containers, from <span class="highlight">local development</span> to disposable <span class="highlight">testing environments</span>, to <span class="highlight">orchestrated production deployments</span>.
+            Modern workflow using container technologies to <span class="highlight">create predictable environments</span> locally, while testing and in <span class="highlight">orchestrated deployments</span>.
           </p>
 
           <footer class="project__footer">
@@ -586,9 +586,9 @@
         </label>
 
         <div class="project__content ml-1">
-          <h3 class="project__title">Containerization</h3>
+          <h3 class="project__title">Monitoring</h3>
           <p class="project__description">
-            Modern workflow using containers, from <span class="highlight">local development</span> to disposable <span class="highlight">testing environments</span>, to <span class="highlight">orchestrated production deployments</span>.
+            Timeseries data collection, <span class="highlight">monitoring</span>, <span class="highlight">alerting</span> and <span class="highlight">visualization</span>.
           </p>
 
           <footer class="project__footer">
