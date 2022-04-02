@@ -508,7 +508,7 @@
           </p>
 
           <footer class="project__footer">
-            <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn">Code</a>
+            <a href="https://codeberg.org/unsafe-aluminum-gap/server-iac/src/branch/master/ansible" target="_blank" class="btn">Code</a>
           </footer>
         </div>
 
@@ -535,7 +535,7 @@
       </div>
 
       <div class="project__info">
-        <input class="project__checkbox" type="checkbox" name="stack-config-mgn" id="stack-containers">
+        <input class="project__checkbox" type="checkbox" name="stack-containers" id="stack-containers">
 
         <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack" tabindex="0" for="stack-containers">
           <svg aria-hidden="true">
@@ -550,7 +550,7 @@
           </p>
 
           <footer class="project__footer">
-            <a href="https://github.com/herokunt/bytes-and-pipes" target="_blank" class="btn">Code</a>
+            <a href="https://codeberg.org/unsafe-aluminum-gap/server-iac/src/branch/master/services/devontheroof/docker-compose.yml" target="_blank" class="btn">Code</a>
           </footer>
         </div>
 
@@ -558,6 +558,58 @@
           <li class="tooltip" data-tooltip="Docker">
             <svg aria-hidden="true">
               <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-docker" ?>"></use>
+            </svg>
+          </li>
+        </ul>
+      </div>
+
+    </article>
+    
+    <article class="project">
+
+      <div class="project__preview">
+        <img
+          class="project__preview--fullwidth"
+          src="<?php echo get_theme_file_uri('images/metrics.webp'); ?>"
+          alt="Screenshot of a code editor showing an ansible playbook"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="project__info">
+        <input class="project__checkbox" type="checkbox" name="stack-metrics" id="stack-metrics">
+
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack" tabindex="0" for="stack-metrics">
+          <svg aria-hidden="true">
+            <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
+          </svg>
+        </label>
+
+        <div class="project__content ml-1">
+          <h3 class="project__title">Containerization</h3>
+          <p class="project__description">
+            Modern workflow using containers, from <span class="highlight">local development</span> to disposable <span class="highlight">testing environments</span>, to <span class="highlight">orchestrated production deployments</span>.
+          </p>
+
+          <footer class="project__footer">
+            <a href="https://codeberg.org/unsafe-aluminum-gap/server-iac/src/branch/master/services/metrics/docker-compose.yml" target="_blank" class="btn">Code</a>
+          </footer>
+        </div>
+
+        <ul class="project__stack">
+          <li class="tooltip" data-tooltip="Telegraf">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-telegraf" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="InfluxDB">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-influxdb" ?>"></use>
+            </svg>
+          </li>
+          <li class="tooltip" data-tooltip="Grafana">
+            <svg aria-hidden="true">
+              <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-grafana" ?>"></use>
             </svg>
           </li>
         </ul>
