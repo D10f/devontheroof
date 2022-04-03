@@ -36,6 +36,11 @@
 
 /* Code blocks not using the custom plugin (no syntax highlighting) */
 
+.wp-block-code {
+  // Override side margins
+  margin: 1rem 0;
+}
+
 pre {
   background-color: variables.$color-one-dark;
   overflow-y: auto;
@@ -53,7 +58,6 @@ pre {
 
   code {
     font-size: 1.6rem;
-    padding: 0.2rem 0.5rem;
     color: variables.$color-light;
   }
 }
@@ -142,6 +146,13 @@ pre {
         rgba(variables.$color-js, 0.25)
       );
     }
+    &--ansible {
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(variables.$color-ansible, 0.7),
+        rgba(variables.$color-ansible, 0.25)
+      );
+    }
   }
 
   &__title {
@@ -162,8 +173,14 @@ pre {
   &__content {
     grid-area: content;
 
+    h3,
+    p,
+    ul {
+      font-family: variables.$post-typography;
+    }
+
     p {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
     }
 
     h3 {
@@ -173,6 +190,14 @@ pre {
     h3,
     p {
       margin: 2rem 0;
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    li {
+      margin: 1rem 2rem;
     }
 
     @include mixins.responsive(phone) {
@@ -186,6 +211,10 @@ pre {
       h3 {
         font-size: 2.2rem;
         margin: 4rem 0;
+      }
+
+      li {
+        margin: 1rem;
       }
     }
   }
