@@ -4,8 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "docker-compose up -d && docker logs -f developer-sojourn_webpack_1",
+    "start": "docker-compose up -d && docker-compose logs -f",
     "build": "NODE_ENV=production webpack",
+    "build:theme": "./build-theme.sh",
+    "build:plugin": "./build-plugin.sh",
     "build:prod": "docker build --tag folious/devontheroof:latest --target production .",
     "types": "tsc"
   },

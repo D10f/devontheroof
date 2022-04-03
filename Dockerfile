@@ -14,6 +14,8 @@ COPY package*.json ./
 
 RUN npm install
 
+USER node
+
 CMD ["webpack", "serve"]
 
 
