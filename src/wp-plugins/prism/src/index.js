@@ -18,12 +18,16 @@ function EditComponent ({ attributes, setAttributes }) {
   const { content, language } = attributes;
   const languageOptions = [
     { label: 'JavaScript', value: 'js' },
+    { label: 'TypeScript', value: 'ts' },
     { label: 'JSX', value: 'jsx' },
     { label: 'JSON', value: 'json' },
     { label: 'HTML', value: 'markup' },
     { label: 'CSS', value: 'css' },
+    { label: 'SASS', value: 'scss' },
     { label: 'PHP', value: 'php' },
+    { label: 'Python', value: 'python' },
     { label: 'Shell', value: 'shell' },
+    { label: 'YAML', value: 'yaml' },
   ];
 
   const handleChange = value => setAttributes({ content: value });
