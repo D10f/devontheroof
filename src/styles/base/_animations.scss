@@ -43,6 +43,7 @@
   0% {
     opacity: 0;
     transform: scale(4);
+    pointer-events: none;
   }
 
   50% {
@@ -52,6 +53,7 @@
   100% {
     opacity: 1;
     transform: scale(1);
+    pointer-events: all;
   }
 }
 

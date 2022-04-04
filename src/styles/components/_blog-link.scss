@@ -31,39 +31,75 @@
     grid-template-rows: repeat(3, 14rem);
   }
 
-  &::before {
-    content: "BLOG";
-    position: absolute;
-    top: 50%;
-    left: -3.3rem;
-    transform: translateY(-50%) rotate(-90deg);
-    background-color: variables.$color-lighter;
-    padding: 0 1rem;
+  // &::before {
+  //   content: "BLOG";
+  //   position: absolute;
+  //   top: 50%;
+  //   left: -3.3rem;
+  //   transform: translateY(-50%) rotate(-90deg);
+  //   background-color: variables.$color-lighter;
+  //   padding: 0 1rem;
 
-    @include mixins.responsive(tablet) {
-      content: "BLOG";
-      position: absolute;
-      top: -1.4rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: variables.$color-lighter;
-      padding: 0 1rem;
-    }
+  //   @include mixins.responsive(tablet) {
+  //     content: "BLOG";
+  //     position: absolute;
+  //     top: -1.4rem;
+  //     left: 50%;
+  //     transform: translateX(-50%);
+  //     background-color: variables.$color-lighter;
+  //     padding: 0 1rem;
+  //   }
+  // }
+
+  // &::after {
+  //   display: none;
+
+  //   @include mixins.responsive(tablet) {
+  //     display: block;
+  //     content: "BLOG";
+  //     position: absolute;
+  //     background-color: variables.$color-lighter;
+  //     bottom: -1.4rem;
+  //     left: 50%;
+  //     transform: translateX(-50%);
+  //     padding: 0 1rem;
+  //   }
+  // }
+}
+
+.blog-separator {
+  font-family: inherit;
+  position: absolute;
+  top: 50%;
+  left: -3rem;
+  transform: translateY(-50%) rotate(-90deg);
+  background-color: variables.$color-lighter;
+  padding: 0 1rem;
+  z-index: 27;
+  
+  border-radius: 50%;
+  height: 6.2rem;
+  text-align: center;
+  width: min-content;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mixins.responsive(tablet) {
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
-
-  &::after {
-    display: none;
-
-    @include mixins.responsive(tablet) {
-      display: block;
-      content: "BLOG";
-      position: absolute;
-      background-color: variables.$color-lighter;
-      bottom: -1.4rem;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 0 1rem;
-    }
+  
+  @include mixins.responsive(phone) {
+    top: -1rem;
+  }
+  
+  &:hover,
+  &:focus {
+    color: variables.$color-lighter;
+    background-color: variables.$color-dark;
   }
 }
 

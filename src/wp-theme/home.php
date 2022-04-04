@@ -25,6 +25,7 @@
     </section>
 
     <section class="section__header-blog">
+      <a class="blog-separator" href="<?php echo site_url('blog'); ?>">BLOG</a>
       <ul class="blog-list">
         <?php
         $latestPosts = new WP_Query(array(

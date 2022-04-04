@@ -128,10 +128,16 @@
     bottom: 0;
     left: 50%;
     font-size: 4rem;
-    animation: scaleDown 0.5s 3s backwards, scrollDown 3s 3s infinite;
+    text-align: center;
+    width: 6.2rem;
+    height: min-content;
+    border-radius: 50%;
+    animation: scaleDown 0.5s 2.4s backwards, scrollDown 3s 3s infinite;
 
+    &:hover,
     &:focus {
-      color: variables.$color-secondary;
+      color: variables.$color-lighter;
+      background: variables.$color-dark;
     }
 
     @include mixins.responsive(tablet) {
@@ -142,6 +148,7 @@
   &-blog {
     grid-area: blog;
     justify-content: center;
+    position: relative;
 
     @include mixins.responsive(portrait) {
       justify-self: center;
