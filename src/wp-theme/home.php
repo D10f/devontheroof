@@ -42,7 +42,7 @@
           }
         ?>
 
-          <li class="<?php echo 'blog-item blog-item--' . $post_category ?>">
+          <li class="<?php echo 'blog-item gradient--' . $post_category ?>">
             <a class="blog-link" href="<?php the_permalink(); ?>">
               <span class="blog-link--text"><?php the_title(); ?> </span>
             </a>

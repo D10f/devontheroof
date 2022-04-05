@@ -37,3 +37,11 @@
 .scale-3 {
   transform: scale(3);
 }
+.gradient--nginx { background-image: variables.$gradient-nginx; }
+.gradient--mongo { background-image: variables.$gradient-mongo; }
+.gradient--wordpress { background-image: variables.$gradient-wordpress; }
+.gradient--pwa { background-image: variables.$gradient-pwa; }
+.gradient--bash { background-image: variables.$gradient-bash; }
+.gradient--react { background-image: variables.$gradient-react; }
+.gradient--js { background-image: variables.$gradient-js; }
+.gradient--ansible { background-image: variables.$gradient-ansible; }

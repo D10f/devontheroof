@@ -2,7 +2,7 @@
 @use "../abstract/mixins";
 @use "../layout/sections";
 
-// TODO BETTER ORGANIZATION FOR MULTIPLE PAGES
+// TODO: BETTER ORGANIZATION FOR MULTIPLE PAGES
 
 /* HEADING OF SINGLE POST PAGE */
 
@@ -34,7 +34,10 @@
 
 /* END HEADING OF SINGLE POST PAGE */
 
-/* Code blocks not using the custom plugin (no syntax highlighting) */
+.wp-block-code,
+pre {
+  max-height: 85vh;
+}
 
 .wp-block-code {
   // Override side margins
@@ -96,63 +99,6 @@ pre {
     align-items: center;
     box-shadow: variables.$box-shadow;
     border-radius: 5px;
-
-    &--nginx {
-      background-image: linear-gradient(
-        to bottom right,
-        rgba(variables.$color-nginx, 0.4),
-        rgba(variables.$color-nginx, 0.25)
-      );
-    }
-    &--mongo {
-      background-image: linear-gradient(
-        to bottom right,
-        rgba(variables.$color-mongo, 0.5),
-        rgba(variables.$color-mongo, 0.25)
-      );
-    }
-    &--wordpress {
-      background-image: linear-gradient(
-        to bottom right,
-        rgba(variables.$color-wordpress, 0.5),
-        rgba(variables.$color-wordpress, 0.25)
-      );
-    }
-    &--pwa {
-      background-image: linear-gradient(
-        to bottom right,
-        rgba(variables.$color-pwa, 0.35),
-        rgba(variables.$color-pwa, 0.25)
-      );
-    }
-    &--bash {
-      background-image: linear-gradient(
-        to bottom right,
-        rgba(variables.$color-bash, 0.5),
-        rgba(variables.$color-bash, 0.25)
-      );
-    }
-    &--react {
-      background-image: linear-gradient(
-        to bottom right,
-        rgba(variables.$color-react, 0.25),
-        rgba(variables.$color-react, 0.1)
-      );
-    }
-    &--js {
-      background-image: linear-gradient(
-        to bottom right,
-        rgba(variables.$color-js, 0.75),
-        rgba(variables.$color-js, 0.25)
-      );
-    }
-    &--ansible {
-      background-image: linear-gradient(
-        to bottom right,
-        rgba(variables.$color-ansible, 0.7),
-        rgba(variables.$color-ansible, 0.25)
-      );
-    }
   }
 
   &__title {

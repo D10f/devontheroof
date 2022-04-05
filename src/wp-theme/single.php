@@ -23,7 +23,7 @@
       }
     ?>
 
-    <header class="single-post__header <?php echo "single-post__header--" . $post_category ?>">
+    <header class="single-post__header <?php echo "gradient--" . $post_category ?>">
       <h2 class="single-post__title">
         <?php the_title(); ?>
       </h2>

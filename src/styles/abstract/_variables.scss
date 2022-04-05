@@ -22,6 +22,48 @@ $color-react: #61DAFB;
 $color-js: #f7d249;
 $color-ansible: #c83232;
 
+/* COLOR GRADIENTS */
+
+$gradient-nginx: linear-gradient(
+    to bottom right,
+    rgba($color-nginx, 0.4),
+    rgba($color-nginx, 0.25)
+  );
+$gradient-mongo: linear-gradient(
+    to bottom right,
+    rgba($color-mongo, 0.5),
+    rgba($color-mongo, 0.25)
+  );
+$gradient-wordpress: linear-gradient(
+    to bottom right,
+    rgba($color-wordpress, 0.5),
+    rgba($color-wordpress, 0.25)
+  );
+$gradient-pwa: linear-gradient(
+    to bottom right,
+    rgba($color-pwa, 0.35),
+    rgba($color-pwa, 0.25)
+  );
+$gradient-bash: linear-gradient(
+    to bottom right,
+    rgba($color-bash, 0.5),
+    rgba($color-bash, 0.25)
+  );
+$gradient-react: linear-gradient(
+    to bottom right,
+    rgba($color-react, 0.25),
+    rgba($color-react, 0.1)
+  );
+$gradient-js: linear-gradient(
+    to bottom right,
+    rgba($color-js, 0.75),
+    rgba($color-js, 0.25)
+  );
+$gradient-ansible: linear-gradient(
+    to bottom right,
+    rgba($color-ansible, 0.7),
+    rgba($color-ansible, 0.25)
+  );
 
 /* LAYOUT */
 
