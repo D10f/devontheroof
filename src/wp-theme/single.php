@@ -40,6 +40,8 @@
       <?php the_content(); ?>
     </main>
 
+    <a class="scroll-to-top" href="#">&uarr;</a>
+
     <?php } ?>
   </section>
 

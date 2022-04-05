@@ -180,3 +180,30 @@ pre {
     }
   }
 }
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  
+  text-align: center;
+  font-size: 3rem;
+
+  border-radius: 50%;
+  height: 6.2rem;
+  width: 6.2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: variables.$color-dark;
+  color: variables.$color-lighter;
+
+  // transition: transform 0.2s cubic-bezier(.5,1.15,.83,1.26);
+  animation: popUp 0.2s 0.2s;
+
+  &--hide {
+    transform: scale(0);
+  }
+}
