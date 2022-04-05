@@ -46,7 +46,7 @@ export class SinglePostController {
 
   populatePostIndexes() {
     this.tableOfContents.forEach((title: HTMLElement) => {
-      title.id = title.textContent!.split(' ').join('-') ;
+      title.id = title.textContent!.replace(' ', '-')
 
       const li = document.createElement('li');
       li.className = "dropdown__item";
