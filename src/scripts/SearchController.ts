@@ -99,7 +99,7 @@ export class SearchController {
 
     return posts.map((post) => {
       const li = document.createElement("li");
-      li.className = `blog-item blog-item--${post.category}`;
+      li.className = `blog-item gradient--${post.category}`;
       li.id = post.id.toString();
 
       const link = document.createElement("a");
