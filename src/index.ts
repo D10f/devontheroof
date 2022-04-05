@@ -64,7 +64,7 @@ function loadSinglePostJS() {
   new SearchController();
   new SinglePostController();
   // @ts-ignore
-  import("./scripts/prism.js"); // syntax highlighter
+  // import("./scripts/prism.js"); // syntax highlighter
 }
 
 main();
