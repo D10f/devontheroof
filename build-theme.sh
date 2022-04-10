@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build Docker image
-docker build --target development -t developer-sojourn_webpack .
+docker build --rm --target development -t developer-sojourn_webpack .
 
 # Spin up container and build frontend files
 docker run \
@@ -28,7 +28,7 @@ cp assets/publickey.devsojourn@pm.me.asc dist/
 rm dist/*.html dist/*.txt
 
 # Remove pre-existing tar files
-rm devontheroof.tar* 
+rm devontheroof.tar*
 
 # Create archive with theme files
 tar -czf devontheroof.tar.gz dist

@@ -1,4 +1,7 @@
 export class ProjectController {
+
+  private readonly targets: NodeListOf<HTMLElement>;
+
   constructor(
     private readonly targets: NodeListOf<HTMLElement> = document.querySelectorAll(
       ".highlight"

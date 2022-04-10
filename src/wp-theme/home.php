@@ -66,7 +66,7 @@
       </div>
       <div class="project__info">
         <input class="project__checkbox" type="checkbox" name="stack-bytes" id="stack-bytes">
-        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack"" tabindex="0" for="stack-bytes">
+        <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack" tabindex="0" for="stack-bytes">
           <svg aria-hidden="true">
             <use xlink:href="<?php echo get_theme_file_uri('images/sprite.svg') . "#icon-tools" ?>"></use>
           </svg>
@@ -565,7 +565,7 @@
       </div>
 
     </article>
-    
+
     <article class="project">
 
       <div class="project__preview">
