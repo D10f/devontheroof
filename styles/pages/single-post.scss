@@ -1,0 +1,158 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+.single-post {
+  max-width: 80ch;
+  margin: 4rem auto;
+
+  @include mixins.responsive(portrait) {
+    margin: 4rem;
+  }
+ 
+  @include mixins.responsive(phone) {
+    margin: 1rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: variables.$box-shadow;
+    border-radius: 5px;
+    font-family: variables.$main-typography;
+  }
+
+  &__index {
+    position: relative;
+    padding: 3rem;
+    z-index: variables.$depth-dropdown;
+
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 3rem;
+    padding: 3rem;
+
+    @include mixins.responsive(portrait) {
+      font-size: 2.4rem;
+    }
+    @include mixins.responsive(phone) {
+      font-size: 2rem;
+    }
+    @include mixins.responsive(narrow) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__meta {
+    padding: 2rem 0;
+    font-size: 1.4rem;
+    font-family: variables.$code-typography;
+  }
+
+  &__content {
+    h3, p, ul {
+      font-family: variables.$post-typography;
+    }
+
+    h3, p {
+      margin: 2rem 0;
+    }
+
+    h3 {
+      font-size: 2.6rem;
+      
+      @include mixins.responsive(phone) {
+        font-size: 2.4rem;
+      }
+    }
+
+    p {
+      font-size: 1.8rem;
+      
+      @include mixins.responsive(phone) {
+        font-size: 1.6rem;
+      }
+    }
+
+    ul { list-style: disc; }
+    li { margin: 1rem 2rem; }
+
+    // inline code snippets
+    p > code {
+      background-color: variables.$color-one-dark;
+      color: variables.$color-light;
+      border-radius: 5px;
+      padding: 0 0.2rem;
+      margin: 0 0.2rem;
+    }
+
+    // Code blocks (replaces built-in .wp-block-code)
+    & pre {
+      word-spacing: normal;
+      word-break: normal;
+      word-wrap: normal;
+
+      // Override side margins and padding
+      margin: 1rem 0;
+      padding: 0;
+
+      // Override background color
+      background-color: variables.$color-one-dark;
+    }
+
+    // The actual content of the code block
+    & pre code {
+      max-height: 85vh;
+      overflow-y: auto;
+      border-radius: 5px;
+      padding: 2rem;
+      font-size: 1.6rem;
+      background-color: variables.$color-one-dark;
+      color: variables.$color-light;
+
+      @include mixins.responsive(phone) {
+        padding: 1rem;
+        font-size: 1.5rem;
+      }
+
+      // Scrollbar customization
+      /* width */
+      &::-webkit-scrollbar {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: variables.$color-one-dark;
+        border-radius: 0.3em;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #ababab;
+        border-radius: 0.3em;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      /* Intersection between horizontal and vertical scrollbars */
+      &::-webkit-scrollbar-corner {
+        background: variables.$color-one-dark;
+        border-radius: 0.3em;
+      }
+    }
+  }
+}

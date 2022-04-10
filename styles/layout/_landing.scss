@@ -1,0 +1,197 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.landing {
+
+  &__header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+    min-height: 100vh;
+    max-height: 100vh;
+    margin: 0 2rem;
+    padding: 0 2rem;
+
+    
+    @include mixins.responsive(tablet) {
+      grid-template-columns: 1fr;
+      justify-content: center;
+      row-gap: 5rem;
+      margin: 2rem;
+      padding: 2rem;
+      min-height: unset;
+      max-height: unset;
+    }
+  }
+
+  &__introduction,
+  &__recent-posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__introduction {
+    text-align: left;
+    align-items: flex-start;
+    margin-top: -5rem; // center intro text a little
+
+    // this is the navigation button
+    & .btn--round {
+      position: absolute;
+      bottom: 4rem;
+      left: 50%;
+    }
+
+    @include mixins.responsive(tablet) {
+      margin-top: 5rem;
+    }
+    @include mixins.responsive(phone) {
+      margin-top: 4rem;
+    }
+    @include mixins.responsive(narrow) {
+      margin-top: 3rem;
+    }
+
+    &--title {
+      font-size: 5rem;
+      // animation: fadeFromRight 0.6s 1s backwards;
+
+      @include mixins.responsive(tablet) {
+        font-size: 4.4rem;
+      }
+
+
+      @include mixins.responsive(phone) {
+        font-size: 3.5rem;
+      }
+
+      &::before,
+      &::after {
+        position: relative;
+        left: 2rem;
+      }
+
+      &::after {
+        content: '{';
+      }
+
+      &::before {
+        content: '}';
+        top: 250%;
+
+        @include mixins.responsive(phone) {
+          top: 375%;
+        }
+
+        @include mixins.responsive(narrow) {
+          top: 500%;
+        }
+      }
+    }
+
+    &--whoami {
+      font-family: variables.$code-typography;
+      margin: 1rem 0 1rem 10rem;
+
+      @include mixins.responsive(tablet) {
+        margin: 1rem 0 1rem 6rem;
+        font-size: 1.5rem;
+      }
+
+      @include mixins.responsive(narrow) {
+        margin: 1rem 0 1rem 3rem;
+        font-size: 1.5rem;
+      }
+
+      &:first-of-type {
+        margin-top: 1rem;
+        animation: fadeFromLeft 1s 1.2s backwards;
+      }
+
+      &:nth-of-type(2) {
+        animation: fadeFromRight 1s 1.4s backwards;
+      }
+
+      &:nth-of-type(3) {
+        animation: fadeFromRight 1s 1.4s backwards;
+        margin-bottom: 1rem;
+        animation: fadeFromLeft 1s 1.6s backwards;
+      }
+    }
+  }
+
+  &__recent-posts {
+    position: relative;
+    padding: 5rem 0;
+
+    @include mixins.responsive(tablet) {
+      margin-top: 2rem;
+    }
+  }
+
+  &__posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 14rem);
+    grid-template-rows: repeat(3, 14rem);
+    gap: 2rem;
+
+    border-left: 2px dashed variables.$color-dark;
+    padding-left: 7rem;
+
+    @include mixins.responsive(tablet) {
+      grid-template-columns: repeat(3, 16rem);
+      grid-template-rows: repeat(2, 16rem);
+      border-left: unset;
+      padding-left: unset;
+      border-top: 2px dashed variables.$color-dark;
+      border-bottom: 2px dashed variables.$color-dark;
+      padding: 5rem 0;
+    }
+
+    @include mixins.responsive(phone) {
+      grid-template-columns: repeat(2, 14rem);
+      grid-template-rows: repeat(3, 14rem);
+      width: 80%;
+      justify-content: center;
+    }
+  }
+
+  &__posts-separator {
+    font-family: inherit;
+    position: absolute;
+    top: 50%;
+    left: -3.2rem;
+    transform: translateY(-50%) rotate(-90deg);
+    background-color: variables.$color-lighter;
+    padding: 0 1rem;
+    z-index: 27;
+
+    border-radius: 50%;
+    height: 6.25rem;
+    text-align: center;
+    width: min-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mixins.responsive(tablet) {
+      // top: -3rem;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include mixins.responsive(phone) {
+      top: 2rem;
+    }
+
+    &:hover,
+    &:focus {
+      color: variables.$color-lighter;
+      background-color: variables.$color-dark;
+    }
+  }
+}

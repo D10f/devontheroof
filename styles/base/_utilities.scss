@@ -1,0 +1,32 @@
+@use '../abstract/mixins';
+@use '../abstract/variables';
+
+.ml-1 { margin-left: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+.gradient--nginx { background-image: variables.$gradient-nginx; }
+.gradient--mongo { background-image: variables.$gradient-mongo; }
+.gradient--wordpress { background-image: variables.$gradient-wordpress; }
+.gradient--pwa { background-image: variables.$gradient-pwa; }
+.gradient--bash { background-image: variables.$gradient-bash; }
+.gradient--react { background-image: variables.$gradient-react; }
+.gradient--js { background-image: variables.$gradient-js; }
+.gradient--ts { background-image: variables.$gradient-ts; }
+.gradient--ansible { background-image: variables.$gradient-ansible; }
+.gradient--docker { background-image: variables.$gradient-docker; }
+
+.floating {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+}
+
+.animate-hover {
+  animation: hover 10s infinite;
+}
+
+.hide-on-tablet {
+  @include mixins.responsive(tablet) {
+    display: none !important;
+  }
+}
