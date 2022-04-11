@@ -101,9 +101,12 @@
       word-break: normal;
       word-wrap: normal;
 
+      // Override overflow
+      overflow: hidden;
+
       // Override side margins and padding
       margin: 1rem 0;
-      padding: 0;
+      padding: 1em 0 0 0;
 
       // Override background color
       background-color: variables.$color-one-dark;
@@ -114,7 +117,7 @@
       max-height: 85vh;
       overflow-y: auto;
       border-radius: 5px;
-      padding: 2rem;
+      padding: 0 2rem;
       font-size: 1.6rem;
       background-color: variables.$color-one-dark;
       color: variables.$color-light;
