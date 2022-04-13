@@ -3,6 +3,7 @@ import { SketchController } from './modules/SketchController';
 import { SinglePostController } from './modules/SinglePostController';
 import { SearchController } from './modules/SearchController';
 import { TransitionEffect } from './modules/TransitionEffect';
+import { pulseAnimation } from './modules/animations';
 import { hasReducedMotion, isMobileDevice } from './modules/utils';
 
 import '/styles/index.scss';
@@ -28,6 +29,7 @@ function main() {
 function loadMainScripts() {
   new Highlighter('.highlight');
   new SketchController();
+  pulseAnimation('.animate-pulse');
 }
 
 async function loadBlogScripts() {

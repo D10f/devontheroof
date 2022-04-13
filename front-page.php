@@ -6,7 +6,7 @@
     <section class="landing__introduction">
       <?php the_content(); ?>
       <a
-        class="btn--round btn--large btn--light animate-hover hide-on-tablet"
+        class="btn--round btn--large btn--light animate-hover animate-pulse hide-on-tablet"
         href="#web-applications"
         aria-label="hidden"
       >
@@ -17,7 +17,7 @@
 
     <!-- Recent blog entries -->
     <section class="landing__recent-posts">
-      <a class="landing__posts-separator" href="<?= site_url('blog'); ?>">BLOG</a>
+      <a class="landing__posts-separator animate-pulse" href="<?= site_url('blog'); ?>">BLOG</a>
       <?php get_template_part('templates/recent_posts'); ?>
     </section>
 

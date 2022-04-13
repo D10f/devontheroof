@@ -97,7 +97,9 @@
     background-color: variables.$color-lighter;
     color: variables.$color-dark;
 
-    &:hover {
+    &:hover,
+    &:focus {
+      outline: none;
       background-color: variables.$color-dark;
       color: variables.$color-lighter;
     }

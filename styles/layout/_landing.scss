@@ -190,6 +190,7 @@
 
     &:hover,
     &:focus {
+      outline: none;
       color: variables.$color-lighter;
       background-color: variables.$color-dark;
     }
