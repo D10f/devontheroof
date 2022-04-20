@@ -4,8 +4,8 @@
   "description": "My personal portfolio site for notes and showcase projects",
   "main": "index.js",
   "scripts": {
-    "start": "docker-compose up -d && wp-scripts start",
-    "build": "wp-scripts build && tar -cvjf devontheroof.tar.bz2 assets build inc templates *.css *.php *.png"
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
   },
   "keywords": [],
   "author": "",
