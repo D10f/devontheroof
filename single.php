@@ -50,7 +50,7 @@
       </section>
 
       <aside class="floating">
-        <a class="btn--round btn--large btn--dark" href="#">&uarr;</a>
+        <a class="btn--round btn--large btn--dark animate-pulse" href="#">&uarr;</a>
       </aside>
     </main>
 
