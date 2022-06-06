@@ -68,11 +68,11 @@ function render_project($project_section, $projects) {
 
             <footer class="project__footer">
               <?php if ($project['project_link']) { ?>
-                <a class="btn" href="<?= $project['project_link'] ?>">View</a>
+                <a class="btn" href="<?= $project['project_link'] ?>" target="_blank" rel="noreferrer">View</a>
               <?php } ?>
               
               <?php if ($project['repo_link']) { ?>
-                <a class="btn" href="<?= $project['repo_link'] ?>">Code</a>
+                <a class="btn" href="<?= $project['repo_link'] ?>" target="_blank" rel="noreferrer">Code</a>
               <?php } ?>
             </footer>
 

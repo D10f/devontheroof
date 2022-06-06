@@ -7,8 +7,9 @@
   <ul class="section__footer-icons">
     <li class="tooltip" data-tooltip="GitHub">
       <a
-        href="https://github.com/herokunt"
+        href="https://github.com/D10f"
         target="_blank"
+        rel="noreferrer"
         aria-label="external link to a github profile"
       >
         <svg aria-hidden="true">
