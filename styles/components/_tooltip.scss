@@ -8,15 +8,45 @@
     opacity: 1;
   }
 
+  // &--left::before {
+  //   top: 0;
+  //   right: 110%;
+  // }
   &--left::before {
-    top: 0;
-    right: 110%;
+    top: unset;
+    right: 2rem;
+    bottom: unset;
+    left: unset;
+  }
+  &--bottom::before {
+    top: 2rem;
+    right: unset;
+    bottom: unset;
+    left: unset;
+  }
+  &--top-right::before {
+    top: unset;
+    right: unset;
+    bottom: 2rem;
+    left: 2rem;
+  }
+  &--top-left::before {
+    top: unset;
+    right: 2rem;
+    bottom: 2rem;
+    left: unset;
+  }
+  &--bottom-left::before {
+    top: 2rem;
+    right: 2rem;
+    bottom: unset;
+    left: unset;
   }
 
   &::before {
     content: attr(data-tooltip);
     position: absolute;
-    top: 110%;
+    // top: 110%;
     width: max-content;
     height: min-content;
     padding: 1rem;

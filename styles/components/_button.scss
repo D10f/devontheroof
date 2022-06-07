@@ -75,6 +75,22 @@
     }
   }
 
+  &[disabled] {
+    filter: grayscale(1);
+    
+    &:focus,
+    &:hover,
+    &:active,
+    &:focus::before,
+    &:hover::before,
+    &:focus::after,
+    &:hover::after {
+      transform: unset;
+      opacity: unset;
+      cursor: unset;
+    }
+  }
+
   &--small {
     width: 3.2rem;
     height: 3.2rem;
