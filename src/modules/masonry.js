@@ -1,10 +1,4 @@
-function debounce(fn, timeInMs) {
-  let timeFrame;
-  return function () {
-    clearTimeout(timeFrame);
-    timeFrame = setTimeout(fn, timeInMs);
-  };
-}
+import { debounce } from "./utils";
 
 export class Masonry {
   constructor(selector) {

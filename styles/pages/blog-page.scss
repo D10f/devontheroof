@@ -5,9 +5,9 @@
   min-height: 100vh;
   padding: 2rem;
   display: grid;
-  column-gap: 4rem;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-template-rows: min-content;
+  gap: 3rem;
 
   @include mixins.responsive(phone) {
     padding: 2rem;
@@ -16,6 +16,11 @@
   &__category {
     display: flex;
     flex-direction: column;
+    box-shadow: variables.$box-shadow-light;
+    background-color: #fafafa;
+    padding: 2rem;
+    border-radius: 5px;
+    transition: transform 0.4s ease;
   }
 
   &__category-icon {
@@ -33,8 +38,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 2rem;
-    margin-bottom: 3rem;
+    padding: 2rem 0;
   }
 
   &__item {
