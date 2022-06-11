@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-template-rows: min-content;
-  gap: 3rem;
+  gap: 2rem;
 
   @include mixins.responsive(phone) {
     padding: 2rem;
