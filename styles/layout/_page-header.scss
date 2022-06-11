@@ -6,6 +6,7 @@
   justify-content: space-between;
   align-items: center;
   height: 15rem;
+  border-bottom: 1px solid rgba(variables.$color-dark, 0.1);
 
   @include mixins.responsive(portrait) {
     flex-direction: column;

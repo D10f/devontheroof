@@ -17,7 +17,7 @@
     display: flex;
     justify-items: space-between;
     align-items: center;
-    width: 100%;
+    // width: 100%;
   }
 
   &__input,
@@ -26,30 +26,43 @@
   }
 
   &__input {
-    width: 100%;
+    // width: 100%;
     border: none;
     background: none;
-    border-bottom: 2px solid variables.$color-dark;
-    padding: 0 2rem;
+    text-align: right;
+    padding: 0 1rem;
     font-size: 2rem;
     outline: none;
     z-index: variables.$depth-search-input;
+    transform: translateX(5.2rem);
+    background-color: variables.$color-lighter;
+    border-right: 2px solid variables.$color-dark;
   }
 
   &__label {
-    padding: 0.6rem 1rem;
-    background: variables.$color-lighter;
-    border-bottom: 2px solid variables.$color-dark;
+    padding: 0 1.2rem;
+    // background: variables.$color-lighter;
     z-index: variables.$depth-search-label;
+    display: flex;
 
     &:hover {
       cursor: pointer;
     }
+  }
 
-    svg {
-      fill: variables.$color-dark;
-      width: 3.2rem;
-      height: 3.2rem;
+  &__icon {
+    transition: transform 0.25s ease;
+    fill: variables.$color-dark;
+    width: 3.6rem;
+    height: 3.6rem;
+    transform: translateX(0%);
+
+    &--loading {
+      transform: translateX(100%);
+      fill: variables.$color-lighter;
+      background-color: variables.$color-dark;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
     }
   }
 

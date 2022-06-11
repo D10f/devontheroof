@@ -11,6 +11,7 @@ interface IPost {
 export class SearchController {
   private readonly searchForm: HTMLFormElement;
   private readonly searchInput: HTMLInputElement;
+  private readonly searchSpinner: HTMLElement;
   private readonly searchOutput: HTMLOutputElement;
   private readonly searchResults: HTMLOutputElement;
   private previousQuery: string | null;
@@ -22,6 +23,9 @@ export class SearchController {
   constructor() {
     this.searchForm = document.querySelector(".search")!;
     this.searchInput = document.querySelector(".search__input")!;
+    this.searchSpinner = document.querySelector(
+      ".search__icon.sk-fading-circle"
+    )!;
     this.searchOutput = document.querySelector(".search__output")!;
     this.searchResults = document.querySelector(".search__results")!;
     this.previousQuery = null;
@@ -54,12 +58,16 @@ export class SearchController {
     }
 
     this.searchOutput.classList.remove("search__output--show");
+    this.searchSpinner.classList.remove("search__icon--loading");
   }
 
   handleInput(e: KeyboardEvent) {
+    this.searchSpinner.classList.add("search__icon--loading");
+
     if (e.key === "Escape" || this.searchInput.value.length === 0) {
       // this.searchResults.innerHTML = "";
       this.searchOutput.classList.remove("search__output--show");
+      this.searchSpinner.classList.remove("search__icon--loading");
       return;
     }
 
@@ -72,7 +80,9 @@ export class SearchController {
 
     clearTimeout(this.timer); // restart debounce timer
     this.previousQuery = this.searchInput.value;
-    this.timer = setTimeout(() => this.loadData(), this.debounceTimeout);
+    this.timer = setTimeout(() => {
+      this.loadData();
+    }, this.debounceTimeout);
   }
 
   loadData() {
@@ -133,6 +143,7 @@ export class SearchController {
   renderPosts() {
     // this.searchOutput.classList.remove('search__results--hide');
     this.searchOutput.classList.add("search__output--show");
+    this.searchSpinner.classList.remove("search__icon--loading");
 
     if (this.results.length === 0) {
       this.searchResults.innerHTML = `<p>No posts found.</p>`;
