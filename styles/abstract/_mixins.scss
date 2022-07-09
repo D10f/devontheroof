@@ -135,6 +135,26 @@
   }
 }
 
+@mixin bg-gradient($clrs..., $dir: 135deg) {
+  @if (not $clrs or list.length($clrs) == 1) {
+    @error 'ERROR: You must provide at least 2 colors for the gradient.';
+  }
+
+  @if (list.length($clrs) == 2 and map.has-key($colors, $clrs...)) {
+    $_color: map.get($colors, $clrs...);
+    background-image: linear-gradient(
+      $dir,
+      rgba($_color, 0.4),
+      rgba($_color, 0.25)
+    );
+  } @else {
+    background-image: linear-gradient(
+      $dir,
+      $clrs...
+    );
+  }
+}
+
 /**
 *  MEDIA QUERY REFERENCE
 *  | Breakpoint     | Pixels |  Em   |

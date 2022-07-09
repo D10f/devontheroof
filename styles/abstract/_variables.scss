@@ -1,4 +1,44 @@
-/* COLORS */
+@use 'sass:map';
+
+$colors: (
+
+  // TODO: Choose primary colors
+  'primary': (
+    'light': lightcoral,
+    'normal': #fb7158,
+    'dark': orangered,
+    ),
+    
+  // TODO: Choose secondary colors
+  'secondary': (
+    'light': lightyellow,
+    'normal': #f4c862e5,
+    'dark': darkorange,
+  ),
+
+  'neutral': (
+    'lighter': #f4f4f4,
+    'light': #f1f1f1,
+    'dark': #333,
+    'darker': #212121,
+  ),
+
+  'brands': (
+    'ansible': #c83232,
+    'bash': #555753,
+    'p5': #ED225D,
+    'docker': #2496ED,
+    'js': #f7d249,
+    'sojourn': #7b92f9,
+    'mongo': #47A248,
+    'nginx': #009639,
+    'react': #61DAFB,
+    'ts': #3178C6,
+    'pwa': #5A0FC8,
+    'webpack': #8DD6F9,
+    'wordpress': #21759B,
+  )
+);
 
 $color-light: #F1F1F1;
 $color-lighter: #F4F4F4;
