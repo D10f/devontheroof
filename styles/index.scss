@@ -1,29 +1,4 @@
-/* ABSTRACT */
-@use './abstract/animations';
-@use './abstract/mixins';
-@use './abstract/variables';
-
-/* BASE */
-@use './base/base';
-@use './base/utilities';
-@use './base/typography';
-
-/* COMPONENTS */
-@use './components/blog-card';
-@use './components/button';
-@use './components/dropdown';
-@use './components/highlight';
-@use './components/project';
-@use './components/search';
-@use './components/spinner';
-@use './components/tooltip';
-
-/* LAYOUT */
-@use './layout/footer';
-@use './layout/landing';
-@use './layout/page-header';
-@use './layout/section';
-
-/* PAGES */
-@use './pages/blog-page';
-@use './pages/single-post';
+@use 'base';
+@use 'components';
+@use 'layout';
+@use 'pages';
