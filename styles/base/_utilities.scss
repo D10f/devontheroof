@@ -1,19 +1,32 @@
-@use '../abstract/mixins';
-@use '../abstract/variables';
+@use 'sass:map';
+@use '../abstract' as *;
+
+/**
+ *  Creates a set of utilities for gradients based on brand colors
+ */
+@each $k, $v in map.get($colors, 'brands') {
+  .gradient--#{$k} {
+    background-image: linear-gradient(
+      to bottom right,
+      rgba($v, 0.4),
+      rgba($v, 0.25)
+    );
+  }
+}
+
+// .gradient--nginx { background-image: $gradient-nginx; }
+// .gradient--mongo { background-image: $gradient-mongo; }
+// .gradient--wordpress { background-image: $gradient-wordpress; }
+// .gradient--pwa { background-image: $gradient-pwa; }
+// .gradient--bash { background-image: $gradient-bash; }
+// .gradient--react { background-image: $gradient-react; }
+// .gradient--js { background-image: $gradient-js; }
+// .gradient--ts { background-image: $gradient-ts; }
+// .gradient--ansible { background-image: $gradient-ansible; }
+// .gradient--docker { background-image: $gradient-docker; }
 
 .ml-1 { margin-left: 1rem; }
 .mb-2 { margin-bottom: 2rem; }
-
-.gradient--nginx { background-image: variables.$gradient-nginx; }
-.gradient--mongo { background-image: variables.$gradient-mongo; }
-.gradient--wordpress { background-image: variables.$gradient-wordpress; }
-.gradient--pwa { background-image: variables.$gradient-pwa; }
-.gradient--bash { background-image: variables.$gradient-bash; }
-.gradient--react { background-image: variables.$gradient-react; }
-.gradient--js { background-image: variables.$gradient-js; }
-.gradient--ts { background-image: variables.$gradient-ts; }
-.gradient--ansible { background-image: variables.$gradient-ansible; }
-.gradient--docker { background-image: variables.$gradient-docker; }
 
 .floating {
   position: fixed;
@@ -37,7 +50,7 @@
       height: 100%;
       z-index: -1;
       border-radius: 50%;
-      background-color: variables.$color-dark;
+      background-color: $color-dark;
       animation: pulse 1s;
     }
   
@@ -48,7 +61,7 @@
 }
 
 .hide-on-tablet {
-  @include mixins.responsive(tablet) {
+  @include responsive(tablet) {
     display: none !important;
   }
 }

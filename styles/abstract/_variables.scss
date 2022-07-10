@@ -5,22 +5,24 @@ $colors: (
   // TODO: Choose primary colors
   'primary': (
     'light': lightcoral,
-    'normal': #fb7158,
+    'normal': hsl(9, 95%, 66%),
     'dark': orangered,
     ),
     
   // TODO: Choose secondary colors
   'secondary': (
     'light': lightyellow,
-    'normal': #f4c862e5,
+    'normal': hsl(42, 87%, 67%),
     'dark': darkorange,
   ),
 
   'neutral': (
-    'lighter': #f4f4f4,
-    'light': #f1f1f1,
-    'dark': #333,
-    'darker': #212121,
+    'lightest': hsl(0, 0%, 96%),
+    'lighter': hsl(0, 0%, 86%),
+    'light': hsl(0, 0%, 80%),
+    'dark': hsl(0, 0%, 20%),
+    'darker': hsl(220, 13%, 18%),
+    'darkest': hsl(0, 0%, 13%),
   ),
 
   'brands': (
