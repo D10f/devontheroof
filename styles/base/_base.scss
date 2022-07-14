@@ -1,5 +1,4 @@
-@use "../abstract/mixins";
-@use "../abstract/variables";
+@use "../abstract" as *;
 
 *, *::before, *::after {
   box-sizing: inherit;
@@ -17,14 +16,14 @@ html {
 }
 
 body {
-  @include mixins.contain;
-  font-family: variables.$main-typography;
+  @include contain;
+  font-family: $main-typography;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.6;
-  color: variables.$color-dark;
+  color: $color-dark;
   box-sizing: border-box;
-  background-color: variables.$color-lighter;
+  background-color: $color-lighter;
 }
 
 p,
@@ -44,9 +43,9 @@ ul {
 
 mark {
   background: none;
-  color: variables.$color-dark;
+  color: $color-dark;
 }
 
 ::selection {
-  background-color: rgba(variables.$color-secondary, 0.5);
+  background-color: rgba($color-secondary, 0.5);
 }
