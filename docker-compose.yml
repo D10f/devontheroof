@@ -24,12 +24,14 @@ services:
     networks:
       - frontend
       - backend
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_DEBUG: 1
+    # environment:
+    #   WORDPRESS_DB_HOST: db
+    #   WORDPRESS_DB_USER: wordpress
+    #   WORDPRESS_DB_PASSWORD: wordpress
+    #   WORDPRESS_DB_NAME: wordpress
+    #   WORDPRESS_DEBUG: 1
+    env_file:
+      - ./.env
     healthcheck:
       test: 'php-fpm --test'
       retries: 3
@@ -43,11 +45,13 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - backend
-    environment:
-      MARIADB_ROOT_PASSWORD: wordpress
-      MARIADB_DATABASE: wordpress
-      MARIADB_USER: wordpress
-      MARIADB_PASSWORD: wordpress
+    # environment:
+    #   MARIADB_ROOT_PASSWORD: wordpress
+    #   MARIADB_DATABASE: wordpress
+    #   MARIADB_USER: wordpress
+    #   MARIADB_PASSWORD: wordpress
+    env_file:
+      - ./.env
     healthcheck:
       test: '/usr/bin/mysql -uwordpress -pwordpress -e "SHOW DATABASES;"'
       timeout: 5s
