@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /**
  *  Set of utilities to position an element
  */
@@ -32,6 +34,20 @@
   %my-#{i} { margin: 0 #{$i}em; }
   %m-#{i}  { margin: #{$i}em; }
 }
+
+/**
+*  Set of utilities for gradients based on brand colors
+*/
+@each $k, $v in map.get($colors, 'brands') {
+ %gradient--#{$k} {
+   background-image: linear-gradient(
+     to bottom right,
+     rgba($v, 0.4),
+     rgba($v, 0.25)
+   );
+ }
+}
+
 
 %center-horizontally {
   margin-inline: auto;

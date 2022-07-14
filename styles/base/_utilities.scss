@@ -4,15 +4,15 @@
 /**
  *  Creates a set of utilities for gradients based on brand colors
  */
-@each $k, $v in map.get($colors, 'brands') {
-  .gradient--#{$k} {
-    background-image: linear-gradient(
-      to bottom right,
-      rgba($v, 0.4),
-      rgba($v, 0.25)
-    );
-  }
-}
+// @each $k, $v in map.get($colors, 'brands') {
+//   .gradient--#{$k} {
+//     background-image: linear-gradient(
+//       to bottom right,
+//       rgba($v, 0.4),
+//       rgba($v, 0.25)
+//     );
+//   }
+// }
 
 // .gradient--nginx { background-image: $gradient-nginx; }
 // .gradient--mongo { background-image: $gradient-mongo; }
