@@ -1,5 +1,5 @@
 start:
-	docker-compose up -d && \
+	docker compose up -d && \
 	node_modules/.bin/wp-scripts start;
 
 build:
