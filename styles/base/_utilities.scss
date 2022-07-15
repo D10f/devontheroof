@@ -25,6 +25,17 @@
 // .gradient--ansible { background-image: $gradient-ansible; }
 // .gradient--docker { background-image: $gradient-docker; }
 
+.gradient--nginx { @extend %gradient-nginx; }
+.gradient--mongo { @extend %gradient-mongo; }
+.gradient--wordpress { @extend %gradient-wordpress; }
+.gradient--pwa { @extend %gradient-pwa; }
+.gradient--bash { @extend %gradient-bash; }
+.gradient--react { @extend %gradient-react; }
+.gradient--js { @extend %gradient-js; }
+.gradient--ts { @extend %gradient-ts; }
+.gradient--ansible { @extend %gradient-ansible; }
+.gradient--docker { @extend %gradient-docker; }
+
 .ml-1 { margin-left: 1rem; }
 .mb-2 { margin-bottom: 2rem; }
 
