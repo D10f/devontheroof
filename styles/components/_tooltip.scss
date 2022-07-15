@@ -1,4 +1,4 @@
-@use '../abstract/variables';
+@use '../abstract' as *;
 
 .tooltip {
   position: relative;
@@ -50,11 +50,11 @@
     width: max-content;
     height: min-content;
     padding: 1rem;
-    color: variables.$color-light;
+    color: $color-light;
     border-radius: 5px;
-    background-color: variables.$color-dark;
+    background-color: $color-dark;
     opacity: 0;
-    z-index: variables.$depth-tooltip;
+    z-index: $depth-tooltip;
     pointer-events: none;
     transition: opacity 0.2s 0.1s;
   }
