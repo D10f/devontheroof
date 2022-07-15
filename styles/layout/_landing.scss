@@ -37,6 +37,8 @@
     align-items: flex-start;
     margin-top: -5rem; // center intro text a little
 
+    // TODO: Separation of title and content??
+
     // this is the navigation button
     & .btn--round {
       position: absolute;
@@ -157,31 +159,35 @@
       justify-content: center;
     }
   }
-
+  
   &__posts-separator {
-    font-family: inherit;
     position: absolute;
     top: 50%;
     left: -3.2rem;
-    transform: translateY(-50%) rotate(-90deg);
-    background-color: $color-lighter;
-    padding: 0 1rem;
     z-index: 27;
-
-    border-radius: 50%;
-    height: 6.25rem;
-    text-align: center;
-    width: min-content;
-
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    height: 6.4rem;
+    width: 6.4rem;
+    
+    transform: translateY(-50%) rotate(-90deg);
+    transition: transform 0.25s;
+    background-color: $color-lighter;
+    border-radius: 50%;
+    border: 2px dashed map.get($colors, 'neutral', 'dark');
+
+    font-family: inherit;
+    text-align: center;
 
     @include responsive(tablet) {
       // top: -3rem;
       top: 2rem;
       left: 50%;
       transform: translateX(-50%);
+      transition: transform 0.3s;
     }
 
     @include responsive(phone) {
@@ -193,6 +199,12 @@
       outline: none;
       color: $color-lighter;
       background-color: $color-dark;
+      transform: translateY(-50%) rotate(0deg);
+      border: 1px dashed transparent;
+
+      @include responsive(tablet) {
+        transform: translateX(-50%) rotate(360deg);
+      }
     }
   }
 }
