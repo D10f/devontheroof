@@ -1,3 +1,23 @@
+<aside class="site-options">
+  <ul class="site-options__menu">
+    <li class="site-options__item">
+      <a class="btn--round btn--medium btn--dark animate-pulse" href="#">
+        &uarr;
+      </a>
+    </li>
+    
+    <li class="site-options__item">
+      <button class="btn--round btn--medium btn--dark animate-pulse">
+        <svg>
+          <use
+            xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-sun" ?>"
+          />
+        </svg>
+      </button>
+    </li>
+  </ul>
+</aside>
+
 <footer id="contact" class="section__footer">
   <h2 class="section__title transition">Thanks for visiting!</h2>
   <p>
