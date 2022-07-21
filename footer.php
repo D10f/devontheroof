@@ -1,17 +1,20 @@
 <aside class="site-options">
   <ul class="site-options__menu">
     <li class="site-options__item">
-      <a class="btn--round btn--medium btn--dark animate-pulse" href="#">
+      <a class="btn--medium btn--dark" href="#">
         &uarr;
       </a>
     </li>
-    
+
     <li class="site-options__item">
-      <button class="btn--round btn--medium btn--dark animate-pulse">
+      <button class="btn--dark">
         <svg>
-          <use
-            xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-sun" ?>"
-          />
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-sun" ?>" />
+        </svg>
+      </button>
+      <button class="btn--dark">
+        <svg>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-moon" ?>" />
         </svg>
       </button>
     </li>
@@ -26,26 +29,15 @@
   </p>
   <ul class="section__footer-icons">
     <li class="tooltip" data-tooltip="GitHub">
-      <a
-        href="https://github.com/D10f"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="external link to a github profile"
-      >
+      <a href="https://github.com/D10f" target="_blank" rel="noreferrer" aria-label="external link to a github profile">
         <svg aria-hidden="true">
-          <use
-            xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-github-light' ?>"
-          ></use>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-github-light' ?>"></use>
         </svg>
       </a>
     </li>
 
     <li class="tooltip" data-tooltip="devsojourn@pm.me">
-      <a
-        href="mailto:devsojourn@pm.me"
-        target="_blank"
-        aria-label="link to send an email"
-      >
+      <a href="mailto:devsojourn@pm.me" target="_blank" aria-label="link to send an email">
         <svg aria-hidden="true">
           <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-envelope' ?>"></use>
         </svg>
@@ -53,11 +45,7 @@
     </li>
 
     <li class="tooltip" data-tooltip="PGP">
-      <a
-        href="<?= get_theme_file_uri('assets/publickey.devsojourn@pm.me.asc'); ?>"
-        download
-        aria-label="downloads a pgp public key file"
-      >
+      <a href="<?= get_theme_file_uri('assets/publickey.devsojourn@pm.me.asc'); ?>" download aria-label="downloads a pgp public key file">
         <svg aria-hidden="true">
           <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-key1' ?>"></use>
         </svg>
@@ -66,6 +54,7 @@
   </ul>
 </footer>
 
-<?php wp_footer(); ?>  
+<?php wp_footer(); ?>
 </body>
+
 </html>

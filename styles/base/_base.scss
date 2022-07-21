@@ -1,4 +1,15 @@
+@use 'sass:map';
 @use "../abstract" as *;
+
+:root {
+  --test: #{map.get($colors, 'neutral', 'light')};
+  --theme-switch-translate-pos: 0%;
+}
+
+body.dark {
+  --test: orangered;
+  --theme-switch-translate-pos: -100%;
+}
 
 *, *::before, *::after {
   box-sizing: inherit;
@@ -24,6 +35,12 @@ body {
   color: $color-dark;
   box-sizing: border-box;
   background-color: $color-lighter;
+
+  // @media (prefers-color-scheme: dark) {
+  //   background-color: map.get($colors, 'neutral', 'dark');
+  //   color: map.get($colors, 'neutral', 'lightest');
+  //   fill: map.get($colors, 'neutral', 'lightest');
+  // }
 }
 
 p,

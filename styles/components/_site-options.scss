@@ -1,0 +1,54 @@
+@use 'sass:map';
+@use '../abstract' as *;
+@use './button';
+
+.site-options {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+
+  &__menu {
+    @include flex(column);
+  }
+
+  &__item {
+    @extend %no-overflow;
+    @include size(5rem);
+    text-align: center;
+
+    // &:hover button {
+    //   transform: translateY(-100%);
+    // }
+
+    &:hover svg {
+      fill: map.get($colors, 'primary', 'normal');
+    }
+    
+    &:hover a {
+      color: var(--test);
+      //color: map.get($colors, 'primary', 'normal');
+    }
+
+    a, button {
+      @extend %button;
+    }
+
+    a {
+      @extend %display-as-inline-block;
+    }
+
+    button {
+      @include flex;
+      @include size(5rem);
+      // font-size: 3rem; // leave as reference for extension
+      border-radius: 50%;
+      transform: translateY(var(--theme-switch-translate-pos));
+      transition: transform .2s;
+    }
+    
+    svg {
+      // fill: map.get($colors, 'neutral', 'lightest');
+      transform: scale(0.6);
+    }
+  }
+}

@@ -1,4 +1,10 @@
-@use '../abstract/variables';
+@use 'sass:map';
+@use '../abstract' as *;
+
+%button {
+  cursor: pointer;
+  border: none;
+}
 
 .btn {
   display: inline-block;
@@ -68,6 +74,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     &:focus,
     &:active {
@@ -110,19 +117,28 @@
   }
 
   &--dark {
-    background-color: variables.$color-dark;
-    color: variables.$color-lighter;
+    // background-color: $color-dark;
+    // color: $color-lighter;
+    background-color: map.get($colors, 'neutral', 'dark');
+    color: map.get($colors, 'neutral', 'lightest');
+    fill: map.get($colors, 'neutral', 'lightest');
+
+    @media (prefers-color-scheme: dark) {
+      background-color: map.get($colors, 'neutral', 'lightest');
+      color: map.get($colors, 'neutral', 'dark');
+      fill: map.get($colors, 'neutral', 'dark');
+    }
   }
 
   &--light {
-    background-color: variables.$color-lighter;
-    color: variables.$color-dark;
+    background-color: $color-lighter;
+    color: $color-dark;
 
     &:hover,
     &:focus {
       outline: none;
-      background-color: variables.$color-dark;
-      color: variables.$color-lighter;
+      background-color: $color-dark;
+      color: $color-lighter;
     }
   }
 }
