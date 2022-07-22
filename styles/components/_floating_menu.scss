@@ -2,7 +2,7 @@
 @use '../abstract' as *;
 @use './button';
 
-.site-options {
+.floating-menu {
   position: fixed;
   bottom: 4rem;
   right: 4rem;
