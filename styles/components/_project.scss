@@ -1,3 +1,5 @@
+@use 'sass:map';
+@use 'sass:string';
 @use "../abstract" as *;
 
 .project {
@@ -143,12 +145,10 @@
       margin-left: 5rem;
     }
 
-    @include responsive(phone) {
-      overflow: hidden;
-      padding: 5rem;
 
-      li:nth-child(even) {
-        margin-left: 4rem;
+    @each $k, $v in map.get($colors, 'brands') {
+      li.#{$k} svg {
+        fill: $v;
       }
     }
 
@@ -160,6 +160,15 @@
       @include responsive(tablet) {
         width: 2.2rem;
         height: 2.2rem;
+      }
+    }
+
+    @include responsive(phone) {
+      overflow: hidden;
+      padding: 5rem;
+
+      li:nth-child(even) {
+        margin-left: 4rem;
       }
     }
   }
