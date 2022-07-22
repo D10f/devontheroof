@@ -15,39 +15,48 @@
     @extend %no-overflow;
     @include size(5rem);
     text-align: center;
-
-    // &:hover button {
-    //   transform: translateY(-100%);
-    // }
-
-    &:hover svg {
-      fill: map.get($colors, 'primary', 'normal');
-    }
+    border-radius: 50%;
     
+    &:hover svg,
     &:hover a {
-      color: var(--test);
-      //color: map.get($colors, 'primary', 'normal');
+      fill: var(--accent-color);
+      color: var(--accent-color);
     }
 
-    a, button {
+    a, svg {
+      fill: var(--text-color);
+      color: var(--text-color);
+    }
+
+    a, label {
       @extend %button;
+      @extend %display-as-inline-block;
+      background: none;
     }
 
     a {
-      @extend %display-as-inline-block;
+      @include size(5rem);
+      font-size: 3rem;
     }
 
-    button {
-      @include flex;
-      @include size(5rem);
+    
+    input {
+      display: none;
+
+      &:checked ~ label {
+        transform: rotate(180deg);  
+      }
+    }
+    
+    label {
+      @include size(5rem, 10rem);
+      @include flex(column);
+      transform: rotate(0deg);
+      transition: transform .3s;
       // font-size: 3rem; // leave as reference for extension
-      border-radius: 50%;
-      transform: translateY(var(--theme-switch-translate-pos));
-      transition: transform .2s;
     }
     
     svg {
-      // fill: map.get($colors, 'neutral', 'lightest');
       transform: scale(0.6);
     }
   }

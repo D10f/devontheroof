@@ -1,25 +1,4 @@
-<aside class="site-options">
-  <ul class="site-options__menu">
-    <li class="site-options__item">
-      <a class="btn--medium btn--dark" href="#">
-        &uarr;
-      </a>
-    </li>
-
-    <li class="site-options__item">
-      <button class="btn--dark">
-        <svg>
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-sun" ?>" />
-        </svg>
-      </button>
-      <button class="btn--dark">
-        <svg>
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-moon" ?>" />
-        </svg>
-      </button>
-    </li>
-  </ul>
-</aside>
+<?php get_template_part('templates/floating_menu'); ?>
 
 <footer id="contact" class="section__footer">
   <h2 class="section__title transition">Thanks for visiting!</h2>
