@@ -1,4 +1,4 @@
-import { createSvgIcon } from './utils';
+import { createSvgIcon, prefersDarkMode } from './utils';
 
 export function addThemeToggler(checkboxId = 'theme-switcher') {
   const floatingMenu = document.querySelector('.floating-menu__menu');
@@ -29,4 +29,10 @@ export function addThemeToggler(checkboxId = 'theme-switcher') {
   checkbox.addEventListener('change', () => {
     document.body.classList.toggle('dark');
   });
+
+  /* Check if prefers dark theme is true and immediately apply dark theme */
+
+  if (prefersDarkMode()) {
+    checkbox.click();
+  }
 }

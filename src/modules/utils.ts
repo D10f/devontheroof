@@ -1,3 +1,7 @@
+export function prefersDarkMode(): boolean {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
 export function hasReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
