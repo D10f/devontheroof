@@ -1,3 +1,5 @@
+import { createSvgIcon } from "./utils";
+
 interface IPost {
   id: number;
   title: string;
@@ -30,7 +32,7 @@ export class SearchController {
     this.searchResults = document.querySelector(".search__results")!;
     this.previousQuery = null;
     this.results = [];
-    this.timer = setTimeout(() => {});
+    this.timer = setTimeout(() => { });
     this.debounceTimeout = 500;
     // this.endpoint = "/wp-json/content/posts";
     this.endpoint = "/wp-json/content/posts";
@@ -112,30 +114,32 @@ export class SearchController {
       linkText.className = "blog-card__text";
       linkText.textContent = post.title;
 
-      const svgEl = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "svg"
-      );
+      const categoryIcon = createSvgIcon(post.category);
 
-      const useEl = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "use"
-      );
+      // const svgEl = document.createElementNS(
+      //   "http://www.w3.org/2000/svg",
+      //   "svg"
+      // );
 
-      useEl.setAttributeNS(
-        "http://www.w3.org/1999/xlink",
-        "xlink:href",
-        `https://devontheroof.top/wp-content/themes/devontheroof/assets/images/sprite.svg#icon-${post.category}`
-        // `http://devontheroof.local/wp-content/themes/devontheroof/assets/images/sprite.svg#icon-${post.category}`
-      );
+      // const useEl = document.createElementNS(
+      //   "http://www.w3.org/2000/svg",
+      //   "use"
+      // );
 
-      svgEl.appendChild(useEl);
+      // useEl.setAttributeNS(
+      //   "http://www.w3.org/1999/xlink",
+      //   "xlink:href",
+      //   `https://devontheroof.top/wp-content/themes/devontheroof/assets/images/sprite.svg#icon-${post.category}`
+      //   // `http://devontheroof.local/wp-content/themes/devontheroof/assets/images/sprite.svg#icon-${post.category}`
+      // );
+
+      // svgEl.appendChild(useEl);
+      // svgEl.appendChild(useEl);
 
       link.appendChild(linkText);
-      svgEl.appendChild(useEl);
 
       li.appendChild(link);
-      li.appendChild(svgEl);
+      li.appendChild(categoryIcon);
 
       return li;
     });
