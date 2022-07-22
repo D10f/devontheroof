@@ -24,6 +24,12 @@
     bottom: unset;
     left: unset;
   }
+  &--top::before {
+    top: unset;
+    right: unset;
+    bottom: 2rem;
+    left: unset;
+  }
   &--top-right::before {
     top: unset;
     right: unset;
