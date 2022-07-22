@@ -76,8 +76,4 @@ mark {
   body.dark & {
     background-color: map.get($colors, 'primary', 'normal');
   }
-
-  @media (prefers-color-scheme: dark) {
-    background-color: map.get($colors, 'primary', 'normal');
-  }
 }
