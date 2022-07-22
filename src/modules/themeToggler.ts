@@ -22,4 +22,11 @@ export function addThemeToggler(checkboxId = 'theme-switcher') {
   li.appendChild(checkbox);
   li.appendChild(label);
   floatingMenu.appendChild(li);
+
+
+  /* Add change event to toggle dark class on body element */
+
+  checkbox.addEventListener('change', () => {
+    document.body.classList.toggle('dark');
+  });
 }

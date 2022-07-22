@@ -2,13 +2,22 @@
 @use "../abstract" as *;
 
 :root {
-  --test: #{map.get($colors, 'neutral', 'light')};
-  --theme-switch-translate-pos: 0%;
+  --background-color: #{map.get($colors, 'neutral', 'lightest')};
+  --text-color: #{map.get($colors, 'neutral', 'dark')};
+  --accent-color: #{map.get($colors, 'primary', 'normal')};
+
+  // @media (prefers-color-scheme: dark) {
+  //   --background-color: #{map.get($colors, 'neutral', 'darkest')};
+  //   --text-color: #{map.get($colors, 'neutral', 'light')};
+  //   --accent-color: #{map.get($colors, 'primary', 'normal')};
+  // }
 }
 
+
 body.dark {
-  --test: orangered;
-  --theme-switch-translate-pos: -100%;
+  --background-color: #{map.get($colors, 'neutral', 'darkest')};
+  --text-color: #{map.get($colors, 'neutral', 'light')};
+  --accent-color: #{map.get($colors, 'primary', 'normal')};
 }
 
 *, *::before, *::after {
@@ -32,15 +41,11 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.6;
-  color: $color-dark;
+  // color: $color-dark;
+  color: var(--text-color);
   box-sizing: border-box;
-  background-color: $color-lighter;
-
-  // @media (prefers-color-scheme: dark) {
-  //   background-color: map.get($colors, 'neutral', 'dark');
-  //   color: map.get($colors, 'neutral', 'lightest');
-  //   fill: map.get($colors, 'neutral', 'lightest');
-  // }
+  // background-color: $color-lighter;
+  background-color: var(--background-color);
 }
 
 p,
@@ -60,9 +65,19 @@ ul {
 
 mark {
   background: none;
-  color: $color-dark;
+  // color: $color-dark;
+  color: var(--text-color);
 }
 
 ::selection {
-  background-color: rgba($color-secondary, 0.5);
+  // background-color: rgba($color-secondary, 0.5);
+  background-color: map.get($colors, 'secondary', 'light');
+
+  body.dark & {
+    background-color: map.get($colors, 'primary', 'normal');
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: map.get($colors, 'primary', 'normal');
+  }
 }
