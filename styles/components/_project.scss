@@ -1,5 +1,4 @@
-@use "../abstract/variables";
-@use "../abstract/mixins";
+@use "../abstract" as *;
 
 .project {
   display: grid;
@@ -16,14 +15,14 @@
     margin-bottom: 10rem;
   }
 
-  @include mixins.responsive(portrait) {
+  @include responsive(portrait) {
     grid-template:
       "preview" 25rem
       "info   " auto /
       auto;
   }
   
-  @include mixins.responsive(tablet) {
+  @include responsive(tablet) {
     margin: 2rem 0;
   }
 
@@ -31,7 +30,7 @@
     text-align: left;
     font-size: 2.5rem;
 
-    @include mixins.responsive(phone) {
+    @include responsive(phone) {
       font-size: 2.8rem;
       margin-bottom: 1rem;
     }
@@ -47,11 +46,11 @@
     grid-area: preview;
     min-width: 100%;
     align-self: normal;
-    box-shadow: variables.$box-shadow-light;
+    box-shadow: $box-shadow-light;
     border-radius: 5px;
     overflow: hidden;
 
-    @include mixins.responsive(portrait) {
+    @include responsive(portrait) {
       max-width: 5.35rem; // arbitrary number that fits
       margin: 0 auto; // avoid images streching regardless of all viewport
     }
@@ -59,7 +58,7 @@
     img {
       object-fit: cover;
 
-      @include mixins.responsive(portrait) {
+      @include responsive(portrait) {
         min-height: 100%;
         width: 100%;
       }
@@ -74,7 +73,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: variables.$color-light;
+      color: $color-light;
     }
   }
 
@@ -100,13 +99,13 @@
     height: 100%;
     transition: all 0.2s;
 
-    @include mixins.responsive(phone) {
+    @include responsive(phone) {
       align-items: flex-start;
     }
   }
 
   &__description {
-    @include mixins.responsive(phone) {
+    @include responsive(phone) {
       margin: 2rem 0;
     }
   }
@@ -116,7 +115,7 @@
     display: flex;
     gap: 2rem;
 
-    @include mixins.responsive(phone) {
+    @include responsive(phone) {
       justify-self: center;
       margin-top: 1rem;
     }
@@ -128,7 +127,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: variables.$depth-stack;
+    z-index: $depth-stack;
     pointer-events: none;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
@@ -144,7 +143,7 @@
       margin-left: 5rem;
     }
 
-    @include mixins.responsive(phone) {
+    @include responsive(phone) {
       overflow: hidden;
       padding: 5rem;
 
@@ -158,7 +157,7 @@
       height: 3rem;
       z-index: 10;
 
-      @include mixins.responsive(tablet) {
+      @include responsive(tablet) {
         width: 2.2rem;
         height: 2.2rem;
       }
@@ -181,19 +180,20 @@
   }
 
   &__checkbox:checked + &__label svg {
-    fill: variables.$color-primary;
+    // fill: $color-primary;
+    fill: var(--accent-color);
   }
 
   &__label {
     position: absolute !important;
-    top: 0;
+    top: 0.75rem;
     right: 0;
     right: 1rem;
     opacity: 0.8;
     transition: opacity 0.2s;
-    z-index: variables.$depth-checkbox;
+    z-index: $depth-checkbox;
 
-    @include mixins.responsive(phone) {
+    @include responsive(phone) {
       top: unset;
       bottom: 1rem;
     }
@@ -208,13 +208,16 @@
 
     &:hover svg,
     &:focus svg {
-      fill: variables.$color-primary;
+      // fill: $color-primary;
+      fill: var(--accent-color);
     }
 
     svg {
-      fill: variables.$color-dark;
-      width: 3.2rem;
-      height: 3.2rem;
+      // fill: $color-dark;
+      // width: 3.2rem;
+      // height: 3.2rem;
+      fill: var(--text-color);
+      @include size(2.6rem);
     }
   }
 }
