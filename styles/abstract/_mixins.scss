@@ -137,6 +137,15 @@
 }
 
 /**
+ *  Applies styles on dark mode including using css classes as well as media queries
+ */
+@mixin dark-mode {
+  body.dark & {
+    @content;
+  }
+}
+
+/**
 *  MEDIA QUERY REFERENCE
 *  | Breakpoint     | Pixels |  Em   |
 *  |----------------|--------|-------|
