@@ -63,5 +63,9 @@
     z-index: $depth-tooltip;
     pointer-events: none;
     transition: opacity 0.2s 0.1s;
+
+    body.dark & {
+      border: 1px solid var(--text-color);
+    }
   }
 }
