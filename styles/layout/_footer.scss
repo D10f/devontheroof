@@ -1,25 +1,33 @@
-@use '../abstract/mixins';
-@use '../abstract/variables';
+@use '../abstract' as *;
 
 .section__footer {
-  display: flex;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  @include flex(column);
   gap: 2rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   border-radius: 5px;
   min-height: 25rem;
   margin: 5rem 0 10rem 0;
   padding: 4rem;
-  // background-color: variables.$color-dark;
-  background-color: var(--background-color);
-  color: variables.$color-light;
+  // background-color: $color-dark;
+  background-color: var(--text-color);
+  // color: $color-light;
+  color: var(--background-color);
+  border: 2px solid transparent;
 
-  @include mixins.responsive(landscape) {
+  body.dark & {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 2px dashed var(--text-color);
+  }
+
+  @include responsive(landscape) {
     border-radius: 0;
   }
 
-  @include mixins.responsive(tablet) {
+  @include responsive(tablet) {
     margin: 5rem 0 0 0;
   }
 
