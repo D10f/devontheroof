@@ -6,7 +6,8 @@
       </a>
     </li>
 
-    <li class="floating-menu__item">
+    <!-- INSTERTED DYNAMICALLY WITH JS -->
+    <!-- <li class="floating-menu__item">
       <input type="checkbox" id="theme-switcher" />
       <label for="theme-switcher">
         <svg>
@@ -17,5 +18,6 @@
         </svg>
       </label>
     </li>
+    -->
   </ul>
 </aside>

@@ -40,7 +40,7 @@
     }
 
     
-    input {
+    input#theme-switcher {
       display: none;
 
       &:checked ~ label {
