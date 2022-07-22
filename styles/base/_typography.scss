@@ -1,3 +1,4 @@
+/* Used for titles and section headings */
 @font-face {
   font-family: 'PanameraRegular';
   src: url(../assets/fonts/PanameraRegular.otf) format('opentype');
@@ -5,6 +6,15 @@
   font-style: normal;
 }
 
+/* Used for regular text, description, etc */
+@font-face {
+  font-family: 'FiraSans';
+  src: url(../assets/fonts/FiraSans-Regular.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Used for inline and blocks of code */
 @font-face {
   font-family: 'FiraCode';
   src: url(../assets/fonts/FiraCode-Regular.otf) format('opentype');
@@ -12,9 +22,3 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'FiraSans';
-  src: url(../assets/fonts/FiraSans-Regular.otf) format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
