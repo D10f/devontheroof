@@ -6,6 +6,7 @@ import { TransitionEffect } from "./modules/TransitionEffect";
 import { pulseAnimation } from "./modules/animations";
 import { Masonry } from "./modules/masonry";
 import { hasReducedMotion, isMobileDevice } from "./modules/utils";
+import { addThemeToggler } from './modules/themeToggler';
 
 import "/styles/index.scss";
 
@@ -14,6 +15,8 @@ function main() {
   if (!isMobileDevice() && !hasReducedMotion()) {
     new TransitionEffect(".section__title");
   }
+
+  addThemeToggler();
 
   if (window.location.pathname.startsWith("/blog")) {
     return loadBlogScripts();
