@@ -64,7 +64,7 @@
     pointer-events: none;
     transition: opacity 0.2s 0.1s;
 
-    body.dark & {
+    @include dark-mode {
       border: 1px solid var(--text-color);
     }
   }

@@ -84,8 +84,7 @@
         fill: $v;
       }
 
-      // @media (prefers-color-scheme: dark) {
-      body.dark & {
+      @include dark-mode {
         /* overrides the background image set by gradient utility class */
         background-image: none;
         background-color: rgba($v, .1);
@@ -95,6 +94,18 @@
           opacity: 0.4;
         }
       }
+
+      // @media (prefers-color-scheme: dark) {
+      // body.dark & {
+      //   /* overrides the background image set by gradient utility class */
+      //   background-image: none;
+      //   background-color: rgba($v, .1);
+      //   border: 2px solid $v;
+
+      //   svg {
+      //     opacity: 0.4;
+      //   }
+      // }
     }
   }
 }
