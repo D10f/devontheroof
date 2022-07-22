@@ -148,8 +148,8 @@
       grid-template-rows: repeat(2, 16rem);
       border-left: unset;
       padding-left: unset;
-      border-top: 2px dashed $color-dark;
-      border-bottom: 2px dashed $color-dark;
+      border-top: 2px dashed var(--text-color);
+      border-bottom: 2px dashed var(--text-color);
       padding: 5rem 0;
     }
 
