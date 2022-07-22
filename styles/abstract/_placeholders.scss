@@ -1,4 +1,6 @@
 @use 'sass:map';
+@use 'sass:string';
+@use 'sass:color';
 @use 'variables' as *;
 
 /**
@@ -40,13 +42,13 @@
 *  Set of utilities for gradients based on brand colors
 */
 @each $k, $v in map.get($colors, 'brands') {
- %gradient--#{$k} {
-   background-image: linear-gradient(
-     to bottom right,
-     rgba($v, 0.4),
-     rgba($v, 0.25)
-   );
- }
+  %gradient-#{$k} {
+    background-image: linear-gradient(
+      to bottom right,
+      rgba($v, 0.6),
+      rgba($v, 0.35),
+    );
+  }
 }
 
 

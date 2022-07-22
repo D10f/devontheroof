@@ -1,10 +1,11 @@
-@use '../abstract/variables';
+@use 'sass:map';
+@use '../abstract' as *;
 
 .blog-card {
   position: relative;
   background-color: transparent; // filled by utility gradient
   border-radius: 0.5rem;
-  box-shadow: variables.$box-shadow-light;
+  box-shadow: $box-shadow-light;
   animation: popUp 0.3s backwards;
 
   &:nth-child(1) {
@@ -43,13 +44,18 @@
     opacity: 0.1;
     transition: opacity 0.2s, transform 0.2s ease-in;
     pointer-events: none;
+
+    /* Prevents icon from covering the text */
+    position: absolute;
+    z-index: -1;
   }
 
   &__link {
     position: absolute;
     width: 100%;
     height: 100%;
-    color: variables.$color-dark;
+    // color: variables.$color-dark;
+    color: var(--text-color);
     padding: 1rem;
     // font-weight: bold;
     font-size: 1.5rem;
@@ -68,7 +74,27 @@
   &__text {
     display: block;
     width: 1ch; // Forces line per word
-    font-family: variables.$main-typography;
+    font-family: $main-typography;
     // font-weight: normal;
+  }
+
+  @each $k, $v in map.get($colors, 'brands') {
+    &--#{$k} {
+      svg {
+        fill: $v;
+      }
+
+      // @media (prefers-color-scheme: dark) {
+      body.dark & {
+        /* overrides the background image set by gradient utility class */
+        background-image: none;
+        background-color: rgba($v, .1);
+        border: 2px solid $v;
+
+        svg {
+          opacity: 0.4;
+        }
+      }
+    }
   }
 }

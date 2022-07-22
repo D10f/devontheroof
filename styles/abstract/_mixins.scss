@@ -71,7 +71,8 @@
   @include position('relative');
   filter: drop-shadow(0 0 $size rgba(0 0 0 / 0.4));
 
-  &::before {
+  // &::before {
+  &::after {
     $_positions: ('top', 'right', 'bottom', 'left');
     $_parsed-positions: ();
     $_position-reference: (
@@ -160,4 +161,8 @@
 @mixin contain {
   max-width: $max-width;
   margin: 0 auto;
+}
+
+@mixin debugger($color: coral) {
+  border: 1px solid $color;
 }

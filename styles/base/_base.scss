@@ -15,7 +15,7 @@
 
 
 body.dark {
-  --background-color: #{map.get($colors, 'neutral', 'darkest')};
+  --background-color: #{map.get($colors, 'neutral', 'dark')};
   --text-color: #{map.get($colors, 'neutral', 'light')};
   --accent-color: #{map.get($colors, 'primary', 'normal')};
 }
