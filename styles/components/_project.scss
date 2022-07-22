@@ -104,6 +104,10 @@
     @include responsive(phone) {
       align-items: flex-start;
     }
+
+    p, mark {
+      font-family: FiraSans;
+    }
   }
 
   &__description {
