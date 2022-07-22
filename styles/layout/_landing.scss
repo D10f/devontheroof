@@ -26,10 +26,11 @@
 
   &__introduction,
   &__recent-posts {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex(column);
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
   }
 
   &__introduction {
@@ -63,7 +64,6 @@
       @include responsive(tablet) {
         font-size: 4.4rem;
       }
-
 
       @include responsive(phone) {
         font-size: 3.5rem;
@@ -139,7 +139,8 @@
     grid-template-rows: repeat(3, 14rem);
     gap: 2rem;
 
-    border-left: 2px dashed $color-dark;
+    // border-left: 2px dashed $color-dark;
+    border-left: 2px dashed var(--text-color);
     padding-left: 7rem;
 
     @include responsive(tablet) {
@@ -175,9 +176,13 @@
     
     transform: translateY(-50%) rotate(-90deg);
     transition: transform 0.25s;
-    background-color: $color-lighter;
+    // background-color: $color-lighter;
+    background-color: var(--background-color);
+    color: var(--text-color);
     border-radius: 50%;
-    border: 2px dashed map.get($colors, 'neutral', 'dark');
+    // border: 2px dashed map.get($colors, 'neutral', 'dark');
+    border: 2px dashed var(--text-color);
+
 
     font-family: inherit;
     text-align: center;
@@ -197,8 +202,10 @@
     &:hover,
     &:focus {
       outline: none;
-      color: $color-lighter;
-      background-color: $color-dark;
+      // color: $color-lighter;
+      // background-color: $color-dark;
+      background-color: var(--text-color);
+      color: var(--background-color);
       transform: translateY(-50%) rotate(0deg);
       border: 1px dashed transparent;
 
