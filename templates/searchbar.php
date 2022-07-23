@@ -1,4 +1,4 @@
-<aside class="search">
+<form class="search">
 
   <div aria-hidden="true" class="search__background"></div>
 
@@ -9,22 +9,17 @@
     </div>
 
     <ul class="search__results">
-      <li class="search__result-item">
+      <!-- <li class="search__result-item">
         <a class="search__result-link" href="#">Lorem ipsum dolor sit amet, qui minim labo</a>
       </li>
       <li class="search__result-item">
         <a class="search__result-link" href="#">Lorem ipsum dolor sit amet, qui minim labo</a>
       </li>
-      <li class="search__result-item">
-        <a class="search__result-link" href="#">Lorem ipsum dolor sit amet, qui minim labo</a>
-      </li>
-      <li class="search__result-item">
-        <a class="search__result-link" href="#">Lorem ipsum dolor sit amet, qui minim labo</a>
-      </li>
+      -->
     </ul>
   </div>
 
-</aside>
+</form>
 
 <!-- <form class="search">
   <div class="search__control">

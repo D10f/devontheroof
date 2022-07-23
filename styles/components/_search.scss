@@ -17,9 +17,14 @@
 
   &__background {
     position: fixed;
-    background-color: map.get($colors, 'neutral', 'dark');
-    opacity: 0.9;
+    background-color: map.get($colors, 'neutral', 'light');
+    opacity: 0.8;
     z-index: -1;
+
+    @include dark-mode {
+      background-color: map.get($colors, 'neutral', 'dark');
+      opacity: 0.9;
+    }
   }
 
   &__modal {
@@ -44,7 +49,12 @@
     border-radius: 3px;
 
     &:focus {
-      outline: 2px solid var(--accent-color);
+      outline: 2px solid map.get($colors, 'secondary', 'normal');
+    }
+
+    &::selection {
+      // changes the highlighted colored when text is selected
+      background-color: map.get($colors, 'secondary', 'normal') !important;
     }
   }
 
@@ -52,18 +62,41 @@
     margin-top: 2rem;
   }
 
-  &__result-item {}
+  &__result-item {
+    @include flex($x: flex-start);
+    position: relative;
+
+    svg {
+      @include size(3rem);
+      position: absolute;
+      right: 1rem;
+      fill: map.get($colors, 'neutral', 'light');
+    }
+
+    & a:focus &,
+    & a:hover & {
+      background-color: map.get($colors, 'secondary', 'light');
+    }
+  }
 
   &__result-link {
     @include size(100%);
+    text-align: start;
     display: inline-block;
     padding: 1rem;
     font-family: FiraSans;
+    outline: none;
+    color: map.get($colors, 'neutral', 'lightest');
+    border-radius: 3px;
 
     &:focus,
     &:hover {
       background-color: map.get($colors, 'secondary', 'light');
-      color: var(--background-color);
+      color: map.get($colors, 'neutral', 'darkest');
+
+      & + svg {
+        fill: map.get($colors, 'secondary', 'dark');
+      }
     }
   }
 }

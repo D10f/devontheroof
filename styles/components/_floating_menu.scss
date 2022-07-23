@@ -56,7 +56,7 @@
         }
 
         /* TODO: Find a better placement for the search modal component */
-        &:checked ~ aside {
+        &:checked ~ form {
           display: block;
         }
       }

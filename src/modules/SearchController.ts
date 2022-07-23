@@ -1,160 +1,141 @@
-import { createSvgIcon } from "./utils";
-
-interface IPost {
-  id: number;
-  title: string;
-  excerpt: string;
-  link: string;
-  category: string;
-}
-
-// TODO: Environment variables for dev and prod builds
+import { createSvgIcon } from './utils';
 
 export class SearchController {
-  private readonly searchForm: HTMLFormElement;
+  private readonly searchModal: HTMLFormElement;
+  private readonly searchModalTrigger: HTMLInputElement;
   private readonly searchInput: HTMLInputElement;
-  private readonly searchSpinner: HTMLElement;
-  private readonly searchOutput: HTMLOutputElement;
-  private readonly searchResults: HTMLOutputElement;
-  private previousQuery: string | null;
-  private results: HTMLElement[];
+  private readonly searchResults: HTMLUListElement;
+  private readonly endpoint: string;
+  private previousQuery: string;
   private timer: ReturnType<typeof setTimeout>;
   private debounceTimeout: number;
-  private endpoint: string;
+  private focusIndex: number;
 
   constructor() {
-    this.searchForm = document.querySelector(".search")!;
-    this.searchInput = document.querySelector(".search__input")!;
-    this.searchSpinner = document.querySelector(
-      ".search__icon.sk-fading-circle"
-    )!;
-    this.searchOutput = document.querySelector(".search__output")!;
-    this.searchResults = document.querySelector(".search__results")!;
+    this.searchModal = document.querySelector('.search') as HTMLFormElement;
+    this.searchInput = document.querySelector('.search__input') as HTMLInputElement;
+    this.searchResults = document.querySelector('.search__results') as HTMLUListElement;
+    this.searchModalTrigger = document.getElementById('search-box') as HTMLInputElement;
+
     this.previousQuery = null;
-    this.results = [];
-    this.timer = setTimeout(() => { });
-    this.debounceTimeout = 500;
-    // this.endpoint = "/wp-json/content/posts";
     this.endpoint = "/wp-json/content/posts";
+
+    this.timer = null;
+    this.debounceTimeout = 500;
+
+    this.focusIndex = 0;
+
     this.listeners();
   }
 
   listeners() {
-    this.searchForm.addEventListener("submit", (e) => e.preventDefault());
-    // this.searchForm.addEventListener("keyup", (e) => this.handleInput(e), true);
-    document.addEventListener("keyup", (e) => this.handleInput(e), true);
-    document.addEventListener("click", (e) => this.handleClick(e), true);
-  }
-
-  // Check for click outside
-  handleClick(e: MouseEvent) {
-    const target = <HTMLElement>e.target;
-
-    if (
-      target === this.searchForm ||
-      target === this.searchInput ||
-      target === this.searchOutput ||
-      target === this.searchResults
-    ) {
-      return;
-    }
-
-    this.searchOutput.classList.remove("search__output--show");
-    this.searchSpinner.classList.remove("search__icon--loading");
+    // TODO: Add support for search without javascript
+    // this.searchModal.addEventListener('submit', (e) => e.preventDefault());
+    this.searchModal.addEventListener('keyup', this.handleInput.bind(this), true);
+    this.searchModalTrigger.addEventListener('change', () => {
+      this.searchInput.value = '';
+      this.searchInput.focus();
+      this.searchResults.innerHTML = '';
+      this.focusIndex = 0;
+      if (this.searchModalTrigger.checked) {
+        document.body.style.overflow = 'hidden';
+      }
+    });
   }
 
   handleInput(e: KeyboardEvent) {
-    this.searchSpinner.classList.add("search__icon--loading");
 
-    if (e.key === "Escape" || this.searchInput.value.length === 0) {
-      // this.searchResults.innerHTML = "";
-      this.searchOutput.classList.remove("search__output--show");
-      this.searchSpinner.classList.remove("search__icon--loading");
+    if (e.key === 'Escape') {
+      this.searchInput.value = '';
+      this.searchModalTrigger.click();
       return;
+    }
+
+    if (this.searchInput.value.length === 0) {
+      this.searchResults.innerHTML = '';
+      return;
+    }
+
+    // If there are results available and the up or down keys are pressed
+    if (
+      this.searchResults.children.length > 0 &&
+      (e.key === 'ArrowDown' || e.key == 'ArrowUp')
+    ) {
+      return this.navigateResults(e.key);
     }
 
     if (
       this.previousQuery === this.searchInput.value ||
       this.searchInput.value.length < 3
     ) {
-      return; // avoid unnecessary queries (repeated or too short)
+      // avoid unnecessary queries (repeated or too short)
+      return;
     }
 
-    clearTimeout(this.timer); // restart debounce timer
-    this.previousQuery = this.searchInput.value;
+    clearTimeout(this.timer);
+    this.previousQuery = this.searchInput.value.toLowerCase();
     this.timer = setTimeout(() => {
       this.loadData();
     }, this.debounceTimeout);
   }
 
+  navigateResults(direction: 'ArrowDown' | 'ArrowUp') {
+    if (direction === 'ArrowDown') {
+      this.focusIndex = (this.focusIndex + 1) % this.searchResults.children.length;
+    } else {
+      this.focusIndex = this.focusIndex - 1;
+
+      if (this.focusIndex < 0) {
+        this.focusIndex = -2; // -2 is default value
+        this.searchInput.focus();
+        return;
+      }
+    }
+
+    this.searchResults.children[this.focusIndex].querySelector('a').focus();
+  }
+
   loadData() {
-    const url = this.endpoint + "?q=" + this.previousQuery;
+    const url = `${this.endpoint}?q=${this.previousQuery}`;
+
     fetch(url)
       .then((res) => res.json())
-      .then((posts: IPost[]) => {
-        this.results = this.processPosts(posts);
-        this.renderPosts();
+      .then((posts: any) => {
+        this.processPosts(posts);
       })
       .catch(console.error);
   }
 
-  processPosts(posts: IPost[]) {
-    this.searchResults.innerHTML = "";
+  processPosts(posts: any[]) {
+    this.searchResults.innerHTML = '';
+    const fragment = document.createDocumentFragment();
 
-    return posts.map((post) => {
-      const li = document.createElement("li");
-      li.className = `blog-card gradient--${post.category}`;
+    posts.forEach(post => {
+      const li = document.createElement('li');
+      li.className = 'search__result-item';
       li.id = post.id.toString();
 
-      const link = document.createElement("a");
-      link.className = "blog-card__link";
+      const link = document.createElement('a');
+      link.className = 'search__result-link';
       link.href = post.link;
-
-      const linkText = document.createElement("span");
-      linkText.className = "blog-card__text";
-      linkText.textContent = post.title;
+      link.textContent = post.title;
 
       const categoryIcon = createSvgIcon(post.category);
 
-      // const svgEl = document.createElementNS(
-      //   "http://www.w3.org/2000/svg",
-      //   "svg"
-      // );
-
-      // const useEl = document.createElementNS(
-      //   "http://www.w3.org/2000/svg",
-      //   "use"
-      // );
-
-      // useEl.setAttributeNS(
-      //   "http://www.w3.org/1999/xlink",
-      //   "xlink:href",
-      //   `https://devontheroof.top/wp-content/themes/devontheroof/assets/images/sprite.svg#icon-${post.category}`
-      //   // `http://devontheroof.local/wp-content/themes/devontheroof/assets/images/sprite.svg#icon-${post.category}`
-      // );
-
-      // svgEl.appendChild(useEl);
-      // svgEl.appendChild(useEl);
-
-      link.appendChild(linkText);
-
       li.appendChild(link);
       li.appendChild(categoryIcon);
-
-      return li;
+      fragment.appendChild(li);
     });
-  }
-  renderPosts() {
-    // this.searchOutput.classList.remove('search__results--hide');
-    this.searchOutput.classList.add("search__output--show");
-    this.searchSpinner.classList.remove("search__icon--loading");
 
-    if (this.results.length === 0) {
-      this.searchResults.innerHTML = `<p>No posts found.</p>`;
-    }
+    // Avoid repeated updates on the DOM by using a fragment element
+    this.searchResults.appendChild(fragment);
 
-    this.results.forEach((post) => {
-      this.searchResults.appendChild(post);
-    });
+    // Update focus index allowed
+    this.focusIndex = posts.length - 1;
+
+    // focus first element if there are results
+    // if (posts.length > 0) {
+    //   this.searchResults.querySelector('a').focus();
+    // }
   }
 }
