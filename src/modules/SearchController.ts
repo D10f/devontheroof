@@ -39,6 +39,8 @@ export class SearchController {
       this.focusIndex = 0;
       if (this.searchModalTrigger.checked) {
         document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
       }
     });
   }
