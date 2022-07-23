@@ -4,13 +4,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 15rem;
+  min-height: 10rem;
   // border-bottom: 1px solid rgba(variables.$color-dark, 0.1);
   border-bottom: 1px solid var(--text-color);
 
   @include responsive(portrait) {
     margin: 2rem;
-    min-height: 10rem;
   }
 
   @include responsive(phone) {
@@ -36,7 +35,7 @@
       }
       
       @include responsive(portrait) {
-        font-size: 2.6rem;
+        font-size: 3rem;
       }
 
       &:focus,
