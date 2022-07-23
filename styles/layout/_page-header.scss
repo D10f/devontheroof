@@ -4,14 +4,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 15rem;
+  min-height: 15rem;
   // border-bottom: 1px solid rgba(variables.$color-dark, 0.1);
   border-bottom: 1px solid var(--text-color);
-  
+
   @include responsive(portrait) {
+    margin: 2rem;
+    min-height: 10rem;
+  }
+  
+  @include responsive(phone) {
     flex-direction: column;
     align-items: flex-start;
-    margin: 2rem;
   }
 
   &__title {

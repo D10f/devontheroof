@@ -10,7 +10,8 @@
   gap: 2rem;
 
   @include responsive(phone) {
-    padding: 2rem;
+    padding: 1rem;
+    gap: 1rem;
   }
 
   &__category {
@@ -52,6 +53,10 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding-top: 2rem;
+
+    @include responsive(phone) {
+      padding-top: 1rem;
+    }
   }
 
   &__item {
