@@ -6,6 +6,7 @@
   position: fixed;
   bottom: 4rem;
   right: 4rem;
+  z-index: 99;
 
   @include responsive(phone) {
     right: 2rem;
@@ -21,8 +22,9 @@
     text-align: center;
     border-radius: 50%;
     
-    &:hover svg,
-    &:hover a {
+    /* Explicitly select direct child to not interfere with search box */
+    &:hover > svg,
+    &:hover > a {
       fill: var(--accent-color);
       color: var(--accent-color);
     }
@@ -43,22 +45,29 @@
       font-size: 3rem;
     }
 
-    input[type="checkbox"] {
-      display: none;
-    }
+    input {
+      
+      /* Hide the checkbox and rotate the labels to show a different icon */
+      &[type="checkbox"] {
+        display: none;
 
-    input#theme-switcher {
-      &:checked ~ label {
-        transform: rotate(180deg);  
+        &:checked ~ label {
+          transform: rotate(180deg);  
+        }
+
+        /* TODO: Find a better placement for the search modal component */
+        &:checked ~ aside {
+          display: block;
+        }
       }
     }
     
     label {
-      
-      &[for="theme-switcher"] {
+
+      &[for="theme-switcher"],
+      &[for="search-box"] {
         @include size(5rem, 10rem);
         @include flex(column);
-        transform: rotate(0deg);
         transition: transform .3s;
         // font-size: 3rem; // leave as reference for extension
       }
