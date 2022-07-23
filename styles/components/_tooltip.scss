@@ -63,6 +63,7 @@
     z-index: $depth-tooltip;
     pointer-events: none;
     transition: opacity 0.2s 0.1s;
+    border: 1px solid var(--background-color);
 
     @include dark-mode {
       border: 1px solid var(--text-color);
