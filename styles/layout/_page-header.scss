@@ -12,11 +12,16 @@
     margin: 2rem;
     min-height: 10rem;
   }
-  
+
   @include responsive(phone) {
-    flex-direction: column;
-    align-items: flex-start;
+    min-height: unset;
+    margin: 1rem;
   }
+  
+  // @include responsive(phone) {
+  //   flex-direction: column;
+  //   align-items: flex-start;
+  // }
 
   &__title {
     font-family: $main-typography;
@@ -28,6 +33,10 @@
 
       @include responsive(portrait) {
         font-size: 3rem;
+      }
+      
+      @include responsive(portrait) {
+        font-size: 2.6rem;
       }
 
       &:focus,
