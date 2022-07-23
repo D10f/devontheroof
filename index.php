@@ -5,11 +5,11 @@ get_header();
 $categories = get_categories();
 $posts_by_category = [];
 
-foreach($categories as $category) {
+foreach ($categories as $category) {
   $posts_by_category[$category->name] = [];
 }
 
-while(have_posts()) {
+while (have_posts()) {
   the_post();
 
   $post_category = get_the_category()[0]->name;
@@ -30,31 +30,28 @@ get_template_part('templates/page_header');
 
   <?php
 
-    foreach($categories as $category) { ?>
-      <article class="blog__category">
-        <header class="blog__category-icon">
-          <svg>
-            <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-" . $category->name ?>" />
-          </svg>
-        </header>
+  foreach ($categories as $category) { ?>
+    <article class="blog__category">
+      <header class="blog__category-icon blog__category-icon--<?= $category->name ?>">
+        <svg>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-" . $category->name ?>" />
+        </svg>
+      </header>
 
-        <ul class="blog__list">
-          <?php foreach($posts_by_category[$category->name] as $post) { ?>
+      <ul class="blog__list">
+        <?php foreach ($posts_by_category[$category->name] as $post) { ?>
 
-            <li class="blog__item">
-              <a
-                class="blog__link"
-                href="<?= $post['permalink']; ?>"
-              >
-                <?= $post['title']; ?>
-              </a>
-            </li>
-            
-          <?php } ?>
-        </ul>
+          <li class="blog__item">
+            <a class="blog__link" href="<?= $post['permalink']; ?>">
+              <?= $post['title']; ?>
+            </a>
+          </li>
 
-      </article>
-   <?php } ?>
+        <?php } ?>
+      </ul>
+
+    </article>
+  <?php } ?>
 </main>
 
 <?php get_footer(); ?>

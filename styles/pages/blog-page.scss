@@ -1,22 +1,22 @@
-@use "../abstract/variables";
-@use "../abstract/mixins";
+@use 'sass:map';
+@use "../abstract" as *;
 
 .blog {
-  min-height: 100vh;
+  // min-height: 100vh;
   padding: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-template-rows: min-content;
   gap: 2rem;
 
-  @include mixins.responsive(phone) {
+  @include responsive(phone) {
     padding: 2rem;
   }
 
   &__category {
     display: flex;
     flex-direction: column;
-    box-shadow: variables.$box-shadow-light;
+    box-shadow: $box-shadow-light;
     background-color: #fafafa;
     padding: 2rem;
     border-radius: 5px;
@@ -24,12 +24,25 @@
   }
 
   &__category-icon {
+    border-bottom: 1px solid map.get($colors, 'neutral', 'dark');
+    
+    /* Creates a utiliy class for each brand color to fill the svg icon */
+    @each $k, $v in map.get($colors, 'brands') {
+      &--#{$k} {
+        svg {
+          fill: $v;
+        }
 
-    border-bottom: 2px solid variables.$color-dark;
+        @include dark-mode {
+          svg {
+            fill: var(--background-color);
+          }
+        }
+      }
+    }
 
     svg {
-      height: 3.2rem;
-      width: 3.2rem;
+      @include size(3.2rem);
     }
   }
 
@@ -46,8 +59,14 @@
     min-width: 10rem;
     max-width: 20rem;
 
+    &::before {
+      content: '-';
+      position: relative;
+      left: -.25em;
+      color: map.get($colors, 'neutral', 'dark');
+    }
     // &--icon {
-    //   border-bottom: 2px solid variables.$color-dark;
+    //   border-bottom: 2px solid $color-dark;
     //   padding-bottom: 1rem;
     //   width: 100%;
     // }
@@ -60,8 +79,11 @@
 
   &__link {
     font-family: inherit;
+    color: map.get($colors, 'neutral', 'dark');
+
     &:hover {
-      color: variables.$color-primary;
+      // color: $color-primary;
+      color: var(--accent-color);
     }
   }
 }
