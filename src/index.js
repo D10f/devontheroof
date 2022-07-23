@@ -1,7 +1,7 @@
 import { Highlighter } from "./modules/Highlighter";
 import { SketchController } from "./modules/SketchController";
 import { SinglePostController } from "./modules/SinglePostController";
-import { SearchController } from "./modules/SearchController";
+// import { SearchController } from "./modules/SearchController";
 import { TransitionEffect } from "./modules/TransitionEffect";
 import { pulseAnimation } from "./modules/animations";
 import { Masonry } from "./modules/masonry";
@@ -36,12 +36,12 @@ function loadMainScripts() {
 }
 
 async function loadBlogScripts() {
-  new SearchController();
+  // new SearchController();
   new Masonry(".blog");
 }
 
 function loadSinglePostScripts() {
-  new SearchController();
+  // new SearchController();
   new SinglePostController();
   pulseAnimation(".animate-pulse");
 }
