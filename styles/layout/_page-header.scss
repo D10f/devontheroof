@@ -1,26 +1,35 @@
-@use '../abstract/mixins';
-@use '../abstract/variables';
+@use '../abstract' as * ;
 
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 15rem;
-  border-bottom: 1px solid rgba(variables.$color-dark, 0.1);
-
-  @include mixins.responsive(portrait) {
+  // border-bottom: 1px solid rgba(variables.$color-dark, 0.1);
+  border-bottom: 1px solid var(--text-color);
+  
+  @include responsive(portrait) {
     flex-direction: column;
     align-items: flex-start;
     margin: 2rem;
   }
 
   &__title {
-    font-family: variables.$main-typography;
+    font-family: $main-typography;
     font-size: 3.6rem;
     flex: 1 0 auto;
 
     a {
-      font-family: variables.$main-typography;
+      font-family: $main-typography;
+
+      @include responsive(portrait) {
+        font-size: 3rem;
+      }
+
+      &:focus,
+      &:hover {
+        color: var(--accent-color);
+      }
     }
   }
 }
