@@ -1,4 +1,32 @@
-<form class="search">
+<aside class="search">
+
+  <div aria-hidden="true" class="search__background"></div>
+
+  <div class="search__modal">
+    <div class="search__input-field">
+      <input class="search__input" placeholder="Type to search blog posts">
+      <!-- TODO: Loading indicator -->
+    </div>
+
+    <ul class="search__results">
+      <li class="search__result-item">
+        <a class="search__result-link" href="#">Lorem ipsum dolor sit amet, qui minim labo</a>
+      </li>
+      <li class="search__result-item">
+        <a class="search__result-link" href="#">Lorem ipsum dolor sit amet, qui minim labo</a>
+      </li>
+      <li class="search__result-item">
+        <a class="search__result-link" href="#">Lorem ipsum dolor sit amet, qui minim labo</a>
+      </li>
+      <li class="search__result-item">
+        <a class="search__result-link" href="#">Lorem ipsum dolor sit amet, qui minim labo</a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+
+<!-- <form class="search">
   <div class="search__control">
     <input
       class="search__input"
@@ -33,3 +61,4 @@
     <ul class="search__results"></ul>
   </div>
 </form>
+-->

@@ -23,27 +23,27 @@
     border-radius: 50%;
     
     /* Explicitly select direct child to not interfere with search box */
-    &:hover > svg,
-    &:hover > a {
-      fill: var(--accent-color);
-      color: var(--accent-color);
-    }
+    // &:hover svg,
+    // &:hover a {
+    //   fill: var(--accent-color);
+    //   color: var(--accent-color);
+    // }
 
-    a, svg {
-      fill: var(--text-color);
-      color: var(--text-color);
-    }
+    // a, svg {
+    //   fill: var(--text-color);
+    //   color: var(--text-color);
+    // }
 
-    a, label {
-      @extend %button;
-      @extend %display-as-inline-block;
-      background: none;
-    }
+    // a, label {
+    //   @extend %button;
+    //   @extend %display-as-inline-block;
+    //   background: none;
+    // }
 
-    a {
-      @include size(5rem);
-      font-size: 3rem;
-    }
+    // a {
+    //   @include size(5rem);
+    //   font-size: 3rem;
+    // }
 
     input {
       
@@ -73,6 +73,23 @@
       }
     }
     
+  }
+
+  &__button {
+    @extend %display-as-inline-block;
+    @extend %button;
+    @include size(5rem);
+    fill: var(--text-color);
+    color: var(--text-color);
+    background: none;
+    font-size: 3rem;
+
+    &:focus,
+    &:hover {
+      fill: var(--accent-color);
+      color: var(--accent-color);
+    }
+
     svg {
       @include size(5rem);
       transform: scale(0.5);

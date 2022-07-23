@@ -1,111 +1,190 @@
-@use '../abstract/variables';
-@use '../abstract/mixins';
+@use 'sass:map';
+@use '../abstract' as *;
 
 .search {
-  position: relative;
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 
-  @include mixins.responsive(portrait) {
-    width: 90%;
-    margin: 0 auto;
+  &,
+  &__background {
+    @include size(100vw, 100vh);
   }
 
-  @include mixins.responsive(phone) {
-    margin-top: 1rem;
+  &__background {
+    position: fixed;
+    background-color: map.get($colors, 'neutral', 'dark');
+    opacity: 0.9;
+    z-index: -1;
   }
 
-  &__control {
-    display: flex;
-    justify-items: space-between;
-    align-items: center;
-    // width: 100%;
-  }
-
-  &__input,
-  &__label {
-    align-self: stretch;
+  &__modal {
+    @extend %center-horizontally;
+    background-color: map.get($colors, 'neutral', 'dark');
+    min-width: 50vw;
+    max-width: max-content;
+    padding: 5rem;
+    margin-top: 10rem;
+    border-radius: 5px;
+    border: 1px solid var(--text-color);
   }
 
   &__input {
-    // width: 100%;
-    border: none;
-    background: none;
-    text-align: right;
-    padding: 0 1rem;
+    font-family: FiraSans;
     font-size: 2rem;
-    outline: none;
-    z-index: variables.$depth-search-input;
-    transform: translateX(5.2rem);
-    background-color: variables.$color-lighter;
-    border-right: 2px solid variables.$color-dark;
-  }
-
-  &__label {
-    padding: 0 1.2rem;
-    // background: variables.$color-lighter;
-    z-index: variables.$depth-search-label;
-    display: flex;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  &__icon {
-    transition: transform 0.25s ease;
-    fill: variables.$color-dark;
-    width: 3.6rem;
-    height: 3.6rem;
-    transform: translateX(0%);
-
-    &--loading {
-      transform: translateX(100%);
-      fill: variables.$color-lighter;
-      background-color: variables.$color-dark;
-      border-top-right-radius: 3px;
-      border-bottom-right-radius: 3px;
-    }
-  }
-
-  &__output {
-    position: absolute;
-    top: 100%;
-    right: 5.2rem; // label's padding + svg icon width
     width: 100%;
-    height: max-content;
-    max-width: 50vw;
-    max-height: 60rem;
-    padding: 2rem;
-    background-color: variables.$color-lighter;
-    border: 2px solid #eee;
-    border-radius: 5px;
-    box-shadow: variables.$box-shadow;
-    z-index: variables.$depth-search-results;
-    transition: all 0.1s ease-in-out;
-    overflow-y: auto;
-    opacity: 0;
-    transform: translateY(-5rem);
-    pointer-events: none;
+    padding: 1rem;
 
-    &--show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: initial;
-    }
+    outline: none;
+    border: none;
+    border-radius: 3px;
 
-    @include mixins.responsive(portrait) {
-      width: 100%;
-      max-width: unset;
-      right: 0;
+    &:focus {
+      outline: 2px solid var(--accent-color);
     }
   }
 
   &__results {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    margin-top: 2rem;
+  }
 
-    @include mixins.responsive(narrow) {
-      grid-template-columns: 1fr;
+  &__result-item {}
+
+  &__result-link {
+    @include size(100%);
+    display: inline-block;
+    padding: 1rem;
+    font-family: FiraSans;
+
+    &:focus,
+    &:hover {
+      background-color: map.get($colors, 'secondary', 'light');
+      color: var(--background-color);
     }
   }
 }
+
+// .search {
+//   position: relative;
+
+//   @include debugger;
+
+//   @include responsive(phone) {
+//     width: 90%;
+//     margin: 0 auto;
+//   }
+
+//   @include responsive(phone) {
+//     margin-top: 1rem;
+//   }
+
+//   &__control {
+//     display: flex;
+//     justify-items: space-between;
+//     align-items: center;
+//     // width: 100%;
+//   }
+
+//   &__input,
+//   &__label {
+//     align-self: stretch;
+//   }
+
+//   &__input {
+//     // width: 100%;
+//     border: none;
+//     background: none;
+//     text-align: right;
+//     padding: 0 1rem;
+//     font-size: 2rem;
+//     outline: none;
+//     z-index: $depth-search-input;
+//     transform: translateX(5.2rem);
+//     background-color: $color-lighter;
+//     border-right: 2px solid $color-dark;
+//   }
+
+//   &__label {
+//     padding: 0 1.2rem;
+//     // background: $color-lighter;
+//     z-index: $depth-search-label;
+//     display: flex;
+
+//     @include dark-mode {
+//       svg {
+//         fill: map.get($colors, 'neutral', 'lightest');
+//       }
+//     }
+
+//     &:hover {
+//       cursor: pointer;
+//     }
+//   }
+
+//   &__icon {
+//     transition: transform 0.25s ease;
+//     fill: $color-dark;
+//     width: 3.6rem;
+//     height: 3.6rem;
+//     transform: translateX(0%);
+
+//     &--loading {
+//       transform: translateX(100%);
+//       fill: $color-lighter;
+//       background-color: $color-dark;
+//       border-top-right-radius: 3px;
+//       border-bottom-right-radius: 3px;
+//     }
+
+//     @include responsive(phone) {
+//       transform: translateX(0%);
+//     }
+//   }
+
+//   &__output {
+//     position: absolute;
+//     top: 100%;
+//     right: 5.2rem; // label's padding + svg icon width
+//     width: 100%;
+//     height: max-content;
+//     max-width: 50vw;
+//     max-height: 60rem;
+//     padding: 2rem;
+//     background-color: $color-lighter;
+//     border: 2px solid #eee;
+//     border-radius: 5px;
+//     box-shadow: $box-shadow;
+//     z-index: $depth-search-results;
+//     transition: all 0.1s ease-in-out;
+//     overflow-y: auto;
+//     opacity: 0;
+//     transform: translateY(-5rem);
+//     pointer-events: none;
+
+//     &--show {
+//       opacity: 1;
+//       transform: translateY(0);
+//       pointer-events: initial;
+//     }
+
+//     @include responsive(portrait) {
+//       width: 100%;
+//       max-width: unset;
+//       right: 0;
+//     }
+//   }
+
+//   &__results {
+//     display: grid;
+//     gap: 2rem;
+//     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+
+//     @include responsive(narrow) {
+//       grid-template-columns: 1fr;
+//     }
+//   }
+// }

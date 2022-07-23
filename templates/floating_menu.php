@@ -2,7 +2,7 @@
   <ul class="floating-menu__menu">
 
     <li class="floating-menu__item">
-      <a href="#">
+      <a class="floating-menu__button" href="#">
         &uarr;
       </a>
     </li>
@@ -10,7 +10,7 @@
     <li class="floating-menu__item">
       <input type="checkbox" id="search-box" />
 
-      <label for="search-box">
+      <label class="floating-menu__button" for="search-box">
         <svg>
           <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-search' ?>"></use>
         </svg>
