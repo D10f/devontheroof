@@ -150,10 +150,29 @@
       margin-left: 5rem;
     }
 
-    /* Creates a class for each brand color to be used to fill the svg icons for the project tech stack */
-    @each $k, $v in map.get($colors, 'brands') {
-      li.#{$k} svg {
-        fill: $v;
+    li {
+
+      /* Adds a slightly diffused light background on dark mode to make some icons easier to see */
+      @include dark-mode {
+        &::after {
+          @extend %no-content;
+          @include size(3rem);
+          @include position(absolute);
+          top: 0;
+          left: 0;
+          opacity: 0.3;
+          background-color: var(--text-color);
+          border-radius: 50%;
+          filter: blur(1rem);
+          z-index: -1;
+        }
+      }
+        
+      /* Creates a class for each brand color to be used to fill the svg icons for the project tech stack */
+      @each $k, $v in map.get($colors, 'brands') {
+        &.#{$k} svg {
+          fill: $v;
+        }
       }
     }
 
