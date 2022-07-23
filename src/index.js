@@ -1,9 +1,9 @@
 import { Highlighter } from "./modules/Highlighter";
 import { SketchController } from "./modules/SketchController";
 import { SinglePostController } from "./modules/SinglePostController";
-// import { SearchController } from "./modules/SearchController";
+import { SearchController } from "./modules/SearchController";
 import { TransitionEffect } from "./modules/TransitionEffect";
-import { pulseAnimation } from "./modules/animations";
+// import { pulseAnimation } from "./modules/animations";
 import { Masonry } from "./modules/masonry";
 import { hasReducedMotion, isMobileDevice } from "./modules/utils";
 import { addThemeToggler } from './modules/themeToggler';
@@ -16,6 +16,7 @@ function main() {
     new TransitionEffect(".section__title");
   }
 
+  new SearchController();
   addThemeToggler();
 
   if (window.location.pathname.startsWith("/blog")) {
@@ -32,18 +33,17 @@ function main() {
 function loadMainScripts() {
   new Highlighter(".highlight");
   new SketchController();
-  pulseAnimation(".animate-pulse");
+  // pulseAnimation(".animate-pulse");
 }
 
 async function loadBlogScripts() {
-  // new SearchController();
   new Masonry(".blog");
 }
 
 function loadSinglePostScripts() {
   // new SearchController();
   new SinglePostController();
-  pulseAnimation(".animate-pulse");
+  // pulseAnimation(".animate-pulse");
 }
 
 main();
