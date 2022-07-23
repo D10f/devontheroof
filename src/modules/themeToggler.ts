@@ -11,6 +11,7 @@ export function addThemeToggler(checkboxId = 'theme-switcher') {
   checkbox.id = checkboxId;
 
   const label = document.createElement('label');
+  label.className = 'floating-menu__button';
   label.setAttribute('for', checkboxId);
 
   const moonIcon = createSvgIcon('moon');
