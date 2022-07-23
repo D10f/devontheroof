@@ -7,6 +7,10 @@
   bottom: 4rem;
   right: 4rem;
 
+  @include responsive(phone) {
+    right: 2rem;
+  }
+
   &__menu {
     @include flex(column);
   }
@@ -39,25 +43,30 @@
       font-size: 3rem;
     }
 
-    
-    input#theme-switcher {
+    input[type="checkbox"] {
       display: none;
+    }
 
+    input#theme-switcher {
       &:checked ~ label {
         transform: rotate(180deg);  
       }
     }
     
     label {
-      @include size(5rem, 10rem);
-      @include flex(column);
-      transform: rotate(0deg);
-      transition: transform .3s;
-      // font-size: 3rem; // leave as reference for extension
+      
+      &[for="theme-switcher"] {
+        @include size(5rem, 10rem);
+        @include flex(column);
+        transform: rotate(0deg);
+        transition: transform .3s;
+        // font-size: 3rem; // leave as reference for extension
+      }
     }
     
     svg {
-      transform: scale(0.6);
+      @include size(5rem);
+      transform: scale(0.5);
     }
   }
 }
