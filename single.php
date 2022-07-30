@@ -2,7 +2,6 @@
 
 get_header();
 
-// Include template: Page Header
 get_template_part('templates/page_header');
 
 while (have_posts()) {
@@ -17,42 +16,25 @@ while (have_posts()) {
 ?>
 
   <main class="single-post">
-    <header class="single-post__header mb-2 gradient--<?= $post_category ?>">
-      <h2 class="single-post__title">
-        <?php the_title(); ?>
-      </h2>
 
-      <nav class="single-post__index">
+    <section class="single-post__content">
+      <header class="single-post__header">
+        <h2 class="single-post__title">
+          <?php the_title(); ?>
+        </h2>
+
+        <!-- Inject post index here using JavaScript (Mobile version) -->
+        <!-- <nav class="single-post__index">
         <svg aria-hidden="true">
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-hamburger' ?>"></use>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-hamburger' ?>" />
         </svg>
 
         <ul class="dropdown"></ul>
+      </nav> -->
+      </header>
 
-      </nav>
-    </header>
-
-    <!-- https://wordpress.org/support/article/formatting-date-and-time/#format-string-examples -->
-    <!-- F j, Y g:i a – November 6, 2010 12:50 am -->
-    <aside class="single-post__meta">
-      <p>
-        Published on <time><?php the_time('F j, Y g:i a'); ?></time>
-      </p>
-      <?php if (get_the_time() !== get_the_modified_time()) { ?>
-        <p>
-          Last updated on <time><?php the_modified_time('F j, Y g:i a'); ?></time>
-        </p>
-      <?php } ?>
-    </aside>
-
-    <section class="single-post__content">
       <?php the_content(); ?>
     </section>
-
-    <!-- <aside class="floating">
-        <a class="btn--round btn--large btn--dark animate-pulse" href="#">&uarr;</a>
-      </aside>
-      -->
   </main>
 
 <?php }

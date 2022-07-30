@@ -1,62 +1,52 @@
 export class SinglePostController {
-
-  private readonly postContent: HTMLElement;
-  private readonly dropdownMenu: HTMLUListElement;
-  private tableOfContents: NodeListOf<HTMLHeadingElement>;
+  private readonly floatingMenu: HTMLElement;
+  private readonly postSections: NodeListOf<HTMLHeadingElement>;
+  private readonly menuToggler: HTMLInputElement;
 
   constructor() {
-    this.postContent = document.querySelector('.single-post__content')!;
-    this.dropdownMenu = document.querySelector('.dropdown')!;
-    this.tableOfContents = this.loadTableOfContents();
-    this.populatePostIndexes();
+    this.floatingMenu = document.querySelector('.floating-menu');
+    this.postSections = document.querySelectorAll('.single-post__content h3');
+    this.menuToggler = document.querySelector('#postIndex');
+    this.createMenu();
     this.listeners();
   }
 
   listeners() {
-    document.addEventListener('click', this.dropdownClickListener.bind(this));
-    document.addEventListener('keydown', this.dropdownKeyboardListener.bind(this));
+    this.menuToggler.addEventListener('change', this.toggleMenu.bind(this));
+    document.addEventListener('scroll', this.closeIndex.bind(this));
   }
 
-  dropdownClickListener(e: MouseEvent) {
-    const target = <HTMLElement>e.target;
-    if (target === this.dropdownMenu) {
-      return;
-    }
-    
-    if (target.localName === 'svg' || target.localName === 'use') {
-      this.dropdownMenu.classList.toggle('dropdown--visible');
-    } else {
-      this.dropdownMenu.classList.remove('dropdown--visible');
-    }
-  }
-  
-  dropdownKeyboardListener(e: KeyboardEvent) {
-    if (e.code !== 'Escape') {
-      return;
-    }
-    this.dropdownMenu.classList.remove('dropdown--visible');
+  closeIndex() {
+    this.menuToggler.checked = false;
   }
 
-  loadTableOfContents() {
-    if (!this.postContent || !this.dropdownMenu) {
-      throw new Error('Could not read metadata');
-    }
-    return this.postContent.querySelectorAll('h3');
+  toggleMenu() {
+    // Close all other floating windows eg., searchbox.
+    // TODO: Again, find programatic way of doing this
+    (this.floatingMenu.querySelector('#search-box') as HTMLInputElement).checked = false;
+    document.body.style.overflow = 'auto';
   }
 
-  populatePostIndexes() {
-    this.tableOfContents.forEach((title: HTMLElement) => {
-      title.id = title.textContent!.replace(' ', '-')
+  createMenu() {
+    const ul = document.createElement('ul');
+    ul.className = 'single-post__index';
+
+    this.postSections.forEach(headingEl => {
+
+      const link = headingEl.textContent.replace(' ', '_').toLowerCase();
+      headingEl.id = link;
 
       const li = document.createElement('li');
-      li.className = "dropdown__item";
 
       const a = document.createElement('a');
-      a.href = `#${title.id}`;
-      a.textContent = title.textContent;
+      a.href = `#${link}`;
+      a.textContent = headingEl.textContent;
 
       li.appendChild(a);
-      this.dropdownMenu.appendChild(li);
+      ul.appendChild(li);
+
     });
+
+    this.menuToggler.insertAdjacentElement('afterend', ul);
   }
 }

@@ -42,7 +42,17 @@ export class SearchController {
       } else {
         document.body.style.overflow = 'auto';
       }
+
+      this.toggleMenus();
     });
+  }
+
+  // closes other floating menu windows eg., post index if available
+  toggleMenus() {
+    const postIndexInput = document.querySelector('#postIndex') as HTMLInputElement;
+    if (postIndexInput) {
+      postIndexInput.checked = false;
+    }
   }
 
   handleInput(e: KeyboardEvent) {

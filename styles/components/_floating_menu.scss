@@ -56,7 +56,8 @@
         }
 
         /* TODO: Find a better placement for the search modal component */
-        &:checked ~ form {
+        &:checked ~ form,
+        &:checked ~ ul {
           display: block;
         }
       }
@@ -64,8 +65,8 @@
     
     label {
 
-      &[for="theme-switcher"],
-      &[for="search-box"] {
+      // Labels with a for attribute
+      &[for] { 
         @include size(5rem, 10rem);
         @include flex(column);
         transition: transform .3s;
