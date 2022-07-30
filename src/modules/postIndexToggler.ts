@@ -13,6 +13,7 @@ export function postIndexToggler(checkboxId = 'postIndex') {
   const label = document.createElement('label');
   label.className = 'floating-menu__button';
   label.setAttribute('for', checkboxId);
+  label.setAttribute('tabindex', '0');
 
   const hamburgerIcon = createSvgIcon('hamburger');
   const closeIcon = createSvgIcon('x');

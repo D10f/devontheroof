@@ -13,6 +13,7 @@ export function addThemeToggler(checkboxId = 'theme-switcher') {
   const label = document.createElement('label');
   label.className = 'floating-menu__button';
   label.setAttribute('for', checkboxId);
+  label.setAttribute('tabindex', "0");
 
   const moonIcon = createSvgIcon('moon');
   const sunIcon = createSvgIcon('sun');
