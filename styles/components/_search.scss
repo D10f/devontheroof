@@ -37,6 +37,13 @@
     margin-top: 10rem;
     border-radius: 5px;
     border: 1px solid var(--text-color);
+
+    @include responsive(phone) {
+      padding: 2rem;
+      margin-inline: 1rem;
+      min-width: unset;
+      max-width: unset;
+    }
   }
 
   &__box {
@@ -68,6 +75,10 @@
       // changes the highlighted colored when text is selected
       background-color: map.get($colors, 'secondary', 'normal') !important;
     }
+
+    @include responsive(phone) {
+      font-size: 1.6rem;
+    }
   }
 
   &__results {
@@ -88,6 +99,10 @@
     & a:focus &,
     & a:hover & {
       background-color: map.get($colors, 'secondary', 'light');
+    }
+
+    @include responsive(phone) {
+      margin-block: 0.25em;
     }
   }
 
