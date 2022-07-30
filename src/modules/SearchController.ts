@@ -31,6 +31,14 @@ export class SearchController {
   listeners() {
     // TODO: Add support for search without javascript
     // this.searchModal.addEventListener('submit', (e) => e.preventDefault());
+    // add keyboard shortcut "Ctrl + K"
+    document.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 'k' && e.ctrlKey) {
+        e.preventDefault();
+        this.searchModalTrigger.click();
+      }
+    });
+
     this.searchModal.addEventListener('keyup', this.handleInput.bind(this), true);
     this.searchModalTrigger.addEventListener('change', () => {
       this.searchInput.value = '';
