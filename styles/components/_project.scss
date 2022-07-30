@@ -157,13 +157,14 @@
         &::after {
           @extend %no-content;
           @include size(3rem);
-          @include position(absolute);
-          top: 0;
-          left: 0;
-          opacity: 0.3;
+          @include position(relative);
+          // top: 0;
+          // left: 0;
+          transform: translateX(-100%);
+          opacity: 0.4;
           background-color: var(--text-color);
           border-radius: 50%;
-          filter: blur(1rem);
+          filter: blur(1em);
           z-index: -1;
         }
       }

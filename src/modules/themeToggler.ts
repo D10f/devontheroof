@@ -4,7 +4,8 @@ export function addThemeToggler(checkboxId = 'theme-switcher') {
   const floatingMenu = document.querySelector('.floating-menu__menu');
 
   const li = document.createElement('li');
-  li.className = 'floating-menu__item';
+  li.className = 'floating-menu__item tooltip tooltip--left';
+  li.setAttribute('data-tooltip', 'Toggle light/dark theme');
 
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
@@ -32,9 +33,11 @@ export function addThemeToggler(checkboxId = 'theme-switcher') {
     if (checkbox.checked) {
       document.body.classList.add('dark');
       document.body.classList.remove('light');
+      li.setAttribute('data-tooltip', 'Light theme');
     } else {
       document.body.classList.add('light');
       document.body.classList.remove('dark');
+      li.setAttribute('data-tooltip', 'Dark theme');
     }
   });
 

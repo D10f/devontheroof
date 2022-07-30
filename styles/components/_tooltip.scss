@@ -1,7 +1,8 @@
 @use '../abstract' as *;
 
 .tooltip {
-  position: relative;
+  // position: relative;
+  // position: absolute;
   width: min-content; // helps with tooltip precision
 
   &:hover::before {
@@ -14,7 +15,7 @@
   // }
   &--left::before {
     top: unset;
-    right: 2rem;
+    right: 4rem;
     bottom: unset;
     left: unset;
   }
