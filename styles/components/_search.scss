@@ -83,6 +83,7 @@
 
   &__results {
     margin-top: 2rem;
+    color: map.get($colors, 'neutral', 'lightest');
   }
 
   &__result-item {
