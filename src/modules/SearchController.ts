@@ -109,6 +109,12 @@ export class SearchController {
   }
 
   processPosts(posts: any[]) {
+
+    if (posts.length === 0) {
+      this.searchResults.innerHTML = `No Results Found.`;
+      return;
+    }
+
     this.searchResults.innerHTML = '';
     const fragment = document.createDocumentFragment();
 
