@@ -4,6 +4,11 @@
 .single-post {
   margin: 0 auto;
   width: 80ch;
+  
+  @include responsive(landscape) {
+    padding: 1rem;
+    width: 100%;
+  }
 
   // Set a consisten margin between elements
   &,  
@@ -56,6 +61,16 @@
     padding: 1rem;
     border: 1px solid var(--text-color);
     border-radius: 3px;
+
+    box-shadow: $box-shadow;
+
+    @include responsive(tablet) {
+      bottom: unset;
+      right: unset;
+      top: 2rem;
+      left: 2rem;
+      right: 2rem;
+    }
 
     li {
       margin-block: .25em;
