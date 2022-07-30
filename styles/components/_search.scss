@@ -38,8 +38,19 @@
     border: 1px solid var(--text-color);
   }
 
-  &__input {
+  &__box {
     font-family: FiraSans;
+    font-size: 1.2rem;
+    text-align: left;
+
+    span {
+      @extend %display-as-inline-block;
+      margin-bottom: .5rem;
+      color: map.get($colors, 'neutral', 'lightest');
+    }
+  }
+
+  &__input {
     font-size: 2rem;
     width: 100%;
     padding: 1rem;

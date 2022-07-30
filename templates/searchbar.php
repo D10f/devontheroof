@@ -3,7 +3,8 @@
   <div aria-hidden="true" class="search__background"></div>
 
   <div class="search__modal">
-    <div class="search__input-field">
+    <div class="search__box">
+      <span>Press "ESC" to close this modal</span>
       <input class="search__input" placeholder="Type to search blog posts">
       <!-- TODO: Loading indicator -->
     </div>
