@@ -6,7 +6,6 @@
     <div class="search__box">
       <span>Press "ESC" to close this modal</span>
       <input class="search__input" placeholder="Type to search blog posts">
-      <!-- TODO: Loading indicator -->
     </div>
 
     <ul class="search__results">

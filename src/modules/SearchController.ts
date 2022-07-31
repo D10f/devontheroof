@@ -4,6 +4,7 @@ export class SearchController {
   private readonly searchModal: HTMLFormElement;
   private readonly searchModalTrigger: HTMLInputElement;
   private readonly searchInput: HTMLInputElement;
+  private readonly searchBox: HTMLInputElement;
   private readonly searchResults: HTMLUListElement;
   private readonly endpoint: string;
   private previousQuery: string;
@@ -14,6 +15,7 @@ export class SearchController {
   constructor() {
     this.searchModal = document.querySelector('.search') as HTMLFormElement;
     this.searchInput = document.querySelector('.search__input') as HTMLInputElement;
+    this.searchBox = document.querySelector('.search__box') as HTMLInputElement;
     this.searchResults = document.querySelector('.search__results') as HTMLUListElement;
     this.searchModalTrigger = document.getElementById('search-box') as HTMLInputElement;
 
@@ -68,11 +70,13 @@ export class SearchController {
     if (e.key === 'Escape') {
       this.searchInput.value = '';
       this.searchModalTrigger.click();
+      this.searchBox.classList.remove('search__box--loading');
       return;
     }
 
     if (this.searchInput.value.length === 0) {
       this.searchResults.innerHTML = '';
+      this.searchBox.classList.remove('search__box--loading');
       return;
     }
 
@@ -96,6 +100,7 @@ export class SearchController {
     this.previousQuery = this.searchInput.value.toLowerCase();
     this.timer = setTimeout(() => {
       this.loadData();
+      this.searchBox.classList.add('search__box--loading');
     }, this.debounceTimeout);
   }
 
@@ -123,7 +128,10 @@ export class SearchController {
       .then((posts: any) => {
         this.processPosts(posts);
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        this.searchBox.classList.remove('search__box--loading');
+      });
   }
 
   processPosts(posts: any[]) {
