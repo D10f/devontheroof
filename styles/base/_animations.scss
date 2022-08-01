@@ -85,3 +85,24 @@
     transform: rotateY(180deg) rotateX(180deg);
   }
 }
+
+@keyframes skeleton-load {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes skeleton-jump {
+  0% {
+    transform: translateY(0em);
+  }
+  75% {
+    transform: translateY(0em);
+  }
+  100% {
+    transform: translateY(-0.25em);
+  }
+}

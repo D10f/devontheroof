@@ -70,13 +70,13 @@ export class SearchController {
     if (e.key === 'Escape') {
       this.searchInput.value = '';
       this.searchModalTrigger.click();
-      this.searchBox.classList.remove('search__box--loading');
+      // this.searchBox.classList.remove('search__box--loading');
       return;
     }
 
     if (this.searchInput.value.length === 0) {
       this.searchResults.innerHTML = '';
-      this.searchBox.classList.remove('search__box--loading');
+      // this.searchBox.classList.remove('search__box--loading');
       return;
     }
 
@@ -100,7 +100,8 @@ export class SearchController {
     this.previousQuery = this.searchInput.value.toLowerCase();
     this.timer = setTimeout(() => {
       this.loadData();
-      this.searchBox.classList.add('search__box--loading');
+      this.loadingSkeleton();
+      // this.searchBox.classList.add('search__box--loading');
     }, this.debounceTimeout);
   }
 
@@ -120,6 +121,19 @@ export class SearchController {
     this.searchResults.children[this.focusIndex].querySelector('a').focus();
   }
 
+  loadingSkeleton() {
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < 4; i++) {
+      const li = document.createElement('li');
+      fragment.appendChild(li);
+    }
+
+    this.searchResults.innerHTML = '';
+    this.searchResults.classList.add('skeleton');
+    this.searchResults.appendChild(fragment);
+  }
+
   loadData() {
     const url = `${this.endpoint}?q=${this.previousQuery}`;
 
@@ -127,10 +141,13 @@ export class SearchController {
       .then((res) => res.json())
       .then((posts: any) => {
         this.processPosts(posts);
+        this.searchResults.classList.remove('skeleton');
       })
       .catch(console.error)
       .finally(() => {
-        this.searchBox.classList.remove('search__box--loading');
+        // this.searchResults.innerHTML = '';
+        // this.searchBox.classList.remove('search__box--loading');
+        // this.searchResults.classList.remove('skeleton');
       });
   }
 

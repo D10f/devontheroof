@@ -103,6 +103,55 @@
   &__results {
     margin-top: 2rem;
     color: map.get($colors, 'neutral', 'lightest');
+
+    &.skeleton {
+      animation: skeleton-load 1.3s infinite alternate ease-in;
+    }
+    
+    &.skeleton li {
+      @extend %position-relative;
+      margin-block: 1rem;
+      width: calc(100% - 5rem);
+      height: 4.5rem;
+      background-color: map.get($colors, 'neutral', 'light');
+      opacity: 0.8;
+      animation: skeleton-jump 1.2s infinite;
+
+      &:nth-child(2) {
+        animation-delay: 50ms;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 75ms;
+      }
+      
+      &:nth-child(4) {
+        animation-delay: 100ms;
+      }
+
+      // category icon skeleton placeholder
+      &::before {
+        @include size(4rem);
+        @extend %no-content;
+        @extend %position-absolute;
+        left: calc(100% + 1rem);
+        top: 0.3rem;
+        border-radius: 50%;
+        background-color: map.get($colors, 'neutral', 'light');
+      }
+
+      // inner text skeleton placeholder
+      &::after {
+        @include size(50%, 2rem);
+        @extend %no-content;
+        @extend %position-absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 100vw;
+        background-color: map.get($colors, 'neutral', 'dark');
+      }
+    }
   }
 
   &__result-item {
