@@ -7,7 +7,8 @@ export class ThemeController {
   private theme: string | null;
 
   constructor() {
-    this.theme = this.getThemePreferences();
+    this.getBrowserPreferences();
+    this.applyTheme();
     this.addThemeToggler();
   }
 
@@ -19,30 +20,39 @@ export class ThemeController {
     localStorage.setItem('theme', value);
   }
 
-  getThemePreferences() {
-    let theme: string | null = this.getTheme();
+  getBrowserPreferences() {
+    let theme = this.getTheme();
 
     if (!theme) {
-      const systemPref = prefersDarkMode();
-
-      if (systemPref) {
-        theme = 'dark';
-      } else {
-        theme = 'light';
-      }
+      theme = prefersDarkMode()
+        ? 'dark'
+        : 'light';
 
       this.setTheme(theme);
     }
 
-    return theme;
+    this.theme = theme;
+  }
+
+  applyTheme() {
+    if (this.theme === 'light') {
+      document.body.classList.add('light');
+      document.body.classList.remove('dark');
+    } else {
+      document.body.classList.add('dark');
+      document.body.classList.remove('light');
+    }
   }
 
   switchTheme() {
-    this.theme = this.theme === 'light'
-      ? 'dark'
-      : 'light';
+    if (this.theme === 'light') {
+      this.theme = 'dark';
+    } else {
+      this.theme = 'light';
+    }
 
     this.setTheme(this.theme);
+    this.applyTheme();
   }
 
   addThemeToggler() {
@@ -75,23 +85,25 @@ export class ThemeController {
 
     /* Add change event to toggle dark class on body element */
 
+    // checkbox.addEventListener('change', () => {
+    // });
+
     checkbox.addEventListener('change', () => {
+      this.switchTheme()
       if (checkbox.checked) {
-        document.body.classList.add('dark');
-        document.body.classList.remove('light');
         li.setAttribute('data-tooltip', 'Light theme');
       } else {
-        document.body.classList.add('light');
-        document.body.classList.remove('dark');
         li.setAttribute('data-tooltip', 'Dark theme');
       }
-      this.switchTheme();
     });
 
     /* Check if prefers dark theme is true and immediately apply dark theme */
 
     if (this.theme === 'dark') {
-      checkbox.click();
+      checkbox.checked = true;
+      li.setAttribute('data-tooltip', 'Light theme');
+    } else {
+      li.setAttribute('data-tooltip', 'Dark theme');
     }
   }
 }
