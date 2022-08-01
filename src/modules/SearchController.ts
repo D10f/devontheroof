@@ -35,7 +35,7 @@ export class SearchController {
     // this.searchModal.addEventListener('submit', (e) => e.preventDefault());
     // add keyboard shortcut "Ctrl + K"
     document.addEventListener('keydown', (e) => {
-      if (e.key.toLowerCase() === 'k' && e.ctrlKey) {
+      if (e.key.toLowerCase() === 'k' && e.ctrlKey && !e.shiftKey) {
         e.preventDefault();
         this.searchModalTrigger.click();
       }
