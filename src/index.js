@@ -6,7 +6,8 @@ import { TransitionEffect } from "./modules/TransitionEffect";
 // import { pulseAnimation } from "./modules/animations";
 import { Masonry } from "./modules/masonry";
 import { hasReducedMotion, isMobileDevice } from "./modules/utils";
-import { addThemeToggler } from './modules/themeToggler';
+// import { addThemeToggler } from './modules/themeToggler';
+import { ThemeController } from './modules/ThemeController';
 import { postIndexToggler } from './modules/postIndexToggler';
 
 import "/styles/index.scss";
@@ -50,7 +51,8 @@ function loadSinglePostScripts() {
 
 function loadGlobalScripts() {
   new SearchController();
-  addThemeToggler();
+  new ThemeController();
+  // addThemeToggler();
 }
 
 main();
