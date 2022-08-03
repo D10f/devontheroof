@@ -1,13 +1,13 @@
 <aside class="floating-menu">
   <ul class="floating-menu__menu">
 
-    <li class="floating-menu__item tooltip tooltip--left" data-tooltip="Back to top">
+    <li class="floating-menu__item tooltip tooltip--left tooltip--hide-on-md" data-tooltip="Back to top">
       <a class="floating-menu__button" href="#">
         &uarr;
       </a>
     </li>
 
-    <li class="floating-menu__item tooltip tooltip--left" data-tooltip="Search for blog posts">
+    <li class="floating-menu__item tooltip tooltip--left tooltip--hide-on-md" data-tooltip="Search for blog posts">
       <input type="checkbox" id="search-box" />
 
       <label tabindex="0" class="floating-menu__button" for="search-box">

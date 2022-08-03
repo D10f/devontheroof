@@ -4,7 +4,7 @@ export function postIndexToggler(checkboxId = 'postIndex') {
   const floatingMenu = document.querySelector('.floating-menu__menu');
 
   const li = document.createElement('li');
-  li.className = 'floating-menu__item tooltip tooltip--left';
+  li.className = 'floating-menu__item tooltip tooltip--left tooltip--hide-on-md';
   li.setAttribute('data-tooltip', 'Post Index');
 
   const checkbox = document.createElement('input');

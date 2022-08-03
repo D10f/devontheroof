@@ -60,7 +60,7 @@ export class ThemeController {
     const floatingMenu = document.querySelector('.floating-menu__menu');
 
     const li = document.createElement('li');
-    li.className = 'floating-menu__item tooltip tooltip--left';
+    li.className = 'floating-menu__item tooltip tooltip--left tooltip--hide-on-md';
     li.setAttribute('data-tooltip', 'Toggle light/dark theme');
 
     const checkbox = document.createElement('input');

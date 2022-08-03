@@ -9,7 +9,30 @@
   z-index: 99;
 
   @include responsive(phone) {
-    right: 2rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+  }
+
+  &:hover::before {
+    opacity: 0.3;
+    // background-color: var(--background-color);
+  }
+
+  &::before {
+    @extend %no-content;
+    @extend %position-absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: var(--text-color);
+    opacity: 0.2;
+    border-radius: 100vw;
+    // border: 1px dashed rgba(map.get($colors, 'neutral', 'lightest'), .5);
+    z-index: -1;
+
+    @include responsive(landscape) {
+      display: block;
+    }
   }
 
   &__menu {
