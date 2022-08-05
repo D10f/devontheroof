@@ -5,6 +5,7 @@
   // position: absolute;
   width: min-content; // helps with tooltip precision
 
+
   &:hover::before {
     opacity: 1;
     z-index: 1;
@@ -37,7 +38,7 @@
   &--top::before {
     top: unset;
     right: unset;
-    bottom: 2rem;
+    bottom: 4rem;
     left: unset;
   }
   &--top-right::before {
@@ -74,6 +75,7 @@
     pointer-events: none;
     transition: opacity 0.2s 0.1s;
     border: 1px solid var(--background-color);
+    font-size: 1.6rem;
 
     @include dark-mode {
       border: 1px solid var(--text-color);

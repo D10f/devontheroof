@@ -2,6 +2,20 @@
 @use '../abstract' as *;
 
 .landing {
+  @extend %position-relative;
+  
+  &__scroller {
+    @extend %position-absolute;
+    // transform: translate(-50%);
+    bottom: 3rem;
+    left: 50%;
+    font-size: 3rem;
+    animation: hover 10s infinite;
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
 
   &__header {
     display: grid;

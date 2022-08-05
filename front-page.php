@@ -19,6 +19,8 @@
     <?php get_template_part('templates/recent_posts'); ?>
   </section>
 
+  <a class="hide-on-tablet landing__scroller tooltip tooltip--top" data-tooltip="See projects" href="#web-applications" aria-label="Scroll down to projects">&darr;</a>
+
 </header>
 
 <!-- Projects By Type -->
