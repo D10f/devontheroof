@@ -4,13 +4,14 @@
 
   padding: 2rem 4rem;
 
-  @include mixins.responsive(phone) {
-    padding: 1rem 3rem;
-  }
-
-  @include mixins.responsive(narrow) {
+  @include mixins.responsive(tablet) {
     padding: 1rem 2rem;
   }
+  
+  @include mixins.responsive(phone) {
+    padding: 1rem;
+  }
+
 
   &__title {
     font-family: 'PanameraRegular';

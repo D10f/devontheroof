@@ -36,6 +36,11 @@
       min-height: unset;
       max-height: unset;
     }
+
+    @include responsive(phone) {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   &__introduction,
@@ -117,13 +122,17 @@
       }
 
       @include responsive(narrow) {
-        margin: 1rem 0 1rem 3rem;
+        margin: 1rem 0 1rem 4rem;
         font-size: 1.5rem;
       }
 
       &:first-of-type {
         margin-top: 1rem;
         animation: fadeFromLeft 1s 1.2s backwards;
+
+        @include responsive(phone) {
+          margin-top: 3rem;
+        }
       }
 
       &:nth-of-type(2) {
@@ -170,7 +179,7 @@
     @include responsive(phone) {
       grid-template-columns: repeat(2, 14rem);
       grid-template-rows: repeat(3, 14rem);
-      width: 80%;
+      // width: 80%;
       justify-content: center;
     }
   }
