@@ -7,6 +7,12 @@
   bottom: 4rem;
   right: 4rem;
   z-index: 99;
+  transition: transform 250ms cubic-bezier(.68,-0.55,.27,1.55);
+  transform: scale(1);
+
+  &.hide {
+    transform: scale(0);
+  }
 
   @include responsive(phone) {
     right: 1.25rem;

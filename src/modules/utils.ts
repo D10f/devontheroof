@@ -20,6 +20,22 @@ export function debounce(fn: Function, timeInMs: number): Function {
   };
 }
 
+export function throttle(fn: Function, timeInMs: number) {
+  let throttle = false;
+
+  return function() {
+    if (throttle) {
+      return;
+    }
+
+    fn();
+    throttle = true;
+    setTimeout(() => {
+      throttle = false;
+    }, timeInMs);
+  }
+}
+
 export function createSvgIcon(iconName: string) {
   const svg = document.createElementNS(
     "http://www.w3.org/2000/svg",

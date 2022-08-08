@@ -3,6 +3,7 @@ import { SketchController } from "./modules/SketchController";
 import { SinglePostController } from "./modules/SinglePostController";
 import { SearchController } from "./modules/SearchController";
 import { TransitionEffect } from "./modules/TransitionEffect";
+import { FloatingMenuController } from "./modules/FloatingMenuController";
 // import { pulseAnimation } from "./modules/animations";
 import { Masonry } from "./modules/masonry";
 import { hasReducedMotion, isMobileDevice } from "./modules/utils";
@@ -52,6 +53,7 @@ function loadSinglePostScripts() {
 function loadGlobalScripts() {
   new SearchController();
   new ThemeController();
+  new FloatingMenuController();
   // addThemeToggler();
 }
 
