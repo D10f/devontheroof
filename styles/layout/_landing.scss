@@ -6,14 +6,31 @@
   
   &__scroller {
     @extend %position-absolute;
+    @extend %display-as-block;
     // transform: translate(-50%);
     bottom: 3rem;
     left: 50%;
     font-size: 3rem;
     animation: hover 10s infinite;
+    @include size(5rem);
+    // @include debugger;
 
     &:hover {
       color: var(--accent-color);
+    }
+
+    &::after {
+      @extend %position-absolute;
+      @extend %no-content;
+      @include size(100%);
+      animation: pulse 5s 5s infinite ease-out;
+      right: 0;
+      left: -1.25rem;
+      top: 0;
+      bottom: 0.4rem;
+      background-color: var(--text-color);
+      border-radius: 50%;
+      opacity: 0;
     }
   }
 
