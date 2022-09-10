@@ -12,18 +12,18 @@ export function isMobileDevice(): RegExpMatchArray {
   );
 }
 
-export function debounce(fn: Function, timeInMs: number): Function {
-  let timeFrame: number;
-  return function() {
+export function debounce(fn: () => void, timeInMs: number) {
+  let timeFrame: ReturnType<typeof setTimeout>;
+  return function () {
     clearTimeout(timeFrame);
     timeFrame = setTimeout(fn, timeInMs);
   };
 }
 
-export function throttle(fn: Function, timeInMs: number) {
+export function throttle(fn: () => void, timeInMs: number) {
   let throttle = false;
 
-  return function() {
+  return function () {
     if (throttle) {
       return;
     }
@@ -33,19 +33,13 @@ export function throttle(fn: Function, timeInMs: number) {
     setTimeout(() => {
       throttle = false;
     }, timeInMs);
-  }
+  };
 }
 
 export function createSvgIcon(iconName: string) {
-  const svg = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "svg"
-  );
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-  const use = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "use"
-  );
+  const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
 
   use.setAttributeNS(
     "http://www.w3.org/1999/xlink",

@@ -51,7 +51,7 @@ interface ITextTransition {
   entropy?: number;
   rate?: number;
   highlight?: string | string[] | false;
-  callback?: Function;
+  callback?: () => void;
 }
 
 interface ITransitionCharObject {
@@ -72,10 +72,10 @@ function textTransition({
   callback,
 }: ITextTransition) {
   let match = false;
-  let timeout: ReturnType<typeof setTimeout>;
-  let interval: ReturnType<typeof setInterval>;
-
-  timeout = setTimeout(() => (match = true), maxDuration);
+  const timeout: ReturnType<typeof setTimeout> = setTimeout(
+    () => (match = true),
+    maxDuration
+  );
 
   const currentTextCharCodeArray: number[] = element
     .textContent!.split("")
@@ -89,7 +89,7 @@ function textTransition({
     newText.length
   ).fill({ charCode: 0, done: false });
 
-  interval = setInterval(() => {
+  const interval: ReturnType<typeof setInterval> = setInterval(() => {
     if (match) {
       element.textContent = newText;
       clearTimeout(timeout);

@@ -2,7 +2,7 @@ interface ISketch {
   destroy: () => null;
 }
 
-const STEERING_SKETCH_TEXT = 'Hire Me!'
+const STEERING_SKETCH_TEXT = "Hire Me!";
 
 /**
  * Manages 2D and 3D sketches so that only is running at the same time
@@ -21,7 +21,7 @@ export class SketchController {
   private earth: any;
 
   constructor() {
-    this.projects = document.querySelectorAll('[data-sketch]');
+    this.projects = document.querySelectorAll("[data-sketch]");
     this.graphicsSection = document.getElementById("graphics")!;
     // this.graphicsProjects = this.graphicsSection.querySelectorAll('')
     // this.canvasTriggerBtn = document.querySelectorAll(".project__info button")!;
@@ -33,20 +33,19 @@ export class SketchController {
   }
 
   createTriggerBtns() {
-    return Array.from(this.projects).map(project => {
-      
-      const sketch = project.getAttribute('data-sketch');
+    return Array.from(this.projects).map((project) => {
+      const sketch = project.getAttribute("data-sketch");
 
-      const button = document.createElement('button');
-      button.className = 'btn';
-      button.textContent = 'Play';
-      button.setAttribute('data-id', sketch);
+      const button = document.createElement("button");
+      button.className = "btn";
+      button.textContent = "Play";
+      button.setAttribute("data-id", sketch);
 
       // Append button at the footer of project
       project
-        .querySelector('.project__footer')
-        .insertAdjacentElement('afterbegin', button);
-      
+        .querySelector(".project__footer")
+        .insertAdjacentElement("afterbegin", button);
+
       return button;
     });
   }
@@ -69,12 +68,16 @@ export class SketchController {
       }
 
       Promise.all([
+        // eslint-disable-next-line
         // @ts-ignore
         import("p5"),
+        // eslint-disable-next-line
         // @ts-ignore
         import("../sketches/lightbulb.js"),
+        // eslint-disable-next-line
         // @ts-ignore
         import("../sketches/steering.js"),
+        // eslint-disable-next-line
         // @ts-ignore
         import("../sketches/earth/index.js"),
       ])
@@ -154,4 +157,3 @@ export class SketchController {
     this.currentCanvas = canvasId;
   }
 }
-
