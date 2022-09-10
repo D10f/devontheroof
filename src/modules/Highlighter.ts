@@ -1,6 +1,5 @@
 export class Highlighter {
-
-  private readonly targets: NodeListOf<HTMLElement>
+  private readonly targets: NodeListOf<HTMLElement>;
 
   constructor(selector: string) {
     this.targets = document.querySelectorAll(selector);
@@ -34,11 +33,11 @@ export class Highlighter {
 
         this.unobserve(el);
       },
-        options).observe(el);
+      options).observe(el);
     });
   }
 
-  randomDelayInMs(min: number = 0, max: number = 1000) {
+  randomDelayInMs(min = 0, max = 1000) {
     return Math.floor(Math.random() * max + min);
   }
 
