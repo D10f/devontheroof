@@ -63,6 +63,7 @@ $colors: (
   )
 );
 
+// TODO: Replace references to this variables in favor of $colors map
 $color-light: #F1F1F1;
 $color-lighter: #F4F4F4;
 
@@ -70,75 +71,73 @@ $color-dark: #333;
 $color-darker: #212121;
 $color-one-dark: #282c34;
 
-$color-primary: #fb7158;
-$color-secondary: #f4c862e5;
+$gradients: (
+  'node': linear-gradient(
+    to bottom right,
+    rgba(map.get($colors, 'brands', 'node'), 0.7),
+    rgba(map.get($colors, 'brands', 'node'), 0.2),
+  ),
 
-$color-p5: #ED225D;
-$color-sojourn: #7b92f9;
-$color-nginx: #009639;
-$color-mongo: #47A248;
-$color-wordpress: #21759B;
-$color-webpack: #8DD6F9;
-$color-pwa: #5A0FC8;
-$color-bash: #555753;
-$color-react: #61DAFB;
-$color-js: #f7d249;
-$color-ts: #3178C6;
-$color-ansible: #c83232;
-$color-docker: #2496ED;
+  'nginx': linear-gradient(
+    to bottom right,
+    rgba(map.get($colors, 'brands', 'nginx'), 0.4),
+    rgba(map.get($colors, 'brands', 'nginx'), 0.25)
+  ),
 
-/* COLOR GRADIENTS */
+  'mongo': linear-gradient(
+    to bottom right,
+    rgba(map.get($colors, 'brands', 'mongo'), 0.5),
+    rgba(map.get($colors, 'brands', 'mongo'), 0.25)
+  ),
 
-$gradient-nginx: linear-gradient(
+  'wordpress': linear-gradient(
     to bottom right,
-    rgba($color-nginx, 0.4),
-    rgba($color-nginx, 0.25)
-  );
-$gradient-mongo: linear-gradient(
+    rgba(map.get($colors, 'brands', 'wordpress'), 0.5),
+    rgba(map.get($colors, 'brands', 'wordpress'), 0.25)
+  ),
+
+  'pwa': linear-gradient(
     to bottom right,
-    rgba($color-mongo, 0.5),
-    rgba($color-mongo, 0.25)
-  );
-$gradient-wordpress: linear-gradient(
+    rgba(map.get($colors, 'brands', 'pwa'), 0.35),
+    rgba(map.get($colors, 'brands', 'pwa'), 0.25)
+  ),
+
+  'bash': linear-gradient(
     to bottom right,
-    rgba($color-wordpress, 0.5),
-    rgba($color-wordpress, 0.25)
-  );
-$gradient-pwa: linear-gradient(
+    rgba(map.get($colors, 'brands', 'bash'), 0.6),
+    rgba(map.get($colors, 'brands', 'bash'), 0.25)
+  ),
+
+  'react': linear-gradient(
     to bottom right,
-    rgba($color-pwa, 0.35),
-    rgba($color-pwa, 0.25)
-  );
-$gradient-bash: linear-gradient(
+    rgba(map.get($colors, 'brands', 'react'), 0.25),
+    rgba(map.get($colors, 'brands', 'react'), 0.1)
+  ),
+
+  'js': linear-gradient(
     to bottom right,
-    rgba($color-bash, 0.6),
-    rgba($color-bash, 0.25)
-  );
-$gradient-react: linear-gradient(
+    rgba(map.get($colors, 'brands', 'js'), 0.75),
+    rgba(map.get($colors, 'brands', 'js'), 0.25)
+  ),
+
+  'ts': linear-gradient(
     to bottom right,
-    rgba($color-react, 0.25),
-    rgba($color-react, 0.1)
-  );
-$gradient-js: linear-gradient(
+    rgba(map.get($colors, 'brands', 'ts'), 0.65),
+    rgba(map.get($colors, 'brands', 'ts'), 0.25)
+  ),
+  
+  'ansible': linear-gradient(
     to bottom right,
-    rgba($color-js, 0.75),
-    rgba($color-js, 0.25)
-  );
-$gradient-ts: linear-gradient(
+    rgba(map.get($colors, 'brands', 'ansible'), 0.7),
+    rgba(map.get($colors, 'brands', 'ansible'),0.25)
+  ),
+
+  'docker': linear-gradient(
     to bottom right,
-    rgba($color-ts, 0.65),
-    rgba($color-ts, 0.25)
-  );
-$gradient-ansible: linear-gradient(
-    to bottom right,
-    rgba($color-ansible, 0.7),
-    rgba($color-ansible, 0.25)
-  );
-$gradient-docker: linear-gradient(
-    to bottom right,
-    rgba($color-docker, 0.6),
-    rgba($color-docker, 0.25)
-  );
+    rgba(map.get($colors, 'brands', 'docker'), 0.6),
+    rgba(map.get($colors, 'brands', 'docker'), 0.25)
+  ),
+);
 
 /* LAYOUT */
 
@@ -146,9 +145,9 @@ $max-width: 120rem;
 
 /* EFFECTS */
 
-$box-shadow: .75rem 1.25rem 2rem rgba($color-darker, 0.3);
-$box-shadow-light: .25rem 1rem 2rem rgba($color-darker, 0.2);
-$text-shadow: 1rem 1rem 1.25rem rgba($color-darker, .3);
+$box-shadow: .75rem 1.25rem 2rem rgba(map.get($colors, 'neutral', 'darker'), 0.3);
+$box-shadow-light: .25rem 1rem 2rem rgba(map.get($colors, 'neutral', 'darker'), 0.2);
+$text-shadow: 1rem 1rem 1.25rem rgba(map.get($colors, 'neutral', 'darker'), .3);
 
 // @media (prefers-color-scheme: dark) {
 //   $box-shadow: none;
