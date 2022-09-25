@@ -51,8 +51,10 @@
   &__menu {
     @include flex(column);
 
-    #{$floating-menu}.hide & {
-      pointer-events: none;
+    @include responsive(landscape) {
+      #{$floating-menu}.hide & {
+        pointer-events: none;
+      }
     }
   }
 
