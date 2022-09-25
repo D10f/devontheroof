@@ -64,18 +64,27 @@ a {
   color: inherit;
 }
 
-ul {
+ul, ol {
   list-style: none;
 }
 
 mark {
   background: none;
-  // color: $color-dark;
   color: var(--text-color);
 }
 
+// code {
+//   font-family: $code-typography;
+//   color: map.get($colors, 'primary', 'dark');
+//   background-color: map.get($colors, 'neutral', 'lighter');
+
+//   @include dark-mode {
+//     color: map.get($colors, 'secondary', 'dark');
+//     background-color: unset;
+//   }
+// }
+
 ::selection {
-  // background-color: rgba($color-secondary, 0.5);
   background-color: map.get($colors, 'secondary', 'light');
 
   body.dark & {
