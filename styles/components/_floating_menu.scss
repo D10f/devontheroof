@@ -3,6 +3,8 @@
 @use './button';
 
 .floating-menu {
+  $floating-menu: &;
+
   position: fixed;
   bottom: 4rem;
   right: 4rem;
@@ -26,7 +28,7 @@
   }
 
   &:hover::before {
-    opacity: 0.3;
+    opacity: 1;
     // background-color: var(--background-color);
   }
 
@@ -36,10 +38,9 @@
     display: none;
     width: 100%;
     height: 100%;
-    background-color: var(--text-color);
-    opacity: 0.2;
+    background-color: var(--background-color);
+    opacity: 0.7;
     border-radius: 100vw;
-    // border: 1px dashed rgba(map.get($colors, 'neutral', 'lightest'), .5);
     z-index: -1;
 
     @include responsive(landscape) {
@@ -49,6 +50,10 @@
 
   &__menu {
     @include flex(column);
+
+    #{$floating-menu}.hide & {
+      pointer-events: none;
+    }
   }
 
   &__item {
