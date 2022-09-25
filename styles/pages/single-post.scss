@@ -60,6 +60,18 @@
       }
     }
 
+    p a {
+      text-decoration: underline;
+      font-family: $post-typography;
+
+      &:hover,
+      &:visited,
+      &:target, 
+      &:focus {
+        color: var(--accent-color);
+      }
+    }
+
     @include responsive(portrait) {
       h3 {
         font-size: 2rem;
