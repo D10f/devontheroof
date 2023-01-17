@@ -55,7 +55,8 @@ services:
     volumes:
       - ./:/var/www/html/
     working_dir: /var/www/html
-    command: ["npm", "start"]
+    entrypoint: ["npm"]
+    command: ["start"]
 
 volumes:
   wp_data: {}

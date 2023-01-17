@@ -2,7 +2,7 @@ start:
 	docker compose up -d nginx;
 
 build:
-	docker compose run --rm npm npm run build && \
+	docker compose run --rm npm run build && \
 	tar -cvjf devontheroof.tar.bz2 \
 	assets \
 	build \
