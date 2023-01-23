@@ -14,46 +14,46 @@ import { postIndexToggler } from "./modules/postIndexToggler";
 import "/styles/index.scss";
 
 function main() {
-    // Don't load on mobile devices, or when reduced motion is enabled
-    if (!isMobileDevice() && !hasReducedMotion()) {
-        new TransitionEffect(".section__title");
-    }
+  // Don't load on mobile devices, or when reduced motion is enabled
+  if (!isMobileDevice() && !hasReducedMotion()) {
+    new TransitionEffect(".section__title");
+  }
 
-    // Load a different set  of scripts depending on the visited page
-    if (window.location.pathname.startsWith("/blog")) {
-        loadBlogScripts();
-    } else if (window.location.pathname === "/") {
-        loadMainScripts();
-    } else {
-        loadSinglePostScripts();
-    }
+  // Load a different set  of scripts depending on the visited page
+  if (window.location.pathname.startsWith("/blog")) {
+    loadBlogScripts();
+  } else if (window.location.pathname === "/") {
+    loadMainScripts();
+  } else {
+    loadSinglePostScripts();
+  }
 
-    // Always load scripts that apply to all pages
-    loadGlobalScripts();
+  // Always load scripts that apply to all pages
+  loadGlobalScripts();
 }
 
 function loadMainScripts() {
-    new Highlighter(".highlight");
-    new SketchController();
-    // pulseAnimation(".animate-pulse");
+  new Highlighter(".highlight");
+  new SketchController();
+  // pulseAnimation(".animate-pulse");
 }
 
 async function loadBlogScripts() {
-    new Masonry(".blog");
+  new Masonry(".blog");
 }
 
 function loadSinglePostScripts() {
-    postIndexToggler();
-    // new SearchController();
-    new SinglePostController();
-    // pulseAnimation(".animate-pulse");
+  postIndexToggler();
+  // new SearchController();
+  new SinglePostController();
+  // pulseAnimation(".animate-pulse");
 }
 
 function loadGlobalScripts() {
-    new SearchController();
-    new ThemeController();
-    new FloatingMenuController();
-    // addThemeToggler();
+  new SearchController();
+  new ThemeController();
+  new FloatingMenuController();
+  // addThemeToggler();
 }
 
 main();
