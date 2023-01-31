@@ -1,142 +1,141 @@
-@use 'sass:map';
+@use "sass:map";
 
 $colors: (
-
   // TODO: Choose primary colors
-  'primary': (
-    'light': lightcoral,
-    'normal': hsl(9, 95%, 66%),
-    'dark': orangered,
+  "primary":
+    (
+      "light": lightcoral,
+      "normal": hsl(9, 95%, 66%),
+      "dark": orangered,
     ),
-    
   // TODO: Choose secondary colors
-  'secondary': (
-    'light': hsl(42, 77%, 81%),
-    'normal': hsl(42, 87%, 67%),
-    'dark': darkorange,
+  "secondary":
+    (
+      "light": hsl(42, 77%, 81%),
+      "normal": hsl(42, 87%, 67%),
+      "dark": darkorange,
+    ),
+  "neutral": (
+    "lightest": hsl(0, 0%, 96%),
+    "lighter": hsl(0, 0%, 86%),
+    "light": hsl(0, 0%, 80%),
+    "dark": hsl(0, 0%, 20%),
+    "darker": hsl(220, 13%, 18%),
+    "darkest": hsl(0, 0%, 13%),
   ),
-
-  'neutral': (
-    'lightest': hsl(0, 0%, 96%),
-    'lighter': hsl(0, 0%, 86%),
-    'light': hsl(0, 0%, 80%),
-    'dark': hsl(0, 0%, 20%),
-    'darker': hsl(220, 13%, 18%),
-    'darkest': hsl(0, 0%, 13%),
-  ),
-
-  /* colors (and icons on spritesheet) obtained from simpleicons.org */
-  'brands': (
-    'ansible': #c83232,
-    'bash': #555753,
-    'docker': #2496ED,
-    'js': #f7d249,
-    'sojourn': #7b92f9,
-    'mongo': #47A248,
-    'nginx': #009639,
-    'react': #61DAFB,
-    'ts': #3178C6,
-    'pwa': #5A0FC8,
-    'webpack': #8DD6F9,
-    'wordpress': #21759B,
-    'sass': #CC6699,
-    'tailwind': #06B6D4,
-    'vue': #4FC08D,
-    'redux': #764ABC,
-    'node': #339933,
-    'styled-components': #DB7093,
-    'nest': #E0234E,
-    'materialui': #0081CB,
-    'apollo': #311C87,
-    'graphql': #E10098,
-    'mariadb': #003545,
-    'prisma': #2D3748,
-    'python': #3776AB,
-    'p5': #ED225D,
-    'github': #181717,
-    'jenkins': #D24939,
-    'vagrant': #1868F2,
-    'telegraf': #FF5034,
-    'influxdb': #22ADF6,
-    'grafana': #F46800,
-    'scw': #4F0599,
-  )
+  /* colors (and icons on spritesheet) obtained from simpleicons.org */ "brands":
+    (
+      "ansible": #c83232,
+      "bash": #555753,
+      "docker": #2496ed,
+      "js": #f7d249,
+      "sojourn": #7b92f9,
+      "mongo": #47a248,
+      "nginx": #009639,
+      "react": #61dafb,
+      "ts": #3178c6,
+      "pwa": #5a0fc8,
+      "webpack": #8dd6f9,
+      "wordpress": #21759b,
+      "sass": #cc6699,
+      "tailwind": #06b6d4,
+      "vue": #4fc08d,
+      "redux": #764abc,
+      "node": #339933,
+      "styled-components": #db7093,
+      "nest": #e0234e,
+      "materialui": #0081cb,
+      "apollo": #311c87,
+      "graphql": #e10098,
+      "mariadb": #003545,
+      "prisma": #2d3748,
+      "python": #3776ab,
+      "p5": #ed225d,
+      "github": #181717,
+      "jenkins": #d24939,
+      "vagrant": #1868f2,
+      "telegraf": #ff5034,
+      "influxdb": #22adf6,
+      "grafana": #f46800,
+      "scw": #4f0599,
+    )
 );
 
 // TODO: Replace references to this variables in favor of $colors map
-$color-light: #F1F1F1;
-$color-lighter: #F4F4F4;
+$color-light: #f1f1f1;
+$color-lighter: #f4f4f4;
 
 $color-dark: #333;
 $color-darker: #212121;
 $color-one-dark: #282c34;
 
 $gradients: (
-  'node': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'node'), 0.7),
-    rgba(map.get($colors, 'brands', 'node'), 0.2),
-  ),
-
-  'nginx': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'nginx'), 0.4),
-    rgba(map.get($colors, 'brands', 'nginx'), 0.25)
-  ),
-
-  'mongo': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'mongo'), 0.5),
-    rgba(map.get($colors, 'brands', 'mongo'), 0.25)
-  ),
-
-  'wordpress': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'wordpress'), 0.5),
-    rgba(map.get($colors, 'brands', 'wordpress'), 0.25)
-  ),
-
-  'pwa': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'pwa'), 0.35),
-    rgba(map.get($colors, 'brands', 'pwa'), 0.25)
-  ),
-
-  'bash': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'bash'), 0.6),
-    rgba(map.get($colors, 'brands', 'bash'), 0.25)
-  ),
-
-  'react': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'react'), 0.25),
-    rgba(map.get($colors, 'brands', 'react'), 0.1)
-  ),
-
-  'js': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'js'), 0.75),
-    rgba(map.get($colors, 'brands', 'js'), 0.25)
-  ),
-
-  'ts': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'ts'), 0.65),
-    rgba(map.get($colors, 'brands', 'ts'), 0.25)
-  ),
-  
-  'ansible': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'ansible'), 0.7),
-    rgba(map.get($colors, 'brands', 'ansible'),0.25)
-  ),
-
-  'docker': linear-gradient(
-    to bottom right,
-    rgba(map.get($colors, 'brands', 'docker'), 0.6),
-    rgba(map.get($colors, 'brands', 'docker'), 0.25)
-  ),
+  "node":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "node"), 0.7),
+      rgba(map.get($colors, "brands", "node"), 0.2)
+    ),
+  "nginx":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "nginx"), 0.4),
+      rgba(map.get($colors, "brands", "nginx"), 0.25)
+    ),
+  "mongo":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "mongo"), 0.5),
+      rgba(map.get($colors, "brands", "mongo"), 0.25)
+    ),
+  "wordpress":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "wordpress"), 0.5),
+      rgba(map.get($colors, "brands", "wordpress"), 0.25)
+    ),
+  "pwa":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "pwa"), 0.35),
+      rgba(map.get($colors, "brands", "pwa"), 0.25)
+    ),
+  "bash":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "bash"), 0.6),
+      rgba(map.get($colors, "brands", "bash"), 0.25)
+    ),
+  "react":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "react"), 0.25),
+      rgba(map.get($colors, "brands", "react"), 0.1)
+    ),
+  "js":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "js"), 0.75),
+      rgba(map.get($colors, "brands", "js"), 0.25)
+    ),
+  "ts":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "ts"), 0.65),
+      rgba(map.get($colors, "brands", "ts"), 0.25)
+    ),
+  "ansible":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "ansible"), 0.7),
+      rgba(map.get($colors, "brands", "ansible"), 0.25)
+    ),
+  "docker":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "docker"), 0.6),
+      rgba(map.get($colors, "brands", "docker"), 0.25)
+    ),
 );
 
 /* LAYOUT */
@@ -145,9 +144,11 @@ $max-width: 120rem;
 
 /* EFFECTS */
 
-$box-shadow: .75rem 1.25rem 2rem rgba(map.get($colors, 'neutral', 'darker'), 0.3);
-$box-shadow-light: .25rem 1rem 2rem rgba(map.get($colors, 'neutral', 'darker'), 0.2);
-$text-shadow: 1rem 1rem 1.25rem rgba(map.get($colors, 'neutral', 'darker'), .3);
+$box-shadow: 0.75rem 1.25rem 2rem
+  rgba(map.get($colors, "neutral", "darker"), 0.3);
+$box-shadow-light: 0.25rem 1rem 2rem
+  rgba(map.get($colors, "neutral", "darker"), 0.2);
+$text-shadow: 1rem 1rem 1.25rem rgba(map.get($colors, "neutral", "darker"), 0.3);
 
 // @media (prefers-color-scheme: dark) {
 //   $box-shadow: none;
@@ -168,5 +169,5 @@ $depth-dropdown: 60;
 /* TYPOGRAPHY */
 
 $main-typography: "PanameraRegular", sans-serif;
-$code-typography: "Fira Code", sans-serif;
-$post-typography: "Fira Sans", sans-serif;
+$code-typography: "FiraCode", sans-serif;
+$post-typography: "FiraSans", sans-serif;
