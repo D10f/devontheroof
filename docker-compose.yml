@@ -51,7 +51,7 @@ services:
       - db
 
   npm:
-    image: node:16-bullseye-slim
+    image: node:18-bullseye-slim
     volumes:
       - ./:/var/www/html/
     working_dir: /var/www/html
