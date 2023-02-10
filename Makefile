@@ -45,7 +45,7 @@ restore-db: ## Restores the database only
 	gunzip < ${BACKUP_DIR}/${DB_DATA_FILE} | \
 		docker exec -i devontheroof-db-1 sh -c 'exec mysql -u wordpress -pwordpress wordpress'
 
-restore-domain: ## Replaces url references of https:// with http:// 
+restore-domain: ## Replaces url references of https:// with http://
 	docker compose run --rm wp search-replace https://devontheroof.top http://devontheroof.local
 
 restore-wp: ## Restores WordPress files only
