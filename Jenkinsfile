@@ -8,7 +8,9 @@ pipeline {
 
     stages {
         stage('Build') {
-            sh 'ls /usr/share/app'
+            steps {
+                sh 'ls /usr/share/app'
+            }
         }
         /* stage('Build') { */
         /*     steps { */
