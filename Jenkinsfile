@@ -8,11 +8,14 @@ pipeline {
 
     stages {
         stage('Build') {
-            steps {
-                sh 'npm install'
-                sh 'npm run build'
-            }
+            sh 'ls /usr/share/app'
         }
+        /* stage('Build') { */
+        /*     steps { */
+        /*         sh 'npm install' */
+        /*         sh 'npm run build' */
+        /*     } */
+        /* } */
 
         /* post { */
         /*     always { */
