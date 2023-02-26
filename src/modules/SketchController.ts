@@ -1,3 +1,5 @@
+import { createSvgIcon } from './utils';
+
 interface ISketch {
   destroy: () => null;
 }
@@ -37,8 +39,9 @@ export class SketchController {
       const sketch = project.getAttribute("data-sketch");
 
       const button = document.createElement("button");
-      button.className = "btn";
+      button.className = "btn btn--with-icon";
       button.textContent = "Play";
+      button.insertAdjacentElement('beforeend', createSvgIcon('controller-play'));
       button.setAttribute("data-id", sketch);
 
       // Append button at the footer of project
@@ -112,9 +115,17 @@ export class SketchController {
   toggleBtnText(canvasId: string) {
     this.canvasTriggerBtns.forEach((btn) => {
       if (btn.getAttribute("data-id") === canvasId) {
-        btn.textContent = btn.textContent === "Play" ? "Stop" : "Play";
+        // btn.textContent = btn.textContent === "Play" ? "Stop" : "Play";
+        if (btn.textContent.startsWith('Play')) {
+          btn.innerHTML = 'Stop';
+          btn.insertAdjacentElement('beforeend', createSvgIcon('controller-stop'));
+        } else {
+          btn.innerHTML = 'Play';
+          btn.insertAdjacentElement('beforeend', createSvgIcon('controller-play'));
+        }
       } else {
-        btn.textContent = "Play";
+        btn.innerHTML = 'Play';
+        btn.insertAdjacentElement('beforeend', createSvgIcon('controller-play'));
       }
     });
   }

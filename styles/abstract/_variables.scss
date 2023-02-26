@@ -23,42 +23,44 @@ $colors: (
     "darker": hsl(220, 13%, 18%),
     "darkest": hsl(0, 0%, 13%),
   ),
-  /* colors (and icons on spritesheet) obtained from simpleicons.org */ "brands":
-    (
-      "ansible": #c83232,
-      "bash": #555753,
-      "docker": #2496ed,
-      "js": #f7d249,
-      "sojourn": #7b92f9,
-      "mongo": #47a248,
-      "nginx": #009639,
-      "react": #61dafb,
-      "ts": #3178c6,
-      "pwa": #5a0fc8,
-      "webpack": #8dd6f9,
-      "wordpress": #21759b,
-      "sass": #cc6699,
-      "tailwind": #06b6d4,
-      "vue": #4fc08d,
-      "redux": #764abc,
-      "node": #339933,
-      "styled-components": #db7093,
-      "nest": #e0234e,
-      "materialui": #0081cb,
-      "apollo": #311c87,
-      "graphql": #e10098,
-      "mariadb": #003545,
-      "prisma": #2d3748,
-      "python": #3776ab,
-      "p5": #ed225d,
-      "github": #181717,
-      "jenkins": #d24939,
-      "vagrant": #1868f2,
-      "telegraf": #ff5034,
-      "influxdb": #22adf6,
-      "grafana": #f46800,
-      "scw": #4f0599,
-    )
+  /* colors (and icons on spritesheet) obtained from simpleicons.org */
+  "brands": (
+    "ansible": #c83232,
+    "bash": #555753,
+    "docker": #2496ed,
+    "js": #f7d249,
+    "sojourn": #7b92f9,
+    "mongo": #47a248,
+    "nginx": #009639,
+    "react": #61dafb,
+    "ts": #3178c6,
+    "pwa": #5a0fc8,
+    "webpack": #8dd6f9,
+    "wordpress": #21759b,
+    "sass": #cc6699,
+    "tailwind": #06b6d4,
+    "vue": #4fc08d,
+    "redux": #764abc,
+    "node": #339933,
+    "styled-components": #db7093,
+    "nest": #e0234e,
+    "materialui": #0081cb,
+    "apollo": #311c87,
+    "graphql": #e10098,
+    "mariadb": #003545,
+    "prisma": #2d3748,
+    "python": #3776ab,
+    "p5": #ed225d,
+    "github": #181717,
+    "jenkins": #d24939,
+    "vagrant": #1868f2,
+    "telegraf": #ff5034,
+    "influxdb": #22adf6,
+    "grafana": #f46800,
+    "scw": #4f0599,
+    "express": #333,
+    "threejs": #333
+  )
 );
 
 // TODO: Replace references to this variables in favor of $colors map
@@ -168,6 +170,7 @@ $depth-dropdown: 60;
 
 /* TYPOGRAPHY */
 
-$main-typography: "PanameraRegular", sans-serif;
+// $main-typography: "PanameraRegular", sans-serif;
+$main-typography: "FiraSans", sans-serif;
 $code-typography: "FiraCode", sans-serif;
 $post-typography: "FiraSans", sans-serif;

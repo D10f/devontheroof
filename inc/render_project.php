@@ -26,7 +26,12 @@ function render_project($project_section, $projects)
           <?php
           if ($project['project_type'] == 'graphics') { ?>
 
-            <noscript class="project__preview--unavailable">Please enable JavaScript</noscript>
+            <!-- <noscript class="project__preview--unavailable">Please enable JavaScript</noscript> -->
+            <noscript>
+              <span class="project__preview--unavailable">
+                Please enable JavaScript to play this demo
+              </span>
+            </noscript>
             <div id="<?= $project['sketch'] ?>" class="project__canvas"></div>
 
           <?php } else {
@@ -37,44 +42,72 @@ function render_project($project_section, $projects)
         </div>
 
         <div class="project__info">
-          <input class="project__checkbox" type="checkbox" id="<?= $project['name'] ?>">
+          <!-- <input class="project__checkbox" type="checkbox" id="<?= $project['name'] ?>"> -->
 
-          <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack" tabindex="0" for="<?= $project['name'] ?>">
-            <svg aria-hidden="true">
-              <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-tools" ?>" />
-            </svg>
-          </label>
+          <!-- <label class="project__label tooltip tooltip--left" data-tooltip="Tech stack" tabindex="0" for="<?= $project['name'] ?>"> -->
+          <!--   <svg aria-hidden="true"> -->
+          <!--     <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-tools" ?>" /> -->
+          <!--   </svg> -->
+          <!-- </label> -->
 
           <div class="project__content ml-1">
-            <h3 class="project__title transition"><?= $project['name'] ?></h2>
+            <header class="project__header">
+              <h3 class="project__title"><?= $project['name'] ?></h2>
+              <ul class="project__stack">
+                <?php foreach ($project['tech_stack'] as $tech) { ?>
+                  <li class="tooltip tooltip--bottom <?= $tech['value'] ?>" data-tooltip="<?= $tech['label']  ?>">
+                    <svg aria-hidden="true">
+                      <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-{$tech['value']}" ?>"></use>
+                    </svg>
+                  </li>
+                <?php } ?>
+              </ul>
+            </header>
 
               <?= $project['content'] ?>
 
+
               <footer class="project__footer">
                 <?php if ($project['project_link']) { ?>
-                  <a class="btn" href="<?= $project['project_link'] ?>" target="_blank" rel="noreferrer">View</a>
+                <a class="btn btn--with-icon" href="<?= $project['project_link'] ?>" target="_blank" rel="noreferrer">
+                  View Demo
+                  <svg aria-hidden="true">
+                    <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-external-link" ?>"></use>
+                  <svg>
+                </a>
                 <?php } else if ($project['project_type'] == 'webapp' and !$project['project_link']) { ?>
                   <span class="tooltip tooltip--top-right" data-tooltip="Down for maintainance">
-                    <button class="btn" disabled>View</button>
+                    <!-- <button class="btn" disabled>View Demo</button> -->
+                    <a class="btn btn--with-icon" disabled href="#" target="_blank" rel="noreferrer">
+                      View Demo
+                      <svg aria-hidden="true">
+                        <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-repair" ?>"></use>
+                      <svg>
+                    </a>
                   </span>
                 <?php } ?>
 
                 <?php if ($project['repo_link']) { ?>
-                  <a class="btn" href="<?= $project['repo_link'] ?>" target="_blank" rel="noreferrer">Code</a>
+                  <a class="link" href="<?= $project['repo_link'] ?>" target="_blank" rel="noreferrer">
+                    Source Code
+                    <svg aria-hidden="true">
+                      <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-git-branch" ?>"></use>
+                    <svg>
+                  </a>
                 <?php } ?>
               </footer>
 
           </div>
 
-          <ul class="project__stack">
-            <?php foreach ($project['tech_stack'] as $tech) { ?>
-              <li class="tooltip <?= $tech['value'] ?>" data-tooltip="<?= $tech['label']  ?>">
-                <svg aria-hidden="true">
-                  <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-{$tech['value']}" ?>"></use>
-                </svg>
-              </li>
-            <?php } ?>
-          </ul>
+          <!-- <ul class="project__stack"> -->
+          <!--   <?php foreach ($project['tech_stack'] as $tech) { ?> -->
+          <!--     <li class="tooltip <?= $tech['value'] ?>" data-tooltip="<?= $tech['label']  ?>"> -->
+          <!--       <svg aria-hidden="true"> -->
+          <!--         <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-{$tech['value']}" ?>"></use> -->
+          <!--       </svg> -->
+          <!--     </li> -->
+          <!--   <?php } ?> -->
+          <!-- </ul> -->
         </div>
       </article>
 

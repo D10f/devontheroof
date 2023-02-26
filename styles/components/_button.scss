@@ -84,7 +84,9 @@
 
   &[disabled] {
     filter: grayscale(1);
-    
+    text-decoration: line-through;
+    pointer-events: none;
+
     &:focus,
     &:hover,
     &:active,
@@ -139,6 +141,19 @@
       outline: none;
       background-color: $color-dark;
       color: $color-lighter;
+    }
+  }
+
+  &--with-icon {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      fill: map.get($colors, 'neutral', 'dark');
+      width: 1.7rem;
+      height: 1.7rem;
     }
   }
 }
