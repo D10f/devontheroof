@@ -19,7 +19,7 @@
     <?php get_template_part('templates/recent_posts'); ?>
   </section>
 
-  <a class="landing__scroller tooltip tooltip--top hide-on-tablet" data-tooltip="See projects" href="#web-applications" aria-label="Scroll down to projects">&darr;</a>
+  <!-- <a class="landing__scroller tooltip tooltip--top hide-on-tablet" data-tooltip="See projects" href="#web-applications" aria-label="Scroll down to projects">&darr;</a> -->
 
 </header>
 

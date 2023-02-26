@@ -105,33 +105,44 @@
         font-size: 3.5rem;
       }
 
-      &::before,
-      &::after {
-        position: relative;
-        left: 2rem;
-      }
+      // &::before,
+      // &::after {
+      //   position: relative;
+      //   left: 2rem;
+      // }
 
-      &::after {
-        content: '{';
-      }
+      // &::after {
+      //   content: '{';
+      // }
 
-      &::before {
-        content: '}';
-        top: 250%;
+      // &::before {
+      //   content: '}';
+      //   top: 250%;
 
-        @include responsive(phone) {
-          top: 375%;
-        }
+      //   @include responsive(phone) {
+      //     top: 375%;
+      //   }
 
-        @include responsive(narrow) {
-          top: 500%;
-        }
-      }
+      //   @include responsive(narrow) {
+      //     top: 500%;
+      //   }
+      // }
     }
 
     &--whoami {
       font-family: $code-typography;
+      max-width: 75%;
+      font-size: 1.8rem;
       margin: 1rem 0 1rem 10rem;
+
+      a:focus,
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      @include responsive(portrait) {
+        font-size: unset;
+      }
 
       @include responsive(tablet) {
         margin: 1rem 0 1rem 6rem;

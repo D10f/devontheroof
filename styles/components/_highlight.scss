@@ -54,11 +54,19 @@
     bottom: -0.1rem;
   }
 
-  body.dark & {
-    color: var(--background-color);
+  @include dark-mode {
+      color: var(--background-color);
 
-    &::before {
-      height: 2rem;
-    }
+      &::before {
+        height: 2rem;
+      }
   }
+
+  // body.dark & {
+  //   color: var(--background-color);
+
+  //   &::before {
+  //     height: 2rem;
+  //   }
+  // }
 }
