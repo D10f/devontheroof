@@ -31,6 +31,8 @@ html {
 }
 
 body {
+  overflow-x: hidden;
+
   &.dark {
     --background-color: #{map.get($colors, "neutral", "dark")};
     --text-color: #{map.get($colors, "neutral", "light")};
