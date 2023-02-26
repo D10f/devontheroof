@@ -5,8 +5,8 @@
 .PHONY: archive build restore restore-db restore-domain restore-wp start stop
 
 BACKUP_DIR=/home/${USER}/Backups/devontheroof
-DB_BACKUP_FILE=devontheroof_db_2023-01-14.sql.gz
-WP_BACKUP_FILE=devontheroof_data_2023-01-14.tar.bz2
+DB_BACKUP_FILE=devontheroof_db_2023-02-26.sql.gz
+WP_BACKUP_FILE=devontheroof_data_2023-02-26.tar.bz2
 
 print-help: help
 
@@ -42,7 +42,7 @@ restore: ## Restores a WordPress site from backup files stores in ${BACKUP_DIR}
 restore-db: ## Restores the database only
 	docker compose start db && \
 	sleep 10 && \
-	gunzip < ${BACKUP_DIR}/${DB_DATA_FILE} | \
+	gunzip < ${BACKUP_DIR}/${DB_BACKUP_FILE} | \
 		docker exec -i devontheroof-db-1 sh -c 'exec mysql -u wordpress -pwordpress wordpress'
 
 restore-domain: ## Replaces url references of https:// with http://
@@ -50,7 +50,7 @@ restore-domain: ## Replaces url references of https:// with http://
 
 restore-wp: ## Restores WordPress files only
 	docker run --rm -i \
-		--mount type=bind,src=${BACKUP_DIR}/${WP_DATA_FILE},dst=/app/data.tar.bz2 \
+		--mount type=bind,src=${BACKUP_DIR}/${WP_BACKUP_FILE},dst=/app/data.tar.bz2 \
 		--mount type=volume,src=devontheroof_wp_data,dst=/var/www/html,readonly=false \
 		wordpress:php8.2-fpm \
 		bash -c 'rm -rf /var/www/html/* && tar -xf /app/data.tar.bz2 -C /var/www/html'
