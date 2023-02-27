@@ -1,6 +1,6 @@
 import { Highlighter } from "./modules/Highlighter";
 import { SketchController } from "./modules/SketchController";
-import { SinglePostController } from "./modules/SinglePostController";
+// import { SinglePostController } from "./modules/SinglePostController";
 import { SearchController } from "./modules/SearchController";
 import { TransitionEffect } from "./modules/TransitionEffect";
 import { FloatingMenuController } from "./modules/FloatingMenuController";
@@ -9,7 +9,7 @@ import { Masonry } from "./modules/masonry";
 import { hasReducedMotion, isMobileDevice } from "./modules/utils";
 // import { addThemeToggler } from './modules/themeToggler';
 import { ThemeController } from "./modules/ThemeController";
-import { postIndexToggler } from "./modules/postIndexToggler";
+// import { postIndexToggler } from "./modules/postIndexToggler";
 
 import "/styles/index.scss";
 
@@ -43,9 +43,9 @@ async function loadBlogScripts() {
 }
 
 function loadSinglePostScripts() {
-  postIndexToggler();
+  // postIndexToggler();
   // new SearchController();
-  new SinglePostController();
+  // new SinglePostController();
   // pulseAnimation(".animate-pulse");
 }
 

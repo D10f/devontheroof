@@ -2,29 +2,15 @@
 @use '../abstract' as *;
 
 .single-post {
-  margin: 0 auto;
-  // width: 80ch;
-  width: 100%;
-  max-width: 80ch;
-
-  @include responsive(landscape) {
-    padding: 0 2rem;
-  }
-
-  @include responsive(tablet) {
-    padding: 0 1rem;
-    margin: 0;
-  }
-
-  // Set a consistent margin between elements
-  &,  
-  &__content h3,
-  &__content p,
-  &__header {
-    margin-block: 1em;
-  }
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 2rem;
+  padding: 2rem;
 
   &__content {
+
+    max-width: 80ch;
+    margin-inline: auto;
 
     ul {
       padding-left: 2rem;
@@ -36,12 +22,14 @@
       font-family: $post-typography;
       font-size: 1.8rem;
       line-height: 1.8;
+      margin-block: 1rem;
     }
 
     h3 {
       font-family: $post-typography;
       font-size: 2.6rem;
       font-weight: bold;
+      margin: 4rem 0 2rem 0;
     }
 
     p code {
@@ -114,39 +102,154 @@
       color: map.get($colors, 'secondary', 'normal');
     }
   }
-
-  // Element created dynamically through JS. Appears along floating menu
-  &__index {
-    @extend %position-fixed;
-    display: none;
-    bottom: 10rem;
-    right: 10rem;
-    z-index: 120;
-
-    background-color: var(--background-color);
-    color: var(--text-color);
-    text-align: left;
-
-    padding: 1rem;
-    border: 1px solid var(--text-color);
-    border-radius: 3px;
-
-    box-shadow: $box-shadow;
-
-    @include responsive(tablet) {
-      bottom: unset;
-      right: unset;
-      top: 2rem;
-      left: 2rem;
-      right: 2rem;
-    }
-
-    li {
-      margin-block: .25em;
-    }
-    
-    a:hover {
-      color: var(--accent-color);
-    }
-  }
 }
+
+// .single-post {
+//   margin: 0 auto;
+//   // width: 80ch;
+//   width: 100%;
+//   max-width: 80ch;
+
+//   @include responsive(landscape) {
+//     padding: 0 2rem;
+//   }
+
+//   @include responsive(tablet) {
+//     padding: 0 1rem;
+//     margin: 0;
+//   }
+
+//   // Set a consistent margin between elements
+//   &,  
+//   &__content h3,
+//   &__content p,
+//   &__header {
+//     margin-block: 1em;
+//   }
+
+//   &__content {
+
+//     ul {
+//       padding-left: 2rem;
+//       list-style: unset;
+//     }
+
+//     ul,
+//     p {
+//       font-family: $post-typography;
+//       font-size: 1.8rem;
+//       line-height: 1.8;
+//     }
+
+//     h3 {
+//       font-family: $post-typography;
+//       font-size: 2.6rem;
+//       font-weight: bold;
+//     }
+
+//     p code {
+//       font-family: $code-typography;
+//       font-size: 1.6rem;
+//       word-wrap: nowrap;
+//       color: map.get($colors, 'primary', 'dark');
+//       background-color: map.get($colors, 'neutral', 'lighter');
+//       border-radius: 3px;
+//       padding: 0.1rem 0.2rem;
+
+//       @include dark-mode {
+//         color: map.get($colors, 'secondary', 'normal');
+//         background-color: map.get($colors, 'neutral', 'darker');
+//         // background-color: unset;
+//       }
+//     }
+
+//     p a {
+//       text-decoration: underline;
+//       font-family: $post-typography;
+
+//       &:hover,
+//       &:visited,
+//       &:target, 
+//       &:focus {
+//         color: var(--accent-color);
+//       }
+//     }
+
+//     blockquote {
+//       padding-left: 2rem;
+//       border-left: 5px solid hsla(0, 0%, 80%, 0.8);
+//       background-color: hsla(0, 0%, 80%, 0.2);
+
+//       p {
+//         margin: unset;
+//         font-style: italic;
+//       }
+//     }
+
+//     @include responsive(portrait) {
+//       h3 {
+//         font-size: 2rem;
+//       }
+//     }
+
+//     @include responsive(phone) {
+//       p {
+//         font-size: 1.7rem;
+//       }
+//     }
+//   }
+
+//   &__title {
+//     font-family: $main-typography;
+//     font-size: 4rem;
+//     font-weight: bold;
+//     line-height: 1.4;
+
+//     @include responsive(portrait) {
+//       font-size: 3rem;
+//     }
+
+//     &::selection {
+//       color: map.get($colors, 'neutral', 'dark');
+//     }
+
+//     @include dark-mode {
+//       color: map.get($colors, 'secondary', 'normal');
+//     }
+//   }
+
+//   // Element created dynamically through JS. Appears along floating menu
+//   &__index {
+//     @extend %position-fixed;
+//     display: none;
+//     bottom: 10rem;
+//     right: 10rem;
+//     z-index: 120;
+
+//     background-color: var(--background-color);
+//     color: var(--text-color);
+//     text-align: left;
+
+//     padding: 1rem;
+//     border: 1px solid var(--text-color);
+//     border-radius: 3px;
+
+//     box-shadow: $box-shadow;
+
+//     @include responsive(tablet) {
+//       bottom: unset;
+//       right: unset;
+//       top: 2rem;
+//       left: 2rem;
+//       right: 2rem;
+//     }
+
+//     li {
+//       margin-block: .25em;
+//     }
+    
+//     a:hover {
+//       color: var(--accent-color);
+//     }
+//   }
+// }

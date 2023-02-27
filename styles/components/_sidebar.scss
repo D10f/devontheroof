@@ -9,6 +9,11 @@
     font-weight: bold;
   }
 
+  // Font for links
+  a, p {
+    font-family: $main-typography;
+  }
+
   &__menu {
     list-style: none;
   }
