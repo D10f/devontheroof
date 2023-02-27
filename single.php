@@ -10,7 +10,7 @@ while (have_posts()) {
 }
 
 // Extract h3 elements to build table of contents
-preg_match_all('/<h3>(.*)<\/h3>/', $content, $headings);
+preg_match_all('/<h3.*>(.*)<\/h3>/', $content, $headings);
 ?>
 
 <div class="single-post">
@@ -25,9 +25,11 @@ preg_match_all('/<h3>(.*)<\/h3>/', $content, $headings);
     <p>Table of contents:</p>
     <menu class="sidebar__menu">
       <?php
-        foreach ($headings[1] as $heading) { ?>
+        foreach ($headings[1] as $heading) {
+          $filtered_heading = preg_replace('/[\?\-\.\(\)!:,]/', '', strtolower($heading))
+        ?>
           <li class="sidebar__item">
-            <a class="sidebar__link" href="#<?= preg_replace('/\s/', '-', strtolower($heading)) ?>">
+            <a class="sidebar__link" href="#<?= preg_replace('/\s/', '-', $filtered_heading) ?>">
               <?= $heading ?>
             </a>
           </li>
