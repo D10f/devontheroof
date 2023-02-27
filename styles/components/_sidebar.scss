@@ -1,0 +1,68 @@
+@use 'sass:map';
+@use "../abstract" as *;
+
+.sidebar {
+
+  // Categories title
+  p {
+    margin-top: 2rem;
+    font-weight: bold;
+  }
+
+  &__menu {
+    list-style: none;
+  }
+
+  &__item {
+    padding: 0.5rem 0;
+  }
+
+  &__link {
+    background: none;
+    border: none;
+
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    padding: 0.25rem;
+    border-radius: 5px;
+    color: var(--text-color);
+
+    &:focus,
+    &:hover {
+      // color: var(--accent-color);
+      background-color: map.get($colors, 'neutral', 'lighter');
+      outline: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus svg,
+    &:hover svg {
+      // fill: var(--accent-color);
+    }
+
+    &--icon {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      svg {
+        fill: var(--text-color);
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+
+    @include dark-mode {
+      &:focus,
+      &:hover {
+        // color: var(--accent-color);
+        background-color: map.get($colors, 'neutral', 'darkest');
+        outline: none;
+      }
+    }
+  }
+}

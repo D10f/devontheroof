@@ -39,7 +39,7 @@ function loadMainScripts() {
 }
 
 async function loadBlogScripts() {
-  new Masonry(".blog");
+  new Masonry(".blog__post-list");
 }
 
 function loadSinglePostScripts() {
