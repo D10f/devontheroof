@@ -3,7 +3,7 @@
 
 .landing {
   @extend %position-relative;
-  
+
   &__scroller {
     @extend %position-absolute;
     @extend %display-as-block;
@@ -99,6 +99,7 @@
 
       @include responsive(tablet) {
         font-size: 4.4rem;
+        margin-left: 5rem;
       }
 
       @include responsive(phone) {
