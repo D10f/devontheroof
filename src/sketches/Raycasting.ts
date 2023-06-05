@@ -20,8 +20,8 @@ export default class Raycasting {
         canvas.setAttribute('height', '250px');
 
         this.project
-            .querySelector('.project__canvas')
-            .insertAdjacentElement('afterbegin', canvas);
+            .querySelector('.project__preview')
+            .insertAdjacentElement('beforeend', canvas);
 
         return canvas;
     }
