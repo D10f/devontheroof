@@ -1,5 +1,6 @@
 import { Highlighter } from "./modules/Highlighter";
-import { SketchController } from "./modules/SketchController";
+// import { SketchController } from "./modules/SketchController";
+import RaycastingSketch from './sketches/Raycasting.ts';
 import { SearchController } from "./modules/SearchController";
 import { TransitionEffect } from "./modules/TransitionEffect";
 import { FloatingMenuController } from "./modules/FloatingMenuController";
@@ -20,7 +21,8 @@ if (location.pathname.startsWith('/blog')) {
 
 if (location.pathname === '/') {
   new Highlighter(".highlight");
-  new SketchController();
+  new RaycastingSketch();
+  // new SketchController();
 }
 
 new SearchController();

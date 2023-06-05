@@ -47,6 +47,8 @@ export function createSvgIcon(iconName: string) {
     `/wp-content/themes/devontheroof/assets/images/sprite.svg#icon-${iconName}`
   );
 
+  svg.style.pointerEvents = 'none';
+
   svg.appendChild(use);
 
   return svg;
