@@ -4,3 +4,7 @@ build
 *.tar.bz2
 
 .env
+assets/*.data
+assets/*.html
+assets/*.js
+assets/*.wasm
