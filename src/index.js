@@ -1,15 +1,11 @@
 import { Highlighter } from "./modules/Highlighter";
 import { SketchController } from "./modules/SketchController";
-// import { SinglePostController } from "./modules/SinglePostController";
 import { SearchController } from "./modules/SearchController";
 import { TransitionEffect } from "./modules/TransitionEffect";
 import { FloatingMenuController } from "./modules/FloatingMenuController";
-// import { pulseAnimation } from "./modules/animations";
 import { Masonry } from "./modules/masonry";
 import { hasReducedMotion, isMobileDevice } from "./modules/utils";
-// import { addThemeToggler } from './modules/themeToggler';
 import { ThemeController } from "./modules/ThemeController";
-// import { postIndexToggler } from "./modules/postIndexToggler";
 
 import "/styles/index.scss";
 
