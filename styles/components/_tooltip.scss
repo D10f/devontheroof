@@ -73,12 +73,16 @@
     opacity: 0;
     z-index: $depth-tooltip;
     pointer-events: none;
-    transition: opacity 0.2s 0.1s;
+    transition: opacity 0.2s 1s;
     border: 1px solid var(--background-color);
     font-size: 1.6rem;
 
     @include dark-mode {
       border: 1px solid var(--text-color);
     }
+  }
+
+  &:not(:hover)::before {
+    transition: opacity 0.2s 0s;
   }
 }
