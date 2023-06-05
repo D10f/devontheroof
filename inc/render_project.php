@@ -26,18 +26,16 @@ function render_project($project_section, $projects)
           <?php
           if ($project['project_type'] == 'graphics') { ?>
 
-            <!-- <noscript class="project__preview--unavailable">Please enable JavaScript</noscript> -->
             <noscript>
               <span class="project__preview--unavailable">
                 Please enable JavaScript to play this demo
               </span>
             </noscript>
-            <div id="<?= $project['sketch'] ?>" class="project__canvas"></div>
 
-          <?php } else {
+          <?php }
 
             echo get_the_post_thumbnail($project['id']);
-          } ?>
+          ?>
 
         </div>
 
