@@ -2,7 +2,9 @@ import { createSvgIcon } from "../modules/utils";
 
 export default class Raycasting {
 
+    private module: any;
     private sketch: any;
+    private sketchOverlay: HTMLElement;
     private project: HTMLElement;
     private canvas: HTMLCanvasElement;
     private observer: IntersectionObserver;
@@ -11,7 +13,7 @@ export default class Raycasting {
         this.project = document.querySelector('[data-sketch=raycasting]');
         this.canvas = this.createCanvas();
         this.observer = this.createObserver();
-        this.createPlayButton();
+        this.sketchOverlay = this.attachEvents();
     }
 
     private createCanvas() {
@@ -26,31 +28,42 @@ export default class Raycasting {
         return canvas;
     }
 
-    private createPlayButton() {
-        const button = document.createElement('button');
-        button.className = 'btn btn--with-icon';
-        button.textContent = 'Play';
-        button.insertAdjacentElement('beforeend', createSvgIcon('controller-play'));
+    private attachEvents() {
+        // const button = document.createElement('button');
+        // button.className = 'btn btn--with-icon';
+        // button.textContent = 'Play';
+        // button.insertAdjacentElement('beforeend', createSvgIcon('controller-play'));
 
-        this.project
-            .querySelector('.project__footer')
-            .insertAdjacentElement('afterbegin', button);
+        // this.project
+        //     .querySelector('.project__footer')
+        //     .insertAdjacentElement('afterbegin', button);
 
-        button.addEventListener('click', (e: MouseEvent) => this.togglePlayButton(e));
+        // button.addEventListener('click', (e: MouseEvent) => this.togglePlayButton(e));
+
+        const sketchOverlay = this.project.querySelector('.project__trigger') as HTMLElement;
+
+        sketchOverlay
+            .querySelector('button')
+            .addEventListener('click', () => this.togglePlay());
+
+        return sketchOverlay;
     }
 
-    private togglePlayButton(e: MouseEvent) {
-        const button = e.target as HTMLButtonElement;
-        const isPlaying = button.textContent === 'Pause';
+    private togglePlay() {
+        // const button = e.target as HTMLButtonElement;
+        // const isPlaying = button.textContent === 'Pause';
 
-        if (isPlaying) {
-            button.textContent = 'Play';
-            button.insertAdjacentElement('beforeend', createSvgIcon('controller-play'));
-        } else {
-            button.textContent = 'Pause';
-            button.insertAdjacentElement('beforeend', createSvgIcon('controller-stop'));
-        }
+        // if (isPlaying) {
+        //     button.textContent = 'Play';
+        //     button.insertAdjacentElement('beforeend', createSvgIcon('controller-play'));
+        //     // TODO: Create destroy canvas function
+        // } else {
+        //     button.textContent = 'Pause';
+        //     button.insertAdjacentElement('beforeend', createSvgIcon('controller-stop'));
+        //     // TODO: Create create canvas function
+        // }
 
+        this.sketchOverlay.classList.toggle('project__trigger--hidden');
         this.sketch._toggle_play();
     }
 
@@ -69,12 +82,15 @@ export default class Raycasting {
             if (!moveIntoView) return;
 
             import('../../assets/raycasting.js')
-                .then(module => module.default({ canvas: this.canvas }))
+                .then(module => {
+                    this.module = module;
+                    return module.default({ canvas: this.canvas });
+                })
                 .then(wasm => {
                     this.sketch = wasm;
-                    this.sketch._toggle_play();
                     this.observer.unobserve(this.project);
                     this.observer = null;
+                    setTimeout(() => this.sketch._toggle_play(), 0);
                 })
                 .catch(console.error);
         };

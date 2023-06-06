@@ -31,6 +31,13 @@ function render_project($project_section, $projects)
                 Please enable JavaScript to play this demo
               </span>
             </noscript>
+            <div class="project__trigger">
+              <button>
+                <svg aria-hidden="true">
+                  <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-controller-play" ?>" />
+                </svg>
+              </button>
+            </div>
 
           <?php }
 
