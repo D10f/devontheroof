@@ -1,6 +1,6 @@
 import { Highlighter } from "./modules/Highlighter";
-// import { SketchController } from "./modules/SketchController";
 import RaycastingSketch from './sketches/Raycasting.ts';
+import PathfindingSketch from './sketches/Pathfinding.ts';
 import { SearchController } from "./modules/SearchController";
 import { TransitionEffect } from "./modules/TransitionEffect";
 import { FloatingMenuController } from "./modules/FloatingMenuController";
@@ -10,7 +10,7 @@ import { hasReducedMotion, isMobileDevice } from "./modules/utils";
 
 import "/styles/index.scss";
 
-// Do not load on mobile devices of when reduced motion is enabled
+// Do not load on mobile devices or when reduced motion is enabled
 if (!isMobileDevice() && !hasReducedMotion()) {
   new TransitionEffect('.section__title');
 }
@@ -22,7 +22,7 @@ if (location.pathname.startsWith('/blog')) {
 if (location.pathname === '/') {
   new Highlighter(".highlight");
   new RaycastingSketch();
-  // new SketchController();
+  new PathfindingSketch();
 }
 
 new SearchController();

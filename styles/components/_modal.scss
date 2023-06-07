@@ -4,20 +4,19 @@
   right: 0rem;
   bottom: 0rem;
   left: 0rem;
-  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.75);
   z-index: 100;
   opacity: 0;
   pointer-events: none;
   transition: opacity 100ms;
 
   &__content {
-    position: absolute;
-    top: 4rem;
-    right: 4rem;
-    bottom: 4rem;
-    left: 4rem;
-    background-color: coral;
+    width: min-content;
     border-radius: 1rem;
+    overflow: hidden;
     backdrop-filter: blur(1px);
     transform: scale(0);
     transition: transform 500ms;
