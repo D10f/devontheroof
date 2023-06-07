@@ -22,8 +22,9 @@
     border-radius: 1rem;
     overflow: hidden;
     backdrop-filter: blur(1px);
-    transform: scale(0);
-    transition: transform 500ms;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 400ms ease;
   }
 
   &--active {
@@ -32,6 +33,7 @@
   }
 
   &--active &__content {
-    transform: scale(1);
+    transform: translateY(0);
+    opacity: 1;
   }
 }

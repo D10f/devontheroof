@@ -6,7 +6,7 @@ export default class Pathfinding {
     private project: HTMLElement;
     private observer: IntersectionObserver;
     private modal: HTMLElement;
-    // private modalContent: HTMLElement;
+    private modalContent: HTMLElement;
     private isModalOpen: boolean;
 
     constructor() {
