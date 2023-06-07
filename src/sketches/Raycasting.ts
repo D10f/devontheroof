@@ -1,23 +1,48 @@
-import { createSvgIcon } from "../modules/utils";
-
 export default class Raycasting {
 
-    private module: any;
-    private sketch: any;
-    private sketchOverlay: HTMLElement;
     private project: HTMLElement;
+    private previewOverlay: HTMLElement;
     private canvas: HTMLCanvasElement;
     private observer: IntersectionObserver;
+    private isPlaying: boolean;
+    private sketch: any | null;
+    private module: any | null;
 
     constructor() {
         this.project = document.querySelector('[data-sketch=raycasting]');
-        this.canvas = this.createCanvas();
-        this.observer = this.createObserver();
-        this.sketchOverlay = this.attachEvents();
+        this.previewOverlay = this.project.querySelector('.project__trigger');
+        this.isPlaying = false;
+        this.createObserver();
+        this.createEvents();
+    }
+
+    private createEvents() {
+        this.previewOverlay
+            .querySelector('button')
+            .addEventListener('click', () => {
+                this.isPlaying
+                    ? this.destroySketch()
+                    : this.createSketch();
+            });
+    }
+
+    private createSketch() {
+        this.previewOverlay.classList.add('project__trigger--hidden');
+        this.createCanvas();
+        this.sketch = this.module({ canvas: this.canvas });
+        this.isPlaying = true;
+    }
+
+    private destroySketch() {
+        this.previewOverlay.classList.remove('project__trigger--hidden');
+        this.canvas.remove();
+        this.sketch = null;
+        this.isPlaying = false;
     }
 
     private createCanvas() {
         const canvas = document.createElement('canvas');
+
         canvas.setAttribute('width', '535px');
         canvas.setAttribute('height', '250px');
 
@@ -25,46 +50,7 @@ export default class Raycasting {
             .querySelector('.project__preview')
             .insertAdjacentElement('beforeend', canvas);
 
-        return canvas;
-    }
-
-    private attachEvents() {
-        // const button = document.createElement('button');
-        // button.className = 'btn btn--with-icon';
-        // button.textContent = 'Play';
-        // button.insertAdjacentElement('beforeend', createSvgIcon('controller-play'));
-
-        // this.project
-        //     .querySelector('.project__footer')
-        //     .insertAdjacentElement('afterbegin', button);
-
-        // button.addEventListener('click', (e: MouseEvent) => this.togglePlayButton(e));
-
-        const sketchOverlay = this.project.querySelector('.project__trigger') as HTMLElement;
-
-        sketchOverlay
-            .querySelector('button')
-            .addEventListener('click', () => this.togglePlay());
-
-        return sketchOverlay;
-    }
-
-    private togglePlay() {
-        // const button = e.target as HTMLButtonElement;
-        // const isPlaying = button.textContent === 'Pause';
-
-        // if (isPlaying) {
-        //     button.textContent = 'Play';
-        //     button.insertAdjacentElement('beforeend', createSvgIcon('controller-play'));
-        //     // TODO: Create destroy canvas function
-        // } else {
-        //     button.textContent = 'Pause';
-        //     button.insertAdjacentElement('beforeend', createSvgIcon('controller-stop'));
-        //     // TODO: Create create canvas function
-        // }
-
-        this.sketchOverlay.classList.toggle('project__trigger--hidden');
-        this.sketch._toggle_play();
+        this.canvas = canvas;
     }
 
     private createObserver() {
@@ -83,20 +69,14 @@ export default class Raycasting {
 
             import('../../assets/raycasting.js')
                 .then(module => {
-                    this.module = module;
-                    return module.default({ canvas: this.canvas });
-                })
-                .then(wasm => {
-                    this.sketch = wasm;
+                    this.module = module.default;
                     this.observer.unobserve(this.project);
                     this.observer = null;
-                    setTimeout(() => this.sketch._toggle_play(), 0);
                 })
                 .catch(console.error);
         };
 
-        const observer = new IntersectionObserver(callback, options);
-        observer.observe(this.project);
-        return observer;
+        this.observer = new IntersectionObserver(callback, options);
+        this.observer.observe(this.project);
     }
 }
