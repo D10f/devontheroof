@@ -2,25 +2,24 @@
 
 export default class Pathfinding {
 
-    private sketch: any;
-    private sketchOverlay: HTMLElement;
+    private sketchPreview: HTMLElement;
     private project: HTMLElement;
     private observer: IntersectionObserver;
     private modal: HTMLElement;
+    // private modalContent: HTMLElement;
     private isModalOpen: boolean;
 
     constructor() {
         this.project = document.querySelector('[data-sketch=pathfinding]');
-        this.modal = this.createModal();
-        this.isModalOpen = false;
-        this.sketchOverlay = this.project.querySelector('.project__trigger') as HTMLElement;
-        this.sketchOverlay
-            .querySelector('button')
-            .addEventListener('click', () => this.openModal());
+        this.sketchPreview = this.project.querySelector('.project__preview') as HTMLElement;
+        this.createModal();
         this._closeModalClickHandler = this._closeModalClickHandler.bind(this);
         this._closeModalKeyboardHandler = this._closeModalKeyboardHandler.bind(this);
         this._attachModalHandlers = this._attachModalHandlers.bind(this);
-        this.observer = this.createObserver();
+        this.createObserver();
+        this.sketchPreview
+            .querySelector('.project__trigger button')
+            .addEventListener('click', () => this.openModal());
     }
 
     private _attachModalHandlers() {
@@ -69,7 +68,9 @@ export default class Pathfinding {
         modal.appendChild(modalContent);
         document.body.appendChild(modal);
 
-        return modal;
+        this.modal = modal;
+        this.modalContent = modalContent;
+        this.isModalOpen = false;
     }
 
     private createObserver() {
@@ -87,19 +88,18 @@ export default class Pathfinding {
 
             import('../modules/pathfinding/web-components/tile-picker')
                 .then(module => {
-                    // this.sketch = module.default;
-                    // console.log(this.sketch);
                     customElements.define('tile-picker', module.default);
                     const tilePicker = document.createElement('tile-picker');
                     this.modal
                         .querySelector('.modal__content')
                         .insertAdjacentElement('beforeend', tilePicker);
+                    this.observer.unobserve(this.project);
+                    this.observer = null;
                 })
                 .catch(console.error);
         };
 
-        const observer = new IntersectionObserver(callback, options);
-        observer.observe(this.project);
-        return observer;
+        this.observer = new IntersectionObserver(callback, options);
+        this.observer.observe(this.project);
     }
 }

@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use '../abstract' as *;
+
 .modal {
   position: fixed;
   top: 0rem;
@@ -7,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.8);
   z-index: 100;
   opacity: 0;
   pointer-events: none;
@@ -15,6 +18,7 @@
 
   &__content {
     width: min-content;
+    border: 1px solid map.get($colors, 'neutral', 'dark');
     border-radius: 1rem;
     overflow: hidden;
     backdrop-filter: blur(1px);
