@@ -3,8 +3,8 @@
 <footer id="contact" class="section__footer">
   <h2 class="section__title transition">Thanks for visiting!</h2>
   <p>
-    If you'd like to know more about me or this site please don't hesitate
-    to contact me and visit my GitHub page.
+    Please don't hesitate to contact me if you'd like to talk more.
+    You can follow my work by visiting my GitHub and Codeberg pages.
   </p>
   <ul class="section__footer-icons">
     <li class="tooltip" data-tooltip="GitHub">
