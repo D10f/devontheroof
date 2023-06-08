@@ -286,33 +286,24 @@
       <path d="M2.5 10l6.5-6.5v3.5h8v6h-8v3.5l-6.5-6.5z"></path>
     </symbol>
 
-    <symbol id="icon-web-components" viewBox="0 0 256 209">
-      <defs>
-        <linearGradient id="logosWebcomponents0" x1="0%" x2="100%" y1="50%" y2="50%">
-          <stop offset="0%" stop-color="#2A3B8F"></stop>
-          <stop offset="100%" stop-color="#29ABE2"></stop>
-        </linearGradient>
-        <linearGradient id="logosWebcomponents1" x1="0%" x2="100%" y1="50%" y2="50%">
-          <stop offset="0%" stop-color="#2A3B8F"></stop>
-          <stop offset="100%" stop-color="#29ABE2"></stop>
-        </linearGradient>
-        <linearGradient id="logosWebcomponents2" x1="100%" x2="0%" y1="50%" y2="50%">
-          <stop offset="0%" stop-color="#B4D44E"></stop>
-          <stop offset="100%" stop-color="#E7F716"></stop>
-        </linearGradient>
-        <linearGradient id="logosWebcomponents3" x1="100%" x2="0%" y1="50%" y2="50%">
-          <stop offset="0%" stop-color="#B4D44E"></stop>
-          <stop offset="100%" stop-color="#E7F716"></stop>
-        </linearGradient>
-      </defs>
-      <path fill="#166DA5" d="m255.997 104.029l-27.805 46.82l-38.991-47.46l38.991-46.181z"></path>
-      <path fill="#8FDB69" d="m225.156 158.839l-42.347-50.656l-25.408 42.507l39.47 57.687z"></path>
-      <path fill="#166DA5" d="m224.676 48.898l-41.867 50.816l-25.408-42.506L196.871.16z"></path>
-      <path fill="url(#logosWebcomponents0)" d="M96.997 48.898h127.679L196.552.16h-71.43z" opacity=".95"></path>
-      <path fill="url(#logosWebcomponents1)" d="M182.809 99.874h70.631l-25.408-42.826h-70.791" opacity=".95"></path>
-      <path fill="url(#logosWebcomponents2)" d="M225.156 158.999H96.838l28.124 48.739h71.909z" opacity=".95"></path>
-      <path fill="#010101" d="M124.962 207.738L64.878 103.869L125.761 0H59.924L0 103.869l59.924 103.869z"></path>
-      <path fill="url(#logosWebcomponents3)" d="M182.809 108.024h70.631l-25.408 42.825h-70.791" opacity=".95"></path>
-    </symbol>
-  </defs>
+    <defs>
+      <linearGradient x1="0%" y1="50%" y2="50%" id="a">
+        <stop stop-color="#2A3B8F" offset="0%"/>
+        <stop stop-color="#29ABE2" offset="100%"/>
+      </linearGradient>
+      <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="c">
+        <stop stop-color="#B4D44E" offset="0%"/>
+        <stop stop-color="#E7F716" offset="100%"/>
+      </linearGradient>
+    </defs>
+    <symbol id="icon-web-components" viewBox="0 0 161 132">
+      <g fill="none" fill-rule="evenodd">
+          <path fill="#166DA5" d="M160.6 65.9l-17.4 29.3-24.4-29.7 24.4-28.9z"/>
+          <path fill="#8FDB69" d="M141.3 100.2l-26.5-31.7-15.9 26.6 24.7 36.1z"/>
+          <path fill="#166DA5" d="M141 31.4l-26.2 31.8-15.9-26.6L123.6.9z"/>
+          <path fill="url(#a)" opacity=".95" d="M61.1 31.4H141L123.4.7H78.7z M114.8 63.3H159l-15.9-26.8H98.8"/>
+          <path fill="url(#c)" opacity=".95" d="M141.3 100.3H61l17.6 30.5h45z M114.8 68.4H159l-15.9 26.8H98.8"/>
+          <path fill="#010101" d="M78.6 130.8L41 65.8 79.1.8H37.9L.4 65.8l37.5 65z"/>
+      </g>
+  </symbol>
 </svg>
