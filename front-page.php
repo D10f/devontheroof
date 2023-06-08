@@ -1,5 +1,26 @@
 <?php get_header(); ?>
 
+<aside class="navigation hide-on-phone">
+  <ul class="navigation__links">
+    <li class="navigation__item">
+      <a class="navigation__link" href="#web-applications">Web Apps</a>
+    </li>
+    <li class="navigation__item">
+      <a class="navigation__link" href="#graphics">Graphics</a>
+    </li>
+    <li class="navigation__item">
+      <a class="navigation__link" href="#scripting">Scripts</a>
+    </li>
+    <li class="navigation__item">
+      <a class="navigation__link" href="#devops">DevOps</a>
+    </li>
+    <li class="navigation__item">
+      <a class="navigation__link" href="#contact">Contact</a>
+    </li>
+  </ul>
+
+</aside>
+
 <header class="landing__header">
 
   <!-- Introduction -->

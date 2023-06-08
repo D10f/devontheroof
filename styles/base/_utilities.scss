@@ -50,3 +50,9 @@
     display: none !important;
   }
 }
+
+.hide-on-phone {
+  @include responsive(phone) {
+    display: none !important;
+  }
+}

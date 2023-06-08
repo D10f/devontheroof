@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '../abstract' as *;
+
+.navigation {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  &__links {
+    @include flex($gap: 3rem);
+  }
+
+  &__link {
+    font-family: inherit;
+
+    &:hover {
+      cursor: pointer;
+      color: map.get($colors, 'primary', 'normal');
+    }
+  }
+}
