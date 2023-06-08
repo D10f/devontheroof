@@ -124,6 +124,10 @@
 
     &--hidden {
       opacity: 0;
+
+      & button {
+        transform: scale(4);
+      }
     }
 
     button {
