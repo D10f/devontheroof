@@ -5,13 +5,14 @@ export default class Raycasting {
     private canvas: HTMLCanvasElement;
     private observer: IntersectionObserver;
     private isPlaying: boolean;
-    private sketch: any | null;
-    private module: any | null;
+    private sketch: WebAssembly.Module | null;
 
     constructor() {
         this.project = document.querySelector('[data-sketch=raycasting]');
         this.previewOverlay = this.project.querySelector('.project__trigger');
         this.isPlaying = false;
+        this.sketch = null;
+        this.createCanvas();
         this.createObserver();
         this.createEvents();
     }
@@ -20,24 +21,24 @@ export default class Raycasting {
         this.previewOverlay
             .querySelector('button')
             .addEventListener('click', () => {
-                this.isPlaying
-                    ? this.destroySketch()
-                    : this.createSketch();
+                this.isPlaying ? this.pause() : this.play();
             });
     }
 
-    private createSketch() {
+    private play() {
         this.previewOverlay.classList.add('project__trigger--hidden');
-        this.createCanvas();
-        this.sketch = this.module({ canvas: this.canvas });
         this.isPlaying = true;
+        // @ts-ignore
+        this.sketch.resumeMainLoop();
+        // @ts-ignore
+        this.sketch._reset_frame_time();
     }
 
-    private destroySketch() {
+    private pause() {
         this.previewOverlay.classList.remove('project__trigger--hidden');
-        this.canvas.remove();
-        this.sketch = null;
         this.isPlaying = false;
+        // @ts-ignore
+        this.sketch.pauseMainLoop();
     }
 
     private createCanvas() {
@@ -68,8 +69,13 @@ export default class Raycasting {
             if (!moveIntoView) return;
 
             import('../../assets/raycasting.js')
-                .then(module => {
-                    this.module = module.default;
+                .then(module => module.default({ canvas: this.canvas }))
+                .then((wasm: WebAssembly.Module) => {
+                    this.sketch = wasm;
+                    setTimeout(() => {
+                        // @ts-ignore
+                        wasm.pauseMainLoop();
+                    }, 0);
                     this.observer.unobserve(this.project);
                     this.observer = null;
                 })
