@@ -249,6 +249,13 @@
           }
         }
       }
+
+      /* Special case for the web components svg logo which is too complex to simpl use fill */
+      &.web-components {
+        @include dark-mode {
+          filter: grayscale(1);
+        }
+      }
     }
 
     svg {
