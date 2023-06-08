@@ -23,6 +23,13 @@ export default class Raycasting {
             .addEventListener('click', () => {
                 this.isPlaying ? this.pause() : this.play();
             });
+
+        // Prevents the sketch from going haywire when js is not running due to
+        // the window/tab being out of focus eg: when switching to another tab.
+        document.addEventListener('visibilitychange', () => {
+            if (!this.isPlaying) return;
+            document.visibilityState === 'visible' ? this.play() : this.pause();
+        });
     }
 
     private play() {
