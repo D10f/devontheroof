@@ -26,11 +26,48 @@
   <!-- Introduction -->
   <section class="landing__introduction">
     <?php the_content(); ?>
-    <!--
-    <a class="btn--round btn--large btn--light animate-hover animate-pulse hide-on-tablet" href="#web-applications" aria-label="hidden">
-      &darr;
-    </a>
-    -->
+    <ul>
+      <p>I'm a...</p>
+      <li class="landing__introduction--whoami">
+        <svg aria-hidden="true">
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-location' ?>"></use>
+        </svg>
+        Developer based in Spain.
+      </li>
+      <li class="landing__introduction--whoami">
+        <svg aria-hidden="true">
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-cloud' ?>"></use>
+        </svg>
+        Passionate about all things web and cloud technologies.
+      </li>
+      <li class="landing__introduction--whoami">
+        <svg aria-hidden="true">
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-linux' ?>"></use>
+        </svg>
+        Certified Linux System Administrator.
+      </li>
+    </ul>
+    <ul>
+      <p>I'm learning...</p>
+      <li class="landing__introduction--whoami">
+        <svg aria-hidden="true">
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-laravel' ?>"></use>
+        </svg>
+        Laravel.
+      </li>
+      <li class="landing__introduction--whoami">
+        <svg aria-hidden="true">
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-jenkins' ?>"></use>
+        </svg>
+        Jenkins.
+      </li>
+      <li class="landing__introduction--whoami">
+        <svg aria-hidden="true">
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-threejs' ?>"></use>
+        </svg>
+        Three.js.
+      </li>
+    </ul>
   </section>
 
 

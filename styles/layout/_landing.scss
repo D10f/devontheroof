@@ -130,11 +130,33 @@
       // }
     }
 
+    & ul {
+      width: 100%;
+      margin: 1rem 0 1rem 5rem;
+
+      p {
+        font-size: 1.8rem;
+        font-family: inherit;
+        margin: 1.5rem 0;
+      }
+    }
+
     &--whoami {
       font-family: $code-typography;
       max-width: 75%;
-      font-size: 1.8rem;
-      margin: 1rem 0 1rem 10rem;
+      // font-size: 1.8rem;
+      margin: 1rem 0 1rem 5rem;
+
+      @include flex($x: flex-start, $gap: 1rem);
+
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+
+        @include dark-mode {
+          fill: map.get($colors, 'neutral', 'light');
+        }
+      }
 
       a:focus,
       a:hover {
@@ -172,6 +194,11 @@
         animation: fadeFromRight 1s 1.4s backwards;
         margin-bottom: 1rem;
         animation: fadeFromLeft 1s 1.6s backwards;
+      }
+
+      &:nth-of-type(4) {
+        margin-bottom: 1rem;
+        animation: fadeFromRight 1s 1.8s backwards;
       }
     }
   }
