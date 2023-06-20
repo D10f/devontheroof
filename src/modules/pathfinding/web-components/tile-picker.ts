@@ -80,6 +80,10 @@ export default class TilePicker extends HTMLElement {
                 img {
                     pointer-events: none;
                 }
+                p {
+                    color: hsl(220, 23%, 95%);
+                    margin-left: auto;
+                }
             </style>
         `;
     }
@@ -98,6 +102,8 @@ export default class TilePicker extends HTMLElement {
                             <img src="${img}">
                         </button>
                     `).join('\n')}
+
+                    <p>1. Pick a tile and paint the map.</p>
                 </div>
 
                 <div class="row" slot="flagTiles">
@@ -106,6 +112,8 @@ export default class TilePicker extends HTMLElement {
                             <img src="${img}">
                         </button>
                     `).join('\n')}
+
+                    <p>2. Place the start and target locations.</p>
                 </div>
 
                 <div class="row" slot="actionTiles">
@@ -127,6 +135,8 @@ export default class TilePicker extends HTMLElement {
                     <button class="active" speed="1">
                         <img src="wp-content/themes/devontheroof/assets/images/speed-one.png">
                     </button>
+
+                    <p>3. Use the controls on the animation.</p>
                 </div>
             </section>
         `;
