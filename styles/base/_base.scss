@@ -76,6 +76,10 @@ mark {
   color: var(--text-color);
 }
 
+svg {
+  fill: var(--text-color);
+}
+
 // code {
 //   font-family: $code-typography;
 //   color: map.get($colors, 'primary', 'dark');

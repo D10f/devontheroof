@@ -31,7 +31,7 @@
 
   &__modal {
     @extend %center-horizontally;
-    background-color: map.get($colors, 'neutral', 'dark');
+    background-color: map.get($colors, 'neutral', 'darker');
     min-width: 50vw;
     max-width: max-content;
     padding: 5rem;

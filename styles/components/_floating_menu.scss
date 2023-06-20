@@ -129,8 +129,11 @@
 
     &:focus,
     &:hover {
-      fill: var(--accent-color);
       color: var(--accent-color);
+
+      svg {
+        fill: var(--accent-color);
+      }
     }
 
     svg {
