@@ -16,12 +16,18 @@
         "sidebar" auto
         "posts" auto /
         1fr;
+
+    padding: 2rem 1rem;
   }
 
   &__content {
 
     max-width: 80ch;
     margin-inline: auto;
+
+    @include responsive(portrait) {
+      max-width: calc(100vw - 2rem);
+    }
 
     ul {
       padding-left: 2rem;
