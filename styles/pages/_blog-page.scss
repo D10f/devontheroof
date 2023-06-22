@@ -3,20 +3,27 @@
 
 .blog {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  // grid-template-columns: 1fr 5fr;
+  grid-template:
+    "sidebar posts" auto /
+    1fr      5fr;
   gap: 2rem;
   padding: 2rem;
 
   @include responsive(tablet) {
-    grid-template-columns: 1fr;
+    // grid-template-columns: 1fr;
+    grid-template:
+        "sidebar" auto
+        "posts" auto /
+        1fr;
   }
 
   &__post-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-template-rows: min-content;
     gap: 2rem;
-    padding-right: 2rem;
+    // padding-right: 2rem;
   }
 
   &__post {

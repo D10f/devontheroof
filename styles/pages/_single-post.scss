@@ -3,12 +3,19 @@
 
 .single-post {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  // grid-template-columns: 1fr 5fr;
+  grid-template:
+    "sidebar posts" auto /
+    1fr      5fr;
   gap: 2rem;
   padding: 2rem;
 
   @include responsive(portrait) {
-    grid-template-columns: 1fr;
+    // grid-template-columns: 1fr;
+    grid-template:
+        "sidebar" auto
+        "posts" auto /
+        1fr;
   }
 
   &__content {

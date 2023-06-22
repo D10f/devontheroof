@@ -3,10 +3,16 @@
 
 .sidebar {
 
+  grid-area: sidebar;
+
   // Categories title
   p {
     margin-top: 2rem;
     font-weight: bold;
+
+    @include responsive(tablet) {
+      display: none;
+    }
   }
 
   // Font for links
@@ -16,6 +22,10 @@
 
   &__menu {
     list-style: none;
+
+    @include responsive(tablet) {
+      display: none;
+    }
   }
 
   &__item {
@@ -58,6 +68,24 @@
         fill: var(--text-color);
         width: 1.6rem;
         height: 1.6rem;
+      }
+    }
+
+    &--active {
+      background-color: map.get($colors, 'neutral', 'lighter');
+      outline: none;
+
+      @include dark-mode {
+        background-color: map.get($colors, 'neutral', 'darkest');
+      }
+
+      &:hover span {
+        color: var(--accent-color);
+      }
+
+      span {
+        margin-left: auto;
+        margin-right: 1rem;
       }
     }
 
