@@ -11,10 +11,26 @@ $theme_uri = get_theme_file_uri('assets/images/sprite.svg');
         </svg>
         Back to main
     </a>
-    <p>Categories:</p>
-    <menu class="sidebar__menu">
-        <?php foreach ($categories as $category) {
 
+    <input type="checkbox" id="sidebar__checkbox" />
+
+    <button class="sidebar__button show-on-tablet">
+        <label tabindex="0" for="sidebar__checkbox">
+            <svg>
+                <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-hamburger' ?>"></use>
+            </svg>
+
+            <svg>
+                <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-x' ?>"></use>
+            </svg>
+        </label>
+    </button>
+
+    <menu class="sidebar__menu">
+
+        <p>Categories:</p>
+
+        <?php foreach ($categories as $category) {
             $is_active = is_category($category->name);
         ?>
 
@@ -27,7 +43,7 @@ $theme_uri = get_theme_file_uri('assets/images/sprite.svg');
                     <use xlink:href="<?= $theme_uri . "#icon-" . $category->name ?>" />
                 </svg>
                 <?= $category->name ?> (<?= $category->category_count ?>)
-                <?php echo $is_active ? '<span class="ml">&times;</span>' : '' ?>
+                <?php echo $is_active ? '<span>&times;</span>' : '' ?>
             </a>
         </li>
 

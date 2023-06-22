@@ -3,21 +3,70 @@
 
 .sidebar {
 
+  @include responsive(tablet) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   grid-area: sidebar;
 
   // Categories title
   p {
     margin-top: 2rem;
     font-weight: bold;
-
-    @include responsive(tablet) {
-      display: none;
-    }
   }
 
   // Font for links
   a, p {
     font-family: $main-typography;
+  }
+
+  & input[type="checkbox"] {
+    display: none;
+
+    &:checked ~ button label {
+      transform: rotate(180deg);
+    }
+
+    &:checked ~ menu {
+      display: block;
+      position: absolute;
+      top: 6rem;
+      right: 2rem;
+      z-index: 1;
+      background-color: var(--background-color);
+      padding-inline: 2rem;
+      padding-block: 1rem;
+      border: 1px solid var(--text-color);
+      border-radius: 5px;
+    }
+
+  }
+
+  &__button {
+    @include size(3.2rem);
+    background: none;
+    border: none;
+    overflow: hidden;
+
+    label {
+      @include size(3.2rem, 6.4rem);
+      @include flex(column);
+      transition: transform .3s;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:hover svg {
+        fill: var(--accent-color);
+      }
+    }
+
+    svg {
+      @include size(3.2rem);
+    }
   }
 
   &__menu {
@@ -42,6 +91,10 @@
     padding: 0.25rem;
     border-radius: 5px;
     color: var(--text-color);
+
+    @include responsive(tablet) {
+      width: max-content;
+    }
 
     &:focus,
     &:hover {
