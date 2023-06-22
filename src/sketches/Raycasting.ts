@@ -75,6 +75,8 @@ export default class Raycasting {
 
             if (!moveIntoView) return;
 
+            const docTitle = document.title;
+
             import('../../assets/raycasting.js')
                 .then(module => module.default({ canvas: this.canvas }))
                 .then((wasm: WebAssembly.Module) => {
@@ -85,6 +87,8 @@ export default class Raycasting {
                     }, 0);
                     this.observer.unobserve(this.project);
                     this.observer = null;
+
+                    document.title = docTitle;
                 })
                 .catch(console.error);
         };
