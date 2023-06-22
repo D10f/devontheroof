@@ -1,5 +1,5 @@
 import Canvas from "../Canvas";
-import { ENDPOINT_TOKEN_IMG_TABLE, TERRAIN_TYPE_IMG_TABLE } from "../defs";
+import { ENDPOINT_TOKEN_IMG_TABLE, TERRAIN_TYPE_IMG_TABLE, TERRAIN_TYPE_DIFFICULTY_TABLE } from "../defs";
 
 export default class TilePicker extends HTMLElement {
 
@@ -97,13 +97,20 @@ export default class TilePicker extends HTMLElement {
             <section class="tile-picker">
 
                 <div class="row" slot="terrainTiles">
-                    ${Object.entries(TERRAIN_TYPE_IMG_TABLE).map(([ terrain, img ]) => `
-                        <button type="${terrain}">
-                            <img src="${img}">
-                        </button>
-                    `).join('\n')}
+                    ${Object.entries(TERRAIN_TYPE_IMG_TABLE)
+                        .map(([ terrain, img ]) => ({
+                            terrain,
+                            img,
+                            difficulty: TERRAIN_TYPE_DIFFICULTY_TABLE[terrain]
+                        }))
+                        .sort((a, b) => a.difficulty > b.difficulty)
+                        .map(({ terrain, img }) => `
+                            <button type="${terrain}">
+                                <img src="${img}">
+                            </button>
+                        `).join('\n')}
 
-                    <p>1. Pick a tile and paint the map.</p>
+                    <p>1. Tile the map as you wish. Each tile is more difficult to pass through than the previous.</p>
                 </div>
 
                 <div class="row" slot="flagTiles">
