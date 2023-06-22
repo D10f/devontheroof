@@ -27,12 +27,12 @@
   <section class="landing__introduction">
     <?php the_content(); ?>
     <ul>
-      <p>I'm a...</p>
+      <p>Who am I you asked? I'm...</p>
       <li class="landing__introduction--whoami">
         <svg aria-hidden="true">
           <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-location' ?>"></use>
         </svg>
-        Developer based in Spain.
+        A Full-Stack Developer.
       </li>
       <li class="landing__introduction--whoami">
         <svg aria-hidden="true">
@@ -44,28 +44,19 @@
         <svg aria-hidden="true">
           <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-linux' ?>"></use>
         </svg>
-        Certified Linux System Administrator.
-      </li>
-    </ul>
-    <ul>
-      <p>I'm learning...</p>
-      <li class="landing__introduction--whoami">
-        <svg aria-hidden="true">
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-laravel' ?>"></use>
-        </svg>
-        Laravel.
+        Linux Foundation Certified System Administrator.
       </li>
       <li class="landing__introduction--whoami">
         <svg aria-hidden="true">
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-jenkins' ?>"></use>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-location' ?>"></use>
         </svg>
-        Jenkins.
+        Based in Spain.
       </li>
       <li class="landing__introduction--whoami">
         <svg aria-hidden="true">
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-threejs' ?>"></use>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-location' ?>"></use>
         </svg>
-        Three.js.
+        Available, let's talk.
       </li>
     </ul>
   </section>
