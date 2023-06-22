@@ -27,24 +27,24 @@
   <section class="landing__introduction">
     <?php the_content(); ?>
     <ul>
-      <p>Who am I you asked? I'm...</p>
+      <p>Who am I, you ask? I'm...</p>
       <li class="landing__introduction--whoami">
         <svg aria-hidden="true">
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-location' ?>"></use>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-code' ?>"></use>
         </svg>
         A Full-Stack Developer.
       </li>
       <li class="landing__introduction--whoami">
         <svg aria-hidden="true">
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-cloud' ?>"></use>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-badge' ?>"></use>
         </svg>
-        Passionate about all things web and cloud technologies.
+        Linux Foundation Certified System Administrator.
       </li>
       <li class="landing__introduction--whoami">
         <svg aria-hidden="true">
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-linux' ?>"></use>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-cloud' ?>"></use>
         </svg>
-        Linux Foundation Certified System Administrator.
+        Passionate about all things web and cloud.
       </li>
       <li class="landing__introduction--whoami">
         <svg aria-hidden="true">
@@ -54,7 +54,7 @@
       </li>
       <li class="landing__introduction--whoami">
         <svg aria-hidden="true">
-          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-location' ?>"></use>
+          <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-talk' ?>"></use>
         </svg>
         Available, let's talk.
       </li>
