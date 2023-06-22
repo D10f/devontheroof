@@ -45,13 +45,13 @@
   }
 
   &__button {
-    @include size(3.2rem);
+    @include size(2.5rem);
     background: none;
     border: none;
     overflow: hidden;
 
     label {
-      @include size(3.2rem, 6.4rem);
+      @include size(2.5rem, 5rem);
       @include flex(column);
       transition: transform .3s;
 
@@ -74,6 +74,7 @@
 
     @include responsive(tablet) {
       display: none;
+      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
     }
   }
 
