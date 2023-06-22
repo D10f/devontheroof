@@ -16,14 +16,32 @@ preg_match_all('/<h3.*>(.*)<\/h3>/', $content, $headings);
 <div class="single-post">
 
   <aside class="sidebar">
+
     <a class="sidebar__link sidebar__link--icon" href="/blog">
       <svg>
         <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-arrow-left" ?>"/>
       </svg>
       Back to blog
     </a>
-    <p>Table of contents:</p>
+
+    <input type="checkbox" id="sidebar__checkbox" />
+
+    <button class="sidebar__button show-on-tablet">
+        <label tabindex="0" for="sidebar__checkbox">
+            <svg>
+                <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-hamburger' ?>"></use>
+            </svg>
+
+            <svg>
+                <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-x' ?>"></use>
+            </svg>
+        </label>
+    </button>
+
     <menu class="sidebar__menu">
+
+      <p>Table of contents:</p>
+
       <?php
         foreach ($headings[1] as $heading) {
           $filtered_heading = preg_replace('/[\?\-\.\(\)!:,]/', '', strtolower($heading))
@@ -35,6 +53,7 @@ preg_match_all('/<h3.*>(.*)<\/h3>/', $content, $headings);
           </li>
       <?php } ?>
     </menu>
+
   </aside>
 
   <main class="single-post__content">
