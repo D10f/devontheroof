@@ -1,6 +1,6 @@
-import { Highlighter } from "./modules/Highlighter";
 import RaycastingSketch from './sketches/Raycasting.ts';
 import PathfindingSketch from './sketches/Pathfinding.ts';
+import { Highlighter } from "./modules/Highlighter";
 import { SearchController } from "./modules/SearchController";
 import { TransitionEffect } from "./modules/TransitionEffect";
 import { FloatingMenuController } from "./modules/FloatingMenuController";
@@ -15,7 +15,8 @@ if (!isMobileDevice() && !hasReducedMotion()) {
   new TransitionEffect('.section__title');
 }
 
-if (location.pathname.startsWith('/blog')) {
+// Apply Masonry on post listing pages eg., blog, category, archives, etc.
+if (location.pathname.match(/^\/(blog|category)/)) {
   new Masonry('.blog__post-list');
 }
 
