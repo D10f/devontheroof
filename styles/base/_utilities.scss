@@ -63,3 +63,9 @@
     display: none !important;
   }
 }
+.color-text-darker {
+  --text-color: #{map.get($colors, "neutral", "darker")};
+}
+.color-text-darkest {
+  --text-color: #{map.get($colors, "neutral", "darkest")};
+}

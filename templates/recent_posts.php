@@ -19,7 +19,7 @@ $recent_posts = new WP_Query([
   ?>
 
     <li class="blog-card blog-card--<?= $post_category ?> gradient--<?= $post_category ?>">
-      <a class="blog-card__link" href="<?php the_permalink(); ?>">
+      <a class="blog-card__link color-text-darkest" href="<?php the_permalink(); ?>">
         <span class="blog-card__text">
           <?php the_title(); ?>
         </span>

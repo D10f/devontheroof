@@ -8,7 +8,9 @@
     "sidebar posts" auto /
     1fr      5fr;
   gap: 2rem;
-  padding: 2rem;
+  // padding: 2rem;
+  padding-inline: 1rem;
+  padding-block: 2rem;
 
   @include responsive(portrait) {
     // grid-template-columns: 1fr;

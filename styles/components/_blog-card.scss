@@ -51,6 +51,8 @@
   }
 
   &__link {
+    --text-color: #{map.get($colors, "neutral", "darkest")};
+
     position: absolute;
     width: 100%;
     height: 100%;
@@ -68,6 +70,10 @@
     &:focus + svg {
       opacity: 0.6;
       transform: translate(120%, 120%) scale(1.1);
+    }
+
+    @include dark-mode {
+      --text-color: #{map.get($colors, "neutral", "light")};
     }
   }
 
