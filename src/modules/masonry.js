@@ -4,7 +4,7 @@ export class Masonry {
   constructor(selector) {
     this._grid = document.querySelector(selector);
     this._listeners();
-    setTimeout(this._buildLayout.bind(this), 100);
+    // setTimeout(this._buildLayout.bind(this), 100);
   }
 
   get _columns() {
@@ -16,6 +16,7 @@ export class Masonry {
   }
 
   _listeners() {
+    window.addEventListener('load', this._buildLayout.bind(this));
     window.addEventListener(
       "resize",
       debounce(this._buildLayout.bind(this), 50)
