@@ -1,5 +1,6 @@
 import RaycastingSketch from './sketches/Raycasting.ts';
 import PathfindingSketch from './sketches/Pathfinding.ts';
+import CodeBlocksController from './modules/CodeBlocksController';
 import { Highlighter } from "./modules/Highlighter";
 import { SearchController } from "./modules/SearchController";
 import { TransitionEffect } from "./modules/TransitionEffect";
@@ -18,6 +19,8 @@ if (!isMobileDevice() && !hasReducedMotion()) {
 // Apply Masonry on post listing pages eg., blog, category, archives, etc.
 if (location.pathname.match(/^\/(blog|category)/)) {
   new Masonry('.blog__post-list');
+} else if (location.pathname.match(/^\/[\w-]+/)) {
+  document.addEventListener('DOMContentLoaded', CodeBlocksController, { once: true });
 }
 
 if (location.pathname === '/') {
