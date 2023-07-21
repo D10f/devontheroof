@@ -33,7 +33,7 @@ export class TransitionEffect {
           textTransition({
             element: el as HTMLElement,
             newText: originalText,
-            maxDuration: 1000,
+            maxDuration: 2000,
             highlight: ["#fb7158", "#f4c862e5"],
           });
           this.unobserve(el);
