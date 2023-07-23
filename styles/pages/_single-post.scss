@@ -45,7 +45,7 @@
     }
 
     h3 {
-      font-family: $post-typography;
+      font-family: $main-typography;
       font-size: 2.6rem;
       font-weight: bold;
       margin: 4rem 0 2rem 0;
@@ -120,6 +120,14 @@
     @include dark-mode {
       color: map.get($colors, 'secondary', 'normal');
     }
+  }
+}
+
+.wp-block-code {
+  & code,
+  & .prism-titlename,
+  & .prism-tab {
+    font-family: $code-typography !important;
   }
 }
 
