@@ -62,7 +62,7 @@
 
       @include dark-mode {
         color: map.get($colors, 'secondary', 'normal');
-        background-color: map.get($colors, 'neutral', 'darker');
+        background-color: map.get($colors, 'neutral', 'darkest');
         // background-color: unset;
       }
     }
