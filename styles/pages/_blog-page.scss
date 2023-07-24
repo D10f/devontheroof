@@ -12,6 +12,12 @@
   padding-inline: 1rem;
   padding-block: 2rem;
 
+  // When filtering blog posts sometimes there are not enough to fill the full
+  // height of the viewport, and the footer is positioned right next to this
+  // element, which looks ridiculous. 253px is the height of the footer and the
+  // 2rem is the padding around that footer.
+  min-height: calc(100vh - 253px - 2rem);
+
   @include responsive(tablet) {
     // grid-template-columns: 1fr;
     grid-template:

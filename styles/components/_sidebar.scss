@@ -70,7 +70,17 @@
   }
 
   &__menu {
+    position: fixed;
+    width: max-content;
+
+    @include responsive(portrait) {
+      position: static;
+    }
+  }
+
+  &__menu {
     list-style: none;
+    top: 6rem;
 
     @include responsive(tablet) {
       display: none;

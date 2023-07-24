@@ -45,6 +45,8 @@ body {
     --accent-color: #{map.get($colors, "primary", "dark")};
   }
 
+  padding-bottom: 2rem;
+
   @include contain;
   font-family: $main-typography;
   font-weight: 400;

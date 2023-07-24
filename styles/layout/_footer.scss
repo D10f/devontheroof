@@ -10,13 +10,18 @@
   gap: 2rem;
   border-radius: 5px;
   min-height: 25rem;
-  margin: 5rem 0 10rem 0;
+  //margin: 5rem 0 10rem 0;
   padding: 4rem;
   // background-color: $color-dark;
   background-color: map.get($colors, 'neutral', 'darker');
   // color: $color-light;
   color: var(--background-color);
   border: 2px solid transparent;
+
+  // creates an implicit z-index context stack. Used in this case so that items
+  // from the sidebar fall behind the footer when user scrolls all the way down
+  // or when total height is < 100vh
+  opacity: 0.99;
 
   body.dark & {
     background-color: map.get($colors, 'neutral', 'darkest');
