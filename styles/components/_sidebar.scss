@@ -72,24 +72,45 @@
   &__menu {
     position: fixed;
     width: max-content;
+    max-width: 25ch;
 
-    @include responsive(portrait) {
-      position: static;
-    }
-  }
-
-  &__menu {
     list-style: none;
     top: 6rem;
 
-    @include responsive(tablet) {
+    // @include responsive(tablet) {
+    //   display: none;
+    //   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+    // }
+
+    // @include responsive(portrait) {
+    //   position: static;
+    //   max-width: unset;
+    // }
+
+    @include responsive(portrait) {
       display: none;
       box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+      position: static;
+      max-width: unset;
+    }
+
+    p {
+      margin-bottom: 1rem;
     }
   }
 
+  // &__menu {
+  //   list-style: none;
+  //   top: 6rem;
+
+  //   @include responsive(tablet) {
+  //     display: none;
+  //     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  //   }
+  // }
+
   &__item {
-    padding: 0.5rem 0;
+    // padding: 0.5rem 0;
   }
 
   &__link {
@@ -99,7 +120,7 @@
     display: inline-block;
     width: 100%;
     text-align: left;
-    padding: 0.25rem;
+    padding: 0.5rem;
     border-radius: 5px;
     color: var(--text-color);
 
