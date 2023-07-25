@@ -74,8 +74,9 @@ function render_project($project_section, $projects)
 
               <footer class="project__footer">
                 <?php if ($project['project_link']) { ?>
-                <a class="btn btn--with-icon" href="<?= $project['project_link'] ?>" target="_blank" rel="noreferrer">
-                  View Demo
+                <!-- <a class="btn btn--with-icon" href="<?= $project['project_link'] ?>" target="_blank" rel="noreferrer"> -->
+                <a class="link" href="<?= $project['project_link'] ?>" target="_blank" rel="noreferrer">
+                  Visit Page
                   <svg aria-hidden="true">
                     <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-external-link" ?>"></use>
                   <svg>
@@ -83,9 +84,9 @@ function render_project($project_section, $projects)
                 <?php } else if ($project['project_type'] == 'webapp' and !$project['project_link']) { ?>
                   <span class="tooltip tooltip--top-right" data-tooltip="Down for maintainance">
                     <!-- <button class="btn" disabled>View Demo</button> -->
-                    <a class="btn btn--with-icon" disabled href="#" target="_blank" rel="noreferrer">
-                      View Demo
-                      <svg aria-hidden="true">
+                    <!-- <a class="btn btn--with-icon" disabled href="#" target="_blank" rel="noreferrer"> -->
+                    <a class="link" disabled href="#" target="_blank" rel="noreferrer">
+                      Visit Page                      <svg aria-hidden="true">
                         <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-repair" ?>"></use>
                       <svg>
                     </a>
