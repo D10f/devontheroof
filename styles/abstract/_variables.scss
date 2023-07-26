@@ -145,6 +145,12 @@ $gradients: (
       rgba(map.get($colors, "brands", "docker"), 0.6),
       rgba(map.get($colors, "brands", "docker"), 0.25)
     ),
+  "sass":
+    linear-gradient(
+      to bottom right,
+      rgba(map.get($colors, "brands", "sass"), 0.5),
+      rgba(map.get($colors, "brands", "sass"), 0.2)
+    ),
 );
 
 /* LAYOUT */
