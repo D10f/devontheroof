@@ -82,16 +82,21 @@
     //   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
     // }
 
-    // @include responsive(portrait) {
-    //   position: static;
-    //   max-width: unset;
-    // }
+    @include responsive(landscape) {
+      max-width: 20ch;
+    }
 
     @include responsive(portrait) {
       display: none;
       box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
       position: static;
       max-width: unset;
+    }
+
+    @include responsive (narrow) {
+      max-width: calc(100vw - 2rem);
+      left: 1rem;
+      right: 1rem;
     }
 
     p {
