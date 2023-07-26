@@ -35,11 +35,14 @@
     bottom: unset;
     left: unset;
   }
+  // &--top::before {
+  //   top: unset;
+  //   right: unset;
+  //   bottom: -4rem;
+  //   left: unset;
+  // }
   &--top::before {
-    top: unset;
-    right: unset;
-    bottom: -4rem;
-    left: unset;
+    transform: translate(-5rem, -5rem);
   }
   &--top-right::before {
     top: unset;
@@ -63,23 +66,17 @@
   &::before {
     content: attr(data-tooltip);
     position: absolute;
-    // top: 110%;
     width: max-content;
     height: min-content;
     padding: 1rem;
-    color: $color-light;
+    color: var(--background-color);
+    text-orientation: revert;
     border-radius: 5px;
-    background-color: $color-dark;
+    background-color: var(--text-color);
     opacity: 0;
     z-index: $depth-tooltip;
     pointer-events: none;
     transition: opacity 0.2s 1s;
-    border: 1px solid var(--background-color);
-    font-size: 1.6rem;
-
-    @include dark-mode {
-      border: 1px solid var(--text-color);
-    }
   }
 
   &:not(:hover)::before {

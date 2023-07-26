@@ -60,7 +60,7 @@ function render_project($project_section, $projects)
               <h3 class="project__title"><?= $project['name'] ?></h2>
               <ul class="project__stack">
                 <?php foreach ($project['tech_stack'] as $tech) { ?>
-                  <li class="tooltip tooltip--bottom <?= $tech['value'] ?>" data-tooltip="<?= $tech['label']  ?>">
+                  <li class="tooltip tooltip--top <?= $tech['value'] ?>" data-tooltip="<?= $tech['label']  ?>">
                     <svg aria-hidden="true">
                       <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-{$tech['value']}" ?>"></use>
                     </svg>

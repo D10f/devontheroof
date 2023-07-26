@@ -7,7 +7,7 @@
     You can follow my work by visiting my GitHub and Codeberg pages.
   </p>
   <ul class="section__footer-icons">
-    <li class="tooltip" data-tooltip="GitHub">
+    <li class="tooltip tooltip--top" data-tooltip="GitHub">
       <a href="https://github.com/D10f" target="_blank" rel="noreferrer" aria-label="external link to a github profile">
         <svg aria-hidden="true">
           <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-github-light' ?>"></use>
@@ -15,7 +15,7 @@
       </a>
     </li>
 
-    <li class="tooltip" data-tooltip="Codeberg">
+    <li class="tooltip tooltip--top" data-tooltip="Codeberg">
       <a href="https://codeberg.org/D10f" target="_blank" rel="noreferrer" aria-label="external link to a github profile">
         <svg aria-hidden="true">
           <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-codeberg' ?>"></use>
@@ -23,7 +23,7 @@
       </a>
     </li>
 
-    <li class="tooltip" data-tooltip="devsojourn@pm.me">
+    <li class="tooltip tooltip--top" data-tooltip="devsojourn@pm.me">
       <a href="mailto:devsojourn@pm.me" target="_blank" aria-label="link to send an email">
         <svg aria-hidden="true">
           <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-envelope' ?>"></use>
@@ -31,7 +31,7 @@
       </a>
     </li>
 
-    <li class="tooltip" data-tooltip="PGP">
+    <li class="tooltip tooltip--top" data-tooltip="PGP">
       <a href="<?= get_theme_file_uri('assets/publickey.devsojourn@pm.me.asc'); ?>" download aria-label="downloads a pgp public key file">
         <svg aria-hidden="true">
           <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-key1' ?>"></use>
