@@ -48,6 +48,10 @@
       width: 3.2rem;
       height: 3.2rem;
     }
+
+    .tooltip::before {
+      transform: translateX(-2rem);
+    }
   }
 
   p {
