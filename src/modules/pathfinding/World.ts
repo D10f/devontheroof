@@ -10,7 +10,7 @@ import { angleBetweenPoints } from "./utils";
 
 export default class World {
 
-    private terrainLayer: HexGrid;
+    public terrainLayer: HexGrid;
     private middleLayer: HexGrid;
     private topLayer: HexGrid;
     private animation: Animation;

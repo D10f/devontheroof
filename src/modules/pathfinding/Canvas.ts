@@ -1,4 +1,5 @@
 import Cursor from './Cursor';
+import { COLS, ROWS } from './defs';
 import EventEmitter from './EventEmitter';
 import Renderer from './Renderer';
 import Scheduler from './Scheduler';
@@ -19,6 +20,14 @@ export default class Canvas {
         this.cursor = new Cursor(canvas, this.renderer, this.emitter);
         this.world = new World(this.renderer, this.emitter);
         this.registerEvents();
+    }
+
+    get grid() {
+        return {
+            grid: this.world.terrainLayer,
+            cols: COLS,
+            rows: ROWS
+        }
     }
 
     private registerEvents() {

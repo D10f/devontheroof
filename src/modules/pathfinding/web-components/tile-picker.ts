@@ -39,6 +39,10 @@ export default class TilePicker extends HTMLElement {
             }
 
         });
+
+        document.addEventListener('keyup', (e: KeyboardEvent) => {
+            console.log(this.canvas.grid);
+        });
     }
 
     toggleActiveButton(buttons: HTMLButtonElement[], active: HTMLButtonElement) {
@@ -93,7 +97,7 @@ export default class TilePicker extends HTMLElement {
 
         shadowRoot.innerHTML = `
             ${this.styles}
-            <canvas id="pathfinding" width="800" height="600"></canvas>
+            <canvas id="pathfinding" width="800" height="400"></canvas>
             <section class="tile-picker">
 
                 <div class="row" slot="terrainTiles">
@@ -155,7 +159,7 @@ export default class TilePicker extends HTMLElement {
 
         const canvasEl = shadowRoot.getElementById('pathfinding') as HTMLCanvasElement;
         canvasEl.width = 800;
-        canvasEl.height = 600;
+        canvasEl.height = 400;
 
         this.canvas = new Canvas(canvasEl);
         this.canvas.init();
