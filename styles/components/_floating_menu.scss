@@ -8,7 +8,7 @@
   position: fixed;
   bottom: 4rem;
   right: 4rem;
-  z-index: 99;
+  z-index: 100;
 
   @include responsive(landscape) {
     --background-color: #{map.get($colors, "neutral", "darkest")};
