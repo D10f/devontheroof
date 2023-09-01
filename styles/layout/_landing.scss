@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use '../abstract' as *;
+@use "sass:map";
+@use "../abstract" as *;
 
 .landing {
   @extend %position-relative;
@@ -38,26 +38,25 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2.5rem;
-    min-height: 100vh;
+    min-height: 80vh;
     max-height: 100vh;
     margin: 0 2rem;
     padding: 0 2rem;
 
-    
     @include responsive(tablet) {
       grid-template-columns: 1fr;
       justify-content: center;
       row-gap: 5rem;
-      margin: 2rem;
-      padding: 2rem;
+      margin: 0;
+      padding: 0;
       min-height: unset;
       max-height: unset;
     }
 
-    @include responsive(phone) {
-      margin: 0;
-      padding: 0;
-    }
+    // @include responsive(phone) {
+    //   margin: 0;
+    //   padding: 0;
+    // }
   }
 
   &__introduction,
@@ -99,11 +98,11 @@
 
       @include responsive(tablet) {
         font-size: 4.4rem;
-        margin-left: 5rem;
+        // margin-left: 5rem;
       }
 
       @include responsive(phone) {
-        font-size: 3.5rem;
+        // font-size: 3.5rem;
       }
 
       // &::before,
@@ -130,30 +129,33 @@
       // }
     }
 
-    & ul {
-      width: 100%;
-      margin: 1rem 0 1rem 5rem;
+    // & ul {
+    //   width: 100%;
+    //   // margin: 1rem 0 1rem 5rem;
+    //   margin-block: 1rem;
 
-      @include responsive(portrait) {
-        margin: 0;
+    //   @include responsive(portrait) {
+    //     margin: 0;
 
-        p  {
-          text-align: center;
-        }
-      }
+    //     p {
+    //       text-align: center;
+    //     }
+    //   }
 
-      p {
-        font-size: 1.8rem;
-        font-family: inherit;
-        margin: 1.5rem 0;
-      }
-    }
+    //   p {
+    //     font-size: 1.8rem;
+    //     font-family: inherit;
+    //     margin: 1.5rem 0;
+    //   }
+    // }
 
     &--whoami {
-      font-family: $code-typography;
-      max-width: 75%;
-      // font-size: 1.8rem;
-      margin: 1rem 0 1rem 5rem;
+      // font-family: $code-typography;
+      font-family: $main-typography;
+      max-width: 80%;
+      font-size: 1.8rem;
+      // margin: 1rem 0 1rem 5rem;
+      margin-block: 1rem;
 
       @include flex($x: flex-start, $gap: 1rem);
 
@@ -162,7 +164,7 @@
         height: 2.5rem;
 
         @include dark-mode {
-          fill: map.get($colors, 'neutral', 'light');
+          fill: map.get($colors, "neutral", "light");
         }
       }
 
@@ -172,18 +174,19 @@
       }
 
       @include responsive(portrait) {
-        font-size: unset;
+        // font-size: unset;
       }
 
       @include responsive(tablet) {
-        margin: 1rem 0 1rem 6rem;
-        font-size: 1.5rem;
+        // margin: 1rem 0 1rem 6rem;
+        margin-inline: auto;
+        // font-size: 1.5rem;
       }
 
-      @include responsive(narrow) {
-        margin: 1rem 0 1rem 4rem;
-        font-size: 1.5rem;
-      }
+      // @include responsive(narrow) {
+      //   margin: 1rem 0 1rem 4rem;
+      //   font-size: 1.5rem;
+      // }
 
       &:first-of-type {
         margin-top: 1rem;
@@ -247,20 +250,20 @@
       justify-content: center;
     }
   }
-  
+
   &__posts-separator {
     position: absolute;
     top: 50%;
     left: -3.2rem;
     z-index: 27;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     height: 6.4rem;
     width: 6.4rem;
-    
+
     transform: translateY(-50%) rotate(-90deg);
     transition: transform 0.25s;
     // background-color: $color-lighter;
@@ -269,7 +272,6 @@
     border-radius: 50%;
     // border: 2px dashed map.get($colors, 'neutral', 'dark');
     border: 2px dashed var(--text-color);
-
 
     font-family: inherit;
     text-align: center;
@@ -286,18 +288,41 @@
       top: 2rem;
     }
 
+    &::before {
+      content: "BLOG";
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--text-color);
+      color: var(--background-color);
+      font-family: inherit;
+      transform: scale(0);
+      transition: transform 175ms ease-in;
+      // z-index: -1;
+      border-radius: 50%;
+    }
+
     &:hover,
     &:focus {
       outline: none;
       // color: $color-lighter;
       // background-color: $color-dark;
-      background-color: var(--text-color);
-      color: var(--background-color);
+      // background-color: var(--text-color);
+      // color: var(--background-color);
       transform: translateY(-50%) rotate(0deg);
-      border: 1px dashed transparent;
+      // border: 1px dashed transparent;
 
       @include responsive(tablet) {
         transform: translateX(-50%) rotate(360deg);
+      }
+
+      &::before {
+        transform: scale(1.1);
       }
     }
   }

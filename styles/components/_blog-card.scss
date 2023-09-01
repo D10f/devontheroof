@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use '../abstract' as *;
+@use "sass:map";
+@use "../abstract" as *;
 
 .blog-card {
   position: relative;
@@ -34,15 +34,15 @@
 
   &:hover svg {
     opacity: 0.6;
-    transform: translate(120%, 120%) scale(1.1);
+    transform: translate(100%, 100%) scale(1.1);
   }
 
   & svg {
-    transform: translate(120%, 120%);
-    width: 40%;
-    height: 40%;
+    transform: translate(100%, 100%);
+    width: 45%;
+    height: 45%;
     opacity: 0.1;
-    transition: opacity 0.2s, transform 0.2s ease-in;
+    transition: opacity 0.2s, transform 120ms ease-in;
     pointer-events: none;
 
     /* Prevents icon from covering the text */
@@ -64,12 +64,12 @@
     word-wrap: normal;
 
     &:focus {
-      outline: none
+      outline: none;
     }
 
     &:focus + svg {
       opacity: 0.6;
-      transform: translate(120%, 120%) scale(1.1);
+      transform: translate(100%, 100%) scale(1.1);
     }
 
     @include dark-mode {
@@ -84,7 +84,7 @@
     // font-weight: normal;
   }
 
-  @each $k, $v in map.get($colors, 'brands') {
+  @each $k, $v in map.get($colors, "brands") {
     &--#{$k} {
       svg {
         fill: $v;
@@ -93,7 +93,7 @@
       @include dark-mode {
         /* overrides the background image set by gradient utility class */
         background-image: none;
-        background-color: rgba($v, .1);
+        background-color: rgba($v, 0.1);
         border: 2px solid $v;
 
         svg {

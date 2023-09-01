@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use 'sass:string';
+@use "sass:map";
+@use "sass:string";
 @use "../abstract" as *;
 
 .project {
@@ -7,7 +7,7 @@
   gap: 5rem;
   grid-template:
     "preview info" 25rem /
-    1fr      1fr;
+    1fr 1fr;
 
   justify-content: center;
   align-items: center;
@@ -53,7 +53,6 @@
       background-color: red;
     }
   }
-
 
   &__preview {
     position: relative;
@@ -148,7 +147,7 @@
       pointer-events: none;
       width: 6rem;
       height: 6rem;
-      fill: map.get($colors, 'neutral', 'lightest');
+      fill: map.get($colors, "neutral", "lightest");
     }
   }
 
@@ -178,7 +177,8 @@
       align-items: flex-start;
     }
 
-    p, mark {
+    p,
+    mark {
       // font-family: FiraSans;
       font-family: inherit;
     }
@@ -226,7 +226,6 @@
     }
 
     li {
-
       /* Adds a slightly diffused light background on dark mode to make some icons easier to see */
       // @include dark-mode {
       //   &::after {
@@ -245,12 +244,12 @@
       // }
 
       /* Creates a class for each brand color to be used to fill the svg icons for the project tech stack */
-      @each $k, $v in map.get($colors, 'brands') {
+      @each $k, $v in map.get($colors, "brands") {
         &.#{$k} svg {
           fill: $v;
 
           @include dark-mode {
-            fill: map.get($colors, 'neutral', 'light');
+            fill: map.get($colors, "neutral", "light");
           }
         }
       }

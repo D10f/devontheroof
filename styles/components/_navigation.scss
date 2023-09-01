@@ -9,11 +9,7 @@
   width: max-content;
   padding-block: 0.5em;
   padding-inline: 0.5em;
-  border-radius: 1rem;
   z-index: 1;
-  background-color: var(--text-color);
-  color: var(--background-color);
-  overflow: hidden;
 
   @include responsive(tablet) {
     top: 5rem;
@@ -35,13 +31,13 @@
 
     &:hover {
       cursor: pointer;
-      background-color: var(--background-color);
-      color: var(--background-color);
+      background-color: var(--text-color);
+      color: var(--text-color);
     }
 
     &:hover a {
       cursor: pointer;
-      color: var(--text-color);
+      color: var(--background-color);
     }
   }
 
