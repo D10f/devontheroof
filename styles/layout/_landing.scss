@@ -35,13 +35,15 @@
   }
 
   &__header {
+    @include contain;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2.5rem;
     min-height: 80vh;
     max-height: 100vh;
-    margin: 0 2rem;
-    padding: 0 2rem;
+    // margin: 0 2rem;
+    // padding: 0 2rem;
+    padding: 0 4rem;
 
     @include responsive(tablet) {
       grid-template-columns: 1fr;
@@ -190,7 +192,7 @@
 
       &:first-of-type {
         margin-top: 1rem;
-        animation: fadeFromLeft 1s 1.2s backwards;
+        // animation: fadeFromLeft 1s 1.2s backwards;
 
         @include responsive(phone) {
           margin-top: 3rem;
@@ -198,18 +200,18 @@
       }
 
       &:nth-of-type(2) {
-        animation: fadeFromRight 1s 1.4s backwards;
+        // animation: fadeFromRight 1s 1.4s backwards;
       }
 
       &:nth-of-type(3) {
-        animation: fadeFromRight 1s 1.4s backwards;
+        // animation: fadeFromRight 1s 1.4s backwards;
         margin-bottom: 1rem;
-        animation: fadeFromLeft 1s 1.6s backwards;
+        // animation: fadeFromLeft 1s 1.6s backwards;
       }
 
       &:nth-of-type(4) {
         margin-bottom: 1rem;
-        animation: fadeFromRight 1s 1.8s backwards;
+        // animation: fadeFromRight 1s 1.8s backwards;
       }
     }
   }

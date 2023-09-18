@@ -1,12 +1,13 @@
-@use 'sass:map';
-@use '../abstract' as *;
+@use "sass:map";
+@use "../abstract" as *;
 
 .single-post {
+  @include contain;
   display: grid;
   // grid-template-columns: 1fr 5fr;
   grid-template:
     "sidebar posts" auto /
-    1fr      5fr;
+    1fr 5fr;
   gap: 2rem;
   // padding: 2rem;
   padding-inline: 1rem;
@@ -21,15 +22,14 @@
   @include responsive(portrait) {
     // grid-template-columns: 1fr;
     grid-template:
-        "sidebar" auto
-        "posts" auto /
-        1fr;
+      "sidebar" auto
+      "posts" auto /
+      1fr;
 
     padding: 2rem 1rem;
   }
 
   &__content {
-
     max-width: 80ch;
     margin-inline: auto;
 
@@ -61,14 +61,14 @@
       font-family: $code-typography;
       font-size: 1.6rem;
       word-wrap: nowrap;
-      color: map.get($colors, 'primary', 'dark');
-      background-color: map.get($colors, 'neutral', 'lighter');
+      color: map.get($colors, "primary", "dark");
+      background-color: map.get($colors, "neutral", "lighter");
       border-radius: 3px;
       padding: 0.1rem 0.2rem;
 
       @include dark-mode {
-        color: map.get($colors, 'secondary', 'normal');
-        background-color: map.get($colors, 'neutral', 'darkest');
+        color: map.get($colors, "secondary", "normal");
+        background-color: map.get($colors, "neutral", "darkest");
         // background-color: unset;
       }
     }
@@ -79,7 +79,7 @@
 
       &:hover,
       &:visited,
-      &:target, 
+      &:target,
       &:focus {
         color: var(--accent-color);
       }
@@ -120,11 +120,11 @@
     }
 
     &::selection {
-      color: map.get($colors, 'neutral', 'dark');
+      color: map.get($colors, "neutral", "dark");
     }
 
     @include dark-mode {
-      color: map.get($colors, 'secondary', 'normal');
+      color: map.get($colors, "secondary", "normal");
     }
   }
 }
@@ -153,7 +153,7 @@
 //   }
 
 //   // Set a consistent margin between elements
-//   &,  
+//   &,
 //   &__content h3,
 //   &__content p,
 //   &__header {
@@ -202,7 +202,7 @@
 
 //       &:hover,
 //       &:visited,
-//       &:target, 
+//       &:target,
 //       &:focus {
 //         color: var(--accent-color);
 //       }
@@ -280,7 +280,7 @@
 //     li {
 //       margin-block: .25em;
 //     }
-    
+
 //     a:hover {
 //       color: var(--accent-color);
 //     }

@@ -8,3 +8,5 @@ assets/*.data
 assets/*.html
 assets/*.js
 assets/*.wasm
+
+.*lsp

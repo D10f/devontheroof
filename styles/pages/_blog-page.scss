@@ -1,12 +1,13 @@
-@use 'sass:map';
+@use "sass:map";
 @use "../abstract" as *;
 
 .blog {
+  @include contain;
   display: grid;
   // grid-template-columns: 1fr 5fr;
   grid-template:
     "sidebar posts" auto /
-    1fr      5fr;
+    1fr 5fr;
   gap: 2rem;
   // padding: 1rem;
   padding-inline: 1rem;
@@ -21,9 +22,9 @@
   @include responsive(tablet) {
     // grid-template-columns: 1fr;
     grid-template:
-        "sidebar" auto
-        "posts" auto /
-        1fr;
+      "sidebar" auto
+      "posts" auto /
+      1fr;
   }
 
   &__post-list {
@@ -35,7 +36,7 @@
   }
 
   &__post {
-    background-color: map.get($colors, 'neutral', 'lightest');
+    background-color: map.get($colors, "neutral", "lightest");
     color: var(--text-color);
     border-radius: 5px;
     padding: 2rem;
@@ -43,7 +44,7 @@
     transition: transform 0.4s ease;
 
     @include dark-mode {
-      background-color: map.get($colors, 'neutral', 'darkest');
+      background-color: map.get($colors, "neutral", "darkest");
     }
   }
 
@@ -67,9 +68,11 @@
     }
   }
 
-  &__post-excerpt {}
+  &__post-excerpt {
+  }
 
-  a, p {
+  a,
+  p {
     font-family: $main-typography;
   }
 }
@@ -99,7 +102,7 @@
 
 //  &__category-icon {
 //    border-bottom: 1px solid map.get($colors, 'neutral', 'dark');
-    
+
 //    /* Creates a utiliy class for each brand color to fill the svg icon */
 //    @each $k, $v in map.get($colors, 'brands') {
 //      &--#{$k} {

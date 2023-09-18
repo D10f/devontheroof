@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use '../abstract' as *;
+@use "sass:map";
+@use "../abstract" as *;
 
 /**
  *  Creates a set of utilities for gradients based on brand colors
@@ -10,8 +10,18 @@
   }
 }
 
-.ml-1 { margin-left: 1rem; }
-.mb-2 { margin-bottom: 2rem; }
+.ml-1 {
+  margin-left: 1rem;
+}
+.mb-2 {
+  margin-bottom: 2rem;
+}
+.mb-5 {
+  margin-bottom: 5rem !important;
+}
+.is-centered {
+  text-align: center;
+}
 
 .floating {
   position: fixed;
@@ -38,7 +48,7 @@
 //       background-color: map.get($colors, 'neutral', 'darker');
 //       animation: pulse 1s;
 //     }
-//   
+//
 //     &:hover::after {
 //       animation: pulse 1s;
 //     }

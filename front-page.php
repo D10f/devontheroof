@@ -34,7 +34,10 @@
     <?php the_content(); ?>
     <p class="landing__introduction--whoami">I'm a Web Developer from Spain who enjoys making and learning new things, especially in the realm of the web, retrogaming and open source technologies.</p>
     <p class="landing__introduction--whoami">This website is where I write useful notes for my future self and things I find interesting about technology. I also use it to showcase some of my favorite projects that I've worked on.</p>
-    <p class="landing__introduction--whoami">Checkout some of my projects below, how I setup my development environment, my GitHub and Codeberg pages and get in touch.</p>
+    <!-- <p class="landing__introduction--whoami">Checkout some of my projects below, how I setup my development environment, my GitHub and Codeberg pages and get in touch.</p> -->
+    <!-- <p> -->
+    <!--   <button>About Me</button> -->
+    <!-- </p> -->
 
     <!-- <ul> -->
     <!--   <p>Who am I, you ask? I'm...</p> -->
@@ -133,9 +136,9 @@
   render_project('Web Applications', $webapp_projects);
   render_project('Graphics', $graphics_projects);
   render_project('Scripting', $script_projects);
-  render_project('DevOps', $devops_projects);
+  render_project('SysAdmin', $devops_projects);
 
-  get_template_part('templates/about');
+  // get_template_part('templates/about');
 
   ?>
 

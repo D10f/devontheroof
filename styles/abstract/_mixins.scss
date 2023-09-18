@@ -1,22 +1,28 @@
-@use 'sass:map';
-@use 'sass:meta';
-@use 'sass:math';
-@use 'sass:string';
-@use 'sass:list';
-@use 'variables' as *;
+@use "sass:map";
+@use "sass:meta";
+@use "sass:math";
+@use "sass:string";
+@use "sass:list";
+@use "variables" as *;
 
 /**
  *  Positions an element as absolute or relative based on $position argument.
  */
- @mixin position($top: null, $right: null, $bottom: null, $left: null, $position: 'absolute') {
-  @if ($position == 'absolute') {
+@mixin position(
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $position: "absolute"
+) {
+  @if ($position == "absolute") {
     @extend %position-absolute;
-  } @else if ($position == 'relative') {
+  } @else if ($position == "relative") {
     @extend %position-relative;
   } @else {
     @error 'ERROR: Invalid position argument provided.';
   }
-  
+
   top: $top;
   right: $right;
   bottom: $bottom;
@@ -31,7 +37,7 @@
   flex-direction: $dir;
   gap: $gap;
 
-  @if ($dir == 'column') {
+  @if ($dir == "column") {
     $_tmp: $x;
     $x: $y;
     $y: $x;
@@ -62,28 +68,26 @@
   height: $height;
 }
 
-
 /**
  *  Creates a pseudo element with an arrow, useful for tooltips
  */
-@mixin arrow($position: 'top', $color: currentColor, $size: .5em) {
-
-  @include position('relative');
+@mixin arrow($position: "top", $color: currentColor, $size: 0.5em) {
+  @include position("relative");
   filter: drop-shadow(0 0 $size rgba(0 0 0 / 0.4));
 
   // &::before {
   &::after {
-    $_positions: ('top', 'right', 'bottom', 'left');
+    $_positions: ("top", "right", "bottom", "left");
     $_parsed-positions: ();
     $_position-reference: (
-      'top': 'bottom',
-      'right': 'left',
-      'bottom': 'top',
-      'left': 'right',
+      "top": "bottom",
+      "right": "left",
+      "bottom": "top",
+      "left": "right",
     );
 
     // Parse the $position string into up to 2 arguments
-    $_separate-at: string.index($position, ' ');
+    $_separate-at: string.index($position, " ");
     $_first: null;
     $_second: null;
 
@@ -99,13 +103,16 @@
       @error 'ERROR: position arguments cannot be the same on both axis.';
     }
 
-    @if (not list.index($_positions, $_first) or ($_second and not list.index($_positions, $_second))) {
+    @if (
+      not
+        list.index($_positions, $_first) or
+        ($_second and not list.index($_positions, $_second))
+    ) {
       @error 'ERROR: position arguments are invalid.';
     }
 
     $_opposite-direction: null;
     @each $_pos in $_positions {
-      
       border-#{$_pos}: $size solid transparent;
 
       @if ($_first == $_pos) {
@@ -121,7 +128,7 @@
     border-#{$_first}: unset;
 
     @if (not $_second) {
-      @if ($_first == 'top' or $_first == 'bottom') {
+      @if ($_first == "top" or $_first == "bottom") {
         $_parsed-positions: list.set-nth($_parsed-positions, 2, 50%);
         transform: translateX(50%);
       } @else {
@@ -132,7 +139,7 @@
 
     @extend %no-content;
     @include size(0);
-    @include position($position: 'absolute', $_parsed-positions...);
+    @include position($position: "absolute", $_parsed-positions...);
   }
 }
 
@@ -159,12 +166,36 @@
 */
 
 @mixin responsive($breakpoint) {
-  @if $breakpoint == narrow     { @media only screen and (max-width: 25em)    { @content }; }
-  @if $breakpoint == phone      { @media only screen and (max-width: 37.5em)  { @content }; }
-  @if $breakpoint == tablet     { @media only screen and (max-width: 48em)    { @content }; }
-  @if $breakpoint == portrait   { @media only screen and (max-width: 56.25em) { @content }; }
-  @if $breakpoint == landscape  { @media only screen and (max-width: 75em)    { @content }; }
-  @if $breakpoint == widescreen { @media only screen and (min-width: 112.5em) { @content }; }
+  @if $breakpoint == narrow {
+    @media only screen and (max-width: 25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 48em) {
+      @content;
+    }
+  }
+  @if $breakpoint == portrait {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == landscape {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == widescreen {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
 }
 
 @mixin contain {

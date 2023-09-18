@@ -6,7 +6,7 @@
   background-color: transparent; // filled by utility gradient
   border-radius: 0.5rem;
   box-shadow: $box-shadow-light;
-  animation: popUp 0.3s backwards;
+  // animation: popUp 0.3s backwards;
 
   &:nth-child(1) {
     animation-delay: 0.75s;
