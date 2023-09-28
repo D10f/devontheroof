@@ -47,9 +47,24 @@ export function createSvgIcon(iconName: string) {
     `/wp-content/themes/devontheroof/assets/images/sprite.svg#icon-${iconName}`
   );
 
-  svg.style.pointerEvents = 'none';
+  svg.style.pointerEvents = "none";
 
   svg.appendChild(use);
 
   return svg;
+}
+
+export function styleElement(
+  element: HTMLElement | SVGElement,
+  styles: string
+) {
+  let rules = styles.trim().replace(/\t+/, "").replace(/\n+/, "").split(";");
+
+  for (const rule of rules) {
+    if (rule === "") continue;
+
+    let [key, value] = rule.trim().split(":");
+    key = key.replace(/\-(\w)/, (_, letter) => letter.toUpperCase());
+    element.style[key] = value.trim();
+  }
 }
