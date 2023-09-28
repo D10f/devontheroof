@@ -61,15 +61,26 @@
       font-family: $code-typography;
       font-size: 1.6rem;
       word-wrap: nowrap;
-      color: map.get($colors, "primary", "dark");
-      background-color: map.get($colors, "neutral", "lighter");
+      // color: map.get($colors, "primary", "dark");
+      // background-color: map.get($colors, "neutral", "lighter");
+      background-color: map.get($colors, "secondary", "light");
       border-radius: 3px;
       padding: 0.1rem 0.2rem;
+
+      &::selection {
+        background-color: var(--text-color);
+        color: var(--background-color);
+      }
 
       @include dark-mode {
         color: map.get($colors, "secondary", "normal");
         background-color: map.get($colors, "neutral", "darkest");
         // background-color: unset;
+
+        &::selection {
+          background-color: var(--text-color);
+          color: var(--background-color);
+        }
       }
     }
 
