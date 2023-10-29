@@ -14,7 +14,7 @@ $theme_uri = get_theme_file_uri('assets/images/sprite.svg');
 
     <input type="checkbox" id="sidebar__checkbox" />
 
-    <button class="sidebar__button show-on-tablet">
+    <button class="sidebar__button show-on-tablet" aria-label="Toggle table of contents">
         <label tabindex="0" for="sidebar__checkbox">
             <svg>
                 <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-hamburger' ?>"></use>

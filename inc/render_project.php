@@ -32,7 +32,7 @@ function render_project($project_section, $projects)
               </span>
             </noscript>
             <div class="project__trigger">
-              <button>
+              <button aria-label="Start or stop this animation">
                 <svg aria-hidden="true">
                   <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . "#icon-controller-play" ?>" />
                 </svg>

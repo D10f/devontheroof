@@ -26,7 +26,7 @@ preg_match_all('/<h3.*>(.*)<\/h3>/', $content, $headings);
 
     <input type="checkbox" id="sidebar__checkbox" />
 
-    <button class="sidebar__button show-on-tablet">
+    <button class="sidebar__button show-on-tablet" aria-label="Toggle table of contents">
         <label tabindex="0" for="sidebar__checkbox">
             <svg>
                 <use xlink:href="<?= get_theme_file_uri('assets/images/sprite.svg') . '#icon-hamburger' ?>"></use>
