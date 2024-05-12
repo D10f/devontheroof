@@ -5,8 +5,8 @@
 .PHONY: archive build restore restore-db restore-domain restore-wp start stop
 
 BACKUP_DIR=${HOME}/Backups/devontheroof
-DB_BACKUP_FILE=devontheroof_db_2023-07-21.sql.gz
-WP_BACKUP_FILE=devontheroof_data_2023-07-21.tar.gz
+DB_BACKUP_FILE=devontheroof_db_2023-10-01_2306.sql.gz
+WP_BACKUP_FILE=devontheroof_data_2023-10-01_2307.tar.gz
 
 print-help: help
 
