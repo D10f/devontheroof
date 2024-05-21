@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { TfiClose } from "react-icons/tfi";
 
 type DropdownProps = {
     children: React.ReactNode;
@@ -26,7 +27,19 @@ export default function Dropdown({ children, trigger }: DropdownProps) {
 
     return (
         <div className="dropdown">
-            <button onClick={toggle}>{trigger}</button>
+            <button
+                onClick={toggle}
+                className={
+                    isOpen
+                        ? "dropdown__trigger dropdown__trigger--active"
+                        : "dropdown__trigger"
+                }
+            >
+                <span>
+                    {trigger}
+                    <TfiClose className="icon" />
+                </span>
+            </button>
             {isOpen && <aside ref={menu}>{children}</aside>}
         </div>
     );

@@ -6,14 +6,24 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
   --bg-color: var(--ctp-latte-crust);
+  --bg-color-2: var(--ctp-latte-base);
   --text-color: var(--ctp-latte-text);
   --primary-color: var(--ctp-latte-peach);
+
+  --dark-color: var(--ctp-mocha-base);
+  --light-color: var(--ctp-latte-base);
+
+  --shadow: 0.1rem 0.25rem 2rem 0.1rem rgba(0, 0, 0, 0.2);
+
+  --icon-size: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: var(--ctp-frappe-crust);
+    --bg-color-2: var(--ctp-frappe-base);
     --text-color: var(--ctp-frappe-text);
     --primary-color: var(--ctp-frappe-peach);
   }
