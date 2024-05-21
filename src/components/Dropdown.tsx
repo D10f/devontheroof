@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { TfiClose } from "react-icons/tfi";
 
 type DropdownProps = {
@@ -40,7 +41,18 @@ export default function Dropdown({ children, trigger }: DropdownProps) {
                     <TfiClose className="icon" />
                 </span>
             </button>
-            {isOpen && <aside ref={menu}>{children}</aside>}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.aside
+                        ref={menu}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 50 }}
+                    >
+                        {children}
+                    </motion.aside>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
