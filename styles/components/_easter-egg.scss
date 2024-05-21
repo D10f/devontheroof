@@ -1,8 +1,0 @@
-@use '../abstract/' as *;
-
-.easter-egg {
-
-  &__truncate {
-    @include truncate($length: 40ch);
-  }
-}
