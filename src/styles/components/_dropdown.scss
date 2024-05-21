@@ -1,0 +1,47 @@
+@use "../vendor";
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown aside {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--ctp-frappe-base);
+  box-shadow: 0 0.25rem 2rem 0.25rem rgba(0, 0, 0, 0.15);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  width: max-content;
+}
+
+.dropdown__item {
+  position: relative;
+  margin: 0.5rem;
+  border-radius: calc(var(--border-radius) / 2);
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+  }
+
+  &>* {
+    padding: 0.5rem;
+  }
+}
+
+.dropdown__item--active {
+  &::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: var(--primary-color);
+  }
+}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "@/components/Navbar";
 import "@/styles/index.scss";
 
 type ChildrenProps = {
@@ -13,7 +14,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: ChildrenProps) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="padder">
+          <Navbar />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
+

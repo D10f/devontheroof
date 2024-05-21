@@ -7,11 +7,21 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
   --bg-color: var(--ctp-latte-crust);
+  --text-color: var(--ctp-latte-text);
+  --primary-color: var(--ctp-latte-peach);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: var(--ctp-frappe-crust);
+    --text-color: var(--ctp-frappe-text);
+    --primary-color: var(--ctp-frappe-peach);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
   }
 }
 
@@ -19,12 +29,13 @@
 *::before,
 *::after {
   box-sizing: inherit;
+  font: inherit;
+  color: inherit;
 }
 
 * {
   margin: 0;
   padding: 0;
-  font: inherit;
 }
 
 html,
@@ -35,6 +46,8 @@ body {
 
 body {
   background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
 }
 
 a {
@@ -42,8 +55,13 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+ol,
+ul {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

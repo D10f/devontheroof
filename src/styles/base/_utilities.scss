@@ -1,0 +1,12 @@
+.padder {
+    margin: 0.75rem;
+    border-radius: var(--border-radius);
+    min-height: calc(100vh - 1.5rem);
+
+    @media (min-width: 768px) {
+        .padder {
+            background-color: coral;
+            background-color: var(--ctp-frappe-base);
+        }
+    }
+}

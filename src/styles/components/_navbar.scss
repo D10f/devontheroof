@@ -1,1 +1,16 @@
-.navbar {}
+@use "../abstract/mixins" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 1rem;
+}
+
+.navbar h1 {
+  font-size: 2rem;
+}
+
+.navbar ul {
+  // @include debugger;
+}
