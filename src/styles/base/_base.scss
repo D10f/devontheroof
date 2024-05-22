@@ -10,6 +10,7 @@
   --bg-color: var(--ctp-latte-crust);
   --bg-color-2: var(--ctp-latte-base);
   --text-color: var(--ctp-latte-text);
+  --subtext-color: var(--ctp-latte-subtext1);
   --primary-color: var(--ctp-latte-peach);
 
   --dark-color: var(--ctp-mocha-base);
@@ -25,6 +26,7 @@
     --bg-color: var(--ctp-frappe-crust);
     --bg-color-2: var(--ctp-frappe-base);
     --text-color: var(--ctp-frappe-text);
+    --subtext-color: var(--ctp-frappe-subtext1);
     --primary-color: var(--ctp-frappe-peach);
   }
 }
@@ -63,6 +65,14 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
 }
 
 ol,

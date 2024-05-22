@@ -33,9 +33,14 @@ export default function ThemeController() {
       document.documentElement,
     ).getPropertyValue(`--ctp-${variant}-text`);
 
+    const subtextColor = getComputedStyle(
+      document.documentElement,
+    ).getPropertyValue(`--ctp-${variant}-subtext0`);
+
     document.documentElement.style.setProperty("--bg-color", bgColor);
     document.documentElement.style.setProperty("--bg-color-2", bgColor2);
     document.documentElement.style.setProperty("--text-color", textColor);
+    document.documentElement.style.setProperty("--subtext-color", subtextColor);
   }, [theme]);
 
   return (
