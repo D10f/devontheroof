@@ -2,31 +2,31 @@
 
 import { useEffect, useState } from "react";
 import { TfiPalette } from "react-icons/tfi";
-import { switchTheme } from "@/lib/theme";
+import {
+  themeOptions,
+  accentOptions,
+  switchTheme,
+  switchAccent,
+  ThemeOptions,
+  AccentOptions,
+  getVariableValue,
+} from "@/lib/theme";
 import Dropdown from "@/components/Dropdown";
-
-type ThemeOptions =
-  | "Cattpuccin Latte"
-  | "Cattpuccin Frappe"
-  | "Cattpuccin Macchiato"
-  | "Cattpuccin Mocha";
-
-const themes: ThemeOptions[] = [
-  "Cattpuccin Latte",
-  "Cattpuccin Frappe",
-  "Cattpuccin Macchiato",
-  "Cattpuccin Mocha",
-];
 
 export default function ThemeController() {
   const [theme, setTheme] = useState<ThemeOptions>("Cattpuccin Frappe");
+  const [accent, setAccent] = useState<AccentOptions>("peach");
 
-  useEffect(() => switchTheme(theme), [theme]);
+  useEffect(() => {
+    switchTheme(theme);
+    switchAccent(accent, theme);
+  }, [theme, accent]);
 
   return (
     <Dropdown trigger={<TfiPalette className="icon" />}>
       <ul>
-        {themes.map((themeName, idx) => (
+        <p>Themes</p>
+        {themeOptions.map((themeName, idx) => (
           <li
             key={idx}
             className={
@@ -36,6 +36,28 @@ export default function ThemeController() {
             }
           >
             <button onClick={() => setTheme(themeName)}>{themeName}</button>
+          </li>
+        ))}
+      </ul>
+      <ul>
+        <p>Accent</p>
+        {accentOptions.map((accentColor, idx) => (
+          <li
+            key={idx}
+            className={
+              accentColor === accent
+                ? "dropdown__row-item dropdown__row-item--active"
+                : "dropdown__row-item"
+            }
+          >
+            <button onClick={() => setAccent(accentColor)}>
+              <span
+                className="circle"
+                style={{
+                  backgroundColor: getVariableValue(accentColor, theme),
+                }}
+              />
+            </button>
           </li>
         ))}
       </ul>

@@ -25,7 +25,7 @@
   border-radius: calc(var(--border-radius) / 2);
 
   &:hover {
-    background-color: var(--primary-color);
+    background-color: var(--subtext-color);
     color: var(--dark-color);
   }
 
@@ -37,7 +37,28 @@
 
   &--active {
     background-color: var(--primary-color);
-    color: var(--dark-color);
+    color: var(--bg-color);
+  }
+}
+
+/* section separator and title */
+.dropdown ul p {
+  margin: 0.5em;
+  color: var(--subtext-color);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.dropdown__row-item {
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    border-bottom-color: var(--subtext-color);
+  }
+
+  &--active {
+    border-bottom-color: var(--primary-color);
   }
 }
 
