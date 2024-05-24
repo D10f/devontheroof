@@ -38,6 +38,8 @@ export default class Cattpuccin implements ThemeStrategy {
       case "--bg-color":
         return `--ctp-${this.cssVariant}-crust`;
       case "--bg-color-2":
+        return `--ctp-${this.cssVariant}-mantle`;
+      case "--bg-color-3":
         return `--ctp-${this.cssVariant}-base`;
       case "--text-color":
         return `--ctp-${this.cssVariant}-text`;

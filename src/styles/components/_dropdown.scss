@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: var(--bg-color-2);
+  background-color: var(--bg-color-3);
   color: var(--text-color);
   box-shadow: var(--shadow);
   border-radius: var(--border-radius);
@@ -24,7 +24,7 @@
   margin-block: 0.5rem;
   border-radius: calc(var(--border-radius) / 2);
 
-  &:hover {
+  &:not(&--active):hover {
     background-color: var(--subtext-color);
     color: var(--dark-color);
   }
@@ -36,6 +36,7 @@
   }
 
   &--active {
+    pointer-events: none;
     background-color: var(--primary-color);
     color: var(--bg-color);
   }

@@ -3,12 +3,14 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-mono: SourceCodePro, ui-monospace, Menlo, Monaco, "Cascadia Mono",
+    "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace",
+    "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-sans-serif: WorkSans;
 
   --bg-color: var(--ctp-latte-crust);
-  --bg-color-2: var(--ctp-latte-base);
+  --bg-color-2: var(--ctp-latte-mantle);
+  --bg-color-3: var(--ctp-latte-base);
   --text-color: var(--ctp-latte-text);
   --subtext-color: var(--ctp-latte-subtext1);
   --primary-color: var(--ctp-latte-peach);
@@ -33,7 +35,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: var(--ctp-frappe-crust);
-    --bg-color-2: var(--ctp-frappe-base);
+    --bg-color-2: var(--ctp-frappe-mantle);
+    --bg-color-3: var(--ctp-frappe-base);
     --text-color: var(--ctp-frappe-text);
     --subtext-color: var(--ctp-frappe-subtext1);
     --primary-color: var(--ctp-frappe-peach);
@@ -74,6 +77,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
+  font-family: var(--font-sans-serif);
 }
 
 a {

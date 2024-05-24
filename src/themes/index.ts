@@ -16,6 +16,7 @@ export const DEFAULT_ACCENT_COLOR = "orange";
 const cssThemeProperties = [
   "--bg-color",
   "--bg-color-2",
+  "--bg-color-3",
   "--text-color",
   "--subtext-color",
 ] as const;
