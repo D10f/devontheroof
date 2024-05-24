@@ -1,60 +1,49 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { TfiPalette } from "react-icons/tfi";
-import {
-  themeOptions,
-  accentOptions,
-  switchTheme,
-  switchAccent,
-  ThemeOptions,
-  AccentOptions,
-  getVariableValue,
-} from "@/lib/theme";
+import useTheme from "@/hooks/useTheme";
 import Dropdown from "@/components/Dropdown";
+import { CSSColorProperty } from "@/themes";
 
 export default function ThemeController() {
-  const [theme, setTheme] = useState<ThemeOptions>("Cattpuccin Frappe");
-  const [accent, setAccent] = useState<AccentOptions>("peach");
-
-  useEffect(() => {
-    switchTheme(theme);
-    switchAccent(accent, theme);
-  }, [theme, accent]);
-
+  const theme = useTheme();
   return (
     <Dropdown trigger={<TfiPalette className="icon" />}>
       <ul>
         <p>Themes</p>
-        {themeOptions.map((themeName, idx) => (
+        {theme.variants.map((variant, idx) => (
           <li
             key={idx}
             className={
-              themeName === theme
+              variant === theme.variant
                 ? "dropdown__item dropdown__item--active"
                 : "dropdown__item"
             }
           >
-            <button onClick={() => setTheme(themeName)}>{themeName}</button>
+            <button onClick={() => theme.changeTheme(variant)}>
+              {variant}
+            </button>
           </li>
         ))}
       </ul>
       <ul>
         <p>Accent</p>
-        {accentOptions.map((accentColor, idx) => (
+        {theme.colors.map((color, idx) => (
           <li
             key={idx}
             className={
-              accentColor === accent
+              color === theme.accentColor
                 ? "dropdown__row-item dropdown__row-item--active"
                 : "dropdown__row-item"
             }
           >
-            <button onClick={() => setAccent(accentColor)}>
+            <button
+              onClick={() => theme.changeColor(color as CSSColorProperty)}
+            >
               <span
                 className="circle"
                 style={{
-                  backgroundColor: getVariableValue(accentColor, theme),
+                  backgroundColor: `var(--${color})`,
                 }}
               />
             </button>
