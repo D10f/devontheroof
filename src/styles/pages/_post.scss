@@ -139,7 +139,14 @@
 
 .imageblock {
   img {
-    // height: 100%;
     max-width: 100%;
+    display: block;
+    margin-inline: auto;
+    border-radius: calc(var(--border-radius) / 2);
+  }
+
+  figcaption {
+    color: var(--subtext-color);
+    font-size: 1rem;
   }
 }
