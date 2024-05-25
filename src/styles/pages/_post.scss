@@ -57,6 +57,20 @@
   h4 {
     display: inline-block;
     padding-inline: 0.25em;
+    // background-color: var(--primary-color);
+    // color: var(--bg-color);
+
+    // &::selection {
+    //   background-color: var(--bg-color);
+    //   color: var(--primary-color);
+    // }
+  }
+}
+
+.sect1 {
+  h2 {
+    font-size: 1.5rem;
+    margin-block: 0.75em 0.25em;
     background-color: var(--primary-color);
     color: var(--bg-color);
 
@@ -67,17 +81,11 @@
   }
 }
 
-.sect1 {
-  h2 {
-    font-size: 1.5rem;
-    margin-block: 0.75em 0.25em;
-  }
-}
-
 .sect2 {
   h3 {
     font-size: 1.2rem;
-    margin-block: 0.75em 0.25em;
+    margin-block: 0.2em;
+    border-bottom: 2px solid var(--primary-color);
   }
 }
 
