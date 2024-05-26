@@ -1,48 +1,61 @@
-import { AbstractNode, Asciidoctor, Converter } from "asciidoctor";
+import { AbstractNode } from "asciidoctor";
+import { CustomConverter } from "@/lib/asciidoc/converters/BaseConverter";
 
-/**
- * Dynamically builds a <source> element with srcset
- */
-function makeImageSrcset(
-  src: string,
-  filetype: string,
-  width: number,
-  threshold: "min" | "max" = "min",
-) {
-  const imageName = src.replace(/\.\w{2,4}$/, `-${width}.${filetype}`);
-  return `<source srcset="/${imageName} ${width}w" media="(${threshold}-width: ${width}px)" type="image/${filetype}">`;
-}
+type ImageConverterProps = {
+  sizes?: number[];
+  filetypes?: string[];
+};
 
-export default class ImageConverter {
-  private converter: Converter;
+export default class ImageConverter implements CustomConverter {
+  /**
+   * The node type that this class modifies.
+   */
+  public targetNode = "image";
 
-  constructor(asciidoctor: Asciidoctor) {
-    this.converter = asciidoctor.Html5Converter.create();
+  /**
+   * Viewport width breakpoints.
+   */
+  private sizes = [768, 960];
+
+  /**
+   * Image filetypes to include as options to the picture element.
+   */
+  private filetypes = ["webp"];
+
+  constructor(props?: ImageConverterProps) {
+    props?.sizes && (this.sizes = props.sizes);
+    props?.filetypes && (this.filetypes = props.filetypes);
   }
 
-  convert(node: AbstractNode) {
-    if (node.getNodeName() === "image") {
-      const attributes = node.getAttributes();
+  convert(node: AbstractNode): string {
+    const attributes = node.getAttributes();
 
-      const figurePos = attributes.attribute_entries[0].value;
-      const figure = attributes.$positional[0];
+    const figurePos = attributes.attribute_entries[0].value;
+    const figure = attributes.$positional[0];
 
-      const nodeHTML = `
-        <figure class="imageblock">
-          <picture>
-            ${makeImageSrcset(attributes.target, "webp", 960)}
-            ${makeImageSrcset(attributes.target, "webp", 768)}
-            ${makeImageSrcset(attributes.target, "webp", 768)}
-            <source srcset="/assets/ssl_pulse_protocol_support-portrait.png" media="(orientation: portrait)">
-            <img src="/${attributes.target}" alt="${attributes.alt}" loading="lazy" />
-          </picture>
-          <figcaption>Figure ${figurePos}. ${figure}</figcaption>
-        </figure>
-      `;
+    const srcSets = this.makeImageSrcset(attributes.target, "webp", 768);
 
-      return nodeHTML;
-    }
+    // ${ this.makeImageSrcset(attributes.target, "webp", 960) }
+    // ${ this.makeImageSrcset(attributes.target, "webp", 768) }
+    const nodeHTML = `
+      <figure class="imageblock">
+        <picture>
+          <img src="/${attributes.target}" alt="${attributes.alt}" loading="lazy" />
+        </picture>
+        <figcaption>Figure ${figurePos}. ${figure}</figcaption>
+      </figure>
+    `;
 
-    return this.converter.convert(node);
+    return nodeHTML;
+  }
+
+  private makeImageSrcset(
+    src: string,
+    filetype: string,
+    width: number,
+    threshold: "min" | "max" = "min",
+  ) {
+    const imageName = src.replace(/\.\w{2,4}$/, `-${width}.${filetype}`);
+    return `<source srcset="/${imageName} ${width}w" media="(${threshold}-width: ${width}px)" type="image/${filetype}">`;
   }
 }

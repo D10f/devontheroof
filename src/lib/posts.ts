@@ -1,45 +1,34 @@
 import fs from "fs";
 import path from "path";
-import Asciidoctor, { Document, Title } from "asciidoctor";
+import Asciidoctor, { AbstractNode, Document, Title } from "asciidoctor";
+import BaseConverter, {
+  CustomConverter,
+} from "@/lib/asciidoc/converters/BaseConverter";
 
 export function getPosts() {
   const files = fs.readdirSync("public", "utf-8");
   return files.filter((file) => file.endsWith(".adoc"));
 }
 
-// export function parsePost(slug: string) {
-//   const asciidoctor = Asciidoctor();
-//   return asciidoctor.loadFile(`public/${slug}.adoc`, { safe: "unsafe" });
-// }
-
-function responsiveImages() {
-  // const content = (post.getContent() as string).replaceAll(
-  //   "assets/",
-  //   "/assets/",
-  // );
-}
-
 const BASE_PATHNAME = "public";
 
-export default class Doc {
-  private asciidoctor: ReturnType<typeof Asciidoctor>;
-  private doc: Document;
+export default class AsciidocParser {
+  private asciidoctor = Asciidoctor();
+  private document: Document;
   private documentTitle: Title;
+  private converter: BaseConverter;
 
   constructor(slug: string) {
-    this.asciidoctor = Asciidoctor();
-    this.doc = this.load(slug);
-    this.documentTitle = this.doc.getDocumentTitle({
+    this.document = this.readFile(slug);
+    this.documentTitle = this.document.getDocumentTitle({
       partition: true,
     }) as Title;
+    this.converter = new BaseConverter();
+    this.registerConverter();
   }
 
   get title() {
     return this.documentTitle.getMain();
-  }
-
-  get hasSubtitle() {
-    return this.documentTitle.hasSubtitle();
   }
 
   get subtitle() {
@@ -47,21 +36,29 @@ export default class Doc {
   }
 
   get version() {
-    return this.doc.getRevisionNumber();
+    return this.document.getRevisionNumber();
   }
 
   get date() {
-    return this.doc.getRevisionDate();
+    return this.document.getRevisionDate();
   }
 
   get content() {
-    // makes all URLs absolute
-    return this.doc.getContent()?.replaceAll("assets/", "/assets/") as string;
+    return this.document.getContent() as string;
   }
 
-  private load(slug: string) {
+  private registerConverter() {
+    this.asciidoctor.ConverterFactory.register(this.converter, ["html5"]);
+  }
+
+  private readFile(slug: string) {
     return this.asciidoctor.loadFile(path.join(BASE_PATHNAME, slug + ".adoc"), {
       safe: "unsafe",
     });
+  }
+
+  use(converter: CustomConverter) {
+    this.converter.use(converter);
+    return this;
   }
 }
