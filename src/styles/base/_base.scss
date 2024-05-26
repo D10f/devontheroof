@@ -71,6 +71,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -94,7 +95,8 @@ strong {
 }
 
 ol,
-ul {
+ul,
+menu {
   list-style: none;
 }
 
