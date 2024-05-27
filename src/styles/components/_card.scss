@@ -1,0 +1,44 @@
+.card {
+  position: relative;
+  padding: 0.5em;
+  border: 1px solid var(--subtext-color);
+  border-radius: calc(var(--border-radius) / 2);
+  background-color: var(--bg-color-2);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: var(--shadow);
+    transition: opacity 150ms ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:has(a:focus),
+  &:hover {
+    border-color: var(--primary-color);
+    background-color: var(--bg-color-3);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+
+    a:hover,
+    a:focus {
+      color: var(--primary-color);
+      outline: none;
+    }
+  }
+
+  &__date {
+    display: block;
+    color: var(--subtext-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.2em;
+  }
+}

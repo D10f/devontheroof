@@ -1,4 +1,16 @@
-.blog__title {
-  color: orange;
-  font-size: 32px;
+.blog {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  max-width: var(--max-width);
+  margin-inline: auto;
+
+  @media (min-width: 650px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: unset;
+    align-items: unset;
+  }
 }
