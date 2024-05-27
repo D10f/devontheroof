@@ -34,6 +34,10 @@ export default class ThemeContext {
   constructor(private activeTheme: ThemeStrategy) { }
 
   get variant() {
+    return this.activeTheme.variant;
+  }
+
+  get cssVariant() {
     return this.activeTheme.cssVariant;
   }
 
@@ -52,13 +56,13 @@ export default class ThemeContext {
       const codeblock = codeblocks[i] as HTMLElement;
       codeblock.style.setProperty(
         "background-color",
-        `var(--shiki-${this.variant}-bg)`,
+        `var(--shiki-${this.cssVariant}-bg)`,
       );
 
       const tokens = codeblock.getElementsByTagName("span");
       for (let j = 0, l = tokens.length; j < l; ++j) {
         const token = tokens[j] as HTMLElement;
-        token.style.setProperty("color", `var(--shiki-${this.variant})`);
+        token.style.setProperty("color", `var(--shiki-${this.cssVariant})`);
       }
     }
   }
