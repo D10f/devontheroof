@@ -16,6 +16,14 @@ const colorMap: Record<CSSColorProperty, string> = {
   purple: "mauve",
 };
 
+const variableMap: Record<CSSThemeProperty, string> = {
+  "--bg-color": "crust",
+  "--bg-color-2": "mantle",
+  "--bg-color-3": "base",
+  "--text-color": "text",
+  "--subtext-color": "subtext1",
+};
+
 export type CattpuccinVariants = (typeof variants)[number];
 
 export default class Cattpuccin implements ThemeStrategy {
@@ -34,18 +42,7 @@ export default class Cattpuccin implements ThemeStrategy {
   }
 
   cssThemeMap(property: CSSThemeProperty) {
-    switch (property) {
-      case "--bg-color":
-        return `--ctp-${this.cssVariant}-crust`;
-      case "--bg-color-2":
-        return `--ctp-${this.cssVariant}-mantle`;
-      case "--bg-color-3":
-        return `--ctp-${this.cssVariant}-base`;
-      case "--text-color":
-        return `--ctp-${this.cssVariant}-text`;
-      case "--subtext-color":
-        return `--ctp-${this.cssVariant}-subtext1`;
-    }
+    return `--ctp-${this.cssVariant}-${variableMap[property]}`;
   }
 
   cssColorMap(color: CSSColorProperty) {
