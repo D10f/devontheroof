@@ -25,6 +25,7 @@ export default function useTheme() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     currentTheme.updateCSSThemeProps();
+    currentTheme.updateCodeBlockProps();
     currentTheme.updateCSSAccentColorProps(storedAccent);
   }, [currentTheme]);
 

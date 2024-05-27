@@ -34,7 +34,7 @@ export default class ThemeContext {
   constructor(private activeTheme: ThemeStrategy) { }
 
   get variant() {
-    return this.activeTheme.variant;
+    return this.activeTheme.cssVariant;
   }
 
   get variants() {
@@ -43,6 +43,24 @@ export default class ThemeContext {
 
   get colors() {
     return this.activeTheme.colors;
+  }
+
+  public updateCodeBlockProps() {
+    const codeblocks = document.getElementsByClassName("shiki");
+
+    for (let i = 0, l = codeblocks.length; i < l; ++i) {
+      const codeblock = codeblocks[i] as HTMLElement;
+      codeblock.style.setProperty(
+        "background-color",
+        `var(--shiki-${this.variant}-bg)`,
+      );
+
+      const tokens = codeblock.getElementsByTagName("span");
+      for (let j = 0, l = tokens.length; j < l; ++j) {
+        const token = tokens[j] as HTMLElement;
+        token.style.setProperty("color", `var(--shiki-${this.variant})`);
+      }
+    }
   }
 
   public updateCSSThemeProps() {
