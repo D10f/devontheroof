@@ -1,5 +1,5 @@
 import path from "path";
-import Asciidoctor, { Document, Title } from "asciidoctor";
+import Asciidoctor, { Block, Document, Title } from "asciidoctor";
 import BaseConverter, {
   CustomConverter,
 } from "@/lib/asciidoc/converters/BaseConverter";
@@ -12,8 +12,8 @@ export default class AsciidocParser {
   private documentTitle: Title;
   private converter: BaseConverter;
 
-  constructor(slug: string) {
-    this.document = this.readFile(slug);
+  constructor(private filename: string) {
+    this.document = this.readFile(filename);
     this.documentTitle = this.document.getDocumentTitle({
       partition: true,
     }) as Title;
@@ -41,12 +41,23 @@ export default class AsciidocParser {
     return this.document.getContent() as string;
   }
 
+  get slug() {
+    return this.filename.replace(/\..*$/, "");
+  }
+
+  get preamble() {
+    // https://gitlab.com/opendevise/oss/descriptionizer
+    const [documentBlock] = this.document.getBlocks() as Block[];
+    const [preambleBlock] = documentBlock.getBlocks() as Block[];
+    if (preambleBlock) return preambleBlock.getSourceLines()[0];
+  }
+
   private registerConverter() {
     this.asciidoctor.ConverterFactory.register(this.converter, ["html5"]);
   }
 
-  private readFile(slug: string) {
-    return this.asciidoctor.loadFile(path.join(BASE_PATHNAME, slug + ".adoc"), {
+  private readFile(filename: string) {
+    return this.asciidoctor.loadFile(path.join(BASE_PATHNAME, filename), {
       safe: "unsafe",
     });
   }
