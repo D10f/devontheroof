@@ -44,8 +44,9 @@ export default class CodeBlockConverter implements CustomConverter {
 
   convert(node: Block) {
     const input = node.getSourceLines().join("\n");
+    const lang = node.getAttribute("language");
     const output = this.highlighter?.codeToHtml(input, {
-      lang: node.getAttribute("language"),
+      lang,
       themes: {
         light: "github-light",
         dark: "github-dark",
@@ -58,7 +59,7 @@ export default class CodeBlockConverter implements CustomConverter {
       cssVariablePrefix: "--shiki-",
     });
 
-    return `<div class="listingblock">
+    return `<div class="listingblock" data-language="${lang}">
       <div class="content">
         ${output}
       </div>

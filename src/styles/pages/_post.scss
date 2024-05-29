@@ -114,11 +114,35 @@
   margin-block: 1em;
   // max-width: calc(100vw - var(--padder-margin) * 2);
   overflow: auto;
-  background-color: var(--bg-color-3);
+  // background-color: var(--bg-color-3);
   border-radius: calc(var(--border-radius) / 2);
+
+  &[data-language] {
+    position: relative;
+
+    &::before {
+      content: attr(data-language);
+      position: absolute;
+      width: min-content;
+      top: 0.5em;
+      right: 0.5em;
+      font-size: 0.8rem;
+      color: var(--subtext-color);
+      background-color: var(--bg-color-3);
+      padding: 0.5em;
+      border: 1px solid var(--subtext-color);
+      border-radius: calc(var(--border-radius) / 2);
+      opacity: 0;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
 
   pre {
     padding: 0.5em;
+    min-width: min-content;
   }
 }
 
