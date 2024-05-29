@@ -7,10 +7,10 @@
   max-width: var(--max-width);
   margin-inline: auto;
 
-  @media (min-width: 650px) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: unset;
-    align-items: unset;
-  }
+  // @media (min-width: 650px) {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  //   justify-content: unset;
+  //   align-items: unset;
+  // }
 }

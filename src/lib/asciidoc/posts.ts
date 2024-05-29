@@ -29,6 +29,7 @@ export function getAllPosts() {
 export function generatePageMetadata(post: AsciidocParser) {
   return {
     title: post.title,
-    description: post.preamble,
+    description: post.description,
+    keywords: post.keywords + ", " + post.technologies,
   };
 }

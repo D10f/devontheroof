@@ -5,6 +5,9 @@ export default function Home() {
     <>
       <h1>Work in Progress. Please hold.</h1>
       <p>
+        <Link href="/blog">Blog</Link>
+      </p>
+      <p>
         <Link href="/blog/shell">Shell scripting</Link>
       </p>
       <p>

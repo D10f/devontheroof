@@ -21,6 +21,23 @@ export default class AsciidocParser {
     this.registerConverter();
   }
 
+  get description() {
+    return this.document.getAttribute("description");
+  }
+
+  get keywords() {
+    return this.document.getAttribute("keywords");
+  }
+
+  /**
+   * A non-standard attribute list describing the technologies the document
+   * speaks about. It is later used to display an icon.
+   */
+  get technologies(): string[] {
+    const techs = this.document.getAttribute("technologies") || "";
+    return techs.split(" ");
+  }
+
   get title() {
     return this.documentTitle.getMain();
   }
