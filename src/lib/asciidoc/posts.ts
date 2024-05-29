@@ -25,3 +25,10 @@ export function getPostData(
 export function getAllPosts() {
   return getPostFilenames().map((filename) => getPostData(filename));
 }
+
+export function generatePageMetadata(post: AsciidocParser) {
+  return {
+    title: post.title,
+    description: post.preamble,
+  };
+}
