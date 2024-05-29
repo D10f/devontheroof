@@ -1,19 +1,28 @@
-import { AbstractNode, Converter } from "asciidoctor";
+import { Block } from "asciidoctor";
 import { CustomConverter } from "@/lib/asciidoc/converters/BaseConverter";
 import {
   BundledLanguage,
   BundledTheme,
   HighlighterGeneric,
-  createCssVariablesTheme,
   getHighlighter,
 } from "shiki";
 
-const myTheme = createCssVariablesTheme({
-  name: "css-variables",
-  variablePrefix: "--shiki-",
-  variableDefaults: {},
-  fontStyle: true,
-});
+const defaultThemes: BundledTheme[] = [
+  "catppuccin-latte",
+  "catppuccin-frappe",
+  "catppuccin-macchiato",
+  "catppuccin-mocha",
+  "github-dark",
+  "github-light",
+];
+
+const defaultLanguages: BundledLanguage[] = [
+  "javascript",
+  "typescript",
+  "console",
+  "shell",
+  "bash",
+];
 
 export default class CodeBlockConverter implements CustomConverter {
   /**
@@ -21,32 +30,20 @@ export default class CodeBlockConverter implements CustomConverter {
    */
   public targetNode = "listing";
 
-  private themes = [
-    "catppuccin-latte",
-    "catppuccin-frappe",
-    "catppuccin-macchiato",
-    "catppuccin-mocha",
-    "github-dark",
-    "github-light",
-    "one-dark-pro",
-    "nord",
-    "vitesse-dark",
-    "vitesse-light",
-  ];
-
-  private languages = ["javascript", "console", "shell", "bash"];
-
   private highlighter: HighlighterGeneric<BundledLanguage, BundledTheme> | null;
 
-  constructor() {
+  constructor(
+    private themes = defaultThemes,
+    private languages = defaultLanguages,
+  ) {
     this.highlighter = null;
     getHighlighter({ themes: this.themes, langs: this.languages }).then((h) => {
       this.highlighter = h;
     });
   }
 
-  convert(node: AbstractNode) {
-    const input = node.lines.join("\n");
+  convert(node: Block) {
+    const input = node.getSourceLines().join("\n");
     const output = this.highlighter?.codeToHtml(input, {
       lang: node.getAttribute("language"),
       themes: {

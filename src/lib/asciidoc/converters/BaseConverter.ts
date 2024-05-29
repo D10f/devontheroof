@@ -5,7 +5,7 @@ import Asciidoctor, {
 } from "asciidoctor";
 
 export interface CustomConverter {
-  targetNode: string;
+  readonly targetNode: string;
   convert(node: AbstractNode, converter: Converter): string;
 }
 
