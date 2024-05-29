@@ -15,10 +15,7 @@ export default function BlogPage() {
             <time className="card__date">{post.date}</time>
           </header>
 
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eveniet
-            vel dicta minus culpa nostrum fugiat est nulla cupiditate possimus?
-          </p>
+          <p>{post.preamble}</p>
         </article>
       ))}
     </div>
