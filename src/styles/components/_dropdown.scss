@@ -60,6 +60,7 @@
 
   &--active {
     border-bottom-color: var(--primary-color);
+    pointer-events: none;
   }
 }
 
