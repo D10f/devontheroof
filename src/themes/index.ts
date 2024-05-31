@@ -11,7 +11,7 @@ export type CSSThemeProperty = (typeof cssThemeProperties)[number];
 export type CSSColorProperty = (typeof cssColorProperties)[number];
 
 export const DEFAULT_THEME = "Cattpuccin Frappe";
-export const DEFAULT_ACCENT_COLOR = "orange";
+export const DEFAULT_ACCENT_COLOR = "yellow";
 
 const cssThemeProperties = [
   "--bg-color",
