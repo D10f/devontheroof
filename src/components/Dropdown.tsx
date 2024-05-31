@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TfiClose } from "react-icons/tfi";
+import { useBoolean, useEventListener, useOnClickOutside } from "usehooks-ts";
 
 type DropdownProps = {
     children: React.ReactNode;
@@ -10,11 +11,15 @@ type DropdownProps = {
 };
 
 export default function Dropdown({ children, trigger }: DropdownProps) {
-    const [isOpen, setIsOpen] = useState(false);
+    const { value: isOpen, setFalse, toggle } = useBoolean(false);
 
-    const toggle = () => setIsOpen((previous) => !previous);
-
+    const dropdown = useRef<HTMLDivElement>(null);
     const menu = useRef<HTMLElement>(null);
+
+    useOnClickOutside(dropdown, setFalse);
+    useEventListener("keyup", (e) => {
+        if (isOpen && e.key === "Escape") setFalse();
+    });
 
     useEffect(() => {
         if (!menu.current) return;
@@ -27,7 +32,7 @@ export default function Dropdown({ children, trigger }: DropdownProps) {
     }, [isOpen]);
 
     return (
-        <div className="dropdown">
+        <div className="dropdown" ref={dropdown}>
             <button
                 onClick={toggle}
                 className={
