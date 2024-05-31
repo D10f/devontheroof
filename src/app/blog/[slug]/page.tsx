@@ -6,6 +6,9 @@ import {
 import ImageConverter from "@/lib/asciidoc/converters/ImageConverter";
 import PreambleConverter from "@/lib/asciidoc/converters/PreambleConverter";
 import CodeBlockConverter from "@/lib/asciidoc/converters/CodeBlockConverter";
+import { AbstractNode } from "asciidoctor";
+import { CustomConverter } from "@/lib/asciidoc/converters/BaseConverter";
+import { getHighlighter } from "shiki";
 
 export let metadata = {};
 
@@ -16,11 +19,24 @@ export function generateStaticParams() {
   return getPostSlugs();
 }
 
-export default function PostPage({ params }: any) {
+const themes = [
+  "catppuccin-latte",
+  "catppuccin-frappe",
+  "catppuccin-macchiato",
+  "catppuccin-mocha",
+  "github-dark",
+  "github-light",
+];
+
+const langs = ["javascript", "typescript", "console", "shell", "bash"];
+
+export default async function PostPage({ params }: any) {
   const post = getPostData(params.slug + ".adoc", [
     new ImageConverter(),
     new PreambleConverter(),
-    new CodeBlockConverter(),
+    new CodeBlockConverter(await getHighlighter({ themes, langs })),
+    // getHighlighter({ themes: this.themes, langs: this.languages }).then((h) => {
+    //   this.highlighter = h;
   ]);
 
   metadata = generatePageMetadata(post);

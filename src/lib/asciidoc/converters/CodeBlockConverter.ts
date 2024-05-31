@@ -1,28 +1,8 @@
 import { Block } from "asciidoctor";
 import { CustomConverter } from "@/lib/asciidoc/converters/BaseConverter";
-import {
-  BundledLanguage,
-  BundledTheme,
-  HighlighterGeneric,
-  getHighlighter,
-} from "shiki";
+import { BundledLanguage, BundledTheme, HighlighterGeneric } from "shiki";
 
-const defaultThemes: BundledTheme[] = [
-  "catppuccin-latte",
-  "catppuccin-frappe",
-  "catppuccin-macchiato",
-  "catppuccin-mocha",
-  "github-dark",
-  "github-light",
-];
-
-const defaultLanguages: BundledLanguage[] = [
-  "javascript",
-  "typescript",
-  "console",
-  "shell",
-  "bash",
-];
+type Highlighter = HighlighterGeneric<BundledLanguage, BundledTheme>;
 
 export default class CodeBlockConverter implements CustomConverter {
   /**
@@ -30,22 +10,12 @@ export default class CodeBlockConverter implements CustomConverter {
    */
   public targetNode = "listing";
 
-  private highlighter: HighlighterGeneric<BundledLanguage, BundledTheme> | null;
-
-  constructor(
-    private themes = defaultThemes,
-    private languages = defaultLanguages,
-  ) {
-    this.highlighter = null;
-    getHighlighter({ themes: this.themes, langs: this.languages }).then((h) => {
-      this.highlighter = h;
-    });
-  }
+  constructor(private highlighter: Highlighter) { }
 
   convert(node: Block) {
     const input = node.getSourceLines().join("\n");
     const lang = node.getAttribute("language");
-    const output = this.highlighter?.codeToHtml(input, {
+    const output = this.highlighter.codeToHtml(input, {
       lang,
       themes: {
         light: "github-light",
