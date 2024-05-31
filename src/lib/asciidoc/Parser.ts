@@ -13,12 +13,12 @@ export default class AsciidocParser {
   private converter: BaseConverter;
 
   constructor(private filename: string) {
+    this.converter = new BaseConverter();
+    this.registerConverter();
     this.document = this.readFile(filename);
     this.documentTitle = this.document.getDocumentTitle({
       partition: true,
     }) as Title;
-    this.converter = new BaseConverter();
-    this.registerConverter();
   }
 
   get description() {
