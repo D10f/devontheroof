@@ -23,11 +23,11 @@ export default function useTheme() {
   const [currentTheme, setCurrentTheme] = useState(makeTheme(storedTheme));
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    // if (typeof window === "undefined") return;
     currentTheme.updateCSSThemeProps();
     currentTheme.updateCodeBlockProps();
     currentTheme.updateCSSAccentColorProps(storedAccent);
-  }, [currentTheme]);
+  }, [currentTheme, storedAccent]);
 
   function changeTheme(themeName: string) {
     setCurrentTheme(makeTheme(themeName));
