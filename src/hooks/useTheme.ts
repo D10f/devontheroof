@@ -4,6 +4,7 @@ import {
   CSSColorProperty,
 } from "@/themes";
 import makeTheme from "@/themes/factory";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useLocalStorage } from "usehooks-ts";
 
@@ -21,6 +22,7 @@ export default function useTheme() {
   );
 
   const [currentTheme, setCurrentTheme] = useState(makeTheme(storedTheme));
+  const path = usePathname();
 
   useEffect(() => {
     // if (typeof window === "undefined") return;
@@ -28,6 +30,11 @@ export default function useTheme() {
     currentTheme.updateCodeBlockProps();
     currentTheme.updateCSSAccentColorProps(storedAccent);
   }, [currentTheme, storedAccent]);
+
+  useEffect(() => {
+    if (!path.startsWith("/blog/")) return;
+    currentTheme.updateCodeBlockProps();
+  }, [currentTheme, path]);
 
   function changeTheme(themeName: string) {
     setCurrentTheme(makeTheme(themeName));
