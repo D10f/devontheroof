@@ -14,12 +14,13 @@ export default function PostCard({ post }: PostCardProps) {
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h2>
                 <time className="card__date">{post.date}</time>
-                <aside className="card__tags">
-                    {post.technologies.map((tech) => (
-                        <PostTag tag={tech} key={post.title} />
-                    ))}
-                </aside>
             </header>
+
+            <aside className="card__tags">
+                {post.technologies.map((tech) => (
+                    <PostTag tag={tech} key={post.title} />
+                ))}
+            </aside>
 
             <p>{post.preamble}</p>
         </article>

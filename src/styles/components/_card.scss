@@ -1,28 +1,35 @@
 .card {
   position: relative;
   padding: 0.5em;
-  border: 1px solid var(--subtext-color);
   border-radius: calc(var(--border-radius) / 2);
-  background-color: var(--bg-color-2);
+  background-color: var(--bg-color-3);
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    box-shadow: var(--shadow);
-    transition: opacity 150ms ease;
-    opacity: 0;
-    pointer-events: none;
+  @media (min-width: 650px) {
+    display: grid;
+    grid-template:
+      "header  tags" auto
+      "content content" auto /
+      1fr min-content;
+
+    header {
+      grid-area: header;
+    }
+
+    p {
+      grid-area: content;
+    }
+
+    &__tags {
+      grid-area: tags;
+      align-self: flex-start;
+    }
   }
+
 
   &:has(a:focus),
   &:hover {
     border-color: var(--primary-color);
     background-color: var(--bg-color-3);
-
-    &::before {
-      opacity: 1;
-    }
   }
 
   &__title {
