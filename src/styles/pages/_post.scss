@@ -111,7 +111,17 @@
     color: var(--primary-color);
   }
 
-  /* inline code */
+  /* paragraph representing some console output */
+  &.output {
+    padding-left: 1em;
+    font-size: 1rem;
+    font-family: var(--font-mono);
+  }
+}
+
+/* inline code */
+p,
+ul {
   code {
     background-color: var(--bg-color-3);
     color: var(--primary-color);
@@ -120,13 +130,6 @@
     border-bottom: 2px solid var(--bg-color-2);
     font-family: var(--font-mono);
     font-size: 0.9em;
-  }
-
-  /* paragraph representing some console output */
-  &.output {
-    padding-left: 1em;
-    font-size: 1rem;
-    font-family: var(--font-mono);
   }
 }
 
