@@ -29,7 +29,15 @@ const themes = [
     "github-light",
 ];
 
-const langs = ["javascript", "typescript", "console", "shell", "bash"];
+const langs = [
+    "javascript",
+    "typescript",
+    "console",
+    "shell",
+    "bash",
+    "php",
+    "python",
+];
 
 export default async function PostPage({ params }: any) {
     const post = getPostData(params.slug + ".adoc", [

@@ -171,8 +171,7 @@ ul {
 }
 
 /* colist: annotations to source code*/
-.listingblock,
-.colist {
+.listingblock {
   font-family: var(--font-mono);
   font-size: 1rem;
 }
@@ -187,9 +186,14 @@ ul {
 }
 
 /* code markers */
+.colist,
 .conum,
 .conum+b {
   font-size: 1rem;
+}
+
+.conum,
+.conum+b {
   color: var(--primary-color);
 }
 
@@ -198,6 +202,11 @@ ul {
   font-size: 1rem;
   padding: 0.25em;
   border-radius: var(--border-radius);
+}
+
+table.tableblock {
+  width: 100%;
+  text-align: left;
 }
 
 .imageblock {
