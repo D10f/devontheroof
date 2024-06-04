@@ -1,0 +1,48 @@
+/**
+* Base case, make lines of code full width
+*/
+pre.shiki {
+  /* overwrites styles applied by codeblocks without/before highlighting */
+  padding: 0.5em 0 !important;
+
+  span.line {
+    padding-inline: 0.5em;
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+/**
+* Add styles for shiki diff transformer
+*/
+.diff {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    right: 1em;
+  }
+
+  &:is(.remove)::before {
+    content: '-';
+  }
+
+  &:is(.add)::before {
+    content: '+';
+  }
+
+  &.remove {
+    background-color: rgba(231, 130, 132, 0.5);
+  }
+
+  &.add {
+    background-color: rgba(166, 209, 137, 0.5);
+  }
+}
+
+/**
+* Add styles for shiki hightlighter transformer
+*/
+.highlighted {
+  background-color: rgba(153, 209, 219, 0.4);
+}
