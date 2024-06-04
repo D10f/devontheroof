@@ -107,6 +107,10 @@
 .paragraph {
   margin-block: 0.5em;
 
+  a {
+    color: var(--primary-color);
+  }
+
   /* inline code */
   code {
     background-color: var(--bg-color-3);
@@ -116,6 +120,13 @@
     border-bottom: 2px solid var(--bg-color-2);
     font-family: var(--font-mono);
     font-size: 0.9em;
+  }
+
+  /* paragraph representing some console output */
+  &.output {
+    padding-left: 1em;
+    font-size: 1rem;
+    font-family: var(--font-mono);
   }
 }
 

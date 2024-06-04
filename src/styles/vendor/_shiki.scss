@@ -52,4 +52,5 @@ pre.shiki {
  */
 .listingblock[data-language="console"] .shiki span.line span:first-child {
   user-select: none;
+  pointer-events: none;
 }
