@@ -154,6 +154,12 @@
     padding: 0.5em;
     min-width: min-content;
   }
+
+  .callout {
+    display: inline-block;
+    transform: scale(1.2) translateX(0.25em);
+    color: var(--primary-color) !important;
+  }
 }
 
 /* colis: annotations to source code*/
