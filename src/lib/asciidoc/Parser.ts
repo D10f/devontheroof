@@ -1,9 +1,12 @@
 import path from "path";
 import Asciidoctor, { Block, Document, Title } from "asciidoctor";
+import dayjs from "dayjs";
+import AdvancedFormat from "dayjs/plugin/advancedFormat";
 import BaseConverter, {
     CustomConverter,
 } from "@/lib/asciidoc/converters/BaseConverter";
 
+dayjs.extend(AdvancedFormat);
 const BASE_PATHNAME = "public/posts";
 
 export default class AsciidocParser {
@@ -51,7 +54,8 @@ export default class AsciidocParser {
     }
 
     get date() {
-        return this.document.getRevisionDate();
+        return dayjs(this.document.getRevisionDate());
+        //return this.document.getRevisionDate();
     }
 
     get content() {

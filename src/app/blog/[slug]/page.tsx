@@ -1,7 +1,7 @@
 import {
-  generatePageMetadata,
-  getPostData,
-  getPostSlugs,
+    generatePageMetadata,
+    getPostData,
+    getPostSlugs,
 } from "@/lib/asciidoc/posts";
 import ImageConverter from "@/lib/asciidoc/converters/ImageConverter";
 import PreambleConverter from "@/lib/asciidoc/converters/PreambleConverter";
@@ -16,46 +16,48 @@ export let metadata = {};
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getPostSlugs();
+    return getPostSlugs();
 }
 
 const themes = [
-  "catppuccin-latte",
-  "catppuccin-frappe",
-  "catppuccin-macchiato",
-  "catppuccin-mocha",
-  "github-dark",
-  "github-light",
+    "catppuccin-latte",
+    "catppuccin-frappe",
+    "catppuccin-macchiato",
+    "catppuccin-mocha",
+    "github-dark",
+    "github-light",
 ];
 
 const langs = ["javascript", "typescript", "console", "shell", "bash"];
 
 export default async function PostPage({ params }: any) {
-  const post = getPostData(params.slug + ".adoc", [
-    new ImageConverter(),
-    new PreambleConverter(),
-    new CodeBlockConverter(await getHighlighter({ themes, langs })),
-    // getHighlighter({ themes: this.themes, langs: this.languages }).then((h) => {
-    //   this.highlighter = h;
-  ]);
+    const post = getPostData(params.slug + ".adoc", [
+        new ImageConverter(),
+        new PreambleConverter(),
+        new CodeBlockConverter(await getHighlighter({ themes, langs })),
+        // getHighlighter({ themes: this.themes, langs: this.languages }).then((h) => {
+        //   this.highlighter = h;
+    ]);
 
-  metadata = generatePageMetadata(post);
+    metadata = generatePageMetadata(post);
 
-  return (
-    <div className="post">
-      <header>
-        <h1 className="post__title">{post.title}</h1>
-        {post.subtitle && <h2 className="post__subtitle">{post.subtitle}</h2>}
-      </header>
+    return (
+        <div className="post">
+            <header>
+                <h1 className="post__title">{post.title}</h1>
+                {post.subtitle && (
+                    <h2 className="post__subtitle">{post.subtitle}</h2>
+                )}
+            </header>
 
-      <aside className="post__metadata">
-        <span>{post.date}</span>
-      </aside>
+            <aside className="post__metadata">
+                <span>{post.date.format("MMM Do, YYYY")}</span>
+            </aside>
 
-      <main
-        className="post__content"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      />
-    </div>
-  );
+            <main
+                className="post__content"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+        </div>
+    );
 }

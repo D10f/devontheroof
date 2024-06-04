@@ -13,7 +13,9 @@ export default function PostCard({ post }: PostCardProps) {
                 <h2 className="card__title">
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h2>
-                <time className="card__date">{post.date}</time>
+                <time className="card__date">
+                    {post.date.format("MMM Do, YYYY")}
+                </time>
             </header>
 
             <aside className="card__tags">
