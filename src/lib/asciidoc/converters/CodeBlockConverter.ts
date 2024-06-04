@@ -61,21 +61,30 @@ export default class CodeBlockConverter implements CustomConverter {
                 const lastNode = node.children.at(-1);
                 // @ts-ignore
                 const contents = lastNode?.children[0];
-                const hasCallout = contents?.value.match(/<(\d)+>\s*$/);
+                const colistMatch = contents?.value.match(/<(\d)+>\s*$/);
 
-                if (hasCallout) {
+                if (colistMatch) {
                     const lastIdx = node.children.length - 1;
+                    const conum = parseInt(colistMatch[1]);
 
                     node.children[lastIdx] = {
                         type: "element",
-                        tagName: "span",
+                        tagName: "i",
                         properties: {
-                            class: "callout",
+                            class: "conum pl-2 unselectable",
+                            "data-value": conum,
                         },
                         children: [
                             {
-                                type: "text",
-                                value: htmlEntities[hasCallout[1] - 1],
+                                type: "element",
+                                tagName: "b",
+                                properties: {},
+                                children: [
+                                    {
+                                        type: "text",
+                                        value: htmlEntities[conum - 1],
+                                    },
+                                ],
                             },
                         ],
                     };

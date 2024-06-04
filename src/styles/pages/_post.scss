@@ -154,19 +154,29 @@
     padding: 0.5em;
     min-width: min-content;
   }
-
-  .callout {
-    display: inline-block;
-    transform: scale(1.2) translateX(0.25em);
-    color: var(--primary-color) !important;
-  }
 }
 
-/* colis: annotations to source code*/
+/* colist: annotations to source code*/
 .listingblock,
 .colist {
   font-family: var(--font-mono);
   font-size: 1rem;
+}
+
+.colist table {
+  table-layout: fixed;
+
+  td {
+    padding-inline: 0.5em;
+    vertical-align: top;
+  }
+}
+
+/* code markers */
+.conum,
+.conum+b {
+  font-size: 1rem;
+  color: var(--primary-color);
 }
 
 .tableblock {

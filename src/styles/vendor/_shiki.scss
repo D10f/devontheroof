@@ -46,3 +46,10 @@ pre.shiki {
 .highlighted {
   background-color: rgba(153, 209, 219, 0.4);
 }
+
+/**
+ * Make console code blocks ignore the leading prompt ($ or # for root)
+ */
+.listingblock[data-language="console"] .shiki span.line span:first-child {
+  user-select: none;
+}

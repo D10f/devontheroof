@@ -1,21 +1,30 @@
 .padder {
-    margin: var(--padder-margin);
-    border-radius: var(--border-radius);
-    min-height: calc(100vh - 1.5rem);
+  margin: var(--padder-margin);
+  border-radius: var(--border-radius);
+  min-height: calc(100vh - 1.5rem);
 
-    @media (min-width: 768px) {
-        .padder {
-            background-color: coral;
-            background-color: var(--ctp-frappe-base);
-        }
-    }
+  // @media (min-width: 1100px) {
+  //   margin: var(--padder-margin) auto;
+  //   max-width: var(--max-width);
+  //   background-color: var(--bg-color-2);
+  //   padding: var(--padder-margin);
+  // }
 }
 
 .circle {
-    display: inline-block;
-    margin: 0.5em;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background-color: currentColor;
+  display: inline-block;
+  margin: 0.5em;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.unselectable {
+  pointer-events: none;
+  user-select: none;
+}
+
+.pl-2 {
+  padding-left: 0.5em;
 }

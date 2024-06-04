@@ -9,6 +9,7 @@ import CodeBlockConverter from "@/lib/asciidoc/converters/CodeBlockConverter";
 import { AbstractNode } from "asciidoctor";
 import { CustomConverter } from "@/lib/asciidoc/converters/BaseConverter";
 import { getHighlighter } from "shiki";
+import ColistConverter from "@/lib/asciidoc/converters/ColistConverter";
 
 export let metadata = {};
 
@@ -35,8 +36,7 @@ export default async function PostPage({ params }: any) {
         new ImageConverter(),
         new PreambleConverter(),
         new CodeBlockConverter(await getHighlighter({ themes, langs })),
-        // getHighlighter({ themes: this.themes, langs: this.languages }).then((h) => {
-        //   this.highlighter = h;
+        new ColistConverter(),
     ]);
 
     metadata = generatePageMetadata(post);
