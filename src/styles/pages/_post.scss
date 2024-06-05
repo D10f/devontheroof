@@ -230,18 +230,50 @@ table.tableblock {
   padding: 1em;
   margin-block: 1em;
 
+  svg {
+    float: left;
+    width: 48px;
+    aspect-ratio: 1;
+    margin: 1em;
+  }
+
   &.warning {
-    --bg-color-3: rgba(223, 142, 29, 0.1);
+    --bg-color-3: rgba(223, 142, 29, 0.2);
 
     svg {
       color: var(--yellow);
     }
   }
 
-  svg {
-    float: left;
-    width: 48px;
-    aspect-ratio: 1;
-    margin: 1em;
+  &.tip {
+    --bg-color-3: rgba(166, 209, 137, 0.2);
+
+    svg {
+      color: var(--green);
+    }
+  }
+
+  &.important {
+    --bg-color-3: rgba(153, 209, 219, 0.2);
+
+    svg {
+      color: var(--blue);
+    }
+  }
+
+  &.caution {
+    --bg-color-3: rgba(239, 159, 118, 0.2);
+
+    svg {
+      color: var(--orange);
+    }
+  }
+
+  &.note {
+    --bg-color-3: rgba(113, 63, 18, 0.2);
+
+    svg {
+      color: rgb(113, 64, 18);
+    }
   }
 }
