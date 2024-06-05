@@ -110,13 +110,12 @@
   a {
     color: var(--primary-color);
   }
+}
 
-  /* paragraph representing some console output */
-  &.output {
-    padding-left: 1em;
-    font-size: 1rem;
-    font-family: var(--font-mono);
-  }
+.literalblock {
+  padding-left: 1em;
+  font-size: 1rem;
+  font-family: var(--font-mono);
 }
 
 /* inline code */
@@ -220,5 +219,26 @@ table.tableblock {
   figcaption {
     color: var(--subtext-color);
     font-size: 1rem;
+  }
+}
+
+.admonition {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  font-size: 1.2rem;
+  background-color: var(--bg-color-3);
+  border-radius: calc(var(--border-radius) / 2);
+  padding: 1em;
+  margin-block: 1em;
+
+  &.warning {
+    color: var(--yellow);
+  }
+
+  svg {
+    width: 48px;
+    height: 48px;
   }
 }
