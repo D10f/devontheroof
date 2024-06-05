@@ -224,22 +224,24 @@ table.tableblock {
 }
 
 .admonition {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1em;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   background-color: var(--bg-color-3);
   border-radius: calc(var(--border-radius) / 2);
   padding: 1em;
   margin-block: 1em;
 
   &.warning {
-    color: var(--yellow);
+    --bg-color-3: rgba(223, 142, 29, 0.1);
+
+    svg {
+      color: var(--yellow);
+    }
   }
 
   svg {
+    float: left;
     width: 48px;
-    height: 48px;
+    aspect-ratio: 1;
+    margin: 1em;
   }
 }
