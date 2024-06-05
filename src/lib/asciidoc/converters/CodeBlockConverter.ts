@@ -26,6 +26,7 @@ export default class CodeBlockConverter implements CustomConverter {
     convert(node: Block) {
         const input = node.getSourceLines().join("\n");
         const lang = node.getAttribute("language");
+        const title = node.getAttribute("title");
         const output = this.highlighter.codeToHtml(input, {
             lang,
             themes: {
@@ -46,9 +47,11 @@ export default class CodeBlockConverter implements CustomConverter {
         });
 
         return `<div class="listingblock" data-language="${lang}">
-            <div class="content">
+            <span style="font-style: italic;">${title || ""}</span>
+            <figure class="content">
+                ${title ? `<figcaption class="visually-hidden">${title}</figcaption>` : ""}
                 ${output}
-            </div>
+            </figure>
         </div>`;
     }
 

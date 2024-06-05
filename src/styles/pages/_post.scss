@@ -116,6 +116,7 @@
   padding-left: 1em;
   font-size: 1rem;
   font-family: var(--font-mono);
+  overflow: scroll;
 }
 
 /* inline code */
@@ -135,11 +136,9 @@ ul {
 /* code block */
 .listingblock {
   margin-block: 1em;
-  // max-width: calc(100vw - var(--padder-margin) * 2);
   overflow: auto;
-  // background-color: var(--bg-color-3);
-  border-radius: calc(var(--border-radius) / 2);
 
+  /* language tag */
   &[data-language] {
     position: relative;
 
@@ -163,9 +162,11 @@ ul {
     }
   }
 
-  pre {
-    padding: 0.5em;
-    min-width: min-content;
+  figure {
+    pre {
+      border-radius: calc(var(--border-radius) / 2);
+      min-width: min-content;
+    }
   }
 }
 
