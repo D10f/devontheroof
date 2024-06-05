@@ -37,6 +37,8 @@ const langs = [
     "bash",
     "php",
     "python",
+    "docker",
+    "yaml",
 ];
 
 export default async function PostPage({ params }: any) {
