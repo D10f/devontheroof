@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TfiClose } from "react-icons/tfi";
+import { MdClose } from "react-icons/md";
 import { useBoolean, useEventListener, useOnClickOutside } from "usehooks-ts";
 
 type DropdownProps = {
@@ -43,7 +43,7 @@ export default function Dropdown({ children, trigger }: DropdownProps) {
             >
                 <span>
                     {trigger}
-                    <TfiClose className="icon" />
+                    <MdClose className="icon" />
                 </span>
             </button>
             <AnimatePresence>
