@@ -1,10 +1,12 @@
 import path from "path";
-import Asciidoctor, { Block, Document, Title } from "asciidoctor";
+import Asciidoctor, { Block, Document, Title, AbstractNode } from "asciidoctor";
 import dayjs from "dayjs";
+import { getHighlighter } from "shiki";
 import AdvancedFormat from "dayjs/plugin/advancedFormat";
 import BaseConverter, {
     CustomConverter,
 } from "@/lib/asciidoc/converters/BaseConverter";
+import CodeBlockConverter from "@/lib/asciidoc/converters/CodeBlockConverter";
 
 dayjs.extend(AdvancedFormat);
 const BASE_PATHNAME = "public/posts";
@@ -15,7 +17,10 @@ export default class AsciidocParser {
     private documentTitle: Title;
     private converter: BaseConverter;
 
-    constructor(private filename: string) {
+    constructor(
+        private filename: string,
+        private syntaxHighlighterThemes: string[] = [],
+    ) {
         this.converter = new BaseConverter();
         this.registerConverter();
         this.document = this.readFile(filename);
@@ -71,6 +76,24 @@ export default class AsciidocParser {
         const [documentBlock] = this.document.getBlocks() as Block[];
         const [preambleBlock] = documentBlock.getBlocks() as Block[];
         if (preambleBlock) return preambleBlock.getSourceLines()[0];
+    }
+
+    async useSyntaxHighligher() {
+        const languages = this.document
+            .findBy({ context: "listing" })
+            .reduce((acc, cur) => {
+                acc.add(cur.getAttribute("language"));
+                return acc;
+            }, new Set<string>());
+
+        this.use(
+            new CodeBlockConverter(
+                await getHighlighter({
+                    themes: this.syntaxHighlighterThemes,
+                    langs: Array.from(languages),
+                }),
+            ),
+        );
     }
 
     private registerConverter() {

@@ -5,11 +5,8 @@ import {
 } from "@/lib/asciidoc/posts";
 import ImageConverter from "@/lib/asciidoc/converters/ImageConverter";
 import PreambleConverter from "@/lib/asciidoc/converters/PreambleConverter";
-import CodeBlockConverter from "@/lib/asciidoc/converters/CodeBlockConverter";
-import { AbstractNode } from "asciidoctor";
-import { CustomConverter } from "@/lib/asciidoc/converters/BaseConverter";
-import { getHighlighter } from "shiki";
 import ColistConverter from "@/lib/asciidoc/converters/ColistConverter";
+import AdmonitionConverter from "@/lib/asciidoc/converters/AdmonitionConverter";
 
 export let metadata = {};
 
@@ -20,34 +17,15 @@ export function generateStaticParams() {
     return getPostSlugs();
 }
 
-const themes = [
-    "catppuccin-latte",
-    "catppuccin-frappe",
-    "catppuccin-macchiato",
-    "catppuccin-mocha",
-    "github-dark",
-    "github-light",
-];
-
-const langs = [
-    "javascript",
-    "typescript",
-    "console",
-    "shell",
-    "bash",
-    "php",
-    "python",
-    "docker",
-    "yaml",
-];
-
 export default async function PostPage({ params }: any) {
     const post = getPostData(params.slug + ".adoc", [
         new ImageConverter(),
         new PreambleConverter(),
-        new CodeBlockConverter(await getHighlighter({ themes, langs })),
         new ColistConverter(),
+        new AdmonitionConverter(),
     ]);
+
+    await post.useSyntaxHighligher();
 
     metadata = generatePageMetadata(post);
 
