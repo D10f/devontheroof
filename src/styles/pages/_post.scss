@@ -262,10 +262,10 @@ table.tableblock {
   }
 
   &.caution {
-    --bg-color-3: rgba(239, 159, 118, 0.2);
+    --bg-color-3: rgba(231, 130, 132, 0.2);
 
     svg {
-      color: var(--orange);
+      color: var(--red);
     }
   }
 
