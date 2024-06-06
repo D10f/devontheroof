@@ -11,7 +11,7 @@ export default function PostTag({ tag }: PostTagProps) {
         <>
             <span className="post__tag" data-tooltip-id={tag}>
                 <svg aria-hidden="true">
-                    <use xlinkHref={svgSprite} />
+                    <use href={svgSprite} />
                 </svg>
             </span>
             <Tooltip id={tag} place="bottom" content={tag} />
