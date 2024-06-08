@@ -230,11 +230,14 @@ table.tableblock {
   padding: 1em;
   margin-block: 1em;
 
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 1em;
+
   svg {
-    float: left;
     width: 48px;
     aspect-ratio: 1;
-    margin: 1em;
+    margin-block: auto;
   }
 
   &.warning {
