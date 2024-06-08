@@ -1,5 +1,5 @@
 import path from "path";
-import Asciidoctor, { Block, Document, Title, AbstractNode } from "asciidoctor";
+import Asciidoctor, { Block, Document, Title } from "asciidoctor";
 import dayjs from "dayjs";
 import { getHighlighter } from "shiki";
 import AdvancedFormat from "dayjs/plugin/advancedFormat";
