@@ -54,3 +54,17 @@ pre.shiki {
   user-select: none;
   pointer-events: none;
 }
+
+/**
+* Add styles for shiki focus transformer
+*/
+pre.has-focused {
+  .line:not(.focused) {
+    transition: filter 500ms ease;
+    filter: blur(2px);
+  }
+
+  &:hover .line {
+    filter: unset;
+  }
+}
