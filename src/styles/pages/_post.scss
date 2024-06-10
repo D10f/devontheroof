@@ -109,6 +109,13 @@
 
   a {
     color: var(--primary-color);
+    outline: none;
+
+    &:focus,
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--bg-color-3);
+    }
   }
 }
 
@@ -231,8 +238,12 @@ table.tableblock {
   margin-block: 1em;
 
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: 1fr;
   gap: 1em;
+
+  @media (min-width: 768px) {
+    grid-template-columns: min-content 1fr;
+  }
 
   svg {
     width: 48px;
