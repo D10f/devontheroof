@@ -1,3 +1,52 @@
-@mixin debugger($color: coral) {
-  border: 1px solid $color;
+@use 'sass:math';
+
+@mixin debugger($recursive: false,
+  $root: true,
+  $prop: outline,
+  $color: coral,
+  $style: solid,
+  $width: 1px) {
+  @if $recursive {
+    @if $root {
+      & {
+        #{$prop}: $width $style $color;
+      }
+    }
+
+    &>*+* {
+      #{$prop}: $width $style $color;
+    }
+
+  }
+
+  @else {
+    #{$prop}: $width $style $color;
+  }
+}
+
+
+@mixin truncate($length, $ellipsis: true) {
+  @if (math.is-unitless($length)) {
+    @error 'Provided length value "#{$length}" has no unit.';
+  }
+
+  max-width: $length;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @if ($ellipsis) {
+    text-overflow: ellipsis;
+  }
+}
+
+@mixin visually-hidden() {
+  &:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 }
