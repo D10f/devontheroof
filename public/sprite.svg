@@ -20,6 +20,13 @@
             <path fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" d="m 4.0559072,12.951629 c 2.7459832,2.734744 7.1981158,2.734744 9.9441188,0 l -1.789955,-1.782586 c -1.75742,1.750224 -4.6067879,1.750224 -6.3642294,0 -1.7574416,-1.7502236 -1.7574416,-4.587893 0,-6.338097 1.7574415,-1.750224 4.6068094,-1.750224 6.3642294,0 l 0.894977,-0.8912929 0.894978,-0.891293 c -2.746003,-2.73472867 -7.1981359,-2.73472867 -9.944119,0 -2.7459858,2.7347089 -2.7459858,7.1685599 2e-7,9.9032689 z" clip-rule="evenodd" />
         </symbol>
 
+        <symbol id="icon-css" viewBox="0 0 16 16">
+            <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="var(--blue)" d="M1.5 1.5h13L13 13l-5 2-5-2z"/>
+                <path stroke="var(--blue)" d="M5 4.5h6l-.5 6-2.5 1-2.5-1-.08-1m1.08-2h4"/>
+            </g>
+        </symbol>
+
         <symbol id="icon-docker" viewBox="0 0 16 16">
             <path fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" d="M.5 8.5H11l.75-.5a5.35 5.35 0 010-3.5c1 .6 1 1.88 1.74 2 .77-.09 1.23.01 2 .52 0 0-.97 1.77-2.5 1.98-1.93 3.65-4.5 5.5-6.98 5.5C0 14.5.5 8.5.5 8.5m1 0v-2m0 0h8m-6 2v-4m0 0h4m-2-2h2m-2 6v-6m2 6v-6m2 6v-2" />
         </symbol>
@@ -38,6 +45,10 @@
                 <path d="m.5 2 3-1.5 3 1.5v6.5" />
                 <path d="M.5 2v10.17l6 3.33 6.02-3.41V8.5L6.5 12.04l-3-1.54v-7z" />
             </g>
+        </symbol>
+
+        <symbol id="icon-markdown" viewBox="0 0 16 16">
+            <path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" d="m9.25 8.25 2.25 2.25 2.25-2.25M3.5 11V5.5l2.04 3 1.96-3V11m4-.5V5M1.65 2.5h12.7c.59 0 1.15.49 1.15 1v9c0 .51-.56 1-1.15 1H1.65c-.59 0-1.15-.49-1.15-1V3.58c0-.5.56-1.08 1.15-1.08"/>
         </symbol>
 
         <symbol id="icon-javascript" viewBox="0 0 16 16">
@@ -84,6 +95,10 @@
 	        <path fill="none" stroke="var(--red)" stroke-linecap="round" stroke-linejoin="round" d="M1.5 9.06v2.5c.02.86.36 1.61.9 2.15 1.76 1.76 5.71.65 8.84-2.47 3.12-3.13 4.23-7.08 2.47-8.84a3.1 3.1 0 00-2.15-.9h-2.5M14.5 4l-.25 10.25L4 14.5m4.39-6.11c2.34-2.35 3.29-5.2 2.12-6.37S6.49 1.8 4.14 4.14C1.8 6.5.85 9.34 2.02 10.51s4.02.22 6.37-2.12M5.5 14.5l.25-3.75L11 11l-.25-5.25 3.75-.25" />
         </symbol>
 
+        <symbol id="icon-sass" viewBox="0 0 16 16">
+            <path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--purple)" stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.38c1.85 1.07 3.35.74 4.83-.2 1.5-.95 2.7-2.78 1.3-4.15-.7-.68-3.25-.8-5.62.19-2.36.99-4.59 3.02-4.74 4.11-.31 2.19 3.15 2.88 3.64 4.23s.28 1.98-.2 2.83c-.5.85-1.96 1.62-2.8.68-.83-.95 1.67-2.75 2.98-3.25 1.3-.5 3.1-.4 3.69.25.58.64-.07 1.79-.03 1.79"/>
+        </symbol>
+
         <symbol id="icon-tailwind" viewBox="0 0 16 16">
 	        <path fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" d="M8 2.5q-3 0-3.75 3.33C5 4.73 5.88 4.31 6.87 4.58c.58.16.98.62 1.43 1.13.74.83 1.6 1.79 3.45 1.79q3 0 3.75-3.33c-.75 1.1-1.63 1.52-2.63 1.25-.57-.16-.97-.62-1.42-1.13C10.7 3.46 9.85 2.5 8 2.5m-3.75 6q-3 0-3.75 3.33c.75-1.1 1.63-1.52 2.63-1.25.57.16.97.62 1.42 1.13.74.83 1.6 1.79 3.45 1.79q3 0 3.75-3.33c-.75 1.1-1.63 1.52-2.62 1.25-.58-.16-.98-.62-1.43-1.13-.74-.83-1.6-1.79-3.45-1.79" />
         </symbol>
@@ -117,6 +132,14 @@
 
         <symbol id="icon-warning" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24">
             <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+        </symbol>
+
+        <symbol id="icon-webpack" viewBox="0 0 16 16">
+            <g xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="var(--blue)" d="m4.5 10.02-3 1.73M11.47 10l3.03 1.75M8 4V.5"/>
+                <path stroke="var(--blue)" d="M11.5 10 8 12l-3.5-2V6L8 4l3.5 2z"/>
+                <path stroke="var(--blue)" d="M14.5 11.75 8 15.5l-6.5-3.75v-7.5L8 .5l6.5 3.75zm-13-7.5L8 8m6.5-3.75L8 8m0 0v7.5"/>
+            </g>
         </symbol>
     </defs>
 </svg>
