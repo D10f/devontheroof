@@ -1,3 +1,5 @@
+@use '../abstract/' as *;
+
 /**
 * Base case, make lines of code full width
 */
@@ -51,8 +53,7 @@ pre.shiki {
  * Make console code blocks ignore the leading prompt ($ or # for root)
  */
 .listingblock[data-language="console"] .shiki span.line span:first-child {
-  user-select: none;
-  pointer-events: none;
+  @include unselectable;
 }
 
 /**

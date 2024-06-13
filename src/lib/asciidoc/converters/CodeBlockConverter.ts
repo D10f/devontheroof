@@ -62,7 +62,7 @@ export default class CodeBlockConverter implements CustomConverter {
      */
     private transformAnnotations(): ShikiTransformer {
         function buildAnnotation(num: number) {
-            return `<i class="conum pl-2 unselectable" data-value="${num}"><b>${htmlEntities[num - 1]}</b></i>`;
+            return `<i class="conum pl-2" data-value="${num}"><b>${htmlEntities[num - 1]}</b></i>`;
         }
 
         return {

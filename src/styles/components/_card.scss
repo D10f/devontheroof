@@ -1,14 +1,16 @@
+@use '../abstract' as *;
+
 .card {
   position: relative;
   padding: 0.5em;
-  border-radius: calc(var(--border-radius) / 2);
-  background-color: var(--bg-color-3);
+  // border-radius: calc(var(--border-radius) / 2);
+  // background-color: var(--bg-color-3);
 
   @media (min-width: 650px) {
     display: grid;
     grid-template:
-      "header  tags" auto
-      "content content" auto /
+      "header tags" auto /
+      // "content content" auto /
       1fr min-content;
 
     header {

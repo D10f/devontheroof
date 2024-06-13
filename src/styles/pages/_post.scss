@@ -199,15 +199,16 @@ ul {
 }
 
 /* code markers */
-.colist,
-.conum,
-.conum+b {
+.colist {
   font-size: 1rem;
 }
 
 .conum,
 .conum+b {
+  @include unselectable;
   color: var(--primary-color);
+  font-size: 1rem;
+  font-family: var(--font-mono);
 }
 
 .tableblock {

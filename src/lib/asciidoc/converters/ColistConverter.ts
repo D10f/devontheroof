@@ -29,7 +29,7 @@ export default class ColistConverter implements CustomConverter {
         return `<tr>
             <td>
                 <i class="conum pr-2" data-value="${marker}"></i>
-                <b class="unselectable">${htmlEntities[parseInt(marker) - 1]}</b>
+                <b>${htmlEntities[parseInt(marker) - 1]}</b>
             </td>
             <td>${text}</td>
         </tr>`;

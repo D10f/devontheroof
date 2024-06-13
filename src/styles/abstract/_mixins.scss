@@ -50,3 +50,8 @@
     width: 1px;
   }
 }
+
+@mixin unselectable {
+  pointer-events: none;
+  user-select: none;
+}
