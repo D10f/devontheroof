@@ -1,3 +1,5 @@
+@use '../abstract/' as *;
+
 .post {
   @media (min-width: 768px) {
     max-width: 80ch;
@@ -116,6 +118,10 @@
       background-color: var(--primary-color);
       color: var(--bg-color-3);
     }
+  }
+
+  &.truncate p {
+    @include truncate(40ch);
   }
 }
 
