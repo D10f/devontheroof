@@ -23,8 +23,6 @@ export default function PostCard({ post }: PostCardProps) {
                     <PostTag tag={tech} key={post.title} />
                 ))}
             </aside>
-
-            <p>{post.preamble}</p>
         </article>
     );
 }
