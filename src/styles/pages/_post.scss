@@ -247,6 +247,7 @@ table.tableblock {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1em;
+  align-items: center;
 
   @media (min-width: 768px) {
     grid-template-columns: min-content 1fr;
