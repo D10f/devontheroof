@@ -299,3 +299,23 @@ table.tableblock {
     }
   }
 }
+
+// Description lists
+.dlist {
+  background-color: var(--bg-color-3);
+  padding: 1em;
+  border-radius: var(--border-radius);
+  margin-top: 1em;
+
+  dt {
+    font-weight: bold;
+
+    &:not(:first-child) {
+      margin-top: 1em;
+    }
+  }
+
+  dd {
+    padding-left: 1em;
+  }
+}
