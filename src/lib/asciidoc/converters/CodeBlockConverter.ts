@@ -40,6 +40,7 @@ export default class CodeBlockConverter implements CustomConverter {
             },
             transformers: [
                 this.transformAnnotations(),
+                this.transformConsoleCodeBlock(),
                 transformerNotationDiff(),
                 transformerNotationHighlight(),
                 transformerNotationFocus(),
@@ -55,6 +56,28 @@ export default class CodeBlockConverter implements CustomConverter {
                 ${output}
             </figure>
         </div>`;
+    }
+
+    /**
+     * This does two things, when code block is of language "console":
+     * 1. Makes the leading $ or # (command prompt) unselectable.
+     * 2. Removes a leading space added by shiki on each line of code.
+     *    Most shells don't record commands starting with a space,
+     *    which can make copy and pasting the code snippet very annoying.
+     */
+    private transformConsoleCodeBlock(): ShikiTransformer {
+        return {
+            postprocess(html, options) {
+                return options.lang === "console"
+                    ? html.replaceAll(
+                          /<span class="line"><span style="(.*)">([$#])(<\/span><span style="(.*)">) /g,
+                          (_, p1, p2, p3) => {
+                              return `<span class="line"><span class="unselectable" style="${p1}">${p2} ${p3}`;
+                          },
+                      )
+                    : html;
+            },
+        };
     }
 
     /**
