@@ -2,11 +2,31 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-block: 1rem;
-}
 
-.navbar h1 {
-  font-size: 2rem;
+  h1 {
+    font-size: 2rem;
+  }
+
+  h1:hover a,
+  h2:hover a {
+    color: var(--primary-color);
+  }
+
+  // dropdown menu
+  ul {
+    margin-left: auto;
+  }
+
+  &__breadcrumb {
+    display: flex;
+    font-size: 1.4rem;
+
+    &--active {
+      @include unselectable;
+      // border-bottom: 1px solid var(--primary-color);
+      color: var(--subtext-color);
+    }
+  }
 }

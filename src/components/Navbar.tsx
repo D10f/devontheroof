@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeController from "@/components/ThemeController";
+import NavbarBreadcrumb from "@/components/NavbarBreadcrumb";
 
 export default function Navbar() {
     return (
@@ -7,6 +8,8 @@ export default function Navbar() {
             <h1>
                 <Link href="/">D10f</Link>
             </h1>
+
+            <NavbarBreadcrumb />
 
             <ul>
                 <li>
