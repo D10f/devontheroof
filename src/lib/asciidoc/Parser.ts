@@ -86,14 +86,14 @@ export default class AsciidocParser {
                 return acc;
             }, new Set<string>());
 
-        this.use(
-            new CodeBlockConverter(
-                await getHighlighter({
-                    themes: this.syntaxHighlighterThemes,
-                    langs: Array.from(languages),
-                }),
-            ),
+        const codeBlockConverter = new CodeBlockConverter(
+            await getHighlighter({
+                themes: this.syntaxHighlighterThemes,
+                langs: Array.from(languages),
+            }),
         );
+
+        this.use(codeBlockConverter);
     }
 
     private registerConverter() {
