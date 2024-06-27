@@ -24,6 +24,10 @@
   }
 }
 
+@mixin contain {
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
 
 @mixin truncate($length, $ellipsis: true) {
   @if (math.is-unitless($length)) {

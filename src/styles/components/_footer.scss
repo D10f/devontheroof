@@ -1,0 +1,41 @@
+@use "../abstract/mixins" as *;
+
+.footer {
+  @include contain;
+  margin-top: 2em;
+  padding-block: 2em;
+  font-size: 1.2rem;
+  border-top: 1px solid var(--ctp-frappe-surface2);
+
+  &__field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+  }
+
+  a {
+    color: var(--text-color) !important;
+
+    &:hover {
+      color: var(--primary-color) !important;
+    }
+  }
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
