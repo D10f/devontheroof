@@ -60,7 +60,7 @@ export default function Footer() {
                                 <use href={`/sprite.svg#icon-email`} />
                             </svg>
                         </Link>
-                        <Tooltip id="email" place="left" content="Email" />
+                        <Tooltip id="email" place="top" content="Email" />
                     </li>
                     <li>
                         <Link
@@ -74,7 +74,7 @@ export default function Footer() {
                         </Link>
                         <Tooltip
                             id="gpg"
-                            place="left"
+                            place="top"
                             content="GPG public key"
                         />
                     </li>
