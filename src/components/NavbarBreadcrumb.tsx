@@ -9,13 +9,16 @@ export default function NavbarBreadcrumb() {
 
     if (!route) return null;
 
-    return route.map((p, idx) => {
-        const active = idx === route.length - 1;
+    return route.slice(0, -1).map((p, idx) => {
+        // NOTE: if last item (current page) is sliced, no need to check for
+        // active item:
+        //const active = idx === route.length - 1;
+        //<h2 className={active ? "navbar__breadcrumb--active" : ""}>
 
         return (
             <article className="navbar__breadcrumb" key={p}>
                 <span className="px-2 unselectable">/</span>
-                <h2 className={active ? "navbar__breadcrumb--active" : ""}>
+                <h2>
                     <Link href={`/${p.toLowerCase()}`}>{p}</Link>
                 </h2>
             </article>
