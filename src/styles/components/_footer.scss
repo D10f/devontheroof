@@ -35,7 +35,9 @@
 
   a {
     color: var(--text-color) !important;
+    outline: none;
 
+    &:focus,
     &:hover {
       color: var(--primary-color) !important;
     }
