@@ -7,6 +7,7 @@ import ImageConverter from "@/lib/asciidoc/converters/ImageConverter";
 import PreambleConverter from "@/lib/asciidoc/converters/PreambleConverter";
 import ColistConverter from "@/lib/asciidoc/converters/ColistConverter";
 import AdmonitionConverter from "@/lib/asciidoc/converters/AdmonitionConverter";
+import SectionConverter from "@/lib/asciidoc/converters/SectionConverter";
 
 export let metadata = {};
 
@@ -23,6 +24,7 @@ export default async function PostPage({ params }: any) {
         new PreambleConverter(),
         new ColistConverter(),
         new AdmonitionConverter(),
+        new SectionConverter(),
     ]);
 
     await post.useSyntaxHighligher();
