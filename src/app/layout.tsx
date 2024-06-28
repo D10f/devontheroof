@@ -16,11 +16,9 @@ export default function RootLayout({ children }: ChildrenProps) {
     return (
         <html lang="en">
             <body>
-                <div className="padder">
-                    <Navbar />
-                    {children}
-                    <Footer />
-                </div>
+                <Navbar />
+                {children}
+                <Footer />
             </body>
         </html>
     );

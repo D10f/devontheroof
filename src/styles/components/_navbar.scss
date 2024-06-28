@@ -1,10 +1,14 @@
 @use "../abstract/mixins" as *;
 
 .navbar {
-  display: flex;
-  align-items: center;
-  // margin-block: 1rem;
   background-color: var(--bg-color-3);
+  padding: var(--padder-margin);
+
+  &__content {
+    @include contain;
+    display: flex;
+    align-items: center;
+  }
 
   h1 {
     font-size: 2rem;

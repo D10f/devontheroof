@@ -5,17 +5,19 @@ import NavbarBreadcrumb from "@/components/NavbarBreadcrumb";
 export default function Navbar() {
     return (
         <nav className="navbar">
-            <h1>
-                <Link href="/">D10f</Link>
-            </h1>
+            <div className="navbar__content">
+                <h1>
+                    <Link href="/">D10f</Link>
+                </h1>
 
-            <NavbarBreadcrumb />
+                <NavbarBreadcrumb />
 
-            <ul>
-                <li>
-                    <ThemeController />
-                </li>
-            </ul>
+                <ul>
+                    <li>
+                        <ThemeController />
+                    </li>
+                </ul>
+            </div>
         </nav>
     );
 }

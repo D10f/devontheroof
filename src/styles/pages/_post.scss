@@ -1,6 +1,8 @@
 @use '../abstract/' as *;
 
 .post {
+  padding-inline: var(--padder-margin);
+
   @media (min-width: 768px) {
     max-width: 80ch;
     margin-inline: auto;
