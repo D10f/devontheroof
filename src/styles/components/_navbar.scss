@@ -8,6 +8,11 @@
   width: 100%;
   z-index: 10;
   box-shadow: var(--shadow);
+  transition: transform 200ms ease;
+
+  &--hidden {
+    transform: translateY(-100%);
+  }
 
   &__content {
     @include contain;
