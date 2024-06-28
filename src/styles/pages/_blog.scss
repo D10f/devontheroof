@@ -5,7 +5,8 @@
   justify-content: flex-start;
   align-items: stretch;
   gap: 1rem;
-  max-width: var(--max-width);
+  // max-width: var(--max-width);
+  max-width: 80ch;
   margin-inline: auto;
 
   // @media (min-width: 650px) {
