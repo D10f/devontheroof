@@ -1,8 +1,13 @@
 @use "../abstract/mixins" as *;
 
 .navbar {
-  background-color: var(--bg-color-3);
+  background-color: var(--bg-color-2);
   padding: var(--padder-margin);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: var(--shadow);
 
   &__content {
     @include contain;

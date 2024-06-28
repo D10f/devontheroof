@@ -6,10 +6,10 @@ export default function BlogPage() {
     posts.sort((a, b) => (a.date.isBefore(b.date) ? 1 : -1));
 
     return (
-        <div className="blog">
+        <main className="blog">
             {posts.map((post) => (
                 <PostCard post={post} key={post.slug} />
             ))}
-        </div>
+        </main>
     );
 }

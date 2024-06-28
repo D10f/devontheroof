@@ -38,3 +38,7 @@
 .visually-hidden {
   @include visually-hidden;
 }
+
+.separator {
+  margin-top: var(--navbar-offset);
+}

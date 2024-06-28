@@ -30,6 +30,8 @@
   --icon-size: 1.5rem;
 
   --padder-margin: 0.75rem;
+  --navbar-height: 70px;
+  --navbar-offset: calc(var(--navbar-height) + var(--padder-margin));
 }
 
 @media (prefers-color-scheme: dark) {

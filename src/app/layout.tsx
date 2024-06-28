@@ -17,6 +17,7 @@ export default function RootLayout({ children }: ChildrenProps) {
         <html lang="en">
             <body>
                 <Navbar />
+                <div className="separator" />
                 {children}
                 <Footer />
             </body>
