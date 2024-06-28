@@ -3,7 +3,8 @@
 .navbar {
   display: flex;
   align-items: center;
-  margin-block: 1rem;
+  // margin-block: 1rem;
+  background-color: var(--bg-color-3);
 
   h1 {
     font-size: 2rem;

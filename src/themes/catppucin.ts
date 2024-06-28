@@ -1,10 +1,10 @@
 import { CSSColorProperty, CSSThemeProperty, ThemeStrategy } from ".";
 
 const variants = [
-    "Cattpuccin Latte",
-    "Cattpuccin Frappe",
-    "Cattpuccin Macchiato",
-    "Cattpuccin Mocha",
+    "Catppuccin Latte",
+    "Catppuccin Frappe",
+    "Catppuccin Macchiato",
+    "Catppuccin Mocha",
 ] as const;
 
 const colorMap: Record<CSSColorProperty, string> = {
@@ -24,10 +24,10 @@ const variableMap: Record<CSSThemeProperty, string> = {
     "--subtext-color": "subtext0",
 };
 
-export type CattpuccinVariants = (typeof variants)[number];
+export type CatppuccinVariants = (typeof variants)[number];
 
-export default class Cattpuccin implements ThemeStrategy {
-    constructor(public variant: CattpuccinVariants) {}
+export default class Catppuccin implements ThemeStrategy {
+    constructor(public variant: CatppuccinVariants) {}
 
     get cssVariant() {
         return this.variant.substring(11).toLowerCase();
