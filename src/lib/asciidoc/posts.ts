@@ -11,13 +11,13 @@ const syntaxHighlighterThemes = [
     "github-light",
 ];
 
-export function getPostFilenames() {
-    const files = fs.readdirSync("public/posts", "utf-8");
+export function getFilenames(dir = "posts") {
+    const files = fs.readdirSync(`public/${dir}`, "utf-8");
     return files.filter((file) => file.endsWith(".adoc"));
 }
 
-export function getPostSlugs() {
-    return getPostFilenames().map((post) => ({
+export function getSlugs(dir = "posts") {
+    return getFilenames(dir).map((post) => ({
         slug: post.replace(/\..*$/, ""),
     }));
 }
@@ -32,7 +32,9 @@ export function getPostData(
 }
 
 export function getAllPosts() {
-    return getPostFilenames().map((filename) => getPostData(filename));
+    return getFilenames().map((filename) =>
+        getPostData(`public/posts/${filename}`),
+    );
 }
 
 export function generatePageMetadata(post: AsciidocParser) {

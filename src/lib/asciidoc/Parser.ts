@@ -68,7 +68,10 @@ export default class AsciidocParser {
     }
 
     get slug() {
-        return this.filename.replace(/\..*$/, "");
+        //return this.filename.replace(/\..*$/, "");
+        return this.filename.replace(/^.*\/([^/]+$)/, (_, p1) => {
+            return p1.replace(/\..*$/, "");
+        });
     }
 
     get preamble() {
@@ -101,7 +104,8 @@ export default class AsciidocParser {
     }
 
     private readFile(filename: string) {
-        return this.asciidoctor.loadFile(path.join(BASE_PATHNAME, filename), {
+        //return this.asciidoctor.loadFile(path.join(BASE_PATHNAME, filename), {
+        return this.asciidoctor.loadFile(filename, {
             safe: "unsafe",
         });
     }

@@ -1,7 +1,7 @@
 import {
     generatePageMetadata,
     getPostData,
-    getPostSlugs,
+    getSlugs,
 } from "@/lib/asciidoc/posts";
 import ImageConverter from "@/lib/asciidoc/converters/ImageConverter";
 import PreambleConverter from "@/lib/asciidoc/converters/PreambleConverter";
@@ -15,11 +15,11 @@ export let metadata = {};
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-    return getPostSlugs();
+    return getSlugs("posts");
 }
 
 export default async function PostPage({ params }: any) {
-    const post = getPostData(params.slug + ".adoc", [
+    const post = getPostData(`public/posts/${params.slug}.adoc`, [
         new ImageConverter(),
         new PreambleConverter(),
         new ColistConverter(),
