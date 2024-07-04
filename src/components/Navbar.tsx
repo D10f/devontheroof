@@ -41,6 +41,15 @@ export default function Navbar() {
                             What I Use
                         </Link>
                     </li>
+
+                    <li>
+                        <Link
+                            className={navbarLinkStyle("contact")}
+                            href="/contact"
+                        >
+                            Contact
+                        </Link>
+                    </li>
                 </menu>
 
                 <menu className="navbar__dropdown">
