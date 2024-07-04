@@ -75,7 +75,7 @@ export default function Footer() {
                         <Tooltip
                             id="gpg"
                             place="top"
-                            content="GPG public key"
+                            content="PGP public key"
                         />
                     </li>
                 </ul>
