@@ -6,7 +6,7 @@ export default function BlogPage() {
     posts.sort((a, b) => (a.date.isBefore(b.date) ? 1 : -1));
 
     return (
-        <main className="blog">
+        <main className="content">
             {posts.map((post) => (
                 <PostCard post={post} key={post.slug} />
             ))}

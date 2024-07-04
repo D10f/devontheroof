@@ -1,4 +1,3 @@
-import AdmonitionConverter from "@/lib/asciidoc/converters/AdmonitionConverter";
 import ImageConverter from "@/lib/asciidoc/converters/ImageConverter";
 import PreambleConverter from "@/lib/asciidoc/converters/PreambleConverter";
 import SectionConverter from "@/lib/asciidoc/converters/SectionConverter";
@@ -21,13 +20,12 @@ export default function SinglePage({ params }: any) {
         new ImageConverter(),
         new PreambleConverter(),
         new SectionConverter(),
-        new AdmonitionConverter(),
     ]);
 
     metadata = generatePageMetadata(post);
 
     return (
-        <div className="post">
+        <div className="content">
             <header>
                 <h1 className="post__title">{post.title}</h1>
                 {post.subtitle && (

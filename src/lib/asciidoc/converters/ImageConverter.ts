@@ -50,10 +50,6 @@ export default class ImageConverter implements CustomConverter {
         // ${ this.makeImageSrcset(attributes.target, "webp", 960) }
         // ${ this.makeImageSrcset(attributes.target, "webp", 768) }
 
-        if (Object.hasOwn(attributes, "attribute_entries")) {
-            console.log(attributes.attribute_entries[0]);
-        }
-
         const nodeHTML = `
           <figure class="imageblock">
             <picture>

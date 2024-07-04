@@ -2,7 +2,6 @@
 
 .footer {
   @include contain;
-  margin-top: 2em;
   padding-block: 2em;
   font-size: 1.2rem;
   border-top: 1px solid var(--ctp-frappe-surface2);
@@ -14,11 +13,6 @@
     align-items: center;
     gap: 1em;
     margin-top: 1em;
-
-    // @media (min-width: 768px) {
-    //   flex-direction: row;
-    //   justify-content: space-between;
-    // }
   }
 
   h2 {
