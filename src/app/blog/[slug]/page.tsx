@@ -32,7 +32,7 @@ export default async function PostPage({ params }: any) {
     metadata = generatePageMetadata(post);
 
     return (
-        <div className="content">
+        <div className="layout-content">
             <header>
                 <h1 className="post__title">{post.title}</h1>
                 {post.subtitle && (

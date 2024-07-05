@@ -1,15 +1,19 @@
-import Link from "next/link";
+import ImageConverter from "@/lib/asciidoc/converters/ImageConverter";
+import { generatePageMetadata, getPostData } from "@/lib/asciidoc/posts";
+
+export let metadata = {};
 
 export default function Home() {
+    const post = getPostData("public/pages/home.adoc", [new ImageConverter()]);
+
+    metadata = generatePageMetadata(post);
+
     return (
-        <div className="content">
-            <h1>Work in Progress. Please hold.</h1>
-            <p>
-                <Link href="/blog">Blog</Link>
-            </p>
-            <p>
-                <Link href="/what-i-use">What I Use</Link>
-            </p>
+        <div className="layout-content">
+            <main
+                className="post__content"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+            />
         </div>
     );
 }

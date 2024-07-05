@@ -25,17 +25,13 @@ export default function SinglePage({ params }: any) {
     metadata = generatePageMetadata(post);
 
     return (
-        <div className="content">
+        <div className="layout-content">
             <header>
                 <h1 className="post__title">{post.title}</h1>
                 {post.subtitle && (
                     <h2 className="post__subtitle">{post.subtitle}</h2>
                 )}
             </header>
-
-            <aside className="post__metadata">
-                <span>{post.date.format("MMM Do, YYYY")}</span>
-            </aside>
 
             <main
                 className="post__content"
