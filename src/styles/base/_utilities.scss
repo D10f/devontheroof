@@ -40,5 +40,5 @@
 }
 
 .separator {
-  margin-top: var(--navbar-offset);
+  margin-top: calc(var(--navbar-offset) + 3rem);
 }
