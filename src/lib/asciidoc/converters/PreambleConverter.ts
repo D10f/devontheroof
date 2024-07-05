@@ -28,7 +28,7 @@ export default class PreambleConverter implements CustomConverter {
         return preamble + '<menu class="toc">' + toc + "</menu>";
     }
 
-    private buildToc(node: Section, maxLevel = MAX_LEVEL): TocNode {
+    private buildToc(node: Section, maxLevel = this.tocMaxLevel): TocNode {
         const tocNode = {
             title: node.getTitle() as string,
             id: node.getId() as string,
