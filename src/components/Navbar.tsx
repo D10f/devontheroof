@@ -34,11 +34,8 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            className={navbarLinkStyle("what-i-use")}
-                            href="/what-i-use"
-                        >
-                            What I Use
+                        <Link className={navbarLinkStyle("uses")} href="/uses">
+                            Uses
                         </Link>
                     </li>
 
