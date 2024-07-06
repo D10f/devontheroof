@@ -1,5 +1,5 @@
+import { Metadata } from "next";
 import ImageConverter from "@/lib/asciidoc/converters/ImageConverter";
-import PreambleConverter from "@/lib/asciidoc/converters/PreambleConverter";
 import SectionConverter from "@/lib/asciidoc/converters/SectionConverter";
 import {
     generatePageMetadata,
@@ -7,7 +7,11 @@ import {
     getSlugs,
 } from "@/lib/asciidoc/posts";
 
-export let metadata = {};
+type Props = {
+    params: {
+        slug: string;
+    };
+};
 
 export const dynamicParams = false;
 
@@ -15,14 +19,16 @@ export function generateStaticParams() {
     return getSlugs("pages");
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const post = getPostData(`public/pages/${params.slug}.adoc`);
+    return generatePageMetadata(post);
+}
+
 export default function SinglePage({ params }: any) {
     const post = getPostData(`public/pages/${params.slug}.adoc`, [
         new ImageConverter(),
-        new PreambleConverter(),
         new SectionConverter(),
     ]);
-
-    metadata = generatePageMetadata(post);
 
     return (
         <div className="layout-content">
