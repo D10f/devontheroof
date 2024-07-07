@@ -13,6 +13,25 @@
     align-items: center;
     gap: 1em;
     margin-top: 1em;
+
+    /* Enforce links (with icons, especially) are only highlighted when hovered over */
+    --red: var(--text-color);
+    --orange: var(--text-color);
+    --yellow: var(--text-color);
+    --green: var(--text-color);
+    --blue: var(--text-color);
+    --purple: var(--text-color);
+    --white: var(--text-color);
+
+    a:hover svg {
+      --red: var(--primary-color);
+      --orange: var(--primary-color);
+      --yellow: var(--primary-color);
+      --green: var(--primary-color);
+      --blue: var(--primary-color);
+      --purple: var(--primary-color);
+      --white: var(--primary-color);
+    }
   }
 
   h2 {
