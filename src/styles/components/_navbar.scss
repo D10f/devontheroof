@@ -9,15 +9,28 @@
   z-index: 10;
   box-shadow: var(--shadow);
   transition: transform 200ms ease;
+  transform: translate(0, 0);
 
   &--hidden {
-    transform: translateY(-150%);
+    transform: translate(0, -150%);
   }
 
   &__content {
     @include contain;
     display: flex;
     align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: min(calc(100vw - var(--padder-margin) * 2), var(--max-width));
+    border-radius: var(--border-radius);
+
+    &--hidden {
+      transform: translate(-50%, -150%);
+    }
   }
 
   h1 {
