@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Tooltip from "@/components/Tooltip";
 import BackToTop from "@/components/BackToTop";
+import SvgIcon from "@/components/SvgIcon";
 
 export default function Footer() {
     return (
@@ -18,9 +19,7 @@ export default function Footer() {
                             data-tooltip-id="_nextjs"
                             href="https://nextjs.org"
                         >
-                            <svg aria-hidden="true">
-                                <use href={`/sprite.svg#icon-nextjs`} />
-                            </svg>
+                            <SvgIcon iconName="nextjs" />
                         </Link>
                         <Tooltip
                             id="_nextjs"
@@ -34,9 +33,7 @@ export default function Footer() {
                             data-tooltip-id="_asciidoc"
                             href="https://asciidoctor.org"
                         >
-                            <svg aria-hidden="true">
-                                <use href={`/sprite.svg#icon-asciidoc`} />
-                            </svg>
+                            <SvgIcon iconName="asciidoc" />
                         </Link>
                         <Tooltip
                             id="_asciidoc"
@@ -50,9 +47,7 @@ export default function Footer() {
                             data-tooltip-id="_github"
                             href="https://github.com/d10f/devontheroof"
                         >
-                            <svg aria-hidden="true">
-                                <use href={`/sprite.svg#icon-github`} />
-                            </svg>
+                            <SvgIcon iconName="github" />
                         </Link>
                         <Tooltip
                             id="_github"
