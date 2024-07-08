@@ -7,8 +7,10 @@ export default function Footer() {
         <footer className="footer">
             <BackToTop />
 
+            <h2>Thanks for visiting!</h2>
+
             <div className="footer__field">
-                <p>Built with:</p>
+                <p>This site is built with:</p>
                 <ul>
                     <li>
                         <Link
@@ -20,7 +22,11 @@ export default function Footer() {
                                 <use href={`/sprite.svg#icon-nextjs`} />
                             </svg>
                         </Link>
-                        <Tooltip id="_nextjs" place="top" content="Next.js" />
+                        <Tooltip
+                            id="_nextjs"
+                            place="bottom"
+                            content="Next.js"
+                        />
                     </li>
                     <li>
                         <Link
@@ -34,7 +40,7 @@ export default function Footer() {
                         </Link>
                         <Tooltip
                             id="_asciidoc"
-                            place="top"
+                            place="bottom"
                             content="AsciiDoc"
                         />
                     </li>
@@ -50,7 +56,7 @@ export default function Footer() {
                         </Link>
                         <Tooltip
                             id="_github"
-                            place="top"
+                            place="bottom"
                             content="Source Code"
                         />
                     </li>
