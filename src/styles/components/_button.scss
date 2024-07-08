@@ -1,0 +1,33 @@
+.btn {
+  border: none;
+  background: none;
+  color: var(--text-color);
+  background-color: var(--bg-color-3);
+  transition: transform 200ms ease;
+
+  &:focus,
+  &:hover {
+    background-color: var(--bg-color-2);
+  }
+
+  &--round {
+    border-radius: 50%;
+  }
+
+  &--float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    box-shadow: var(--shadow);
+
+    svg {
+      height: 100% !important;
+    }
+  }
+
+  &--hidden {
+    transform: translateY(4rem) scale(0);
+  }
+}
