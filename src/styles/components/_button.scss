@@ -23,6 +23,7 @@
     box-shadow: var(--shadow);
 
     svg {
+      max-width: 32px !important;
       height: 100% !important;
     }
   }

@@ -21,7 +21,7 @@
     --green: var(--text-color);
     --blue: var(--text-color);
     --purple: var(--text-color);
-    --white: var(--text-color);
+    --text: var(--text-color);
 
     a:hover svg {
       --red: var(--primary-color);
@@ -30,7 +30,7 @@
       --green: var(--primary-color);
       --blue: var(--primary-color);
       --purple: var(--primary-color);
-      --white: var(--primary-color);
+      --text: var(--primary-color);
     }
   }
 
@@ -54,10 +54,10 @@
     &:hover {
       color: var(--primary-color) !important;
     }
-  }
 
-  svg {
-    width: 32px;
-    height: 32px;
+    svg {
+      width: 32px;
+      height: 32px;
+    }
   }
 }
