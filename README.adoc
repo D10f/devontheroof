@@ -4,13 +4,12 @@ v1, 2024-06-28
 :doctype: article
 :source-highlighter: pygments
 :icons: font
-:toc:
 
 This is my personal website, where I write notes and guides for my future self about web development, system administration and open source in general.
 
 == What Does "D10f" mean?
 
-It's a https://en.wikipedia.org/wiki/Numeronym[numeronym], an number-based abbreviation for "dev on the roof". I chose this for brevity and because it looked much better than the alternatives: _d13f_, _d16f_ or _d19f_, for the different variations of short "dev" and "developer", counting the spaces.
+It's a https://en.wikipedia.org/wiki/Numeronym[numeronym], an number-based abbreviation for "dev on the roof". I chose this for brevity and because it looked much better than the alternatives: _d13f_, _d16f_ or _d19f_, for the different variations of "dev" and "developer", with and without counting spaces.
 
 == Why "Dev On The Roof"?
 
@@ -18,4 +17,8 @@ Because rooftops tend to have great views, and who doesn't like coding with a gr
 
 == What Is The Meaning Of Life?
 
+[source]
+----
 ++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>>++++.++++++++++++..----.+++.<------------.-----------..>++++...<-.>++.----------.++++++.-.+.-------------------.+++.<.>--.++++++++++++.--.<+.>++++++++++.----------------------.+++++++++++++++++++.-----------------.+++++.<++++++++++++++++.>++++++++++++++.<--.>------------------.-------------------.++++++++++++++++++++++++++++++++++++++.<---------.>.<+++++.++++++++++++++++++++++++++++++.++++++++++++++++.---------------.+++++++++++.------------------.
+----
+
