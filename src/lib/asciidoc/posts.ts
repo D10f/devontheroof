@@ -2,6 +2,8 @@ import fs from "fs";
 import AsciidocParser from "./Parser";
 import { CustomConverter } from "./converters/BaseConverter";
 
+type DocType = "posts" | "pages" | "projects";
+
 const syntaxHighlighterThemes = [
     "catppuccin-latte",
     "catppuccin-frappe",
@@ -31,9 +33,9 @@ export function getPostData(
     return post;
 }
 
-export function getAllPosts() {
-    return getFilenames().map((filename) =>
-        getPostData(`public/posts/${filename}`),
+export function getDocs(type: DocType) {
+    return getFilenames(type).map((filename) =>
+        getPostData(`public/${type}/${filename}`),
     );
 }
 
