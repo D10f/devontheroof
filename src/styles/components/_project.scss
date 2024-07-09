@@ -1,0 +1,26 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5em;
+  padding: 1em;
+  background-color: var(--bg-color-3);
+  border-radius: var(--border-radius);
+
+  &:not(:first-child) {
+    margin-block: 1em;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+  }
+
+  &__tags {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+    margin-block: 0.25em;
+  }
+}
