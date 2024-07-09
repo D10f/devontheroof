@@ -6,7 +6,6 @@ import {
     getPostData,
     getSlugs,
 } from "@/lib/asciidoc/posts";
-import ContactPageIcons from "@/components/ContactPageIcons";
 
 type Props = {
     params: {
@@ -44,8 +43,6 @@ export default function SinglePage({ params }: any) {
                 className="post__content"
                 dangerouslySetInnerHTML={{ __html: post.content }}
             />
-
-            {post.title.toLowerCase() === "contact" && <ContactPageIcons />}
         </div>
     );
 }

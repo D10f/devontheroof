@@ -33,18 +33,19 @@ export default function Navbar() {
                             Blog
                         </Link>
                     </li>
+
                     <li>
-                        <Link className={navbarLinkStyle("uses")} href="/uses">
-                            Uses
+                        <Link
+                            className={navbarLinkStyle("projects")}
+                            href="/projects"
+                        >
+                            Projects
                         </Link>
                     </li>
 
                     <li>
-                        <Link
-                            className={navbarLinkStyle("contact")}
-                            href="/contact"
-                        >
-                            Contact
+                        <Link className={navbarLinkStyle("uses")} href="/uses">
+                            Uses
                         </Link>
                     </li>
                 </menu>

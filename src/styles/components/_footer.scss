@@ -6,6 +6,19 @@
   font-size: 1.2rem;
   border-top: 1px solid var(--ctp-frappe-surface2);
 
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
   &__field {
     display: flex;
     flex-direction: column;
