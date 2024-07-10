@@ -17,6 +17,7 @@ export default function Footer() {
                                 aria-label="Link to send an email to address"
                                 data-tooltip-id="_nextjs"
                                 href="https://nextjs.org"
+                                target="_blank"
                             >
                                 <SvgIcon iconName="nextjs" />
                             </Link>
@@ -31,6 +32,7 @@ export default function Footer() {
                                 aria-label="Link to send an email to address"
                                 data-tooltip-id="_asciidoc"
                                 href="https://asciidoctor.org"
+                                target="_blank"
                             >
                                 <SvgIcon iconName="asciidoc" />
                             </Link>
@@ -45,6 +47,7 @@ export default function Footer() {
                                 aria-label="Source code for this website"
                                 data-tooltip-id="_git"
                                 href="https://github.com/d10f/devontheroof"
+                                target="_blank"
                             >
                                 <SvgIcon iconName="git" />
                             </Link>
@@ -64,6 +67,7 @@ export default function Footer() {
                                 aria-label="Link to Codeberg profile"
                                 href="https:codeberg.org/D10f"
                                 data-tooltip-id="codeberg"
+                                target="_blank"
                             >
                                 <svg aria-hidden="true">
                                     <use href={`/sprite.svg#icon-codeberg`} />
@@ -80,6 +84,7 @@ export default function Footer() {
                                 aria-label="Link to Github profile"
                                 href="https:github.com/D10f"
                                 data-tooltip-id="github"
+                                target="_blank"
                             >
                                 <svg aria-hidden="true">
                                     <use href={`/sprite.svg#icon-github`} />
@@ -92,6 +97,7 @@ export default function Footer() {
                                 aria-label="Link to Codepen profile"
                                 href="https:codepen.io/D10f"
                                 data-tooltip-id="codepen"
+                                target="_blank"
                             >
                                 <svg aria-hidden="true">
                                     <use href={`/sprite.svg#icon-codepen`} />
