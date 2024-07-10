@@ -20,7 +20,7 @@ export default function PostCard({ post }: PostCardProps) {
 
             <aside className="card__tags">
                 {post.technologies.map((tech) => (
-                    <PostTag tag={tech} key={post.title} />
+                    <PostTag tag={tech} key={post.title + tech} />
                 ))}
             </aside>
         </article>
