@@ -23,4 +23,13 @@
     gap: 0.5em;
     margin-block: 0.25em;
   }
+
+  &__preamble {
+    line-height: 1.7;
+    font-size: 1.2rem;
+  }
+
+  &__description {
+    font-size: 1.1rem;
+  }
 }
