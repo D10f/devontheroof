@@ -1,34 +1,34 @@
 {
-  "name": "devontheroof",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@d10f/a-star-viz": "^1.1.2",
-    "asciidoctor": "^3.0.4",
-    "dayjs": "^1.11.11",
-    "framer-motion": "^11.2.5",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.2.1",
-    "react-tooltip": "^5.26.4",
-    "usehooks-ts": "^3.1.0"
-  },
-  "devDependencies": {
-    "@shikijs/transformers": "^1.6.2",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
-    "sass": "^1.77.2",
-    "shiki": "^1.6.0",
-    "typescript": "^5"
-  }
+    "name": "devontheroof",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@d10f/a-star-viz": "^1.1.6",
+        "asciidoctor": "^3.0.4",
+        "dayjs": "^1.11.11",
+        "framer-motion": "^11.2.5",
+        "next": "14.2.3",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-icons": "^5.2.1",
+        "react-tooltip": "^5.26.4",
+        "usehooks-ts": "^3.1.0"
+    },
+    "devDependencies": {
+        "@shikijs/transformers": "^1.6.2",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.3",
+        "sass": "^1.77.2",
+        "shiki": "^1.6.0",
+        "typescript": "^5"
+    }
 }

@@ -77,7 +77,7 @@ export default function AStarVisualizationProject() {
                     </div>
                 </div>
             </header>
-            <tile-picker />
+            <a-star-viz />
         </main>
     );
 }
