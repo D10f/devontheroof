@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@d10f/a-star-viz": "^1.0.0",
+    "@d10f/a-star-viz": "^1.1.2",
     "asciidoctor": "^3.0.4",
     "dayjs": "^1.11.11",
     "framer-motion": "^11.2.5",
