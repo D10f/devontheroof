@@ -35,6 +35,10 @@
   padding-inline: 0.5em;
 }
 
+.mb-2 {
+  margin-bottom: 0.5em;
+}
+
 .visually-hidden {
   @include visually-hidden;
 }
