@@ -146,6 +146,18 @@ export default function Footer() {
                     </ul>
                 </div>
             </div>
+
+            <p className="footer__license">
+                All content &copy; 2024 is licensed under
+                <Link
+                    className="pl-1"
+                    href="https://creativecommons.org/licenses/by-sa/4.0/"
+                    target="_blank"
+                    rel="license noopener noreferrer"
+                >
+                    CC BY-SA 4.0
+                </Link>
+            </p>
         </footer>
     );
 }

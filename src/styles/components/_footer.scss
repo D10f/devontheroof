@@ -73,4 +73,11 @@
       height: 32px;
     }
   }
+
+  &__license {
+    margin: 1.25em;
+    font-size: 1rem;
+    width: max-content;
+    margin-inline: auto;
+  }
 }
