@@ -43,15 +43,14 @@ export default function MazeTribute() {
                 <div id="preamble" className="post__content mb-2">
                     <p className="mb-2">
                         A tribute to the classic Windows 95&apos; maze walk
-                        screensaver. Doesn&apos;t look very impressive, but I
-                        love it!
+                        screensaver. It doesn&apos;t look all that impressive,
+                        but I absolutely love it!
                     </p>
                     <p className="mb-2">
-                        From a technical perspective, it differs in that
-                        it&apos;s implemented using a raycasting algorithm, the
-                        same as the famous Wolfenstein 3D&apos;s used back in
-                        the early 90&apos;s. It&apos;s written in C, and
-                        compiled for the web using WebAssembly.
+                        It implements the same raycasting algorithm used in
+                        Wolfenstein 3D&apos;s back in the 90&apos;s. It&apos;s
+                        written in the C programming language, and compiled for
+                        the web using Web Assembly.
                     </p>
                 </div>
             </header>

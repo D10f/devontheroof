@@ -148,7 +148,7 @@ export default function Footer() {
             </div>
 
             <p className="footer__license">
-                All content &copy; 2024 is licensed under
+                All content by me &copy; 2024
                 <Link
                     className="pl-1"
                     href="https://creativecommons.org/licenses/by-sa/4.0/"
