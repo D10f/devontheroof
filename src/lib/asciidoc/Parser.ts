@@ -105,9 +105,23 @@ export default class AsciidocParser {
 
     private readFile(filename: string) {
         //return this.asciidoctor.loadFile(path.join(BASE_PATHNAME, filename), {
-        return this.asciidoctor.loadFile(filename, {
-            safe: "unsafe",
-        });
+        try {
+            return this.asciidoctor.loadFile(filename, {
+                safe: "unsafe",
+            });
+        } catch (error) {
+            if (
+                (error as Error).name === "ENOENT" &&
+                process.env.NODE_ENV === "development"
+            ) {
+                return this.asciidoctor.loadFile(
+                    filename.replace(/(\.adoc)$/, ".draft$1"),
+                    {
+                        safe: "unsafe",
+                    },
+                );
+            }
+        }
     }
 
     use(converter: CustomConverter) {
