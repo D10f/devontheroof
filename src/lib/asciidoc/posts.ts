@@ -15,7 +15,7 @@ const syntaxHighlighterThemes = [
 
 export function getFilenames(dir = "posts") {
     const files = fs.readdirSync(`public/${dir}`, "utf-8");
-    return files.filter((file) => file.endsWith(".adoc"));
+    return files.filter((file) => file.match(/[^\.draft]\.adoc$/));
 }
 
 export function getSlugs(dir = "posts") {
