@@ -9,6 +9,7 @@ import ColistConverter from "@/lib/asciidoc/converters/ColistConverter";
 import AdmonitionConverter from "@/lib/asciidoc/converters/AdmonitionConverter";
 import SectionConverter from "@/lib/asciidoc/converters/SectionConverter";
 import { Metadata } from "next";
+import FaIconConverter from "@/lib/asciidoc/converters/FaIconConverter";
 
 type Props = {
     params: {
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PostPage({ params }: Props) {
     const post = getPostData(`public/posts/${params.slug}.adoc`, [
         new ImageConverter(),
+        new FaIconConverter(),
         new PreambleConverter(),
         new ColistConverter(),
         new AdmonitionConverter(),
