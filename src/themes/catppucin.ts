@@ -1,11 +1,6 @@
 import { CSSColorProperty, CSSThemeProperty, ThemeStrategy } from ".";
 
-const variants = [
-    "Catppuccin Latte",
-    "Catppuccin Frappe",
-    "Catppuccin Macchiato",
-    "Catppuccin Mocha",
-] as const;
+const variants = ["Latte", "Frappe", "Macchiato", "Mocha"] as const;
 
 const colorMap: Record<CSSColorProperty, string> = {
     red: "red",
@@ -27,10 +22,17 @@ const variableMap: Record<CSSThemeProperty, string> = {
 export type CatppuccinVariants = (typeof variants)[number];
 
 export default class Catppuccin implements ThemeStrategy {
-    constructor(public variant: CatppuccinVariants) {}
+    public readonly name = "Catppuccin";
+    public readonly cssPrefix = "ctp";
+    public readonly defaultVariant: CatppuccinVariants;
+
+    constructor(public variant: CatppuccinVariants = "Frappe") {
+        this.defaultVariant = variant;
+    }
 
     get cssVariant() {
-        return this.variant.substring(11).toLowerCase();
+        return this.variant.toLowerCase();
+        //return this.variant.substring(11).toLowerCase();
     }
 
     get variants() {
@@ -46,6 +48,6 @@ export default class Catppuccin implements ThemeStrategy {
     }
 
     cssColorMap(color: CSSColorProperty) {
-        return `--ctp-${this.cssVariant}-${colorMap[color]}`;
+        return `--${this.cssPrefix}-${this.cssVariant}-${colorMap[color]}`;
     }
 }

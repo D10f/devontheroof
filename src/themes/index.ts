@@ -1,7 +1,9 @@
 export interface ThemeStrategy {
+    name: string;
     variant: string;
     variants: readonly string[];
     cssVariant: string;
+    cssPrefix: string;
     colors: readonly string[];
     cssThemeMap: (property: CSSThemeProperty) => string;
     cssColorMap: (color: CSSColorProperty) => string;
@@ -10,7 +12,8 @@ export interface ThemeStrategy {
 export type CSSThemeProperty = (typeof cssThemeProperties)[number];
 export type CSSColorProperty = (typeof cssColorProperties)[number];
 
-export const DEFAULT_THEME = "Catppuccin Frappe";
+export const DEFAULT_THEME = "Catppuccin";
+export const DEFAULT_VARIANT = "Frappe";
 export const DEFAULT_ACCENT_COLOR = "yellow";
 
 const cssThemeProperties = [
@@ -33,8 +36,20 @@ const cssColorProperties = [
 export default class ThemeContext {
     constructor(private activeTheme: ThemeStrategy) {}
 
+    get cssPrefix() {
+        return this.activeTheme.cssPrefix;
+    }
+
+    get name() {
+        return this.activeTheme.name;
+    }
+
     get variant() {
         return this.activeTheme.variant;
+    }
+
+    set variant(value: string) {
+        this.activeTheme.variant = value;
     }
 
     get cssVariant() {
@@ -56,7 +71,7 @@ export default class ThemeContext {
             const codeblock = codeblocks[i] as HTMLElement;
             codeblock.style.setProperty(
                 "background-color",
-                `var(--shiki-${this.cssVariant}-bg)`,
+                `var(--shiki-${this.name.toLowerCase()}-${this.cssVariant}-bg)`,
             );
 
             const tokens = codeblock.getElementsByTagName("span");
@@ -64,7 +79,7 @@ export default class ThemeContext {
                 const token = tokens[j] as HTMLElement;
                 token.style.setProperty(
                     "color",
-                    `var(--shiki-${this.cssVariant})`,
+                    `var(--shiki-${this.name.toLowerCase()}-${this.cssVariant})`,
                 );
             }
         }
