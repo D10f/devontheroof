@@ -2,7 +2,7 @@ import { CSSThemeProperty } from ".";
 import { CSSColorProperty } from ".";
 import { ThemeStrategy } from ".";
 
-const variants = ["Light", "Dark"] as const;
+const variants = ["Dark"] as const;
 
 const colorMap: Record<CSSColorProperty, string> = {
     red: "red",
@@ -14,21 +14,21 @@ const colorMap: Record<CSSColorProperty, string> = {
 };
 
 const variableMap: Record<CSSThemeProperty, string> = {
-    "--bg-color": "bg0",
-    "--bg-color-2": "bg1",
-    "--bg-color-3": "bg2",
-    "--text-color": "fg",
-    "--subtext-color": "gray2",
+    "--bg-color": "nord1",
+    "--bg-color-2": "nord2",
+    "--bg-color-3": "nord3",
+    "--text-color": "nord6",
+    "--subtext-color": "nord4",
 };
 
-export type EverforestVariants = (typeof variants)[number];
+export type NordVariants = (typeof variants)[number];
 
-export default class Everforest implements ThemeStrategy {
-    public readonly name = "Everforest";
-    public readonly cssPrefix = "everforest";
-    public readonly defaultVariant: EverforestVariants;
+export default class Nord implements ThemeStrategy {
+    public readonly name = "Nord";
+    public readonly cssPrefix = "nord";
+    public readonly defaultVariant: NordVariants;
 
-    constructor(public variant: EverforestVariants = "Dark") {
+    constructor(public variant: NordVariants = "Dark") {
         this.defaultVariant = variant;
     }
 

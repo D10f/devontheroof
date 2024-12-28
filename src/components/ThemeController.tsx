@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { MdPalette } from "react-icons/md";
 import useTheme from "@/hooks/useTheme";
 import Dropdown from "@/components/Dropdown";
@@ -12,7 +11,6 @@ type ThemeControllerProps = {
 
 export default function ThemeController({ themes }: ThemeControllerProps) {
     const currentTheme = useTheme();
-    const [showVariant, setShowVariant] = useState(currentTheme.theme);
 
     return (
         <Dropdown trigger={<MdPalette className="icon" />}>
@@ -32,26 +30,6 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
                         </button>
                     </li>
                 ))}
-
-                {/*
-                <p>Variants</p>
-                {currentTheme.variants.map((variant, idx) => (
-                    <li
-                        key={idx}
-                        className={
-                            variant === currentTheme.variant
-                                ? "dropdown__item dropdown__item--active"
-                                : "dropdown__item"
-                        }
-                    >
-                        <button
-                            onClick={() => currentTheme.changeTheme(variant)}
-                        >
-                            {variant}
-                        </button>
-                    </li>
-                ))}
-                */}
             </ul>
 
             <ul>

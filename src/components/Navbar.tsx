@@ -53,7 +53,7 @@ export default function Navbar() {
                 <menu className="navbar__dropdown">
                     <li>
                         <ThemeController
-                            themes={["Catppuccin", "Everforest"]}
+                            themes={["Catppuccin", "Everforest", "Nord"]}
                         />
                     </li>
                 </menu>

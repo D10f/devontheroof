@@ -9,8 +9,9 @@ const syntaxHighlighterThemes = [
     "catppuccin-frappe",
     "catppuccin-macchiato",
     "catppuccin-mocha",
-    "github-dark",
-    "github-light",
+    "everforest-dark",
+    "everforest-light",
+    "nord",
 ];
 
 export function getFilenames(dir = "posts") {
