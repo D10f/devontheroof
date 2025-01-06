@@ -1,65 +1,44 @@
-type ThemeAccentColors =
-    | "red"
-    | "orange"
-    | "yellow"
-    | "green"
-    | "blue"
-    | "purple";
+const accentColors = ["orange", "yellow", "green", "blue", "purple"] as const;
+const layoutColors = [
+    "bg-color",
+    "bg-color-2",
+    "bg-color-3",
+    "text-color",
+    "subtext-color",
+] as const;
 
-type ThemeLayoutColors =
-    | "bg-color"
-    | "bg-color-2"
-    | "bg-color-3"
-    | "text-color"
-    | "subtext-color";
-
-type ThemeCSSProps = ThemeAccentColors | ThemeLayoutColors;
-
-type ThemeVariant = Map<ThemeCSSProps, string>;
+type ThemeAccentColor = (typeof accentColors)[number];
+type ThemeLayoutColor = (typeof layoutColors)[number];
+type ThemeCSSProps = ThemeAccentColor | ThemeLayoutColor;
+export type ThemeVariant = Map<ThemeCSSProps, string>;
 
 export class BaseTheme {
-    private activeVariant: ThemeVariant;
+    private activeVariantLabel: string;
+    private activeVariantTheme: ThemeVariant;
 
     constructor(
         public readonly name: string,
         private readonly cssPrefix: string,
         private readonly variants: { [k in string]: ThemeVariant },
+        activeVariantLabel: string,
     ) {
-        this.activeVariant = Object.values(this.variants)[0];
-    }
-
-    get variant() {
-        return this.activeVariant;
-    }
-
-    get colors() {
-        const colors = [
-            "red",
-            "orange",
-            "yellow",
-            "green",
-            "blue",
-            "purple",
-        ] as const;
-        const result: string[] = [];
-        for (const [key] of this.variant) {
-            if (key in colors) result.push(key);
-        }
-        return result;
+        this.activeVariantLabel =
+            activeVariantLabel ?? Object.keys(variants)[0];
+        this.activeVariantTheme = this.variants[this.activeVariantLabel];
     }
 
     getProperty(prop: ThemeCSSProps) {
-        return `--${this.cssPrefix}-${this.variant}-${this.variant.get(prop)}`;
+        return `--${this.cssPrefix}-${this.activeVariantLabel}-${this.activeVariantTheme.get(prop)}`;
     }
 
-    updateCodeBlockProps() {
+    public updateCodeBlockProps() {
         const codeblocks = document.getElementsByClassName("shiki");
 
         for (let i = 0, l = codeblocks.length; i < l; ++i) {
             const codeblock = codeblocks[i] as HTMLElement;
             codeblock.style.setProperty(
                 "background-color",
-                `var(--shiki-${this.name.toLowerCase()}-${this.variant}-bg)`,
+                `var(--shiki-${this.name.toLowerCase()}-${this.activeVariantLabel}-bg)`,
             );
 
             const tokens = codeblock.getElementsByTagName("span");
@@ -67,9 +46,31 @@ export class BaseTheme {
                 const token = tokens[j] as HTMLElement;
                 token.style.setProperty(
                     "color",
-                    `var(--shiki-${this.name.toLowerCase()}-${this.cssVariant})`,
+                    `var(--shiki-${this.name.toLowerCase()}-${this.activeVariantLabel})`,
                 );
             }
         }
+    }
+
+    public updateCSSLayoutColor() {
+        const computed = getComputedStyle(document.documentElement);
+
+        layoutColors.forEach((property) => {
+            const themeProp = this.getProperty(property);
+            const newValue = computed.getPropertyValue(themeProp);
+            document.documentElement.style.setProperty(property, newValue);
+        });
+    }
+
+    public updateCSSAccentColor(newColor: ThemeAccentColor) {
+        const computed = getComputedStyle(document.documentElement);
+
+        accentColors.forEach((color) => {
+            const updated = computed.getPropertyValue(this.getProperty(color));
+            document.documentElement.style.setProperty(`--${color}`, updated);
+        });
+
+        const updated = computed.getPropertyValue(`--${newColor}`);
+        document.documentElement.style.setProperty("--primary-color", updated);
     }
 }
