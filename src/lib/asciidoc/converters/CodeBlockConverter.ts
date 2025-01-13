@@ -38,6 +38,7 @@ export default class CodeBlockConverter implements CustomConverter {
                 "everforest-dark": "everforest-dark",
                 "everforest-light": "everforest-light",
                 "nord-dark": "nord",
+                "one-dark-pro": "one-dark-pro",
             },
             transformers: [
                 this.transformAnnotations(),

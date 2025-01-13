@@ -1,13 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import ThemeController from "@/components/ThemeController";
+import ThemeController2 from "@/components/ThemeController2";
 import useScrollDirection from "@/hooks/useScrollDirection";
+import { catppuccin } from "@/themes/_catppuccin";
+import { everforest } from "@/themes/_everforest";
 import { usePathname } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 export default function Navbar() {
     const { direction } = useScrollDirection();
+    const themes = useMemo(
+        () => ({
+            Catppuccin: catppuccin,
+            Everforest: everforest,
+        }),
+        [],
+    );
     const path = usePathname();
 
     const navbarStyle = direction > 0 ? "navbar navbar--hidden" : "navbar";
@@ -52,9 +61,7 @@ export default function Navbar() {
 
                 <menu className="navbar__dropdown">
                     <li>
-                        <ThemeController
-                            themes={["Catppuccin", "Everforest", "Nord"]}
-                        />
+                        <ThemeController2 themes={themes} />
                     </li>
                 </menu>
             </div>

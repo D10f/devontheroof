@@ -16,7 +16,7 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
     return (
         <Dropdown trigger={<MdPalette className="icon" />}>
             <ul>
-                <p>Themes</p>
+                <p className="unselectable">Themes</p>
                 {theme.themes.map((t: string) => (
                     <li
                         key={Math.random()}
@@ -34,7 +34,7 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
             </ul>
 
             <ul>
-                <p>Variants</p>
+                <p className="unselectable">Variants</p>
                 {theme.variants.map((variant, idx) => (
                     <li
                         key={idx}
@@ -52,7 +52,7 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
                             <span
                                 className="circle"
                                 style={{
-                                    backgroundColor: `${themes[theme.activeTheme][variant]["bg-color"]}`,
+                                    backgroundColor: `${themes[theme.activeTheme][variant]["bg-color-3"]}`,
                                 }}
                             />
                         </button>
@@ -61,7 +61,7 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
             </ul>
 
             <ul>
-                <p>Accent</p>
+                <p className="unselectable">Accent</p>
                 {theme.accents.map((color, idx) => (
                     <li
                         key={idx}

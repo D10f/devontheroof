@@ -1,4 +1,12 @@
-const accentColors = ["orange", "yellow", "green", "blue", "purple"] as const;
+const accentColors = [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "purple",
+] as const;
+
 const layoutColors = [
     "bg-color",
     "bg-color-2",
@@ -7,10 +15,10 @@ const layoutColors = [
     "subtext-color",
 ] as const;
 
-type ThemeAccentColor = (typeof accentColors)[number];
+export type ThemeAccentColor = (typeof accentColors)[number];
 type ThemeLayoutColor = (typeof layoutColors)[number];
-type ThemeCSSProps = ThemeAccentColor | ThemeLayoutColor;
-export type ThemeVariant = Map<ThemeCSSProps, string>;
+export type ThemeCSSProps = ThemeAccentColor | ThemeLayoutColor;
+export type ThemeVariant = { [k in ThemeCSSProps]: string };
 
 export class BaseTheme {
     private activeVariantLabel: string;
@@ -28,7 +36,7 @@ export class BaseTheme {
     }
 
     getProperty(prop: ThemeCSSProps) {
-        return `--${this.cssPrefix}-${this.activeVariantLabel}-${this.activeVariantTheme.get(prop)}`;
+        return `--${this.cssPrefix}-${this.activeVariantLabel}-${this.activeVariantTheme[prop]}`;
     }
 
     public updateCodeBlockProps() {

@@ -12,6 +12,8 @@ const syntaxHighlighterThemes = [
     "everforest-dark",
     "everforest-light",
     "nord",
+    "one-dark-pro",
+    "one-light",
 ];
 
 export function getFilenames(dir = "posts") {

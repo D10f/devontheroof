@@ -44,12 +44,14 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
                         }
                     >
                         <button
-                            onClick={() => currentTheme.changeVariant(variant)}
+                            onClick={() => {
+                                currentTheme.changeVariant(variant);
+                            }}
                         >
                             <span
                                 className="circle"
                                 style={{
-                                    backgroundColor: `var(--bg-color)`,
+                                    backgroundColor: `var(--${currentTheme.cssPrefix}-${variant.toLowerCase()}-base)`,
                                 }}
                             />
                         </button>

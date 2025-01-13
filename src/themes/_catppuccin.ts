@@ -1,54 +1,56 @@
-import { ThemeVariant, BaseTheme } from "./BaseTheme";
+import { ThemeVariant } from "./BaseTheme";
 
-export const _catppuccin: Record<string, ThemeVariant> = {
+export const catppuccin: Record<string, ThemeVariant> = {
     latte: {
-        red: "red",
-        orange: "peach",
-        yellow: "yellow",
-        green: "green",
-        blue: "sky",
-        purple: "mauve",
-        "bg-color": "crust",
-        "bg-color-2": "mantle",
-        "bg-color-3": "base",
-        "text-color": "text",
-        "subtext-color": "subtext0",
+        red: "#D20F39",
+        orange: "#FE640B",
+        yellow: "#DF8E1D",
+        green: "#40A02B",
+        blue: "#04A5E5",
+        purple: "#8839EF",
+        "bg-color": "#DCE0E8",
+        "bg-color-2": "#E6E9EF",
+        "bg-color-3": "#EFF1F5",
+        "text-color": "#4C4F69",
+        "subtext-color": "#6C6F85",
+    },
+    frappe: {
+        red: "#E78284",
+        orange: "#EF9F76",
+        yellow: "#E5C890",
+        green: "#A6D189",
+        blue: "#99D1DB",
+        purple: "#CA9EE6",
+        "bg-color": "#232634",
+        "bg-color-2": "#292C3C",
+        "bg-color-3": "#303446",
+        "text-color": "#C6D0F5",
+        "subtext-color": "#A5ADCE",
+    },
+    macchiato: {
+        red: "#ED8796",
+        orange: "#F5A97F",
+        yellow: "#EED49F",
+        green: "#A6DA95",
+        blue: "#91D7E3",
+        purple: "#C6A0F6",
+        "bg-color": "#181926",
+        "bg-color-2": "#1E2030",
+        "bg-color-3": "#24273A",
+        "text-color": "#CAD3F5",
+        "subtext-color": "#A5ADCB",
+    },
+    mocha: {
+        red: "#F38BA8",
+        orange: "#FAB387",
+        yellow: "#F9E2AF",
+        green: "#A6E3A1",
+        blue: "#89DCEB",
+        purple: "#CBA6F7",
+        "bg-color": "#11111B",
+        "bg-color-2": "#181825",
+        "bg-color-3": "#1E1E2E",
+        "text-color": "#CDD6F4",
+        "subtext-color": "#A6ADC8",
     },
 };
-
-const Catppuccin = new BaseTheme("Catppuccin", "ctp", _catppuccin, "frappe");
-
-export class ThemeBuilder<V extends string[]> {
-    public name?: string;
-    public cssPrefix?: string;
-    public variants?: V;
-    public defaultVariant?: string;
-
-    static create() {
-        return new ThemeBuilder();
-    }
-
-    setName(name: string) {
-        this.name = name;
-        return this;
-    }
-
-    setCssPrefix(prefix: string) {
-        this.cssPrefix = prefix;
-        return this;
-    }
-
-    setVariants(variants: V) {
-        this.variants = variants;
-        return this as ThemeBuilder<V>;
-    }
-
-    setDefaultVariant(variant: V[number]) {
-        this.defaultVariant = variant;
-        return this;
-    }
-
-    build() {}
-}
-
-ThemeBuilder.create().setVariants(["test"]).setDefaultVariant("sdf");

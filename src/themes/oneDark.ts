@@ -2,7 +2,7 @@ import { CSSThemeProperty } from ".";
 import { CSSColorProperty } from ".";
 import { ThemeStrategy } from ".";
 
-const variants = ["Light", "Dark"] as const;
+const variants = ["Pro"] as const;
 
 const colorMap: Record<CSSColorProperty, string> = {
     red: "red",
@@ -24,11 +24,11 @@ const variableMap: Record<CSSThemeProperty, string> = {
 export type OneDarkVariants = (typeof variants)[number];
 
 export default class OneDark implements ThemeStrategy {
-    public readonly name = "OneDark";
+    public readonly name = "One-Dark";
     public readonly cssPrefix = "one-dark";
     public readonly defaultVariant: OneDarkVariants;
 
-    constructor(public variant: OneDarkVariants = "Dark") {
+    constructor(public variant: OneDarkVariants = "Pro") {
         this.defaultVariant = variant;
     }
 

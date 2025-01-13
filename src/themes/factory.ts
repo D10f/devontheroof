@@ -17,7 +17,7 @@ export default function makeTheme(key: string) {
         return new ThemeContext(new Nord());
     }
 
-    if (key.startsWith("OneDark")) {
+    if (key.startsWith("One-Dark") || key.startsWith("OneDark")) {
         return new ThemeContext(new OneDark());
     }
 

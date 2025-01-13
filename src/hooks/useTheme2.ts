@@ -1,19 +1,27 @@
-import { ThemeCSSProps, ThemeVariant } from "@/themes/BaseTheme";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect } from "react";
 import { useLocalStorage } from "usehooks-ts";
+import {
+    ThemeAccentColor,
+    ThemeCSSProps,
+    ThemeVariant,
+} from "@/themes/BaseTheme";
+import { DEFAULT_ACCENT_COLOR, DEFAULT_THEME, DEFAULT_VARIANT } from "@/themes";
 
 type AvailableThemes = Record<string, Record<string, ThemeVariant>>;
 
-export default function useTheme2(themes: AvailableThemes) {
-    const currentName = useRef<string>();
-    const currentTheme = useRef<Record<string, ThemeVariant>>();
-    const currentVariant = useRef<ThemeVariant>();
-    const path = usePathname();
+const colors: ThemeAccentColor[] = [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "purple",
+];
 
+export default function useTheme2(themes: AvailableThemes) {
     const [activeTheme, setActiveTheme] = useLocalStorage(
         "activeTheme",
-        Object.keys(themes)[0],
+        DEFAULT_THEME,
         {
             initializeWithValue: true, // NOTE: disable for SSR
         },
@@ -21,7 +29,7 @@ export default function useTheme2(themes: AvailableThemes) {
 
     const [activeVariant, setActiveVariant] = useLocalStorage(
         "activeVariant",
-        Object.keys(themes[activeTheme])[0],
+        DEFAULT_VARIANT,
         {
             initializeWithValue: true, // NOTE: disable for SSR
         },
@@ -29,86 +37,83 @@ export default function useTheme2(themes: AvailableThemes) {
 
     const [activeAccent, setActiveAccent] = useLocalStorage(
         "activeAccent",
-        Object.keys(themes[activeTheme][activeVariant])[0],
+        DEFAULT_ACCENT_COLOR,
         {
             initializeWithValue: true, // NOTE: disable for SSR
         },
     );
 
-    currentName.current = activeTheme;
-    currentTheme.current = themes[activeTheme];
-    currentVariant.current = themes[activeTheme][activeVariant];
-
-    useEffect(() => {
-        console.log("running");
-        const newVariant = Object.keys(themes[activeTheme])[0];
-        currentName.current = activeTheme;
-        currentTheme.current = themes[activeTheme];
-        currentVariant.current = themes[activeTheme][newVariant];
-        setActiveVariant(newVariant);
-        setActiveAccent(Object.keys(currentVariant.current!)[0]);
-    }, [
-        activeTheme,
-        currentTheme,
-        currentVariant,
-        setActiveVariant,
-        setActiveAccent,
-        themes,
-    ]);
-
-    useEffect(() => {
-        console.log("running!!");
-        for (const key in currentVariant.current) {
+    const getTheme = useCallback(
+        () => themes[activeTheme],
+        [themes, activeTheme],
+    );
+    const getVariant = useCallback(
+        () => getTheme()[activeVariant],
+        [getTheme, activeVariant],
+    );
+    const getAccent = useCallback(
+        () => getVariant()[activeAccent as ThemeCSSProps],
+        [getVariant, activeAccent],
+    );
+    const updateStyles = useCallback(() => {
+        const variantStyles = getVariant();
+        for (const key in variantStyles) {
             document.documentElement.style.setProperty(
                 `--${key}`,
-                currentVariant.current[key as ThemeCSSProps],
+                variantStyles[key as ThemeCSSProps],
             );
         }
+    }, [getVariant]);
 
-        if (path.startsWith("/blog")) {
-            const codeblocks = document.getElementsByClassName("shiki");
-
-            for (let i = 0, l = codeblocks.length; i < l; ++i) {
-                const codeblock = codeblocks[i] as HTMLElement;
-                codeblock.style.setProperty(
-                    "background-color",
-                    `var(--shiki-${currentName.current!.toLowerCase()}-${activeVariant}-bg)`,
-                );
-
-                const tokens = codeblock.getElementsByTagName("span");
-                for (let j = 0, l = tokens.length; j < l; ++j) {
-                    const token = tokens[j] as HTMLElement;
-                    token.style.setProperty(
-                        "color",
-                        `var(--shiki-${currentName.current!.toLowerCase()}-${activeVariant})`,
-                    );
-                }
-            }
-        }
-    }, [activeVariant, setActiveAccent, path, currentName]);
-
-    useEffect(() => {
-        for (const key in currentVariant.current) {
-            document.documentElement.style.setProperty(
-                `--${key}`,
-                currentVariant.current[key as ThemeCSSProps],
-            );
-        }
-
+    const updateAccent = useCallback(() => {
         document.documentElement.style.setProperty(
             "--primary-color",
-            currentVariant.current![activeAccent as ThemeCSSProps],
+            getAccent(),
         );
-    }, [activeAccent]);
+    }, [getAccent]);
+
+    const updateCodeBlocks = useCallback(() => {
+        const codeblocks = document.getElementsByClassName("shiki");
+
+        for (let i = 0, l = codeblocks.length; i < l; ++i) {
+            const codeblock = codeblocks[i] as HTMLElement;
+            codeblock.style.setProperty(
+                "background-color",
+                `var(--shiki-${activeTheme.toLowerCase()}-${activeVariant}-bg)`,
+            );
+
+            const tokens = codeblock.getElementsByTagName("span");
+            for (let j = 0, l = tokens.length; j < l; ++j) {
+                const token = tokens[j] as HTMLElement;
+                token.style.setProperty(
+                    "color",
+                    `var(--shiki-${activeTheme.toLowerCase()}-${activeVariant})`,
+                );
+            }
+        }
+    }, [activeTheme, activeVariant]);
+
+    const updateTheme = (theme: string) => {
+        const newTheme = themes[theme];
+        const newVariant = Object.keys(newTheme)[0];
+        setActiveTheme(theme);
+        setActiveVariant(newVariant);
+    };
+
+    useEffect(() => {
+        updateStyles();
+        updateAccent();
+        updateCodeBlocks();
+    }, [updateStyles, updateAccent, updateCodeBlocks]);
 
     return {
         themes: Object.keys(themes),
-        variants: Object.keys(currentTheme.current),
-        accents: Object.keys(currentVariant.current).slice(0, 6),
+        variants: Object.keys(getTheme()),
+        accents: colors,
         activeTheme,
         activeVariant,
         activeAccent,
-        setActiveTheme,
+        setActiveTheme: updateTheme,
         setActiveVariant,
         setActiveAccent,
     };

@@ -22,6 +22,10 @@
   background-color: currentColor;
 }
 
+.shadow {
+  box-shadow: var(--shadow);
+}
+
 .unselectable {
   pointer-events: none;
   user-select: none;
