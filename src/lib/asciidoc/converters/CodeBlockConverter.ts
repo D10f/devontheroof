@@ -37,8 +37,6 @@ export default class CodeBlockConverter implements CustomConverter {
                 "catppuccin-mocha": "catppuccin-mocha",
                 "everforest-dark": "everforest-dark",
                 "everforest-light": "everforest-light",
-                "nord-dark": "nord",
-                "one-dark-pro": "one-dark-pro",
             },
             transformers: [
                 this.transformAnnotations(),

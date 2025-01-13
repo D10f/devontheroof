@@ -1,7 +1,6 @@
-import path from "path";
 import Asciidoctor, { Block, Document, Title } from "asciidoctor";
 import dayjs from "dayjs";
-import { getHighlighter } from "shiki";
+import { createHighlighter } from "shiki";
 import AdvancedFormat from "dayjs/plugin/advancedFormat";
 import BaseConverter, {
     CustomConverter,
@@ -9,7 +8,7 @@ import BaseConverter, {
 import CodeBlockConverter from "@/lib/asciidoc/converters/CodeBlockConverter";
 
 dayjs.extend(AdvancedFormat);
-const BASE_PATHNAME = "public/posts";
+//const BASE_PATHNAME = "public/posts";
 
 export default class AsciidocParser {
     private asciidoctor = Asciidoctor();
@@ -23,7 +22,7 @@ export default class AsciidocParser {
     ) {
         this.converter = new BaseConverter();
         this.registerConverter();
-        this.document = this.readFile(filename);
+        this.document = this.readFile(filename) as Document;
         this.documentTitle = this.document.getDocumentTitle({
             partition: true,
         }) as Title;
@@ -90,7 +89,7 @@ export default class AsciidocParser {
             }, new Set<string>());
 
         const codeBlockConverter = new CodeBlockConverter(
-            await getHighlighter({
+            await createHighlighter({
                 themes: this.syntaxHighlighterThemes,
                 langs: Array.from(languages),
             }),
