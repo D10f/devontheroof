@@ -18,7 +18,7 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
                 <p className="unselectable">Themes</p>
                 {theme.themes.map((t: string) => (
                     <li
-                        key={Math.random()}
+                        key={t}
                         className={
                             t == theme.activeTheme
                                 ? "dropdown__item dropdown__item--active"
@@ -34,9 +34,9 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
 
             <ul>
                 <p className="unselectable">Variants</p>
-                {theme.variants.map((variant, idx) => (
+                {theme.variants.map((variant) => (
                     <li
-                        key={idx}
+                        key={variant}
                         className={
                             variant === theme.activeVariant
                                 ? "dropdown__row-item dropdown__row-item--active"
@@ -61,9 +61,9 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
 
             <ul>
                 <p className="unselectable">Accent</p>
-                {theme.accents.map((color, idx) => (
+                {theme.accents.map((color) => (
                     <li
-                        key={idx}
+                        key={color}
                         className={
                             color === theme.activeAccent
                                 ? "dropdown__row-item dropdown__row-item--active"

@@ -6,17 +6,15 @@ import useScrollDirection from "@/hooks/useScrollDirection";
 import { catppuccin } from "@/themes/_catppuccin";
 import { everforest } from "@/themes/_everforest";
 import { usePathname } from "next/navigation";
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
+
+const themes = {
+    Catppuccin: catppuccin,
+    Everforest: everforest,
+};
 
 export default function Navbar() {
     const { direction } = useScrollDirection();
-    const themes = useMemo(
-        () => ({
-            Catppuccin: catppuccin,
-            Everforest: everforest,
-        }),
-        [],
-    );
     const path = usePathname();
 
     const navbarStyle = direction > 0 ? "navbar navbar--hidden" : "navbar";

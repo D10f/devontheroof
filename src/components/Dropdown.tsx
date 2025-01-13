@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import { useBoolean, useEventListener, useOnClickOutside } from "usehooks-ts";
+import useScroll from "@/hooks/useScroll";
 
 type DropdownProps = {
     children: React.ReactNode;
@@ -13,6 +14,7 @@ type DropdownProps = {
 export default function Dropdown({ children, trigger }: DropdownProps) {
     const { value: isOpen, setFalse, toggle } = useBoolean(false);
 
+    useScroll(setFalse, 1000);
     const dropdown = useRef<HTMLDivElement>(null);
     const menu = useRef<HTMLElement>(null);
 
