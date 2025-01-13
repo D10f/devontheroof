@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ThemeController2 from "@/components/ThemeController2";
+import ThemeController from "@/components/ThemeController";
 import useScrollDirection from "@/hooks/useScrollDirection";
 import { catppuccin } from "@/themes/_catppuccin";
 import { everforest } from "@/themes/_everforest";
@@ -61,7 +61,7 @@ export default function Navbar() {
 
                 <menu className="navbar__dropdown">
                     <li>
-                        <ThemeController2 themes={themes} />
+                        <ThemeController themes={themes} />
                     </li>
                 </menu>
             </div>

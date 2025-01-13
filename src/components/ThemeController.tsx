@@ -3,55 +3,55 @@
 import { MdPalette } from "react-icons/md";
 import useTheme from "@/hooks/useTheme";
 import Dropdown from "@/components/Dropdown";
-import { CSSColorProperty } from "@/themes";
+import { ThemeVariant } from "@/themes/defs";
 
 type ThemeControllerProps = {
-    themes: string[];
+    themes: Record<string, Record<string, ThemeVariant>>;
 };
 
 export default function ThemeController({ themes }: ThemeControllerProps) {
-    const currentTheme = useTheme();
+    const theme = useTheme(themes);
 
     return (
         <Dropdown trigger={<MdPalette className="icon" />}>
             <ul>
-                <p>Themes</p>
-                {themes.map((theme: string) => (
+                <p className="unselectable">Themes</p>
+                {theme.themes.map((t: string) => (
                     <li
                         key={Math.random()}
                         className={
-                            theme == currentTheme.theme
+                            t == theme.activeTheme
                                 ? "dropdown__item dropdown__item--active"
                                 : "dropdown__item"
                         }
                     >
-                        <button onClick={() => currentTheme.changeTheme(theme)}>
-                            {theme}
+                        <button onClick={() => theme.setActiveTheme(t)}>
+                            {t}
                         </button>
                     </li>
                 ))}
             </ul>
 
             <ul>
-                <p>Variants</p>
-                {currentTheme.variants.map((variant, idx) => (
+                <p className="unselectable">Variants</p>
+                {theme.variants.map((variant, idx) => (
                     <li
                         key={idx}
                         className={
-                            variant === currentTheme.variant
+                            variant === theme.activeVariant
                                 ? "dropdown__row-item dropdown__row-item--active"
                                 : "dropdown__row-item"
                         }
                     >
                         <button
                             onClick={() => {
-                                currentTheme.changeVariant(variant);
+                                theme.setActiveVariant(variant);
                             }}
                         >
                             <span
                                 className="circle"
                                 style={{
-                                    backgroundColor: `var(--${currentTheme.cssPrefix}-${variant.toLowerCase()}-base)`,
+                                    backgroundColor: `${themes[theme.activeTheme][variant]["bg-color-3"]}`,
                                 }}
                             />
                         </button>
@@ -60,23 +60,17 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
             </ul>
 
             <ul>
-                <p>Accent</p>
-                {currentTheme.colors.map((color, idx) => (
+                <p className="unselectable">Accent</p>
+                {theme.accents.map((color, idx) => (
                     <li
                         key={idx}
                         className={
-                            color === currentTheme.accentColor
+                            color === theme.activeAccent
                                 ? "dropdown__row-item dropdown__row-item--active"
                                 : "dropdown__row-item"
                         }
                     >
-                        <button
-                            onClick={() =>
-                                currentTheme.changeColor(
-                                    color as CSSColorProperty,
-                                )
-                            }
-                        >
+                        <button onClick={() => theme.setActiveAccent(color)}>
                             <span
                                 className="circle"
                                 style={{

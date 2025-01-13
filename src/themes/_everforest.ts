@@ -1,4 +1,4 @@
-import { ThemeVariant } from "./BaseTheme";
+import { ThemeVariant } from "./defs";
 
 export const everforest: Record<string, ThemeVariant> = {
     light: {
