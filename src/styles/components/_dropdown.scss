@@ -59,8 +59,12 @@
   }
 
   &--active {
-    border-bottom-color: var(--primary-color);
+    // border-bottom-color: var(--primary-color);
     pointer-events: none;
+
+    & .circle {
+      box-shadow: 0 0 1em 0.1em var(--primary-color);
+    }
   }
 }
 
