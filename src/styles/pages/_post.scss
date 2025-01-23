@@ -23,7 +23,7 @@
 
 .post__content {
   line-height: 1.7;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   max-width: calc(100vw - 1.5rem);
   overflow: hidden;
 
@@ -199,6 +199,7 @@ ul {
   }
 
   figure {
+    font-size: 1.1em;
     pre {
       border-radius: calc(var(--border-radius) / 2);
       min-width: min-content;
@@ -223,7 +224,7 @@ ul {
 
 /* code markers */
 .colist {
-  font-size: 1rem;
+  font-size: 0.9em;
 }
 
 .conum,
