@@ -5,12 +5,14 @@ import ThemeController from "@/components/ThemeController";
 import useScrollDirection from "@/hooks/useScrollDirection";
 import { catppuccin } from "@/themes/_catppuccin";
 import { everforest } from "@/themes/_everforest";
+import { monokai } from "@/themes/_monokai";
 import { usePathname } from "next/navigation";
 import { useCallback } from "react";
 
 const themes = {
     Catppuccin: catppuccin,
     Everforest: everforest,
+    Monokai: monokai,
 };
 
 export default function Navbar() {

@@ -1,6 +1,11 @@
 import fs from "fs";
 import AsciidocParser from "./Parser";
 import { CustomConverter } from "./converters/BaseConverter";
+import {
+    shikiMonokaiSun,
+    shikiMonokaiRistretto,
+    shikiMonokaiPro,
+} from "@/themes/_monokai";
 
 type DocType = "posts" | "pages" | "projects";
 
@@ -14,6 +19,9 @@ const syntaxHighlighterThemes = [
     "nord",
     "one-dark-pro",
     "one-light",
+    shikiMonokaiSun,
+    shikiMonokaiRistretto,
+    shikiMonokaiPro,
 ];
 
 export function getFilenames(dir = "posts") {
