@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
 import {
     ThemeCSSProps,
@@ -35,6 +35,8 @@ export default function useTheme(themes: AvailableThemes) {
             initializeWithValue: true, // NOTE: disable for SSR
         },
     );
+
+    const [activeVariantIdx, setActiveVariantIdx] = useState(0);
 
     const getTheme = useCallback(
         () => themes[activeTheme],
@@ -88,7 +90,16 @@ export default function useTheme(themes: AvailableThemes) {
 
     const updateTheme = (theme: string) => {
         const newTheme = themes[theme];
-        const newVariant = Object.keys(newTheme)[0];
+
+        // By convention, the themes use the first position in the object
+        // for light theme. This ensures that switching themes doesn't
+        // change the theme too harshly on the eyes.
+        const newVariantIdx = window.matchMedia("(prefers-color-scheme: dark)")
+            .matches
+            ? 1
+            : 0;
+
+        const newVariant = Object.keys(newTheme)[newVariantIdx];
         setActiveTheme(theme);
         setActiveVariant(newVariant);
     };
