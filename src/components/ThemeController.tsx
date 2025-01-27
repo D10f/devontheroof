@@ -51,7 +51,7 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
                             <span
                                 className="circle"
                                 style={{
-                                    backgroundColor: `${themes[theme.activeTheme][variant]["bg-color-3"]}`,
+                                    backgroundColor: `${themes[theme.activeTheme][variant]["bg-color"]}`,
                                 }}
                             />
                         </button>

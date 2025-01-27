@@ -1,6 +1,6 @@
 import Asciidoctor, { Block, Document, Title } from "asciidoctor";
 import dayjs from "dayjs";
-import { createHighlighter } from "shiki";
+import { getHighlighter } from "shiki";
 import AdvancedFormat from "dayjs/plugin/advancedFormat";
 import BaseConverter, {
     CustomConverter,
@@ -89,7 +89,7 @@ export default class AsciidocParser {
             }, new Set<string>());
 
         const codeBlockConverter = new CodeBlockConverter(
-            await createHighlighter({
+            await getHighlighter({
                 themes: this.syntaxHighlighterThemes,
                 langs: Array.from(languages),
             }),
