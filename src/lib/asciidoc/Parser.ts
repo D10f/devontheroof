@@ -18,7 +18,9 @@ export default class AsciidocParser {
 
     constructor(
         private filename: string,
-        private syntaxHighlighterThemes: string[] = [],
+        private syntaxHighlighterThemes: Array<
+            string | Record<string, any>
+        > = [],
     ) {
         this.converter = new BaseConverter();
         this.registerConverter();
