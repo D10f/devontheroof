@@ -1,28 +1,8 @@
 import fs from "fs";
 import AsciidocParser from "./Parser";
 import { CustomConverter } from "./converters/BaseConverter";
-import {
-    shikiMonokaiSun,
-    shikiMonokaiRistretto,
-    shikiMonokaiPro,
-} from "@/themes/_monokai";
 
 type DocType = "posts" | "pages" | "projects";
-
-const syntaxHighlighterThemes = [
-    "catppuccin-latte",
-    "catppuccin-frappe",
-    "catppuccin-macchiato",
-    "catppuccin-mocha",
-    //"everforest-dark",
-    //"everforest-light",
-    //"nord",
-    //"one-dark-pro",
-    //"one-light",
-    shikiMonokaiSun,
-    shikiMonokaiRistretto,
-    shikiMonokaiPro,
-];
 
 export function getFilenames(dir = "posts") {
     const files = fs.readdirSync(`public/${dir}`, "utf-8");
@@ -41,7 +21,7 @@ export function getPostData(
     filename: string,
     converters: CustomConverter[] = [],
 ) {
-    const post = new AsciidocParser(filename, syntaxHighlighterThemes);
+    const post = new AsciidocParser(filename);
     converters.forEach((converter) => post.use(converter));
     return post;
 }

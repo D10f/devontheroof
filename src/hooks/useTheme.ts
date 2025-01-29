@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { useLocalStorage } from "usehooks-ts";
 import {
     ThemeCSSProps,
@@ -36,7 +37,7 @@ export default function useTheme(themes: AvailableThemes) {
         },
     );
 
-    const [activeVariantIdx, setActiveVariantIdx] = useState(0);
+    const pathname = usePathname();
 
     const getTheme = useCallback(
         () => themes[activeTheme],
@@ -70,6 +71,7 @@ export default function useTheme(themes: AvailableThemes) {
     const updateCodeBlocks = useCallback(() => {
         const codeblocks = document.getElementsByClassName("shiki");
 
+        console.log("rendering...");
         for (let i = 0, l = codeblocks.length; i < l; ++i) {
             const codeblock = codeblocks[i] as HTMLElement;
             codeblock.style.setProperty(
@@ -108,7 +110,7 @@ export default function useTheme(themes: AvailableThemes) {
         updateStyles();
         updateAccent();
         updateCodeBlocks();
-    }, [updateStyles, updateAccent, updateCodeBlocks]);
+    }, [updateStyles, updateAccent, updateCodeBlocks, pathname]);
 
     return {
         themes: Object.keys(themes),

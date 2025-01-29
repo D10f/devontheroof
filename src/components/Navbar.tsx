@@ -11,7 +11,7 @@ import { useCallback } from "react";
 
 const themes = {
     Catppuccin: catppuccin,
-    //Everforest: everforest,
+    Everforest: everforest,
     Monokai: monokai,
 };
 

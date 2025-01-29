@@ -14,18 +14,18 @@ export default function MazeTribute() {
     const loadingRef = useRef(false);
 
     useEffect(() => {
-        if (loadingRef.current) return;
-        loadingRef.current = true;
-        import("../../../../public/raycasting.js")
-            .then((module) => module.default({ canvas: canvasRef.current }))
-            .then((wasm: RaycastingWasm) => {
-                if (wasmRef.current) return;
-                wasmRef.current = wasm;
-            });
-
-        document.addEventListener("visibilitychange", () => {
-            document.visibilityState === "visible" ? play() : pause();
-        });
+        //if (loadingRef.current) return;
+        //loadingRef.current = true;
+        //import("../../../../public/raycasting.js")
+        //    .then((module) => module.default({ canvas: canvasRef.current }))
+        //    .then((wasm: RaycastingWasm) => {
+        //        if (wasmRef.current) return;
+        //        wasmRef.current = wasm;
+        //    });
+        //
+        //document.addEventListener("visibilitychange", () => {
+        //    document.visibilityState === "visible" ? play() : pause();
+        //});
     }, []);
 
     function play() {

@@ -1,11 +1,12 @@
 import Asciidoctor, { Block, Document, Title } from "asciidoctor";
 import dayjs from "dayjs";
-import { getHighlighter } from "shiki";
 import AdvancedFormat from "dayjs/plugin/advancedFormat";
 import BaseConverter, {
     CustomConverter,
 } from "@/lib/asciidoc/converters/BaseConverter";
 import CodeBlockConverter from "@/lib/asciidoc/converters/CodeBlockConverter";
+import { ShikiHighlighter } from "../shiki/highlighter";
+import { BundledLanguage } from "shiki";
 
 dayjs.extend(AdvancedFormat);
 //const BASE_PATHNAME = "public/posts";
@@ -15,12 +16,13 @@ export default class AsciidocParser {
     private document: Document;
     private documentTitle: Title;
     private converter: BaseConverter;
+    private highlighter: ShikiHighlighter;
 
     constructor(
         private filename: string,
-        private syntaxHighlighterThemes: Array<
-            string | Record<string, any>
-        > = [],
+        //private syntaxHighlighterThemes: Array<
+        //    string | Record<string, any>
+        //> = [],
     ) {
         this.converter = new BaseConverter();
         this.registerConverter();
@@ -28,6 +30,7 @@ export default class AsciidocParser {
         this.documentTitle = this.document.getDocumentTitle({
             partition: true,
         }) as Title;
+        this.highlighter = ShikiHighlighter.getInstance();
     }
 
     get description() {
@@ -88,14 +91,15 @@ export default class AsciidocParser {
             .reduce((acc, cur) => {
                 acc.add(cur.getAttribute("language"));
                 return acc;
-            }, new Set<string>());
+            }, new Set<BundledLanguage>());
 
         const codeBlockConverter = new CodeBlockConverter(
-            await getHighlighter({
-                themes: this.syntaxHighlighterThemes,
-                langs: Array.from(languages),
-            }),
+            await this.highlighter.getHighlighter(Array.from(languages)),
         );
+        //await getHighlighter({
+        //    themes: this.syntaxHighlighterThemes,
+        //    langs: Array.from(languages),
+        //}),
 
         this.use(codeBlockConverter);
     }
