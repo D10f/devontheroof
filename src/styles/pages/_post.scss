@@ -27,6 +27,11 @@
   max-width: calc(100vw - 1.5rem);
   overflow: hidden;
 
+  @media (min-width: 1800px) {
+    position: relative;
+    overflow: unset;
+  }
+
   /**/
   ol {
     list-style: upper-roman;
@@ -277,6 +282,29 @@ table.tableblock {
     grid-template-columns: min-content 1fr;
   }
 
+  @media (min-width: 1800px) {
+    position: absolute;
+    width: 50%;
+    margin-block: 0;
+    margin-top: -2em;
+    grid-template-columns: 1fr;
+    --tooltip-color: #000000;
+
+    &:nth-child(even) {
+      right: calc(100% + 2em);
+
+      // Tooltip arrow on the right side
+      @include arrow('right top', $color: var(--tooltip-color), $size: 1em);
+    }
+
+    &:nth-child(odd) {
+      left: calc(100% + 2em);
+
+      // Tooltip arrow on the left side
+      @include arrow('left top', $color: var(--tooltip-color), $size: 1em);
+    }
+  }
+
   svg {
     width: 48px;
     aspect-ratio: 1;
@@ -285,6 +313,7 @@ table.tableblock {
 
   &.warning {
     --bg-color-3: rgba(223, 142, 29, 0.2);
+    --tooltip-color: var(--bg-color-3);
 
     svg {
       color: var(--yellow);
@@ -293,6 +322,7 @@ table.tableblock {
 
   &.tip {
     --bg-color-3: rgba(166, 209, 137, 0.2);
+    --tooltip-color: var(--bg-color-3);
 
     svg {
       color: var(--green);
@@ -301,6 +331,7 @@ table.tableblock {
 
   &.important {
     --bg-color-3: rgba(153, 209, 219, 0.2);
+    --tooltip-color: var(--bg-color-3);
 
     svg {
       color: var(--blue);
@@ -309,6 +340,7 @@ table.tableblock {
 
   &.caution {
     --bg-color-3: rgba(231, 130, 132, 0.2);
+    --tooltip-color: var(--bg-color-3);
 
     svg {
       color: var(--red);
@@ -317,6 +349,7 @@ table.tableblock {
 
   &.note {
     --bg-color-3: rgba(113, 63, 18, 0.2);
+    --tooltip-color: var(--bg-color-3);
 
     svg {
       color: hsl(29.1, 72.5%, 35.7%);
