@@ -9,8 +9,9 @@ export default class AdmonitionConverter implements CustomConverter {
 
     convert(node: AbstractNode): string {
         // @ts-ignore
-        const content = node.lines;
+        const lines = node.lines;
         const type = node.getAttribute("name");
+        const content = lines.join("").replace(/`([^`]+)`/g, "<code>$1</code>");
 
         return `
             <div class="admonition ${type}">

@@ -306,6 +306,13 @@ table.tableblock {
     }
   }
 
+  /* Allows for inline code blocks written inside admonitions*/
+  code {
+    color: unset;
+    background-color: var(--tooltip-color);
+    border-bottom: unset;
+  }
+
   svg {
     width: 48px;
     aspect-ratio: 1;
