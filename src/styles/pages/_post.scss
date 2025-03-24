@@ -291,14 +291,16 @@ table.tableblock {
     grid-template-columns: 1fr;
     --tooltip-color: #000000;
 
-    &:nth-child(even) {
+    // &:nth-child(even) {
+    &--left {
       right: calc(100% + 2em);
 
       // Tooltip arrow on the right side
       @include arrow('right top', $color: var(--tooltip-color), $size: 1em);
     }
 
-    &:nth-child(odd) {
+    // &:nth-child(odd) {
+    &--right {
       left: calc(100% + 2em);
 
       // Tooltip arrow on the left side
