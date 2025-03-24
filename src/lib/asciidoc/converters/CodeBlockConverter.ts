@@ -34,8 +34,6 @@ export default class CodeBlockConverter implements CustomConverter {
             themes: {
                 "catppuccin-latte": "catppuccin-latte",
                 "catppuccin-frappe": "catppuccin-frappe",
-                "catppuccin-macchiato": "catppuccin-macchiato",
-                "catppuccin-mocha": "catppuccin-mocha",
                 "everforest-dark": "everforest-dark",
                 "everforest-light": "everforest-light",
                 //@ts-expect-error
