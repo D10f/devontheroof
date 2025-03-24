@@ -32,14 +32,14 @@ export default class CodeBlockConverter implements CustomConverter {
         const output = this.highlighter.codeToHtml(input, {
             lang,
             themes: {
-                "catppuccin-latte": "catppuccin-latte",
-                "catppuccin-frappe": "catppuccin-frappe",
+                "catppuccin-light": "catppuccin-latte",
+                "catppuccin-dark": "catppuccin-frappe",
                 "everforest-dark": "everforest-dark",
                 "everforest-light": "everforest-light",
                 //@ts-expect-error
-                "monokai-sun": shikiMonokaiSun,
+                "monokai-light": shikiMonokaiSun,
                 //@ts-expect-error
-                "monokai-pro": shikiMonokaiPro,
+                "monokai-dark": shikiMonokaiPro,
             },
             transformers: [
                 this.transformAnnotations(),

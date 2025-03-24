@@ -8,7 +8,8 @@ import { ThemeVariant } from "./defs";
  */
 
 export const monokai: Record<string, ThemeVariant> = {
-    sun: {
+    // Monokai Light
+    light: {
         red: "#E14775",
         orange: "#E16032",
         yellow: "#CC7A0A",
@@ -21,7 +22,8 @@ export const monokai: Record<string, ThemeVariant> = {
         "text-color": "#2C232E",
         "subtext-color": "#72696D",
     },
-    pro: {
+    // Monokai Pro
+    dark: {
         red: "#FF6188",
         orange: "#FC9867",
         yellow: "#FFD866",
@@ -39,7 +41,7 @@ export const monokai: Record<string, ThemeVariant> = {
 // --------------------------TextMate Grammars--------------------------
 
 export const shikiMonokaiSun = {
-    name: "monokai-sun",
+    name: "monokai-light",
     type: "light",
     author: "Monokai",
     colorSpaceName: "sRGB",
@@ -3925,7 +3927,7 @@ export const shikiMonokaiSun = {
 //};
 
 export const shikiMonokaiPro = {
-    name: "monokai-pro",
+    name: "monokai-dark",
     type: "dark",
     author: "Monokai",
     colorSpaceName: "sRGB",

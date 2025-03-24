@@ -1,7 +1,8 @@
 import { ThemeVariant } from "./defs";
 
 export const catppuccin: Record<string, ThemeVariant> = {
-    latte: {
+    // Catppuccin Latte
+    light: {
         red: "#D20F39",
         orange: "#FE640B",
         yellow: "#DF8E1D",
@@ -14,7 +15,8 @@ export const catppuccin: Record<string, ThemeVariant> = {
         "text-color": "#4C4F69",
         "subtext-color": "#6C6F85",
     },
-    frappe: {
+    // Catppuccin Frappe
+    dark: {
         red: "#E78284",
         orange: "#EF9F76",
         yellow: "#E5C890",

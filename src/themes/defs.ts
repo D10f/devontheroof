@@ -16,7 +16,7 @@ export const layoutColors = [
 ] as const;
 
 export const DEFAULT_THEME = "Catppuccin";
-export const DEFAULT_VARIANT = "frappe";
+export const DEFAULT_VARIANT = "dark"; // frappe
 export const DEFAULT_ACCENT_COLOR = "yellow";
 
 export type ThemeAccentColor = (typeof accentColors)[number];
