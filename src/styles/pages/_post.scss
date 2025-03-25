@@ -163,7 +163,8 @@
 
 /* inline code */
 p,
-ul {
+ul,
+td {
   code {
     background-color: var(--bg-color-3);
     color: var(--primary-color);

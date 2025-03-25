@@ -25,7 +25,7 @@ export default class ColistConverter implements CustomConverter {
         const colistId = block.getAttribute("coids") as string;
         const [_, marker] = colistId.match(/-(\d)+$/) as RegExpMatchArray;
         // @ts-ignore
-        const text = block.text;
+        const text = block.text.replace(/`([^`]+)`/g, "<code>$1</code>");
         return `<tr>
             <td>
                 <i class="conum pr-2" data-value="${marker}"></i>
