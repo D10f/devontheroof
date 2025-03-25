@@ -24,6 +24,7 @@ export class ShikiHighlighter {
                     "catppuccin-frappe",
                     "everforest-light",
                     "everforest-dark",
+                    "nord",
                 ],
                 langs: [],
             });

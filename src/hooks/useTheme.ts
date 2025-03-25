@@ -92,15 +92,10 @@ export default function useTheme(themes: AvailableThemes) {
     const updateTheme = (theme: string) => {
         const newTheme = themes[theme];
 
-        // By convention, the themes use the first position in the object
-        // for light theme. This ensures that switching themes doesn't
-        // change the theme too harshly on the eyes.
-        //const newVariantIdx = window.matchMedia("(prefers-color-scheme: dark)")
-        //    .matches
-        //    ? 1
-        //    : 0;
-        //
-        //const newVariant = Object.keys(newTheme)[newVariantIdx];
+        if (!Object.hasOwn(newTheme, activeVariant)) {
+            setActiveVariant(activeVariant === "dark" ? "light" : "dark");
+        }
+
         setActiveTheme(theme);
         //setActiveVariant(newVariant);
     };

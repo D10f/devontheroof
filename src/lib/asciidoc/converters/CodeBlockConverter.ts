@@ -40,6 +40,7 @@ export default class CodeBlockConverter implements CustomConverter {
                 "monokai-light": shikiMonokaiSun,
                 //@ts-expect-error
                 "monokai-dark": shikiMonokaiPro,
+                "nord-dark": "nord",
             },
             transformers: [
                 this.transformAnnotations(),
@@ -73,9 +74,9 @@ export default class CodeBlockConverter implements CustomConverter {
             postprocess(html, options) {
                 return options.lang === "console"
                     ? html.replaceAll(
-                          /<span class="line"><span style="(.*)">([$#])(<\/span><span style="(.*)">) /g,
+                          /<span class="line"><span style="([^"]*)">([$#])(<\/span><span style="([^"]*)">)/g,
                           (_, p1, p2, p3) => {
-                              return `<span class="line"><span class="unselectable" style="${p1}">${p2} ${p3}`;
+                              return `<span class="line"><span class="unselectable" style="${p1}">${p2}${p3}`;
                           },
                       )
                     : html;

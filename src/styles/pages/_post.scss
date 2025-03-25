@@ -173,6 +173,7 @@ td {
     border-bottom: 2px solid var(--bg-color-2);
     font-family: var(--font-mono);
     font-size: 0.9em;
+    box-decoration-break: clone;
   }
 }
 
