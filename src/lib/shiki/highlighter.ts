@@ -25,6 +25,8 @@ export class ShikiHighlighter {
                     "everforest-light",
                     "everforest-dark",
                     "nord",
+                    "solarized-light",
+                    "solarized-dark",
                 ],
                 langs: [],
             });

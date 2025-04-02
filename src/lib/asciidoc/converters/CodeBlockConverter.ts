@@ -41,6 +41,8 @@ export default class CodeBlockConverter implements CustomConverter {
                 //@ts-expect-error
                 "monokai-dark": shikiMonokaiPro,
                 "nord-dark": "nord",
+                "solarized-light": "solarized-light",
+                "solarized-dark": "solarized-dark",
             },
             transformers: [
                 this.transformAnnotations(),
