@@ -6,7 +6,6 @@ import useScrollDirection from "@/hooks/useScrollDirection";
 import { catppuccin } from "@/themes/_catppuccin";
 import { everforest } from "@/themes/_everforest";
 import { monokai } from "@/themes/_monokai";
-import { nord } from "@/themes/_nord";
 import { solarized } from "@/themes/_solarized";
 import { usePathname } from "next/navigation";
 import { useCallback } from "react";
@@ -15,7 +14,6 @@ const themes = {
     Catppuccin: catppuccin,
     Everforest: everforest,
     Monokai: monokai,
-    Nord: nord,
     Solarized: solarized,
 };
 

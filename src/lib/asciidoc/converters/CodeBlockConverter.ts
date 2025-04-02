@@ -40,11 +40,13 @@ export default class CodeBlockConverter implements CustomConverter {
                 "monokai-light": shikiMonokaiSun,
                 //@ts-expect-error
                 "monokai-dark": shikiMonokaiPro,
-                "nord-dark": "nord",
                 "solarized-light": "solarized-light",
                 "solarized-dark": "solarized-dark",
             },
             colorReplacements: {
+                "solarized-light": {
+                    "#fdf6e3": "#eee8d5",
+                },
                 "solarized-dark": {
                     "#002b36": "#073642",
                 },
