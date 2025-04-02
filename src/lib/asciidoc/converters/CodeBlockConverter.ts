@@ -44,6 +44,11 @@ export default class CodeBlockConverter implements CustomConverter {
                 "solarized-light": "solarized-light",
                 "solarized-dark": "solarized-dark",
             },
+            colorReplacements: {
+                "solarized-dark": {
+                    "#002b36": "#073642",
+                },
+            },
             transformers: [
                 this.transformAnnotations(),
                 this.transformConsoleCodeBlock(),
