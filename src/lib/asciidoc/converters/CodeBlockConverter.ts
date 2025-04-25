@@ -62,6 +62,7 @@ export default class CodeBlockConverter implements CustomConverter {
             cssVariablePrefix: "--shiki-",
         });
 
+        //return `<div class="listingblock" data-language="${lang}">
         return `<div class="listingblock" data-language="${lang}">
             <span style="font-style: italic;">${title || ""}</span>
             <figure class="content">
