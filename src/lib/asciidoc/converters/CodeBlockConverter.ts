@@ -105,9 +105,24 @@ export default class CodeBlockConverter implements CustomConverter {
         return {
             /** Replace original callout with a predictable pattern before tokenization */
             preprocess(code) {
-                return code.replaceAll(/(\/\/|#)\s+<(\d)+>/g, (_, _p1, p2) => {
-                    return `__annotation${p2}`;
-                });
+                const annotations = code.matchAll(/\s+(?:\/\/|#)(?:\s+<\d>)+/g);
+                let splits = null;
+
+                let i = 0;
+                for (const annotationMatch of annotations) {
+                    if (splits == null) {
+                        splits = code.split(/\s+(?:\/\/|#)(?:\s+<\d>)+/);
+                    }
+
+                    const matchedStr = annotationMatch[0];
+                    const matchedItr = matchedStr.matchAll(/<(\d)>/g);
+
+                    for (const [_, annotationId] of matchedItr) {
+                        splits[i++] += `__annotation${annotationId}`;
+                    }
+                }
+
+                return splits ? splits.join("") : code;
             },
 
             /** Replace predicatble pattern with HTML code */
