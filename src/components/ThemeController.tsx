@@ -1,6 +1,5 @@
 "use client";
 
-import { MdPalette } from "react-icons/md";
 import useTheme from "@/hooks/useTheme";
 import Dropdown from "@/components/Dropdown";
 import { ThemeVariant } from "@/themes/defs";
@@ -13,7 +12,7 @@ export default function ThemeController({ themes }: ThemeControllerProps) {
     const theme = useTheme(themes);
 
     return (
-        <Dropdown trigger={<MdPalette className="icon" />}>
+        <Dropdown>
             <ul>
                 <p className="unselectable">Themes</p>
                 {theme.themes.map((t: string) => (

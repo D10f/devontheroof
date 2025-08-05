@@ -64,16 +64,22 @@ export default class CodeBlockConverter implements CustomConverter {
 
         //return `<div class="listingblock" data-language="${lang}">
         return `<div class="codeblock">
-            <button class="codeblock__copy-btn ${title ? "mt-6" : ""}">
-                <svg aria-hidden="true">
-                    <use href="/sprite.svg#icon-clipboard" />
-                </svg>
+            <button class="codeblock__copy-btn rotating-btn ${title ? "mt-6" : ""}">
+                <span class="unselectable">
+                    <svg aria-hidden="true">
+                        <use href="/sprite.svg#icon-clipboard" />
+                    </svg>
+
+                    <svg aria-hidden="true" style="transform: rotate(180deg);">
+                        <use href="/sprite.svg#icon-clipboard-success" />
+                    </svg>
+                </span>
             </button>
             <div class="listingblock" data-language="${lang}">
                 <span style="font-style: italic;">${title || ""}</span>
-                <figure class="content">
+                <figure>
                     ${title ? `<figcaption class="visually-hidden">${title}</figcaption>` : ""}
-                    ${output}
+                    ${output.replace(/tabindex="0"/, 'tabindex="-1"')}
                 </figure>
             </div>
         </div>`;

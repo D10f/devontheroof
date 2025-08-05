@@ -21,7 +21,11 @@ export default function PostContent({
     const handleCodeCopy = (event: MouseEvent) => {
         const target = event.target as HTMLButtonElement;
 
-        if (!target.classList.contains("codeblock__copy-btn")) return;
+        if (
+            !target.classList.contains("codeblock__copy-btn") ||
+            target.classList.contains("rotating-btn--active")
+        )
+            return;
 
         if (navigator === null || !navigator.clipboard) {
             console.warn("Clipboard not supported.");
@@ -44,7 +48,13 @@ export default function PostContent({
 
         navigator.clipboard
             .writeText(strToCopy)
-            .then(() => console.log("Copied to clipboard"))
+            .then(() => {
+                target.classList.add("rotating-btn--active");
+                setTimeout(() => {
+                    target.classList.remove("rotating-btn--active");
+                    target.blur();
+                }, 2000);
+            })
             .catch(() => console.warn("Failed to copy to clipboard."));
     };
 

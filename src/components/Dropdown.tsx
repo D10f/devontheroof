@@ -2,16 +2,16 @@
 
 import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MdClose } from "react-icons/md";
+import { MdClose, MdPalette } from "react-icons/md";
 import { useBoolean, useEventListener, useOnClickOutside } from "usehooks-ts";
 import useScroll from "@/hooks/useScroll";
+import RotatingButton from "./RotatingButton";
 
 type DropdownProps = {
     children: React.ReactNode;
-    trigger: React.ReactNode;
 };
 
-export default function Dropdown({ children, trigger }: DropdownProps) {
+export default function Dropdown({ children }: DropdownProps) {
     const { value: isOpen, setFalse, toggle } = useBoolean(false);
 
     useScroll(setFalse, 1000);
@@ -35,19 +35,12 @@ export default function Dropdown({ children, trigger }: DropdownProps) {
 
     return (
         <div className="dropdown" ref={dropdown}>
-            <button
+            <RotatingButton
                 onClick={toggle}
-                className={
-                    isOpen
-                        ? "dropdown__trigger dropdown__trigger--active"
-                        : "dropdown__trigger"
-                }
-            >
-                <span>
-                    {trigger}
-                    <MdClose className="icon" />
-                </span>
-            </button>
+                isActive={isOpen}
+                topIcon={<MdPalette className="icon" />}
+                botIcon={<MdClose className="icon" />}
+            />
             <AnimatePresence>
                 {isOpen && (
                     <motion.aside

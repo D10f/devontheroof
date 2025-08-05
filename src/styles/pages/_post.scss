@@ -200,6 +200,12 @@ td {
       opacity: 0;
     }
 
+    // Since it will be used with rotating button
+    &.rotating-btn--active {
+      cursor: default;
+      opacity: 1 !important;
+    }
+
     svg {
       @include unselectable;
       width: 100%;
