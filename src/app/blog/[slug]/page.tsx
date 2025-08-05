@@ -10,6 +10,7 @@ import AdmonitionConverter from "@/lib/asciidoc/converters/AdmonitionConverter";
 import SectionConverter from "@/lib/asciidoc/converters/SectionConverter";
 import { Metadata } from "next";
 import FaIconConverter from "@/lib/asciidoc/converters/FaIconConverter";
+import PostContent from "@/components/PostContent";
 
 type Props = {
     params: {
@@ -42,22 +43,31 @@ export default async function PostPage({ params }: Props) {
     await post.useSyntaxHighligher();
 
     return (
-        <div className="layout-content">
-            <header>
-                <h1 className="post__title">{post.title}</h1>
-                {post.subtitle && (
-                    <h2 className="post__subtitle">{post.subtitle}</h2>
-                )}
-            </header>
-
-            <aside className="post__metadata">
-                <span>{post.date.format("MMM Do, YYYY")}</span>
-            </aside>
-
-            <main
-                className="post__content"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-        </div>
+        <PostContent
+            title={post.title}
+            subtitle={post.subtitle}
+            date={post.date.format("MMM Do, YYYY")}
+            content={post.content}
+        />
     );
+
+    // return (
+    //     <div className="layout-content">
+    //         <header>
+    //             <h1 className="post__title">{post.title}</h1>
+    //             {post.subtitle && (
+    //                 <h2 className="post__subtitle">{post.subtitle}</h2>
+    //             )}
+    //         </header>
+    //
+    //         <aside className="post__metadata">
+    //             <span>{post.date.format("MMM Do, YYYY")}</span>
+    //         </aside>
+    //
+    //         <main
+    //             className="post__content"
+    //             dangerouslySetInnerHTML={{ __html: post.content }}
+    //         />
+    //     </div>
+    // );
 }

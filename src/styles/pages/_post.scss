@@ -178,6 +178,37 @@ td {
 }
 
 /* code block */
+
+.codeblock {
+
+  position: relative;
+
+  &:hover &__copy-btn {
+    opacity: 1 !important;
+  }
+
+  &__copy-btn {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+    cursor: pointer;
+    width: 1.25em;
+    height: 1.25em;
+    transition: opacity ease-in-out 100ms;
+
+    &:not(:focus):not(:active) {
+      opacity: 0;
+    }
+
+    svg {
+      @include unselectable;
+      width: 100%;
+      height: 100%;
+      fill: var(--text-color);
+    }
+  }
+}
+
 .listingblock {
   margin-block: 1em;
   overflow: auto;
@@ -208,6 +239,7 @@ td {
 
   figure {
     font-size: 1.1em;
+
     pre {
       border-radius: calc(var(--border-radius) / 2);
       min-width: min-content;
