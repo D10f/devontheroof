@@ -133,8 +133,10 @@ export default class CodeBlockConverter implements CustomConverter {
                     const matchedItr = matchedStr.matchAll(/<(\d)>/g);
 
                     for (const [_, codeCalloutId] of matchedItr) {
-                        splits[i++] += `__codeCallout${codeCalloutId}`;
+                        splits[i] += `__codeCallout${codeCalloutId}`;
                     }
+
+                    i++;
                 }
 
                 return splits ? splits.join("") : code;
