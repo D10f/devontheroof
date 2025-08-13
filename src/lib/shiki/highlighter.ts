@@ -22,6 +22,7 @@ export class ShikiHighlighter {
                 themes: [
                     "catppuccin-latte",
                     "catppuccin-frappe",
+                    "catppuccin-macchiato",
                     "everforest-light",
                     "everforest-dark",
                     "solarized-light",

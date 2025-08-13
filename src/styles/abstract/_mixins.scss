@@ -69,71 +69,92 @@ $black: #333;
 @mixin _arrow_absolute($top: null, $right: null, $bottom: null, $left: null) {
   position: absolute;
   top: $top;
-  left: $left;
-  right: $right;
+  left: if($left, calc($left + 0.05em), $left);
+  right: if($right, calc($right + 0.05em), $right);
+  // This was updated to offset the arrows a bit... because Chromium-based
+  // browsers seem to need it.
+  // left: $left;
+  // right: $right
   bottom: $bottom;
 }
 
 @mixin arrow($position: 'top', $color: currentColor, $size: .5em) {
   &::before {
-    $_positions: ('top', 'right', 'bottom', 'left');
-    $_parsed-positions: ();
-    $_position-reference: (
-      'top': 'bottom',
-      'right': 'left',
-      'bottom': 'top',
-      'left': 'right',
+    $_positions: (
+      'top',
+      'right',
+      'bottom',
+      'left'
     );
+  $_parsed-positions: (
+  );
+$_position-reference: (
+  'top': 'bottom',
+  'right': 'left',
+  'bottom': 'top',
+  'left': 'right',
+);
 
-    // Parse the position string into first and second arguments
-    $_sep-idx: string.index($position, ' ');
-    $_first: null;
-    $_second: null;
+// Parse the position string into first and second arguments
+$_sep-idx: string.index($position, ' ');
+$_first: null;
+$_second: null;
 
-    @if ($_sep-idx) {
-      $_first: string.slice($position, 1, $_sep-idx - 1);
-      $_second: string.slice($position, $_sep-idx + 1);
-    } @else {
-      $_first: $position;
-    }
+@if ($_sep-idx) {
+  $_first: string.slice($position, 1, $_sep-idx - 1);
+  $_second: string.slice($position, $_sep-idx + 1);
+}
 
-    //  Validate arguments provide a valid position
-    @if ($_first == $_second) {
-      @error 'ERROR: position axis cannot be the same.';
-    }
+@else {
+  $_first: $position;
+}
 
-    @if (not list.index($_positions, $_first) or ($_second and not list.index($_positions, $_second))) {
-      @error 'ERROR: invalid position arguments.';
-    }
+//  Validate arguments provide a valid position
+@if ($_first ==$_second) {
+  @error 'ERROR: position axis cannot be the same.';
+}
 
-    $_opposite: '';
-    @each $_pos in $_positions {
-      border-#{$_pos}: $size solid transparent;
-      @if ($_first == $_pos) {
-        $_parsed-positions: list.append($_parsed-positions, -$size);
-        $_opposite: map.get($_position-reference, $_first);
-      } @else if ($_second == $_pos) {
-        $_parsed-positions: list.append($_parsed-positions, $size);
-      } @else {
-        $_parsed-positions: list.append($_parsed-positions, null);
-      }
-    }
-    border-#{$_opposite}: $size solid $color;
-    border-#{$_first}: unset;
+@if (not list.index($_positions, $_first) or ($_second and not list.index($_positions, $_second))) {
+  @error 'ERROR: invalid position arguments.';
+}
 
-    @if (not $_second) {
-      @if ($_first == 'top' or $_first == 'bottom') {
-        $_parsed-positions: list.set-nth($_parsed-positions, 2, 50%);
-        transform: translateX(50%);
-      } @else {
-        $_parsed-positions: list.set-nth($_parsed-positions, 1, 50%);
-        transform: translateY(-50%);
-      }
-    }
+$_opposite: '';
 
-    content: '';
-    width: 0;
-    height: 0;
-    @include _arrow_absolute($_parsed-positions...);
+@each $_pos in $_positions {
+  border-#{$_pos}: $size solid transparent;
+
+  @if ($_first ==$_pos) {
+    $_parsed-positions: list.append($_parsed-positions, -$size);
+    $_opposite: map.get($_position-reference, $_first);
   }
+
+  @else if ($_second ==$_pos) {
+    $_parsed-positions: list.append($_parsed-positions, $size);
+  }
+
+  @else {
+    $_parsed-positions: list.append($_parsed-positions, null);
+  }
+}
+
+border-#{$_opposite}: $size solid $color;
+border-#{$_first}: unset;
+
+@if (not $_second) {
+  @if ($_first =='top' or $_first =='bottom') {
+    $_parsed-positions: list.set-nth($_parsed-positions, 2, 50%);
+    transform: translateX(50%);
+  }
+
+  @else {
+    $_parsed-positions: list.set-nth($_parsed-positions, 1, 50%);
+    transform: translateY(-50%);
+  }
+}
+
+content: '';
+width: 0;
+height: 0;
+@include _arrow_absolute($_parsed-positions...);
+}
 }

@@ -11,7 +11,6 @@ import {
     transformerNotationHighlight,
     transformerNotationFocus,
 } from "@shikijs/transformers";
-import { shikiMonokaiSun, shikiMonokaiPro } from "@/themes/_monokai";
 
 type Highlighter = HighlighterGeneric<BundledLanguage, BundledTheme>;
 
@@ -34,12 +33,9 @@ export default class CodeBlockConverter implements CustomConverter {
             themes: {
                 "catppuccin-light": "catppuccin-latte",
                 "catppuccin-dark": "catppuccin-frappe",
+                "catppuccin-macchiato": "catppuccin-macchiato",
                 "everforest-dark": "everforest-dark",
                 "everforest-light": "everforest-light",
-                //@ts-expect-error
-                "monokai-light": shikiMonokaiSun,
-                //@ts-expect-error
-                "monokai-dark": shikiMonokaiPro,
                 "solarized-light": "solarized-light",
                 "solarized-dark": "solarized-dark",
             },
@@ -58,7 +54,7 @@ export default class CodeBlockConverter implements CustomConverter {
                 transformerNotationHighlight(),
                 transformerNotationFocus(),
             ],
-            defaultColor: "catppuccin-dark",
+            defaultColor: "catppuccin-macchiato",
             cssVariablePrefix: "--shiki-",
         });
 
