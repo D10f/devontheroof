@@ -20,6 +20,10 @@ export default function RootLayout({ children }: ChildrenProps) {
                 <div className="separator" />
                 {children}
                 <Footer />
+
+                <noscript>
+                    <style>{`.js-required { display: none }`}</style>
+                </noscript>
             </body>
         </html>
     );

@@ -59,7 +59,7 @@ export default function Navbar() {
                     </li>
                 </menu>
 
-                <menu className="navbar__dropdown">
+                <menu className="navbar__dropdown js-required">
                     <li>
                         <ThemeController themes={themes} />
                     </li>

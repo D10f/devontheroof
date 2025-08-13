@@ -60,7 +60,7 @@ export default class CodeBlockConverter implements CustomConverter {
 
         //return `<div class="listingblock" data-language="${lang}">
         return `<div class="codeblock">
-            <button class="codeblock__copy-btn rotating-btn ${title ? "mt-6" : ""}">
+            <button class="codeblock__copy-btn rotating-btn ${title ? "mt-6" : ""} js-required">
                 <span class="unselectable">
                     <svg aria-hidden="true">
                         <use href="/sprite.svg#icon-clipboard" />

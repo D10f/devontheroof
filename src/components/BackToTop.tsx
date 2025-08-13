@@ -9,7 +9,7 @@ export default function BackToTop() {
     const hideBtn = direction > 0;
 
     const btnStyle = useMemo(() => {
-        const baseStyles = "btn btn--round btn--float ";
+        const baseStyles = "btn btn--round btn--float js-required ";
         return baseStyles + (hideBtn ? "btn--hidden" : "");
     }, [hideBtn]);
 
