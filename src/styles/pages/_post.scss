@@ -245,9 +245,10 @@ td {
 
   figure {
     font-size: 1.1em;
+    border-radius: var(--border-radius);
+    overflow: auto;
 
     pre {
-      border-radius: calc(var(--border-radius) / 2);
       min-width: min-content;
     }
   }
