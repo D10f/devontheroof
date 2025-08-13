@@ -58,7 +58,7 @@ export default class CodeBlockConverter implements CustomConverter {
                 transformerNotationHighlight(),
                 transformerNotationFocus(),
             ],
-            defaultColor: false,
+            defaultColor: "catppuccin-dark",
             cssVariablePrefix: "--shiki-",
         });
 
