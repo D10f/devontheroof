@@ -421,6 +421,13 @@ table.tableblock {
     &:not(:first-child) {
       margin-top: 1em;
     }
+
+    // When the description list item has no description, remove the
+    // bottom margin. This is used to stack up more than one item over
+    // the same definition (see debian minimal article, st patches):
+    &:not(:has(+ dd)) {
+      margin-bottom: -1em;
+    }
   }
 
   dd {
