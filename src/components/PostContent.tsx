@@ -33,18 +33,26 @@ export default function PostContent({
         }
 
         const listingBlock = target.nextElementSibling as HTMLDivElement;
-        const codeElement = listingBlock.getElementsByTagName("pre")[0];
+        const codeElement = listingBlock.getElementsByTagName("code")[0];
         const codeLanguage = listingBlock.getAttribute("data-language");
 
-        const strToCopy = codeElement.innerText
-            .split("\n")
-            .map((line) => {
-                const l = line.replace(/[❶❷❸❹❺❻❼❽❾]*$/g, "");
-                return codeLanguage === "console"
-                    ? l.replace(/^[#$]\s*/g, "")
-                    : l;
-            })
-            .join("\n");
+        const strToCopy = Array.from(codeElement.children).reduce(
+            (acc, curr) => {
+                if (!curr.classList.contains("remove")) {
+                    let line = (curr as HTMLSpanElement).innerText;
+                    line = line.replace(/[❶❷❸❹❺❻❼❽❾]*$/g, "");
+
+                    if (codeLanguage === "console") {
+                        line = line.replace(/^[#$]\s*/g, "");
+                    }
+
+                    acc += line + "\n";
+                }
+
+                return acc;
+            },
+            "",
+        );
 
         navigator.clipboard
             .writeText(strToCopy)
