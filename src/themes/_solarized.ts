@@ -10,7 +10,7 @@ export const solarized: Record<string, ThemeVariant> = {
         purple: "#D33682",
         "bg-color": "#FDF6E3",
         "bg-color-2": "#EEE8D5",
-        "bg-color-3": "#EEE8D5",
+        "bg-color-3": "#FFFCE8",
         "text-color": "#002B36",
         "subtext-color": "#586e75",
     },

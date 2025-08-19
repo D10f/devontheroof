@@ -6,6 +6,7 @@ import useScrollDirection from "@/hooks/useScrollDirection";
 import { catppuccin } from "@/themes/_catppuccin";
 import { everforest } from "@/themes/_everforest";
 import { solarized } from "@/themes/_solarized";
+import { gruvbox } from "@/themes/_gruvbox";
 import { usePathname } from "next/navigation";
 import { useCallback } from "react";
 
@@ -13,6 +14,7 @@ const themes = {
     Catppuccin: catppuccin,
     Everforest: everforest,
     Solarized: solarized,
+    Gruvbox: gruvbox,
 };
 
 export default function Navbar() {

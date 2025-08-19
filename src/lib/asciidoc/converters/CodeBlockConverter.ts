@@ -38,13 +38,18 @@ export default class CodeBlockConverter implements CustomConverter {
                 "everforest-light": "everforest-light",
                 "solarized-light": "solarized-light",
                 "solarized-dark": "solarized-dark",
+                "gruvbox-light": "gruvbox-light-hard",
+                "gruvbox-dark": "gruvbox-dark-hard",
             },
             colorReplacements: {
                 "solarized-light": {
-                    "#fdf6e3": "#eee8d5",
+                    "#fdf6e3": "#fffce8",
                 },
                 "solarized-dark": {
                     "#002b36": "#073642",
+                },
+                "gruvbox-dark-hard": {
+                    "#1d2021": "#282828",
                 },
             },
             transformers: [

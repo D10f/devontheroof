@@ -20,13 +20,15 @@ export class ShikiHighlighter {
         if (!this.highlighter) {
             this.highlighter = await createHighlighter({
                 themes: [
-                    "catppuccin-latte",
-                    "catppuccin-frappe",
-                    "catppuccin-macchiato",
-                    "everforest-light",
-                    "everforest-dark",
-                    "solarized-light",
-                    "solarized-dark",
+                    import("@shikijs/themes/catppuccin-latte"),
+                    import("@shikijs/themes/catppuccin-frappe"),
+                    import("@shikijs/themes/catppuccin-macchiato"),
+                    import("@shikijs/themes/everforest-light"),
+                    import("@shikijs/themes/everforest-dark"),
+                    import("@shikijs/themes/solarized-light"),
+                    import("@shikijs/themes/solarized-dark"),
+                    import("@shikijs/themes/gruvbox-light-hard"),
+                    import("@shikijs/themes/gruvbox-dark-hard"),
                 ],
                 langs: [],
             });
