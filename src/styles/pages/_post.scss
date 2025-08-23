@@ -435,3 +435,29 @@ table.tableblock {
     color: var(--subtext-color);
   }
 }
+
+.quoteblock {
+  border-left: 5px solid var(--primary-color);
+  background-color: var(--bg-color-2);
+  padding: 1em;
+  line-height: 1.5em;
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  blockquote {
+    font-style: italic;
+  }
+
+  .attribution {
+    font-size: 0.9em;
+    margin-inline: 1em;
+    margin-block: 0.5em;
+
+    cite {
+      margin-left: 1.4em;
+    }
+  }
+}
