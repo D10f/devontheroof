@@ -48,6 +48,9 @@ export default class CodeBlockConverter implements CustomConverter {
                 "solarized-dark": {
                     "#002b36": "#073642",
                 },
+                "gruvbox-light-hard": {
+                    "#f9f5d7": "#faf6d9",
+                },
                 "gruvbox-dark-hard": {
                     "#1d2021": "#282828",
                 },
