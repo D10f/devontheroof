@@ -11,6 +11,7 @@ import SectionConverter from "@/lib/asciidoc/converters/SectionConverter";
 import { Metadata } from "next";
 import FaIconConverter from "@/lib/asciidoc/converters/FaIconConverter";
 import PostContent from "@/components/PostContent";
+import ParagraphConverter from "@/lib/asciidoc/converters/ParagraphConverter";
 
 type Props = {
     params: {
@@ -38,6 +39,7 @@ export default async function PostPage({ params }: Props) {
         new ColistConverter(),
         new AdmonitionConverter(),
         new SectionConverter(),
+        new ParagraphConverter(),
     ]);
 
     await post.useSyntaxHighligher();
