@@ -36,7 +36,7 @@ export default class ImageConverter implements CustomConverter {
     /**
      * Image filetypes to include as options to the picture element.
      */
-    private filetypes = ["webp"];
+    private filetypes = ["avif", "webp"];
 
     constructor(props?: ImageConverterProps) {
         props?.sizes && (this.sizes = props.sizes);
@@ -46,13 +46,12 @@ export default class ImageConverter implements CustomConverter {
     convert(node: AbstractNode): string {
         const attributes = node.getAttributes() as NodeAttributes;
 
-        //const srcSets = this.makeImageSrcset(attributes.target, "webp", 768);
-        // ${ this.makeImageSrcset(attributes.target, "webp", 960) }
-        // ${ this.makeImageSrcset(attributes.target, "webp", 768) }
-
         const nodeHTML = `
           <figure class="imageblock">
             <picture>
+              <source type="image/jxl" srcset="/${attributes.target.replace(/\..*$/, ".jxl")}" />
+              <source type="image/avif" srcset="/${attributes.target.replace(/\..*$/, ".avif")}" />
+              <source type="image/webp" srcset="/${attributes.target.replace(/\..*$/, ".webp")}" />
               <img src="/${attributes.target}" alt="${attributes.alt}" loading="lazy" />
               ${this.makeFigureCaption(attributes)}
             </picture>
@@ -60,16 +59,6 @@ export default class ImageConverter implements CustomConverter {
         `;
 
         return nodeHTML;
-    }
-
-    private makeImageSrcset(
-        src: string,
-        filetype: string,
-        width: number,
-        threshold: "min" | "max" = "min",
-    ) {
-        const imageName = src.replace(/\.\w{2,4}$/, `-${width}.${filetype}`);
-        return `<source srcset="/${imageName} ${width}w" media="(${threshold}-width: ${width}px)" type="image/${filetype}">`;
     }
 
     private makeFigureCaption(attributes: NodeAttributes) {

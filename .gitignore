@@ -1,6 +1,12 @@
 public/pages
 public/posts
 public/projects
+public/*.png
+public/*.jpg
+public/*.jpeg
+public/*.jxl
+public/*.avif
+public/*.webp
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 /__backup
