@@ -165,7 +165,9 @@
 p,
 ul,
 td {
-  code {
+
+  code,
+  kbd {
     background-color: var(--bg-color-3);
     color: var(--primary-color);
     padding: 0.2em;
