@@ -1,11 +1,15 @@
 import { Inline } from "asciidoctor";
 import { CustomConverter } from "./BaseConverter";
 
-export default class XrefConverter implements CustomConverter {
+export default class AnchorConverter implements CustomConverter {
     public targetNode = "inline_anchor";
 
     convert(node: Inline) {
-        const path = node.getAttribute("refid");
-        return `<a href="/blog/${path}">${node.getText()}</a>`;
+        const href =
+            node.getType() === "xref"
+                ? `/blog/${node.getAttribute("refid")}`
+                : node.getTarget();
+
+        return `<a href="${href}">${node.getText()}</a>`;
     }
 }
