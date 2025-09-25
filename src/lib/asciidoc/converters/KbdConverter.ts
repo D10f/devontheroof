@@ -8,15 +8,22 @@ export default class KbdConverter implements CustomConverter {
     public targetNode = "inline_quoted";
 
     private keyboardRegex = [
+        // Alphanumeric keys
+        new RegExp(/^[A-F0-9]$/),
+
+        // Control keys
         new RegExp(
-            /^(?:Ctrl|Shift|Alt|Space|Backspace|Print(?:Scrn)?|Super|Windows)/,
+            /^(?:Ctrl|Shift|Alt|Fn|FnLock|CapsLock|Space|Backspace|Tab|Pr(?:in)?t(?:Scrn?)?|Super|Windows|Enter|NumPad\s?\d)$/,
         ),
 
+        // Function Keys
         new RegExp(/^F(?:[1-9]|1[0-2])$/),
 
-        new RegExp(/^[!@#$%^&*()_+\-=\[\]{};:'"|/\\,<.>/?]$/),
+        // Punctuation keys
+        new RegExp(/^[`~!@#$%&*()_+\-=\[\]{};:'"|/\\,<.>/?^]$/),
 
-        // TODO: Media keys, arrows, unicode, emojis, other languages, etc.
+        // Visual keys
+        new RegExp(/^[↓←→↑↹↲]$/),
     ];
 
     convert(node: AbstractNode, defaultConverter: Converter) {
