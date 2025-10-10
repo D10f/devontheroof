@@ -23,7 +23,7 @@ export default class ColistConverter implements CustomConverter {
 
     buildRow(block: Block) {
         const colistId = block.getAttribute("coids") as string;
-        const [_, marker] = colistId.match(/-(\d)+$/) as RegExpMatchArray;
+        const [_, marker] = colistId.match(/-(\d+)$/) as RegExpMatchArray;
         // @ts-ignore
         const text = block.text.replace(/`([^`]+)`/g, "<code>$1</code>");
         return `<tr>
