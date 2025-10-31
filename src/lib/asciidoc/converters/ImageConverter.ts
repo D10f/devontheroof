@@ -46,13 +46,11 @@ export default class ImageConverter implements CustomConverter {
     convert(node: AbstractNode): string {
         const attributes = node.getAttributes() as NodeAttributes;
 
+        // ${this.makeSourceElements(attributes)}
         const nodeHTML = `
           <figure class="imageblock">
             <picture>
-              <source type="image/jxl" srcset="/${attributes.target.replace(/\..*$/, ".jxl")}" />
-              <source type="image/avif" srcset="/${attributes.target.replace(/\..*$/, ".avif")}" />
-              <source type="image/webp" srcset="/${attributes.target.replace(/\..*$/, ".webp")}" />
-              <img src="/${attributes.target}" alt="${attributes.alt}" loading="lazy" />
+              <img width="${node.getAttribute("width")}" src="/${attributes.target}" alt="${attributes.alt}" loading="lazy" />
               ${this.makeFigureCaption(attributes)}
             </picture>
           </figure>
@@ -70,5 +68,16 @@ export default class ImageConverter implements CustomConverter {
         const figure = attributes.$positional as number;
 
         return `<figcaption>Figure ${figurePos}. ${figure}</figcaption>`;
+    }
+
+    private makeSourceElements(attributes: NodeAttributes) {
+        return this.filetypes
+            .map((ft) => {
+                return `<source
+                    type="image/${ft}"
+                    srcset="/${attributes.target.replace(/\..*$/, "." + ft)}"
+                />`;
+            })
+            .join("");
     }
 }

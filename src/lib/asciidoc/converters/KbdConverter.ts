@@ -27,6 +27,7 @@ export default class KbdConverter implements CustomConverter {
     ];
 
     convert(node: AbstractNode, defaultConverter: Converter) {
+        // @ts-ignore
         const text = node.getText();
         const isKey = this.keyboardRegex.some((re) => re.test(text));
         return isKey ? `<kbd>${text}</kbd>` : defaultConverter.convert(node);
