@@ -18,7 +18,13 @@ export default class AdmonitionConverter implements CustomConverter {
         // @ts-ignore
         const lines = node.lines;
         const type = node.getAttribute("name");
-        const content = lines.join("").replace(/`([^`]+)`/g, "<code>$1</code>");
+        const content = lines
+            .join("")
+            .replace(/`([^`]+)`/g, "<code>$1</code>")
+            .replace(
+                /([^\[\s]+)\[([^\]]+)\]/g,
+                '<a href="$1" target="_blank">$2</a>',
+            );
         let position =
             this.admonitionCounter++ % 2 === 0
                 ? "admonition--left"
