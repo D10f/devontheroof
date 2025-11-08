@@ -364,6 +364,30 @@ table.tableblock {
     margin-block: auto;
   }
 
+  a {
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      translate: 0 80%;
+      z-index: -1;
+      background-color: var(--primary-color);
+      opacity: 0.30;
+      transition: translate 125ms ease;
+    }
+
+    &:focus::before,
+    &:hover::before {
+      translate: 0 0;
+    }
+  }
+
   &.warning {
     --bg-color-3: rgba(223, 142, 29, 0.2);
     --tooltip-color: var(--bg-color-3);
