@@ -14,6 +14,7 @@ import FaIconConverter from "@/lib/asciidoc/converters/FaIconConverter";
 import PostContent from "@/components/PostContent";
 import ParagraphConverter from "@/lib/asciidoc/converters/ParagraphConverter";
 import XrefConverter from "@/lib/asciidoc/converters/XrefConverter";
+import ListConverter from "@/lib/asciidoc/converters/ListConverter";
 
 type Props = {
     params: {
@@ -35,14 +36,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PostPage({ params }: Props) {
     const post = getPostData(`public/posts/${params.slug}.adoc`, [
-        new ImageConverter(),
-        new FaIconConverter(),
-        new PreambleConverter(),
-        new ColistConverter(),
         new AdmonitionConverter(),
-        new SectionConverter(),
-        new ParagraphConverter(),
+        new ColistConverter(),
+        new FaIconConverter(),
+        new ImageConverter(),
         new KbdConverter(),
+        new ListConverter(),
+        new ParagraphConverter(),
+        new PreambleConverter(),
+        new SectionConverter(),
         new XrefConverter(),
     ]);
 

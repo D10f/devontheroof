@@ -47,6 +47,21 @@ pre.shiki {
 */
 .highlighted {
   background-color: rgba(153, 209, 219, 0.4);
+
+  &.error {
+    background-color: rgb(from var(--red) r g b / 0.2);
+
+    &::before {
+      content: '🪲';
+      // text-decoration: var(--red) wavy underline;
+      background-color: rgb(from var(--red) r g b / 0.6);
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
+      position: absolute;
+      left: calc(100% - 2em);
+    }
+  }
 }
 
 /**

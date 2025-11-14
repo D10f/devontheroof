@@ -10,6 +10,7 @@ import {
     transformerNotationDiff,
     transformerNotationHighlight,
     transformerNotationFocus,
+    transformerNotationErrorLevel,
 } from "@shikijs/transformers";
 
 type Highlighter = HighlighterGeneric<BundledLanguage, BundledTheme>;
@@ -61,6 +62,7 @@ export default class CodeBlockConverter implements CustomConverter {
                 transformerNotationDiff(),
                 transformerNotationHighlight(),
                 transformerNotationFocus(),
+                transformerNotationErrorLevel(),
             ],
             defaultColor: "catppuccin-macchiato",
             cssVariablePrefix: "--shiki-",
