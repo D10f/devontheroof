@@ -1,6 +1,7 @@
 public/pages
 public/posts
 public/projects
+public/includes
 public/*.png
 public/*.jpg
 public/*.jpeg
