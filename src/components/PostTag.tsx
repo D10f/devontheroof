@@ -1,4 +1,3 @@
-import Tooltip from "@/components/Tooltip";
 import SvgIcon from "@/components/SvgIcon";
 
 type PostTagProps = {
@@ -8,13 +7,16 @@ type PostTagProps = {
 export default function PostTag({ tag }: PostTagProps) {
     return (
         <>
-            <span className="post__tag">
+            <span className="post__tag" aria-describedby="technologyname">
                 <SvgIcon iconName={tag} />
-                <span className="post__tooltip" data-tooltip={tag}>
+                <div
+                    className="post__tooltip"
+                    role="tooltip"
+                    id="technologyname"
+                >
                     {tag}
-                </span>
+                </div>
             </span>
-            {/* <Tooltip id={tag} place="bottom" content={tag} /> */}
         </>
     );
 }

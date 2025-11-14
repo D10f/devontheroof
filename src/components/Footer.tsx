@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Tooltip from "@/components/Tooltip";
+// import Tooltip from "@/components/Tooltip";
 import BackToTop from "@/components/BackToTop";
 import SvgIcon from "@/components/SvgIcon";
 
@@ -15,47 +15,53 @@ export default function Footer() {
                         <li>
                             <Link
                                 aria-label="Link to send an email to address"
-                                data-tooltip-id="_nextjs"
+                                aria-describedby="footer__nextjs"
                                 href="https://nextjs.org"
                                 target="_blank"
                             >
                                 <SvgIcon iconName="nextjs" />
                             </Link>
-                            <Tooltip
-                                id="_nextjs"
-                                place="bottom"
-                                content="Next.js"
-                            />
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer_nextjs"
+                            >
+                                Next.js
+                            </span>
                         </li>
                         <li>
                             <Link
                                 aria-label="Link to send an email to address"
-                                data-tooltip-id="_asciidoc"
+                                aria-describedby="footer__asciidoctor"
                                 href="https://asciidoctor.org"
                                 target="_blank"
                             >
                                 <SvgIcon iconName="asciidoc" />
                             </Link>
-                            <Tooltip
-                                id="_asciidoc"
-                                place="bottom"
-                                content="AsciiDoc"
-                            />
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer_asciidoctor"
+                            >
+                                Asciidoctor
+                            </span>
                         </li>
                         <li>
                             <Link
                                 aria-label="Source code for this website"
-                                data-tooltip-id="_git"
+                                aria-describedby="footer__git"
                                 href="https://github.com/d10f/devontheroof"
                                 target="_blank"
                             >
                                 <SvgIcon iconName="git" />
                             </Link>
-                            <Tooltip
-                                id="_git"
-                                place="bottom"
-                                content="Git (source code)"
-                            />
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer__git"
+                            >
+                                Git version control
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -66,48 +72,58 @@ export default function Footer() {
                             <Link
                                 aria-label="Link to Codeberg profile"
                                 href="https:codeberg.org/D10f"
-                                data-tooltip-id="codeberg"
+                                aria-describedby="footer__codeberg"
                                 target="_blank"
                             >
                                 <svg aria-hidden="true">
                                     <use href={`/sprite.svg#icon-codeberg`} />
                                 </svg>
                             </Link>
-                            <Tooltip
-                                id="codeberg"
-                                place="top"
-                                content="Codeberg"
-                            />
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer__codeberg"
+                            >
+                                Codeberg
+                            </span>
                         </li>
                         <li>
                             <Link
                                 aria-label="Link to Github profile"
                                 href="https:github.com/D10f"
-                                data-tooltip-id="github"
+                                aria-describedby="footer__github"
                                 target="_blank"
                             >
                                 <svg aria-hidden="true">
                                     <use href={`/sprite.svg#icon-github`} />
                                 </svg>
                             </Link>
-                            <Tooltip id="github" place="top" content="GitHub" />
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer__github"
+                            >
+                                GitHub
+                            </span>
                         </li>
                         <li>
                             <Link
                                 aria-label="Link to Codepen profile"
                                 href="https:codepen.io/D10f"
-                                data-tooltip-id="codepen"
+                                aria-describedby="footer__codepen"
                                 target="_blank"
                             >
                                 <svg aria-hidden="true">
                                     <use href={`/sprite.svg#icon-codepen`} />
                                 </svg>
                             </Link>
-                            <Tooltip
-                                id="codepen"
-                                place="top"
-                                content="Codepen"
-                            />
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer__codepen"
+                            >
+                                Codepen
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -118,30 +134,38 @@ export default function Footer() {
                         <li>
                             <Link
                                 aria-label="Link to send an email to address devontheroof@pm.me"
-                                data-tooltip-id="email"
+                                aria-describedby="footer__email"
                                 href="mailto:devontheroof@pm.me"
                             >
                                 <svg aria-hidden="true">
                                     <use href={`/sprite.svg#icon-email`} />
                                 </svg>
                             </Link>
-                            <Tooltip id="email" place="top" content="Email" />
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer__email"
+                            >
+                                Email
+                            </span>
                         </li>
                         <li>
                             <Link
                                 aria-label="Link to a public PGP key to encrypt the body of an email"
-                                data-tooltip-id="gpg"
+                                aria-describedby="footer__pgp"
                                 href="#"
                             >
                                 <svg aria-hidden="true">
                                     <use href={`/sprite.svg#icon-gpg-key`} />
                                 </svg>
                             </Link>
-                            <Tooltip
-                                id="gpg"
-                                place="top"
-                                content="PGP public key"
-                            />
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer__pgp"
+                            >
+                                PGP public key
+                            </span>
                         </li>
                     </ul>
                 </div>

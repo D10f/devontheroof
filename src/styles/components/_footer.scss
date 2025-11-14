@@ -27,6 +27,26 @@
     gap: 1em;
     margin-top: 1em;
 
+    li {
+      &:hover .footer__field-tooltip {
+        opacity: 1;
+      }
+    }
+
+    &-tooltip {
+      @include arrow($position: bottom, $color: var(--text-color), $size: 0.25em);
+      @include unselectable;
+      position: absolute;
+      background-color: var(--text-color);
+      color: var(--bg-color);
+      border-radius: 4px;
+      padding: .25em .5em;
+      opacity: 0;
+      display: inherit;
+      translate: calc(-50% + 1em) calc(-200% - 0.5em);
+      transition: opacity 125ms ease 500ms;
+    }
+
     /* Enforce links (with icons, especially) are only highlighted when hovered over */
     --red: var(--text-color);
     --orange: var(--text-color);

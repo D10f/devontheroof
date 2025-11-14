@@ -1,6 +1,4 @@
 @use '../abstract/' as *;
-@use 'sass:string';
-@use 'sass:math';
 
 .post__title {
   font-weight: bold;
@@ -47,6 +45,7 @@
 }
 
 .post__tag {
+  display: inline-block;
   width: 1.25rem;
   height: 1.25rem;
 
@@ -71,6 +70,7 @@
   opacity: 0;
   display: inline-block;
   translate: calc(-50% + 0.75em) calc(-200% - 0.25em);
+  transition: opacity 125ms ease 500ms;
 }
 
 #preamble {

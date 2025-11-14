@@ -1,5 +1,21 @@
-"use client";
+type TooltipProps = {
+    id?: string;
+    position?: "top" | "right" | "bottom" | "left";
+    children: React.ReactNode;
+};
 
-import { Tooltip } from "react-tooltip";
+export default function Tooltip({ id, position, children }: TooltipProps) {
+    const baseCss = "tooltip ";
+    const classes = `tooltip--${position}`;
 
-export default Tooltip;
+    return (
+        <small
+            id={id}
+            className={baseCss + classes}
+            data-position={position}
+            role="tooltip"
+        >
+            {children}
+        </small>
+    );
+}
