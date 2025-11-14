@@ -1,6 +1,7 @@
 import AsciidocParser from "@/lib/asciidoc/Parser";
 import Link from "next/link";
 import PostTag from "@/components/PostTag";
+import { slugify } from "@/lib/utils/slugify";
 
 type PostCardProps = {
     post: AsciidocParser;
@@ -20,7 +21,11 @@ export default function PostCard({ post }: PostCardProps) {
 
             <aside className="card__tags">
                 {post.technologies.map((tech) => (
-                    <PostTag tag={tech} key={post.title + tech} />
+                    <PostTag
+                        tag={tech}
+                        tooltipId={slugify(post.title + tech)}
+                        key={post.title + tech}
+                    />
                 ))}
             </aside>
         </article>
