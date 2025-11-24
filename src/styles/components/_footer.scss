@@ -30,6 +30,10 @@
     li {
       &:hover .footer__field-tooltip {
         opacity: 1;
+        translate: calc(-50% + 1em) calc(-200% - 0.75em);
+        transition:
+          opacity 250ms ease 500ms,
+          translate 200ms linear(0, 0.008 1.1%, 0.034 2.3%, 0.134 4.9%, 0.264 7.3%, 0.683 14.3%, 0.797 16.5%, 0.89 18.6%, 0.967 20.7%, 1.027 22.8%, 1.073 25%, 1.104 27.3%, 1.123 30.6%, 1.119 34.3%, 1.018 49.5%, 0.988 58.6%, 0.985 65.2%, 1 84.5%, 1) 500ms;
       }
     }
 
@@ -43,8 +47,10 @@
       padding: .25em .5em;
       opacity: 0;
       display: inherit;
-      translate: calc(-50% + 1em) calc(-200% - 0.5em);
-      transition: opacity 125ms ease 500ms;
+      translate: calc(-50% + 1em) -200%;
+      transition:
+        opacity 150ms ease,
+        translate 200ms linear(0, 0.008 1.1%, 0.034 2.3%, 0.134 4.9%, 0.264 7.3%, 0.683 14.3%, 0.797 16.5%, 0.89 18.6%, 0.967 20.7%, 1.027 22.8%, 1.073 25%, 1.104 27.3%, 1.123 30.6%, 1.119 34.3%, 1.018 49.5%, 0.988 58.6%, 0.985 65.2%, 1 84.5%, 1);
     }
 
     /* Enforce links (with icons, especially) are only highlighted when hovered over */

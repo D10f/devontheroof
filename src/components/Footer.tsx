@@ -71,7 +71,7 @@ export default function Footer() {
                         <li>
                             <Link
                                 aria-label="Link to Codeberg profile"
-                                href="https:codeberg.org/D10f"
+                                href="https://codeberg.org/D10f"
                                 aria-describedby="footer__codeberg"
                                 target="_blank"
                             >
@@ -90,7 +90,7 @@ export default function Footer() {
                         <li>
                             <Link
                                 aria-label="Link to Github profile"
-                                href="https:github.com/D10f"
+                                href="https://github.com/D10f"
                                 aria-describedby="footer__github"
                                 target="_blank"
                             >
@@ -109,7 +109,7 @@ export default function Footer() {
                         <li>
                             <Link
                                 aria-label="Link to Codepen profile"
-                                href="https:codepen.io/D10f"
+                                href="https://codepen.io/D10f"
                                 aria-describedby="footer__codepen"
                                 target="_blank"
                             >
@@ -123,6 +123,44 @@ export default function Footer() {
                                 id="footer__codepen"
                             >
                                 Codepen
+                            </span>
+                        </li>
+                        <li>
+                            <Link
+                                aria-label="Link to Exercism profile"
+                                href="https://exercism.org/profiles/quasimodo"
+                                aria-describedby="footer__exercism"
+                                target="_blank"
+                            >
+                                <svg aria-hidden="true">
+                                    <use href={`/sprite.svg#icon-exercism`} />
+                                </svg>
+                            </Link>
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer__exercism"
+                            >
+                                Exercism
+                            </span>
+                        </li>
+                        <li>
+                            <Link
+                                aria-label="Link to Codewars profile"
+                                href="https://www.codewars.com/users/imperation_bypasser"
+                                aria-describedby="footer__codewars"
+                                target="_blank"
+                            >
+                                <svg aria-hidden="true">
+                                    <use href={`/sprite.svg#icon-codewars`} />
+                                </svg>
+                            </Link>
+                            <span
+                                className="footer__field-tooltip"
+                                role="tooltip"
+                                id="footer__codewars"
+                            >
+                                Codewars
                             </span>
                         </li>
                     </ul>
