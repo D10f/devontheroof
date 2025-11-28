@@ -1,14 +1,29 @@
-/* @font-face { */
-/*   font-family: "SourceCodePro"; */
-/*   src: url(../../../public/source-code-pro.regular-webfont.woff2) format("woff2"); */
-/*   font-weight: normal; */
-/*   font-style: normal; */
-/* } */
-/**/
-/* @font-face { */
-/*   font-family: "WorkSans"; */
-/*   src: url("../../../public/work-sans.regular-webfont.woff2") format("woff2"); */
-/*   font-weight: normal; */
-/*   font-style: normal; */
-/* } */
-/**/
+@font-face {
+	font-family: "SourceCodePro";
+	src: url("/source-code-pro.regular-webfont.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "WorkSans";
+	src: url("/work-sans.regular-webfont.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Atkinson";
+	src: url("/atkinson-regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Atkinson";
+	src: url("/atkinson-bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}

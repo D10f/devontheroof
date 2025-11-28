@@ -46,7 +46,7 @@ body {
 }
 
 body {
-	font-family: "WorkSans";
+	font-family: "Atkinson";
 	scroll-behavior: smooth;
 	font-size: 18px;
 	background-color: var(--background-color);
@@ -76,4 +76,8 @@ h6 {
 
 a {
 	text-decoration: none;
+}
+
+li {
+	list-style: none;
 }
