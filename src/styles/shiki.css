@@ -1,0 +1,16 @@
+.shiki span.line {
+	display: inline-block;
+	width: 100%;
+	scroll-margin-top: 10rem;
+	scroll-margin-bottom: 10rem;
+}
+
+/* Diff transformer */
+
+.shiki span.line.diff.add {
+	background-color: rgba(0, 255, 0, 0.2);
+}
+
+.shiki span.line.diff.remove {
+	background-color: rgba(255, 0, 0, 0.2);
+}

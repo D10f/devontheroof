@@ -1,0 +1,49 @@
+<nav class="navbar">
+	<div class="navbar__brand">
+		<h1>
+			<a href="/">D10f</a>
+		</h1>
+	</div>
+
+	<menu class="navbar__links">
+		<li>
+			<a href="/blog">Blog</a>
+		</li>
+		<li>
+			<a href="/projects">Projects</a>
+		</li>
+		<li>
+			<a href="/uses">Uses</a>
+		</li>
+	</menu>
+
+	<menu class="navbar__actions">
+		<li>
+			<button>Theme</button>
+		</li>
+	</menu>
+</nav>
+
+<style>
+.navbar {
+	background-color: light-dark(var(--ctp-latte-crust), var(--ctp-frappe-crust));
+	box-shadow: var(--shadow);
+	padding: var(--padder-size) calc(var(--padder-size) * 2);
+}
+.navbar,
+.navbar__links,
+.navbar__actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.navbar__links,
+.navbar__actions {
+	list-style: none;
+
+	li {
+		margin-inline: 1em;
+	}
+}
+</style>

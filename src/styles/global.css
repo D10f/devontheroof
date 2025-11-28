@@ -1,0 +1,79 @@
+@import "alpinejs.css";
+@import "catppuccin.css";
+@import "fonts.css";
+@import "shiki.css";
+
+:root {
+	/* COLORS */
+	--accent-color: light-dark(var(--ctp-latte-peach), var(--ctp-frappe-peach));
+	--light-color: var(--ctp-latte-base);
+	--dark-color: var(--ctp-frappe-base);
+
+	--foreground-color: light-dark(var(--dark-color), var(--light-color));
+	--background-color: light-dark(var(--light-color), var(--dark-color));
+
+	--black: 15, 18, 25;
+	--shadow:
+		0 2px 6px rgba(var(--black), 25%),
+		0 4px 16px rgba(var(--black), 25%),
+		0 8px 24px rgba(var(--black), 25%);
+
+	/* SPACING */
+	--icon-size: 2rem;
+	--padder-size: calc(var(--icon-size) / 2);
+
+	/* Fonts */
+	--font-mono: "SourceCodePro"
+}
+
+*,
+*::before,
+*::after {
+	font: inherit;
+	color: inherit;
+	box-sizing: border-box;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: "WorkSans";
+	scroll-behavior: smooth;
+	font-size: 18px;
+	background-color: var(--background-color);
+	color: var(--foreground-color);
+}
+
+h1 {
+	font-size: 2.4em;
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+h4 {
+	font-size: 1.25em;
+}
+
+h5,
+h6 {
+	font-size: 1.1em;
+}
+
+a {
+	text-decoration: none;
+}
