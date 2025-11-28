@@ -3,6 +3,62 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout>
-	<div>This is the blog page</div>
+	<ul>
+		<li>
+			<h3>Blog Post Title</h3>
+			<p>Blog Post Description</p>
+			<time datetime="2022-02-02">Published At</time>
+		</li>
+		<li>
+			<h3>
+				<a href="/blog/whatever">Click Here!!</a>
+			</h3>
+			<p>Blog Post Description</p>
+			<time datetime="2022-02-02">Published At</time>
+		</li>
+		<li>
+			<h3>Blog Post Title</h3>
+			<p>Blog Post Description</p>
+			<time datetime="2022-02-02">Published At</time>
+		</li>
+		<li>
+			<h3>Blog Post Title</h3>
+			<p>Blog Post Description</p>
+			<time datetime="2022-02-02">Published At</time>
+		</li>
+		<li>
+			<h3>Blog Post Title</h3>
+			<p>Blog Post Description</p>
+			<time datetime="2022-02-02">Published At</time>
+		</li>
+		<li>
+			<h3>Blog Post Title</h3>
+			<p>Blog Post Description</p>
+			<time datetime="2022-02-02">Published At</time>
+		</li>
+		<li>
+			<h3>Blog Post Title</h3>
+			<p>Blog Post Description</p>
+			<time datetime="2022-02-02">Published At</time>
+		</li>
+		<li>
+			<h3>Blog Post Title</h3>
+			<p>Blog Post Description</p>
+			<time datetime="2022-02-02">Published At</time>
+		</li>
+	</ul>
 </Layout>
 
+<style>
+ul {
+	margin-top: 2rem;
+}
+li {
+	margin-top: 1em;
+	padding: 1em;
+
+	&:hover {
+		background-color: light-dark(var(--ctp-latte-crust), var(--ctp-frappe-crust));
+	}
+}
+</style>

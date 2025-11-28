@@ -14,6 +14,19 @@ import "../styles/global.css";
 	</head>
 	<body>
 		<Navbar />
-		<slot />
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
+
+<style>
+main {
+	max-width: 768px;
+	margin-inline: 1em;
+
+	@media (min-width: 768px) {
+		margin-inline: auto;
+	}
+}
+</style>
