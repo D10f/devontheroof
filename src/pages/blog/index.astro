@@ -1,51 +1,21 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+
+const blogPosts = (await getCollection('blog')).sort(
+	(a, b) => b.data.createdAt.valueOf() - a.data.createdAt.valueOf()
+);
 ---
 
 <Layout>
 	<ul>
-		<li>
-			<h3>Blog Post Title</h3>
-			<p>Blog Post Description</p>
-			<time datetime="2022-02-02">Published At</time>
-		</li>
-		<li>
-			<h3>
-				<a href="/blog/whatever">Click Here!!</a>
-			</h3>
-			<p>Blog Post Description</p>
-			<time datetime="2022-02-02">Published At</time>
-		</li>
-		<li>
-			<h3>Blog Post Title</h3>
-			<p>Blog Post Description</p>
-			<time datetime="2022-02-02">Published At</time>
-		</li>
-		<li>
-			<h3>Blog Post Title</h3>
-			<p>Blog Post Description</p>
-			<time datetime="2022-02-02">Published At</time>
-		</li>
-		<li>
-			<h3>Blog Post Title</h3>
-			<p>Blog Post Description</p>
-			<time datetime="2022-02-02">Published At</time>
-		</li>
-		<li>
-			<h3>Blog Post Title</h3>
-			<p>Blog Post Description</p>
-			<time datetime="2022-02-02">Published At</time>
-		</li>
-		<li>
-			<h3>Blog Post Title</h3>
-			<p>Blog Post Description</p>
-			<time datetime="2022-02-02">Published At</time>
-		</li>
-		<li>
-			<h3>Blog Post Title</h3>
-			<p>Blog Post Description</p>
-			<time datetime="2022-02-02">Published At</time>
-		</li>
+		{blogPosts.map(post => (
+			<li>
+				<article>
+					<h3><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
+				</article>
+			</li>
+		))}
 	</ul>
 </Layout>
 
