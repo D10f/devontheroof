@@ -25,6 +25,14 @@ const post = Astro.props;
             <h1>{post.data.title}</h1>
             <FormattedDate date={post.data.createdAt}/>
         </header>
-        <div set:html={post.rendered?.html} />
+        <div class="asciidoc" set:html={post.rendered?.html} />
     </article>
 </Layout>
+
+<style>
+    h1 {
+        font-weight: bold;
+        text-wrap: balance;
+        line-height: 1.3;
+    }
+</style>

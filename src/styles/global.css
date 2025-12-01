@@ -1,16 +1,20 @@
+
 @import "alpinejs.css";
 @import "catppuccin.css";
 @import "fonts.css";
 @import "shiki.css";
+@import "asciidoc.css";
 
 :root {
 	/* COLORS */
 	--accent-color: light-dark(var(--ctp-latte-peach), var(--ctp-frappe-peach));
-	--light-color: var(--ctp-latte-base);
-	--dark-color: var(--ctp-frappe-base);
+	--light-color: var(--ctp-latte-mantle);
+	--dark-color: var(--ctp-frappe-mantle);
 
 	--foreground-color: light-dark(var(--dark-color), var(--light-color));
 	--background-color: light-dark(var(--light-color), var(--dark-color));
+	/* --foreground-color: light-dark(var(--light-color), var(--dark-color)); */
+	/* --background-color: light-dark(var(--dark-color), var(--light-color)); */
 
 	--black: 15, 18, 25;
 	--shadow:
@@ -46,11 +50,12 @@ body {
 }
 
 body {
-	font-family: "Atkinson";
+	font-family: "WorkSans";
 	scroll-behavior: smooth;
 	font-size: 18px;
 	background-color: var(--background-color);
 	color: var(--foreground-color);
+	line-height: 1.6;
 }
 
 h1 {

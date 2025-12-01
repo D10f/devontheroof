@@ -1,0 +1,24 @@
+.asciidoc {
+    h2, h3 {
+        margin-block: 0.75em 0.25em;
+    }
+
+    #preamble {
+        margin-bottom: 1em;
+    }
+
+    .paragraph, .admonitionblock, .shiki {
+        margin-top: 1em;
+    }
+
+    pre.shiki {
+        padding: 1em;
+        border-radius: 8px;
+        font-family: var(--font-mono);
+    }
+
+    .colist {
+        margin-top: 0.5em;
+        font-size: 0.9;
+    }
+}
