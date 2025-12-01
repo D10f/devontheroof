@@ -9,6 +9,10 @@
         "astro": "astro"
     },
     "dependencies": {
-        "astro": "^5.16.2"
+        "astro": "^5.16.2",
+        "sass": "^1.94.2"
+    },
+    "devDependencies": {
+        "@d10f/asciidoc-astro-loader": "^0.0.6"
     }
 }

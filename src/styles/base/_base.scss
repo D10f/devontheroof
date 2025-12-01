@@ -1,10 +1,3 @@
-
-@import "alpinejs.css";
-@import "catppuccin.css";
-@import "fonts.css";
-@import "shiki.css";
-@import "asciidoc.css";
-
 :root {
 	/* COLORS */
 	--accent-color: light-dark(var(--ctp-latte-peach), var(--ctp-frappe-peach));
@@ -13,20 +6,28 @@
 
 	--foreground-color: light-dark(var(--dark-color), var(--light-color));
 	--background-color: light-dark(var(--light-color), var(--dark-color));
-	/* --foreground-color: light-dark(var(--light-color), var(--dark-color)); */
-	/* --background-color: light-dark(var(--dark-color), var(--light-color)); */
 
-	--black: 15, 18, 25;
+	--main-text: var(--foreground-color);
+	--subtitles: light-dark(
+		color-mix(in srgb, var(--dark-color), white 20%),
+		color-mix(in srgb, var(--light-color), black 20%)
+	);
+
 	--shadow:
-		0 2px 6px rgba(var(--black), 25%),
-		0 4px 16px rgba(var(--black), 25%),
-		0 8px 24px rgba(var(--black), 25%);
+		0 2px 6px rgba(15 15 15 /25%),
+		0 4px 16px rgba(15 15 15 /25%),
+		0 8px 24px rgba(15 15 15 /25%);
+
+	/* LAYOUT */
+	--border-radius: 8px; 
 
 	/* SPACING */
 	--icon-size: 2rem;
 	--padder-size: calc(var(--icon-size) / 2);
 
 	/* Fonts */
+	--font-body: "Atkinson";
+	--font-head: "WorkSans";
 	--font-mono: "SourceCodePro"
 }
 
@@ -52,31 +53,10 @@ body {
 body {
 	font-family: "WorkSans";
 	scroll-behavior: smooth;
-	font-size: 18px;
+	// font-size: 20px;
 	background-color: var(--background-color);
-	color: var(--foreground-color);
-	line-height: 1.6;
-}
-
-h1 {
-	font-size: 2.4em;
-}
-
-h2 {
-	font-size: 2em;
-}
-
-h3 {
-	font-size: 1.6em;
-}
-
-h4 {
-	font-size: 1.25em;
-}
-
-h5,
-h6 {
-	font-size: 1.1em;
+	color: var(--main-text);
+	// line-height: 1.6;
 }
 
 a {

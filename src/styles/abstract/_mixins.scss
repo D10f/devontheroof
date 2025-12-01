@@ -1,0 +1,160 @@
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+
+@mixin debugger($recursive: false,
+  $root: true,
+  $prop: outline,
+  $color: coral,
+  $style: solid,
+  $width: 1px) {
+  @if $recursive {
+    @if $root {
+      & {
+        #{$prop}: $width $style $color;
+      }
+    }
+
+    &>*+* {
+      #{$prop}: $width $style $color;
+    }
+
+  }
+
+  @else {
+    #{$prop}: $width $style $color;
+  }
+}
+
+@mixin contain {
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+@mixin truncate($length, $ellipsis: true) {
+  @if (math.is-unitless($length)) {
+    @error 'Provided length value "#{$length}" has no unit.';
+  }
+
+  max-width: $length;
+  overflow: hidden;
+  white-space: nowrap;
+
+  @if ($ellipsis) {
+    text-overflow: ellipsis;
+  }
+}
+
+@mixin visually-hidden() {
+  &:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+@mixin unselectable {
+  pointer-events: none;
+  user-select: none;
+}
+
+$white: #dcb;
+$black: #333;
+
+@mixin _arrow_absolute($top: null, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+  top: $top;
+  left: if($left, calc($left + 0.05em), $left);
+  right: if($right, calc($right + 0.05em), $right);
+  // This was updated to offset the arrows a bit... because Chromium-based
+  // browsers seem to need it.
+  // left: $left;
+  // right: $right
+  bottom: $bottom;
+}
+
+@mixin arrow($position: 'top', $color: currentColor, $size: .5em) {
+  &::before {
+    $_positions: (
+      'top',
+      'right',
+      'bottom',
+      'left'
+    );
+  $_parsed-positions: (
+  );
+$_position-reference: (
+  'top': 'bottom',
+  'right': 'left',
+  'bottom': 'top',
+  'left': 'right',
+);
+
+// Parse the position string into first and second arguments
+$_sep-idx: string.index($position, ' ');
+$_first: null;
+$_second: null;
+
+@if ($_sep-idx) {
+  $_first: string.slice($position, 1, $_sep-idx - 1);
+  $_second: string.slice($position, $_sep-idx + 1);
+}
+
+@else {
+  $_first: $position;
+}
+
+//  Validate arguments provide a valid position
+@if ($_first ==$_second) {
+  @error 'ERROR: position axis cannot be the same.';
+}
+
+@if (not list.index($_positions, $_first) or ($_second and not list.index($_positions, $_second))) {
+  @error 'ERROR: invalid position arguments.';
+}
+
+$_opposite: '';
+
+@each $_pos in $_positions {
+  border-#{$_pos}: $size solid transparent;
+
+  @if ($_first ==$_pos) {
+    $_parsed-positions: list.append($_parsed-positions, -$size);
+    $_opposite: map.get($_position-reference, $_first);
+  }
+
+  @else if ($_second ==$_pos) {
+    $_parsed-positions: list.append($_parsed-positions, $size);
+  }
+
+  @else {
+    $_parsed-positions: list.append($_parsed-positions, null);
+  }
+}
+
+border-#{$_opposite}: $size solid $color;
+border-#{$_first}: unset;
+
+@if (not $_second) {
+  @if ($_first =='top' or $_first =='bottom') {
+    $_parsed-positions: list.set-nth($_parsed-positions, 2, 50%);
+    transform: translateX(50%);
+  }
+
+  @else {
+    $_parsed-positions: list.set-nth($_parsed-positions, 1, 50%);
+    transform: translateY(-50%);
+  }
+}
+
+content: '';
+width: 0;
+height: 0;
+@include _arrow_absolute($_parsed-positions...);
+}
+}

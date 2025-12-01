@@ -1,3 +1,7 @@
+/**
+ * Represents any component rendered from an AsciiDoc document.
+ */
+
 .asciidoc {
     h2, h3 {
         margin-block: 0.75em 0.25em;
@@ -5,6 +9,7 @@
 
     #preamble {
         margin-bottom: 1em;
+        color: var(--subtitles);
     }
 
     .paragraph, .admonitionblock, .shiki {
@@ -13,12 +18,13 @@
 
     pre.shiki {
         padding: 1em;
-        border-radius: 8px;
+        border-radius: var(--border-radius);
         font-family: var(--font-mono);
+        font-size: 20px;
     }
 
-    .colist {
+    .colist p {
         margin-top: 0.5em;
-        font-size: 0.9;
+        font-size: 0.9em;
     }
 }
