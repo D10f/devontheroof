@@ -1,0 +1,59 @@
+@use "inline-code" as *;
+
+%admonitionblock {
+	padding: 1em;
+	margin-top: 1em;
+	border-radius: var(--border-radius);
+
+	svg {
+		width: 48px;
+		aspect-ratio: 1;
+		color: var(--admonition-icon-color);
+	}
+
+	code {
+		@extend %inline-code;
+		color: unset;
+		border-bottom: unset;
+		background-color: hsl(from var(--admonition-icon-color) h s l / 0.25);
+	}
+
+	&.caution {
+		--admonition-icon-color: light-dark(var(--ctp-latte-red),
+				var(--ctp-frappe-red));
+		background-color: light-dark(hsl(from var(--ctp-latte-red) h s l / 0.25),
+				hsl(from var(--ctp-frappe-red) h s l / 0.25));
+	}
+
+	&.important {
+		--admonition-icon-color: light-dark(var(--ctp-latte-blue),
+				var(--ctp-frappe-blue));
+		background-color: light-dark(hsl(from var(--ctp-latte-blue) h s l / 0.25),
+				hsl(from var(--ctp-frappe-blue) h s l / 0.25));
+	}
+
+	&.note {
+		--light-brown: color-mix(in oklab, var(--ctp-latte-red) 55%,
+				var(--ctp-latte-green));
+		--dark-brown: color-mix(in oklab, var(--ctp-frappe-red) 55%,
+				var(--ctp-frappe-green));
+		--admonition-icon-color: light-dark(var(--light-brown),
+				hsl(from var(--dark-brown) h s calc(l - 25)));
+		background-color: light-dark(hsl(from var(--light-brown) h s l / 0.3),
+				hsl(from var(--dark-brown) h s l / 0.3));
+	}
+
+	&.tip {
+		--admonition-icon-color: light-dark(var(--ctp-latte-green),
+				var(--ctp-frappe-green));
+		background-color: light-dark(hsl(from var(--ctp-latte-green) h s l / 0.25),
+				hsl(from var(--ctp-frappe-green) h s l / 0.25));
+	}
+
+	&.warning {
+		--admonition-icon-color: light-dark(var(--ctp-latte-yellow),
+				var(--ctp-frappe-yellow));
+		background-color: light-dark(hsl(from var(--ctp-latte-yellow) h s l / 0.25),
+				hsl(from var(--ctp-frappe-yellow) h s l / 0.25));
+	}
+}

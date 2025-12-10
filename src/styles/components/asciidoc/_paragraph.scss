@@ -1,0 +1,9 @@
+@use "inline-code" as *;
+
+%paragraph {
+	margin-top: 1em;
+
+	code {
+		@extend %inline-code;
+	}
+}

@@ -6,12 +6,11 @@
 
 	--foreground-color: light-dark(var(--dark-color), var(--light-color));
 	--background-color: light-dark(var(--light-color), var(--dark-color));
+	--background-color-2: hsl(from var(--background-color) h s calc(l + 5));
 
 	--main-text: var(--foreground-color);
-	--subtitles: light-dark(
-		color-mix(in srgb, var(--dark-color), white 20%),
-		color-mix(in srgb, var(--light-color), black 20%)
-	);
+	--subtitles: light-dark(color-mix(in srgb, var(--dark-color), white 20%),
+			color-mix(in srgb, var(--light-color), black 20%));
 
 	--shadow:
 		0 2px 6px rgba(15 15 15 /25%),
@@ -19,7 +18,7 @@
 		0 8px 24px rgba(15 15 15 /25%);
 
 	/* LAYOUT */
-	--border-radius: 8px; 
+	--border-radius: 8px;
 
 	/* SPACING */
 	--icon-size: 2rem;
@@ -53,10 +52,8 @@ body {
 body {
 	font-family: "WorkSans";
 	scroll-behavior: smooth;
-	// font-size: 20px;
 	background-color: var(--background-color);
 	color: var(--main-text);
-	// line-height: 1.6;
 }
 
 a {
