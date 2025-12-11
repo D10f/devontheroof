@@ -5,12 +5,33 @@
 	scroll-margin-bottom: 10rem;
 }
 
-/* Diff transformer */
+/* transformerNotationDiff */
 
 .shiki span.line.diff.add {
-	background-color: rgba(0, 255, 0, 0.2);
+	// background-color: rgba(0, 255, 0, 0.2);
+	background-color: hsl(from var(--ctp-frappe-green) h s l / 0.2);
 }
 
 .shiki span.line.diff.remove {
-	background-color: rgba(255, 0, 0, 0.2);
+	// background-color: rgba(255, 0, 0, 0.2);
+	background-color: hsl(from var(--ctp-frappe-red) h s l / 0.2);
+}
+
+/* transformerNotationHighlight */
+
+.shiki span.line.highlighted {
+	background-color: hsl(from var(--ctp-frappe-blue) h s l / 0.2);
+}
+
+/* transformerNotationFocus */
+
+.shiki.has-focused {
+	span.line:not(.focused) {
+		transition: filter 500ms ease;
+		filter: blur(2px);
+	}
+
+	&:hover span.line {
+		filter: blur(0);
+	}
 }

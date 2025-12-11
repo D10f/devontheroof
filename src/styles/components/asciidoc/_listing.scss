@@ -5,16 +5,27 @@
 		display: none;
 	}
 
+	figure {
+		overflow: auto;
+	}
+
 	figcaption {
 		font-style: italic;
 	}
 
-	pre.shiki {
-		padding: 1em;
+	pre {
+		padding-block: 1em;
 		border-radius: var(--border-radius);
 		font-family: var(--font-mono);
 		font-size: 0.9em;
-		overflow: auto;
+		// overflow: auto;
+		min-width: min-content;
+	}
+
+	span.line {
+		display: inline-block;
+		width: 100%;
+		padding-inline: 1em;
 	}
 
 	.conum {
