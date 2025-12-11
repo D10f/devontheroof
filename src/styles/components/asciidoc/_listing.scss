@@ -1,0 +1,31 @@
+%listingblock {
+	margin-top: 1em;
+
+	.copy-btn {
+		display: none;
+	}
+
+	figcaption {
+		font-style: italic;
+	}
+
+	pre.shiki {
+		padding: 1em;
+		border-radius: var(--border-radius);
+		font-family: var(--font-mono);
+		font-size: 0.9em;
+		overflow: auto;
+	}
+
+	.conum {
+		background-color: var(--accent-color);
+		border-radius: 50%;
+		width: 32px;
+		scale: 0.6;
+		aspect-ratio: 1;
+		display: inline-block;
+		text-align: center;
+		opacity: 1 !important;
+		color: var(--background-color) !important;
+	}
+}
