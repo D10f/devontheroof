@@ -14,7 +14,7 @@
 	code {
 		@extend %inline-code;
 		color: unset;
-		border-bottom: unset;
+		// border-bottom: unset;
 		background-color: hsl(from var(--admonition-icon-color) h s l / 0.25);
 	}
 
