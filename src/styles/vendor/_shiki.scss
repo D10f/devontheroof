@@ -7,20 +7,39 @@
 
 /* transformerNotationDiff */
 
-.shiki span.line.diff.add {
-	// background-color: rgba(0, 255, 0, 0.2);
-	background-color: hsl(from var(--ctp-frappe-green) h s l / 0.2);
+.shiki span.line.diff {
+	position: relative;
+
+	&::before {
+		position: absolute;
+		right: 1em;
+	}
+
+	&.add {
+		background-color: hsl(from var(--ctp-frappe-green) h s l / 0.2);
+
+		&::before {
+			content: '+';
+		}
+	}
+
+	&.remove {
+		background-color: hsl(from var(--ctp-frappe-red) h s l / 0.2);
+
+		&::before {
+			content: '-';
+		}
+	}
 }
 
-.shiki span.line.diff.remove {
-	// background-color: rgba(255, 0, 0, 0.2);
-	background-color: hsl(from var(--ctp-frappe-red) h s l / 0.2);
-}
-
-/* transformerNotationHighlight */
+/* transformerNotationHighlight & transformerNotationErrorLevel */
 
 .shiki span.line.highlighted {
 	background-color: hsl(from var(--ctp-frappe-blue) h s l / 0.2);
+
+	&.error {
+		background-color: hsl(from var(--ctp-frappe-red) h s l / 0.2);
+	}
 }
 
 /* transformerNotationFocus */

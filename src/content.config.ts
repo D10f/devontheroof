@@ -2,8 +2,9 @@ import { defineCollection, z } from 'astro:content';
 import { asciidocLoader } from '@d10f/asciidoc-astro-loader';
 import {
 	transformerNotationDiff,
-	transformerNotationHighlight,
+	transformerNotationErrorLevel,
 	transformerNotationFocus,
+	transformerNotationHighlight,
 } from '@shikijs/transformers';
 
 const blog = defineCollection({
@@ -15,9 +16,10 @@ const blog = defineCollection({
 		syntaxHighlighting: {
 			theme: 'catppuccin-frappe',
 			transformers: [
+				transformerNotationDiff(),
+				transformerNotationErrorLevel(),
 				transformerNotationFocus(),
 				transformerNotationHighlight(),
-				transformerNotationDiff(),
 			],
 		},
 	}),
