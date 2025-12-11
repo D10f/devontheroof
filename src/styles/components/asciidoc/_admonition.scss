@@ -11,6 +11,16 @@
 		color: var(--admonition-icon-color);
 	}
 
+	a {
+
+		&,
+		&:focus,
+		&:hover {
+			color: var(--admonition-icon-color);
+			border-color: currentColor;
+		}
+	}
+
 	code {
 		@extend %inline-code;
 		color: unset;

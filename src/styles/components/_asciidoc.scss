@@ -32,6 +32,26 @@
 		@extend %paragraph;
 	}
 
+	a {
+		border-bottom: 2px solid var(--accent-color);
+
+		&:hover {
+			color: var(--accent-color);
+		}
+
+		&:visited {
+			color: light-dark(var(--ctp-latte-mauve), var(--ctp-frappe-mauve));
+			border-color: currentColor;
+		}
+
+		&:visited:hover,
+		&:visited:focus {
+			color: color-mix(in srgb, light-dark(var(--ctp-latte-mauve),
+						var(--ctp-frappe-mauve)) 75%, white);
+			border-color: currentColor;
+		}
+	}
+
 	kbd {
 		@extend %inline-code;
 		min-width: 2em;
