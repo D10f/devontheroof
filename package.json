@@ -14,6 +14,7 @@
     },
     "devDependencies": {
         "@d10f/asciidoc-astro-loader": "^0.0.6",
+        "@shikijs/transformers": "3.13",
         "asciidoctor": "^3.0.4",
         "eslint": "^9.39.1",
         "eslint-plugin-prettier": "^5.5.4",
