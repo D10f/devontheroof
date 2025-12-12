@@ -10,11 +10,11 @@
     },
     "dependencies": {
         "astro": "^5.16.2",
-        "sass": "^1.94.2"
+        "sass": "^1.96.0"
     },
     "devDependencies": {
-        "@d10f/asciidoc-astro-loader": "^0.0.6",
-        "@shikijs/transformers": "3.13",
+        "@d10f/asciidoc-astro-loader": "^0.0.9",
+        "@shikijs/transformers": "^3.20.0",
         "asciidoctor": "^3.0.4",
         "eslint": "^9.39.1",
         "eslint-plugin-prettier": "^5.5.4",

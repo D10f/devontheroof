@@ -1,0 +1,13 @@
+@use '../abstract/' as *;
+
+.unselectable {
+	@include unselectable;
+}
+
+.mr-2 {
+	margin-right: 0.5em;
+}
+
+.opacity-50 {
+	opacity: 0.5;
+}

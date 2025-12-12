@@ -1,5 +1,5 @@
 import { defineCollection, z } from 'astro:content';
-import { asciidocLoader } from '@d10f/asciidoc-astro-loader';
+import { asciidocLoader, transformerPrompt } from '@d10f/asciidoc-astro-loader';
 import {
 	transformerNotationDiff,
 	transformerNotationErrorLevel,
@@ -20,6 +20,12 @@ const blog = defineCollection({
 				transformerNotationErrorLevel(),
 				transformerNotationFocus(),
 				transformerNotationHighlight(),
+				transformerPrompt({
+					langs: {
+						console: '$',
+					},
+					cssClasses: 'unselectable mr-2 opacity-50',
+				}),
 			],
 		},
 	}),
