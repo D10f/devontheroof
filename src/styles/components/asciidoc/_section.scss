@@ -1,0 +1,53 @@
+section.sect1 header,
+section.sect2 header,
+section.sect3 header {
+	position: relative;
+	margin-top: 1em;
+	line-height: 1.25;
+	display: inline-block;
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		padding-inline: 0.25em;
+	}
+
+	h2 {
+		color: var(--background-color);
+		background-color: var(--accent-color);
+	}
+
+	h3 {
+		border-bottom: 2px solid var(--accent-color);
+	}
+
+	a {
+		position: absolute;
+		border: none;
+		left: calc(100% + 0.5em);
+		top: 25%;
+		color: var(--foreground-color) !important;
+		font-size: 18px;
+		opacity: 0;
+		transition: opacity 250ms ease;
+
+		@media (min-width: 768px) {
+			right: calc(100% + 0.5em);
+		}
+
+		&:focus {
+			opacity: 1;
+		}
+	}
+
+	&:hover a {
+		opacity: 1;
+	}
+
+	svg {
+		height: 1.5em;
+		aspect-ratio: 1;
+	}
+}

@@ -9,26 +9,9 @@
 @use "asciidoc/literal" as *;
 @use "asciidoc/paragraph" as *;
 @use "asciidoc/preamble" as *;
+@use "asciidoc/section" as *;
 
 .asciidoc {
-
-	h2,
-	h3 {
-		margin-top: 1em;
-		line-height: 1.25;
-		padding-inline: 0.25em;
-		display: inline-block;
-	}
-
-	h2 {
-		color: var(--background-color);
-		background-color: var(--accent-color);
-	}
-
-	h3 {
-		border-bottom: 2px solid var(--accent-color);
-	}
-
 	p {
 		@extend %paragraph;
 	}
