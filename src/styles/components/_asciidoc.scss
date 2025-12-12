@@ -10,6 +10,7 @@
 @use "asciidoc/literal" as *;
 @use "asciidoc/paragraph" as *;
 @use "asciidoc/preamble" as *;
+@use "asciidoc/quoteblock" as *;
 @use "asciidoc/section" as *;
 
 .asciidoc {
@@ -78,6 +79,10 @@
 
 	.dlist {
 		@extend %dlist;
+	}
+
+	.quoteblock {
+		@extend %quoteblock;
 	}
 
 	.listingblock {
