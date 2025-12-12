@@ -6,12 +6,14 @@ import {
 	transformerNotationFocus,
 	transformerNotationHighlight,
 } from '@shikijs/transformers';
+import { admonitionConverter } from './converters/admonitionConverter';
 
 const blog = defineCollection({
 	loader: asciidocLoader({
 		base: 'src/content/blog',
 		document: {
 			template: './src/templates',
+			converters: [admonitionConverter()],
 		},
 		syntaxHighlighting: {
 			theme: 'catppuccin-frappe',

@@ -1,9 +1,41 @@
+@use '../../abstract/mixins' as *;
 @use "inline-code" as *;
 
 %admonitionblock {
 	padding: 1em;
 	margin-top: 1em;
 	border-radius: var(--border-radius);
+	background-color: var(--admonition-bg-color);
+
+	@media (min-width: 768px) {
+		display: grid;
+		gap: 1em;
+		grid-template-columns: min-content 1fr;
+	}
+
+	@media (min-width: 1800px) {
+		gap: 0;
+		position: absolute;
+		width: 20%;
+		margin: unset;
+		grid-template-columns: 1fr;
+
+		&.is-left {
+			right: calc(70% + 3em);
+			@include arrow($position: 'right top', $color: var(--admonition-bg-color),
+				$size: 0.75em)
+		}
+
+		&.is-right {
+			left: calc(70% + 3em);
+			@include arrow($position: 'left top', $color: var(--admonition-bg-color),
+				$size: 0.75em)
+		}
+	}
+
+	p {
+		margin: unset;
+	}
 
 	svg {
 		width: 48px;
@@ -31,15 +63,15 @@
 	&.caution {
 		--admonition-icon-color: light-dark(var(--ctp-latte-red),
 				var(--ctp-frappe-red));
-		background-color: light-dark(hsl(from var(--ctp-latte-red) h s l / 0.25),
-				hsl(from var(--ctp-frappe-red) h s l / 0.25));
+		--admonition-bg-color: light-dark(hsl(from var(--ctp-latte-red) h s calc(l + 30)),
+				hsl(from var(--ctp-frappe-red) h s l));
 	}
 
 	&.important {
 		--admonition-icon-color: light-dark(var(--ctp-latte-blue),
 				var(--ctp-frappe-blue));
-		background-color: light-dark(hsl(from var(--ctp-latte-blue) h s l / 0.25),
-				hsl(from var(--ctp-frappe-blue) h s l / 0.25));
+		--admonition-bg-color: light-dark(hsl(from var(--ctp-latte-blue) h s calc(l + 30)),
+				hsl(from var(--ctp-frappe-blue) h s l));
 	}
 
 	&.note {
@@ -49,21 +81,21 @@
 				var(--ctp-frappe-green));
 		--admonition-icon-color: light-dark(var(--light-brown),
 				hsl(from var(--dark-brown) h s calc(l - 25)));
-		background-color: light-dark(hsl(from var(--light-brown) h s l / 0.3),
-				hsl(from var(--dark-brown) h s l / 0.3));
+		--admonition-bg-color: light-dark(hsl(from var(--light-brown) h s calc(l + 30)),
+				hsl(from var(--dark-brown) h s l));
 	}
 
 	&.tip {
 		--admonition-icon-color: light-dark(var(--ctp-latte-green),
-				var(--ctp-frappe-green));
-		background-color: light-dark(hsl(from var(--ctp-latte-green) h s l / 0.25),
-				hsl(from var(--ctp-frappe-green) h s l / 0.25));
+				hsl(from var(--ctp-frappe-green) h s l));
+		--admonition-bg-color: light-dark(hsl(from var(--ctp-latte-green) h s calc(l + 40)),
+				hsl(from var(--ctp-frappe-green) h calc(s - 5) calc(l - 5)));
 	}
 
 	&.warning {
 		--admonition-icon-color: light-dark(var(--ctp-latte-yellow),
 				var(--ctp-frappe-yellow));
-		background-color: light-dark(hsl(from var(--ctp-latte-yellow) h s l / 0.25),
-				hsl(from var(--ctp-frappe-yellow) h s l / 0.25));
+		--admonition-bg-color: light-dark(hsl(from var(--ctp-latte-yellow) h s calc(l + 30)),
+				hsl(from var(--ctp-frappe-yellow) h s l));
 	}
 }
