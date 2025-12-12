@@ -1,67 +1,85 @@
+---
+import FooterLink from './FooterLink.astro';
+---
+
 <footer>
-    <section class="footer__links">
-        <div class="footer_column">
-            <p>This site is built with:</p>
-            <ul>
-                <li>
-                    <a href="">
-                        Astro
-                    </a>
-                </li>
+	<section class="footer__links">
+		<p>This site is built with:</p>
+		<ul>
+			<li>
+				<FooterLink to='https://astro.build' iconName='astro' label='Astro' />
+			</li>
 
-                <li>
-                    <a href="">
-                        AsciiDoc
-                    </a>
-                </li>
-            </ul>
-        </div>
+			<li>
+				<FooterLink to='https://asciidoc.org' iconName='asciidoc' label='AsciiDoc' />
+			</li>
+		</ul>
 
-        <div class="footer_column">
-            <p>Find more about me:</p>
-            <ul>
-                <li>
-                    <a href="">
-                        Codeberg
-                    </a>
-                </li>
+		<p>Find more about me:</p>
+		<ul>
+			<li>
+				<FooterLink to='https://codeberg.org' iconName='codeberg' label='Codeberg' />
+			</li>
+			<li>
+				<FooterLink to='https://github.com' iconName='github' label='GitHub' />
+			</li>
+			<li>
+				<FooterLink to='https://codepen.io' iconName='codepen' label='Codepen' />
+			</li>
+			<li>
+				<FooterLink to='https://exercism.org' iconName='exercism' label='Exercism' />
+			</li>
+			<li>
+				<FooterLink to='https://codewars.com' iconName='codewars' label='Codewars' />
+			</li>
+		</ul>
 
-                <li>
-                    <a href="">
-                        GitHub
-                    </a>
-                </li>
+		<p>Get in touch:</p>
+		<ul>
+			<li>
+				<FooterLink to='email:devsojourn@pm.me' iconName='email' label='Email' />
+			</li>
+			<li>
+				<FooterLink to='/' iconName='gpg-key' label='GPG' />
+			</li>
+		</ul>
+	</section>
 
-                <li>
-                    <a href="">
-                        Codepen
-                    </a>
-                </li>
-
-                <li>
-                    <a href="">
-                        Exercism
-                    </a>
-                </li>
-
-                <li>
-                    <a href="">
-                        Codewars
-                    </a>
-                </li>
-
-                <li>
-                    <a href="">
-                        TryHackMe
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="footer__copyright">
-        <p>
-            All content by me &copy; 2025 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0</a>
-        </p>
-    </section>
+	<section class="footer__copyright">
+		<p>
+			All content by me &copy; 2025 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0</a>
+		</p>
+	</section>
 </footer>
+
+<style>
+footer {
+	border-top: 1px solid var(--foreground-color);
+	margin-top: 1em;
+	margin-bottom: 3em;
+	padding-top: 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+section {
+	text-align: center;
+}
+p {
+	margin-block: 2em 1em;
+}
+ul {
+	display: flex;
+	gap: 2em;
+	justify-content: center;
+	align-items: center;
+}
+li {
+	/* display: inline-block; */
+}
+:global(footer svg) {
+	height: 48px;
+	aspect-ratio: 1;
+}
+</style>

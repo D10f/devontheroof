@@ -1,0 +1,18 @@
+---
+interface Props {
+	iconName: string;
+}
+
+const { iconName } = Astro.props;
+---
+
+<svg aria-hidden="true">
+	<use href={`/sprite.svg#icon-${iconName}`} />
+</svg>
+
+<style>
+svg {
+	color: var(--foreground-color);
+	fill: currentColor;
+}
+</style>
