@@ -1,0 +1,26 @@
+%dlist {
+	background-color: var(--background-color-2);
+	border-radius: var(--border-radius);
+	padding: 1em;
+	margin-top: 1em;
+
+	dt {
+		font-weight: bold;
+
+		&:not(:first-child) {
+			margin-top: 1em;
+		}
+
+		// Remove margin-bottom when list item has no description. This is
+		// used to stack list items that use the same description.
+		// See Debian minimal installation article.
+		&:not(:has(+ dd)) {
+			margin-bottom: -1em;
+		}
+	}
+
+	dd {
+		padding-left: 1em;
+		color: var(--subtitles);
+	}
+}

@@ -4,6 +4,7 @@
 
 @use "asciidoc/admonition" as *;
 @use "asciidoc/colist" as *;
+@use 'asciidoc/dlist' as *;
 @use "asciidoc/inline-code" as *;
 @use "asciidoc/listing" as *;
 @use "asciidoc/literal" as *;
@@ -73,6 +74,10 @@
 
 	#preamble {
 		@extend %preamble;
+	}
+
+	.dlist {
+		@extend %dlist;
 	}
 
 	.listingblock {
