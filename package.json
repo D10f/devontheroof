@@ -1,26 +1,26 @@
 {
-    "name": "devontheroof",
-    "version": "1.0.0",
-    "type": "module",
-    "scripts": {
-        "dev": "astro dev",
-        "build": "astro build",
-        "preview": "astro preview",
-        "astro": "astro"
-    },
-    "dependencies": {
-        "astro": "^5.16.2",
-        "sass": "^1.96.0"
-    },
-    "devDependencies": {
-        "@d10f/asciidoc-astro-loader": "^0.0.9",
-        "@shikijs/transformers": "^3.20.0",
-        "asciidoctor": "^3.0.4",
-        "eslint": "^9.39.1",
-        "eslint-plugin-prettier": "^5.5.4",
-        "globals": "^16.5.0",
-        "jiti": "^2.6.1",
-        "prettier": "^3.7.4",
-        "typescript-eslint": "^8.49.0"
-    }
+	"name": "devontheroof",
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"astro": "^5.16.2",
+		"sass": "^1.96.0"
+	},
+	"devDependencies": {
+		"@d10f/asciidoc-astro-loader": "^0.0.9",
+		"@shikijs/transformers": "^3.20.0",
+		"asciidoctor": "^3.0.4",
+		"eslint": "^9.39.1",
+		"eslint-plugin-prettier": "^5.5.4",
+		"globals": "^16.5.0",
+		"jiti": "^2.6.1",
+		"prettier": "^3.7.4",
+		"typescript-eslint": "^8.49.0"
+	}
 }

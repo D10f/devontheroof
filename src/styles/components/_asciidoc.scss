@@ -45,6 +45,32 @@
 		border-bottom: 2px solid var(--accent-color);
 	}
 
+	#toc {
+		line-height: 1.4;
+		background-color: var(--background-color-2);
+		border-radius: var(--border-radius);
+		margin-block: 1em;
+		padding: 1em;
+
+		ul {
+			padding-left: 2em;
+		}
+
+		li {
+			margin-block: .25em;
+		}
+
+		a {
+			color: var(--subtitles);
+			border: none;
+
+			&:focus,
+			&:hover {
+				color: var(--accent-color);
+			}
+		}
+	}
+
 	#preamble {
 		@extend %preamble;
 	}
