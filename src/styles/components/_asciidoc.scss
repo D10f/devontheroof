@@ -6,6 +6,7 @@
 @use "asciidoc/colist" as *;
 @use "asciidoc/inline-code" as *;
 @use "asciidoc/listing" as *;
+@use "asciidoc/literal" as *;
 @use "asciidoc/paragraph" as *;
 @use "asciidoc/preamble" as *;
 
@@ -67,6 +68,10 @@
 
 	.listingblock {
 		@extend %listingblock;
+	}
+
+	.literalblock {
+		@extend %literalblock;
 	}
 
 	.admonitionblock {

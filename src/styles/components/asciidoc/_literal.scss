@@ -1,0 +1,31 @@
+%literalblock {
+	padding: 1em;
+	font-size: 1rem;
+	font-family: var(--font-mono);
+	overflow: scroll;
+	position: relative;
+
+	&.output {
+		background-color: var(--background-color-2);
+		border-bottom-left-radius: var(--border-radius);
+		border-bottom-right-radius: var(--border-radius);
+		border: 1px solid var(--foreground-color);
+
+		&:hover::before {
+			opacity: 0;
+		}
+
+		&::before {
+			content: 'output';
+			text-transform: uppercase;
+			position: absolute;
+			top: 0.5em;
+			right: 0.5em;
+			padding: 0.2em 0.5em;
+			background-color: hsl(from var(--background-color-2) h s calc(l - 10));
+			border-radius: calc(var(--border-radius) / 2);
+			opacity: 1;
+			transition: opacity 200ms ease;
+		}
+	}
+}

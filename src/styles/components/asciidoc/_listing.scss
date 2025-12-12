@@ -22,6 +22,11 @@
 		min-width: min-content;
 	}
 
+	&:has(+ .literalblock.output) pre {
+		border-bottom-left-radius: unset;
+		border-bottom-right-radius: unset;
+	}
+
 	span.line {
 		display: inline-block;
 		width: 100%;
