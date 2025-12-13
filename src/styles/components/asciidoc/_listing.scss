@@ -1,8 +1,22 @@
+@use '../../abstract/mixins' as *;
+
 %listingblock {
 	margin-top: 1em;
+	position: relative;
 
-	.copy-btn {
-		display: none;
+	button.copy-btn {
+		position: absolute;
+		right: 0.5em;
+		top: 0.5em;
+		cursor: pointer;
+		z-index: 10;
+
+		svg {
+			@include unselectable;
+			width: var(--icon-size);
+			aspect-ratio: 1;
+			fill: var(--background-color);
+		}
 	}
 
 	figure {

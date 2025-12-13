@@ -1,0 +1,25 @@
+@use '../abstract/mixins' as *;
+
+.rotating-btn {
+	overflow: hidden;
+	height: var(--icon-size);
+	border-radius: 50%;
+
+	&--active>span {
+		rotate: 180deg;
+	}
+
+	&>span {
+		@include unselectable;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: calc(var(--icon-size) * 2);
+		transition: rotate 250ms 50ms ease;
+	}
+
+	svg {
+		display: block;
+	}
+}

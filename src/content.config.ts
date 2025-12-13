@@ -29,6 +29,9 @@ const blog = defineCollection({
 					cssClasses: 'unselectable mr-2 opacity-50',
 				}),
 			],
+			callouts: {
+				cssClasses: 'conum unselectable',
+			},
 		},
 	}),
 	schema: z.object({
