@@ -1,6 +1,35 @@
 import type { Alpine } from 'alpinejs';
 
 export default (Alpine: Alpine) => {
+	Alpine.data('theme', () => ({
+		theme: '',
+		init() {
+			const preferredTheme = localStorage.getItem('theme') ?? '';
+			if (['dark', 'light'].includes(preferredTheme)) {
+				this.theme = preferredTheme;
+			} else if (
+				window.matchMedia('(prefers-color-scheme: dark)').matches
+			) {
+				this.theme = 'dark';
+			} else {
+				this.theme = 'light';
+			}
+
+			if (this.theme === 'light') {
+				document.documentElement.classList.remove('dark');
+			} else {
+				document.documentElement.classList.add('dark');
+			}
+
+			window.localStorage.setItem('theme', this.theme);
+		},
+		toggle() {
+			this.theme = this.theme === 'light' ? 'dark' : 'light';
+			document.documentElement.classList.toggle('dark');
+			localStorage.setItem('theme', this.theme);
+		},
+	}));
+
 	Alpine.data('codeblock', () => ({
 		copied: false,
 		addToClipboard() {

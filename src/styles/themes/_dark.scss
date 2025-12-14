@@ -1,0 +1,46 @@
+html.dark {
+	--accent-color: light-dark(var(--ctp-frappe-peach), var(--ctp-latte-peach));
+	--foreground-color: light-dark(var(--light-color), var(--dark-color));
+	--background-color: light-dark(var(--dark-color), var(--light-color));
+	--background-color-2: hsl(from var(--background-color) h s calc(l + 5));
+	--subtitles: light-dark(color-mix(in srgb, var(--light-color), black 20%),
+			color-mix(in srgb, var(--dark-color), white 20%));
+
+	.admonitionblock {
+		color: var(--background-color);
+
+		&.caution {
+			--admonition-icon-color: hsl(from var(--ctp-frappe-red) h s calc(l - 20));
+			--admonition-bg-color: var(--ctp-frappe-red);
+		}
+
+		&.important {
+			--admonition-icon-color: hsl(from var(--ctp-frappe-blue) h s calc(l - 20));
+			--admonition-bg-color: var(--ctp-frappe-blue);
+		}
+
+		&.note {
+			--light-brown: color-mix(in oklab, var(--ctp-latte-red) 55%,
+					var(--ctp-latte-green));
+			--dark-brown: color-mix(in oklab, var(--ctp-frappe-red) 55%,
+					var(--ctp-frappe-green));
+			--admonition-icon-color: hsl(from var(--dark-brown) h s calc(l - 25));
+			--admonition-bg-color: hsl(from var(--dark-brown) h s l);
+		}
+
+		&.tip {
+			--admonition-icon-color: hsl(from var(--ctp-frappe-green) h s calc(l - 20));
+			--admonition-bg-color: var(--ctp-frappe-green);
+		}
+
+		&.warning {
+			--admonition-icon-color: hsl(from var(--ctp-frappe-yellow) h s calc(l - 20));
+			--admonition-bg-color: var(--ctp-frappe-yellow);
+		}
+	}
+
+	.literalblock.output {
+		border-color: var(--background-color-2);
+		background-color: color-mix(in srgb, var(--background-color) 90%, white);
+	}
+}

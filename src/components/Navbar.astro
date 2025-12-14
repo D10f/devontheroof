@@ -1,3 +1,7 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+
 <nav
 	x-data="scroll"
 	@scroll.window.throttle.100ms="handleScroll"
@@ -24,7 +28,7 @@
 
 	<menu class="navbar__actions">
 		<li>
-			<button>Theme</button>
+			<ThemeToggle />
 		</li>
 	</menu>
 </nav>

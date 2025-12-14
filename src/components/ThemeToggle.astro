@@ -1,0 +1,49 @@
+<div x-data="theme">
+	<button
+		@click="toggle"
+		class="copy-btn rotating-btn"
+		:class="{ 'rotating-btn--active': theme === 'dark' }"
+	>
+		<span>
+			<svg aria-hidden="true">
+				<use href="/sprite.svg#icon-sun" />
+			</svg>
+			<svg aria-hidden="true" style="transform: rotate(180deg);">
+				<use href="/sprite.svg#icon-moon" />
+			</svg>
+		</span>
+	</button>
+</div>
+
+<style>
+div[x-data] {
+	position: relative;
+}
+
+menu {
+	position: absolute;
+	right: 0;
+	background-color: var(--background-color-2);
+	box-shadow: var(--shadow);
+	border-radius: var(--border-radius);
+	padding: 1em;
+	width: max-content;
+
+	li {
+		display: block;
+	}
+}
+.circle {
+	display: inline-block;
+	width: 16px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background-color: var(--accent-color);
+}
+
+svg {
+	width: 1.25em;
+	aspect-ratio: 1;
+	fill: var(--foreground-color);
+}
+</style>
