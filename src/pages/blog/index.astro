@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
 
 const blogPosts = (await getCollection('blog')).sort(
 	(a, b) => b.data.createdAt.valueOf() - a.data.createdAt.valueOf()
@@ -13,6 +14,7 @@ const blogPosts = (await getCollection('blog')).sort(
 			<li>
 				<article>
 					<h3><a href={`/blog/${post.id}`}>{post.data.title}</a></h3>
+					<FormattedDate date={post.data.createdAt} />
 				</article>
 			</li>
 		))}
@@ -24,11 +26,17 @@ ul {
 	margin-top: 2rem;
 }
 li {
-	margin-top: 1em;
-	padding: 1em;
+	/* margin-top: 1em; */
+	padding: 0.5em;
 
 	&:hover {
-		background-color: light-dark(var(--ctp-latte-crust), var(--ctp-frappe-crust));
+		background-color: var(--background-color-2);
+	}
+}
+h3 a {
+	&:focus,
+	&:hover {
+		color: var(--accent-color);
 	}
 }
 </style>

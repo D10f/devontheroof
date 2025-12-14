@@ -22,11 +22,13 @@
 
 	/* SPACING */
 	--icon-size: 2rem;
+	--max-width: 1100px;
+	--content-width: 768px;
 	--padder-size: calc(var(--icon-size) / 2);
 
 	/* Fonts */
-	--font-body: "Atkinson";
-	--font-head: "WorkSans";
+	--font-body: "WorkSans";
+	--font-head: "Atkinson";
 	--font-mono: "SourceCodePro"
 }
 

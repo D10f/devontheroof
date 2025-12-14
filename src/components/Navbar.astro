@@ -1,5 +1,7 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+
+const currentPath = Astro.url.pathname;
 ---
 
 <nav
@@ -16,13 +18,13 @@ import ThemeToggle from './ThemeToggle.astro';
 
 	<menu class="navbar__links">
 		<li>
-			<a href="/blog">Blog</a>
+			<a class={currentPath.startsWith('/blog') ? 'active' : '' } href="/blog">Blog</a>
 		</li>
 		<li>
-			<a href="/projects">Projects</a>
+			<a class={currentPath.startsWith('/projects') ? 'active' : '' } href="/projects">Projects</a>
 		</li>
 		<li>
-			<a href="/uses">Uses</a>
+			<a class={currentPath.startsWith('/uses') ? 'active' : '' } href="/uses">Uses</a>
 		</li>
 	</menu>
 
@@ -37,13 +39,20 @@ import ThemeToggle from './ThemeToggle.astro';
 .navbar {
 	position: fixed;
 	top: 0;
-	left: 0;
-	right: 0;
+	width: 100%;
 	background-color: var(--background-color-2);
 	box-shadow: var(--shadow);
-	padding: var(--padder-size) calc(var(--padder-size) * 2);
+	padding: calc(var(--padder-size) / 2) var(--padder-size);
 	transition: translate 250ms ease;
 	z-index: 99;
+
+	@media screen and (min-width: 768px) {
+		left: 50%;
+		transform: translate(-50%, 0);
+		width: min(calc(100vw - var(--padder-size) * 2), var(--max-width));
+		top: 1em;
+		border-radius: var(--border-radius);
+	}
 }
 .navbar.hidden {
 	translate: 0 calc(-100% - 4em);
@@ -62,11 +71,20 @@ import ThemeToggle from './ThemeToggle.astro';
 		margin-inline: 1em;
 	}
 }
-.navbar__brand a {
-	font-family: var(--font-head);
+.navbar__brand a,
+.navbar__links a {
+	&:focus,
+	&:hover {
+		color: var(--accent-color);
+	}
 }
 .navbar__links {
 	margin-right: auto;
 	margin-left: 1em;
+	font-family: var(--font-head);
+
+	a.active {
+		color: var(--accent-color);
+	}
 }
 </style>
