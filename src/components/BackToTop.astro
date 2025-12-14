@@ -1,0 +1,22 @@
+<div x-data="scroll" @scroll.window.throttle="handleScroll">
+	<button @click="scrollToTop" :class="{ 'hidden': scrollingDownwards }">
+		&uarr;
+	</button>
+</div>
+
+<style>
+button {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	width: 3rem;
+	height: 3rem;
+	box-shadow: var(--shadow);
+	border-radius: 50%;
+	transition: transform 200ms ease;
+
+	&.hidden {
+		transform: translateY(4rem) scale(0);
+	}
+}
+</style>

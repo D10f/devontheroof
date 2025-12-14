@@ -5,30 +5,12 @@ export default (node: AbstractBlock, { content }: { content: string }) => {
 	const title = node.getAttribute('title');
 
 	const outputHtml = `
-		<div
-			class="listingblock"
-			data-language="${lang}"
-			x-data="{
-				copied: false,
-				clip() {
-					const str = Array.from($refs.wrapper.querySelectorAll('span.line'))
-						.filter(line => !(line.classList.contains('remove')))
-						.map(line => Array.from(line.children)
-							.filter(span => !(span.classList.contains('unselectable')))
-							.map(span => span.textContent).join('')
-						).join('\\n');
-
-					navigator.clipboard.writeText(str).then(() => {
-						this.copied = true;
-						setTimeout(() => { this.copied = false }, 2500);
-					});
-				}
-			}">
+		<div class="listingblock" data-language="${lang}" x-data="codeblock">
 			<button
 				class="copy-btn rotating-btn ${title ? 'mt-6' : ''}"
 				:class="{ 'rotating-btn--active': copied }"
 				:disabled="copied"
-				@click="clip"
+				@click="addToClipboard"
 				x-cloak
 			>
 				<span>
