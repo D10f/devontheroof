@@ -43,4 +43,14 @@ html.dark {
 		border-color: var(--background-color-2);
 		background-color: color-mix(in srgb, var(--background-color) 90%, white);
 	}
+
+	.copy-btn svg {
+		fill: white !important;
+		stroke: var(--background-color);
+
+		&:nth-child(2) {
+			fill: red;
+			stroke: var(--background-color) !important;
+		}
+	}
 }
