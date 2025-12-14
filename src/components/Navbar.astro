@@ -1,4 +1,9 @@
-<nav class="navbar">
+<nav
+	x-data="scroll"
+	@scroll.window.throttle.100ms="handleScroll"
+	class="navbar"
+	:class="{ 'hidden': scrollingDownwards }"
+>
 	<div class="navbar__brand">
 		<h1>
 			<a href="/">D10f</a>
@@ -26,9 +31,18 @@
 
 <style>
 .navbar {
-	background-color: var(--background-lighten);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--background-color-2);
 	box-shadow: var(--shadow);
 	padding: var(--padder-size) calc(var(--padder-size) * 2);
+	transition: translate 250ms ease;
+	z-index: 10;
+}
+.navbar.hidden {
+	translate: 0 calc(-100% - 4em);
 }
 .navbar,
 .navbar__links,

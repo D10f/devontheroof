@@ -30,7 +30,7 @@ export default (Alpine: Alpine) => {
 
 	Alpine.data('scroll', () => ({
 		previousPosition: window.scrollY,
-		scrollingDownwards: true,
+		scrollingDownwards: false,
 
 		handleScroll() {
 			const currentPosition = window.scrollY;

@@ -1,4 +1,4 @@
-<div x-data="scroll" @scroll.window.throttle="handleScroll">
+<div x-data="scroll" @scroll.window.throttle.100ms="handleScroll" x-cloak>
 	<button @click="scrollToTop" :class="{ 'hidden': scrollingDownwards }">
 		&uarr;
 	</button>
@@ -14,6 +14,12 @@ button {
 	box-shadow: var(--shadow);
 	border-radius: 50%;
 	transition: transform 200ms ease;
+	background-color: var(--background-color-2);
+
+	&:focus,
+	&:hover {
+		background-color: var(--background-color);
+	}
 
 	&.hidden {
 		transform: translateY(4rem) scale(0);
