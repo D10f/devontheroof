@@ -1,0 +1,12 @@
+.tableblock {
+	margin-top: 1em;
+	background-color: var(--background-color-2);
+	font-size: 1rem;
+	padding: 0.5em 0.25em;
+	border-radius: var(--border-radius);
+}
+
+table.tableblock {
+	width: 100%;
+	text-align: left;
+}
