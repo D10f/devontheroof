@@ -2,5 +2,15 @@
 	"bracketSameLine": true,
 	"embeddedLanguageFormatting": "off",
 	"singleQuote": true,
-	"overrides": []
+	"plugins": [
+		"prettier-plugin-astro"
+	],
+	"overrides": [
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
+			}
+		}
+	]
 }

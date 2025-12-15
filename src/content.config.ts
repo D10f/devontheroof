@@ -16,7 +16,10 @@ const blog = defineCollection({
 			converters: [admonitionConverter()],
 		},
 		syntaxHighlighting: {
-			theme: 'catppuccin-frappe',
+			theme: {
+				light: 'catppuccin-latte',
+				dark: 'catppuccin-frappe',
+			},
 			transformers: [
 				transformerNotationDiff(),
 				transformerNotationErrorLevel(),
@@ -39,6 +42,8 @@ const blog = defineCollection({
 		description: z.string(),
 		preamble: z.string().optional(),
 		createdAt: z.coerce.date(),
+		keywords: z.string().transform((t) => t.split(', ')),
+		technologies: z.string().transform((t) => t.split(' ')),
 	}),
 });
 
