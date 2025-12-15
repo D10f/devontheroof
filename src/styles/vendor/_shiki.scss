@@ -12,11 +12,12 @@
 
 	&::before {
 		position: absolute;
-		right: 1em;
+		left: 0.25em;
 	}
 
 	&.add {
 		background-color: hsl(from var(--ctp-frappe-green) h s l / 0.2);
+		color: var(--ctp-frappe-green);
 
 		&::before {
 			content: '+';
@@ -25,6 +26,7 @@
 
 	&.remove {
 		background-color: hsl(from var(--ctp-frappe-red) h s l / 0.2);
+		color: var(--ctp-frappe-red);
 
 		&::before {
 			content: '-';
