@@ -1,0 +1,380 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import SvgIcon from '../../components/SvgIcon.astro';
+---
+
+<Layout>
+	<header>
+		<h2>Projects</h2>
+		<p class="preamble">
+			These are some of the projects that I’ve been working on
+			recently, or that I’m particularly fond of. Each project has
+			its own readme file with more details. Feel free to take a
+			look at other projects of mine in my Codeberg and GitHub
+			pages, linked at the bottom of the page.
+		</p>
+	</header>
+
+	<ul>
+		<li>
+			<article>
+				<header>
+					<h3>Ansible Desktop</h3>
+					<span aria-describedby="ansible-desktop-ansible">
+						<SvgIcon iconName="ansible" />
+						<span class="tooltip" role="tooltip" id="ansible-desktop-ansible" >
+							Ansible
+						</span>
+					</span>
+
+					<span aria-describedby="ansible-desktop-shell">
+						<SvgIcon iconName="shell" />
+						<span class="tooltip" role="tooltip" id="ansible-desktop-shell">
+							Shell
+						</span>
+					</span>
+				</header>
+
+				<p>
+					A collection of Ansible roles that I use to configure my personal workstation between fresh installs.
+				</p>
+
+				<footer>
+					<a href="https://codeberg.org/D10f/ansible-desktop" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+
+		<li>
+			<article>
+				<header>
+					<h3>Python Virtual Environment</h3>
+					<span aria-describedby="pyenv-shell">
+						<SvgIcon iconName="shell" />
+						<span class="tooltip" role="tooltip" id="pyenv-shell" >
+							Shell
+						</span>
+					</span>
+				</header>
+
+				<p>
+					Or <code>pyenv</code> for short, is a neat utility to manage all of my virtual Python environments with ease (pretty useful now that Debian explicitly requires this). Comes with shell auto-completion to assist with using and managing different environments.
+				</p>
+
+				<footer>
+					<a href="https://codeberg.org/D10f/dotfiles/src/branch/master/bin/pyenv" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+
+		<li>
+			<article>
+				<header>
+					<h3>Password Checker</h3>
+					<span aria-describedby="password-checker-python">
+						<SvgIcon iconName="python" />
+						<span class="tooltip" role="tooltip" id="password-checker-python" >
+							Python
+						</span>
+					</span>
+				</header>
+
+				<p>
+					Checks passwords against the "Have I Been Pwned?" (HIBP) database to find out if they’ve been seen in any of the increasingly common data breaches.
+				</p>
+
+				<footer>
+					<a href="https://github.com/D10f/python-scripts/blob/main/password_checker.py" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+
+		<li>
+			<article>
+				<header>
+					<h3>Crypto Key Builder</h3>
+					<span aria-describedby="crypto-key-typescript">
+						<SvgIcon iconName="typescript" />
+						<span class="tooltip" role="tooltip" id="crypto-key-typescript" >
+							TypeScript
+						</span>
+					</span>
+				</header>
+
+				<p>
+					A thin wrapper around the Web Crypto API to simplify cryptographic operations in the browser, using a fluid API.
+				</p>
+
+				<footer>
+					<a href="https://codeberg.org/D10f/crypto" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+
+		<li>
+			<article>
+				<header>
+					<h3>AsciiDoc Astro Loader</h3>
+					<span aria-describedby="astro-loader-typescript">
+						<SvgIcon iconName="typescript" />
+						<span class="tooltip" role="tooltip" id="astro-loader-typescript" >
+							TypeScript
+						</span>
+					</span>
+					<span aria-describedby="astro-loader-astro">
+						<SvgIcon iconName="astro" />
+						<span class="tooltip" role="tooltip" id="astro-loader-astro" >
+							Astro
+						</span>
+					</span>
+					<span aria-describedby="astro-loader-asciidoc">
+						<SvgIcon iconName="asciidoc" />
+						<span class="tooltip" role="tooltip" id="astro-loader-asciidoc" >
+							AsciiDoc
+						</span>
+					</span>
+				</header>
+
+				<p>
+					An Astro custom loader function to create collection out of documents written in Asciidoc format.
+				</p>
+
+				<footer>
+					<a href="https://codeberg.org/D10f/asciidoc-astro-loader" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+
+		<li>
+			<article>
+				<header>
+					<h3>A* Pathfinding Visualization</h3>
+					<span aria-describedby="a-start-typescript">
+						<SvgIcon iconName="typescript" />
+						<span class="tooltip" role="tooltip" id="a-start-typescript" >
+							TypeScript
+						</span>
+					</span>
+				</header>
+
+				<p>
+					An interactive visualization of one of the most widely used algorithms to find the optimal route between two points. It features a hexagonal tile map editor to put the claims to the test.
+				</p>
+
+				<footer>
+					<a href="https://github.com/D10f/a-star-viz" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+		<li>
+			<article>
+				<header>
+					<h3>Bookmark Manager</h3>
+					<span aria-describedby="bookmark-manager-tailwind">
+						<SvgIcon iconName="tailwind" />
+						<span class="tooltip" role="tooltip" id="bookmark-manager-tailwind">
+							Tailwind
+						</span>
+					</span>
+					<span aria-describedby="bookmark-manager-vue">
+						<SvgIcon iconName="vue" />
+						<span class="tooltip" role="tooltip" id="bookmark-manager-vue" >
+							Vue
+						</span>
+					</span>
+					<span aria-describedby="bookmark-manager-laravel">
+						<SvgIcon iconName="laravel" />
+						<span class="tooltip" role="tooltip" id="bookmark-manager-laravel" >
+							Laravel
+						</span>
+					</span>
+				</header>
+
+				<p>
+					A self-hosted and privacy-respecting bookmark manager and home page for your browser. It features a dynamic and customizable UI, fuzzy find search, hierarchical structure compatible with browser bookmarks, import/export and more.
+				</p>
+
+				<footer>
+					<a href="https://github.com/D10f/bookmark_manager" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+		<li>
+			<article>
+				<header>
+					<h3>Expense Manager</h3>
+					<span aria-describedby="expense-manager-scss">
+						<SvgIcon iconName="sass" />
+						<span class="tooltip" role="tooltip" id="expense-manager-scss" >
+							SCSS
+						</span>
+					</span>
+					<span aria-describedby="expense-manager-typescript">
+						<SvgIcon iconName="typescript" />
+						<span class="tooltip" role="tooltip" id="expense-manager-typescript" >
+							TypeScript
+						</span>
+					</span>
+					<span aria-describedby="expense-manager-nestjs">
+						<SvgIcon iconName="nestjs" />
+						<span class="tooltip" role="tooltip" id="expense-manager-nestjs" >
+							Nest.js
+						</span>
+					</span>
+				</header>
+
+				<p>
+					Privacy-focused expense manager. Features multiple wallets to manage expenses for different purposes e.g., daily expenses, vacation or business trips, etc. Fully end-to-end encrypted using AES256-GCM.
+				</p>
+
+				<footer>
+					<a href="https://github.com/D10f/bitbudget" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+		<li>
+			<article>
+				<header>
+					<h3>Windows 95 Screensaver</h3>
+					<span aria-describedby="raycasting-c">
+						<SvgIcon iconName="c" />
+						<span class="tooltip" role="tooltip" id="raycasting-c" >
+							C
+						</span>
+					</span>
+					<span aria-describedby="raycasting-wasm">
+						<SvgIcon iconName="wasm" />
+						<span class="tooltip" role="tooltip" id="raycasting-wasm" >
+							WebAssembly
+						</span>
+					</span>
+				</header>
+
+				<p>
+
+A tribute to the popular screensaver from Microsoft. Written in C, ported to the web using WebAssembly.
+</p>
+
+				<footer>
+					<a href="https://github.com/D10f/raycasting" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+		<li>
+			<article>
+				<header>
+					<h3>Prismic Adventures</h3>
+					<span aria-describedby="prismic-react">
+						<SvgIcon iconName="react" />
+						<span class="tooltip" role="tooltip" id="prismic-react" >
+							React.js
+						</span>
+					</span>
+					<span aria-describedby="prismic-apollo">
+						<SvgIcon iconName="apollo" />
+						<span class="tooltip" role="tooltip" id="prismic-apollo" >
+							Apollo
+						</span>
+					</span>
+					<span aria-describedby="prismic-graphql">
+						<SvgIcon iconName="graphql" />
+						<span class="tooltip" role="tooltip" id="prismic-graphql" >
+							GraphQL
+						</span>
+					</span>
+					<span aria-describedby="prismic-prisma">
+						<SvgIcon iconName="prisma" />
+						<span class="tooltip" role="tooltip" id="prismic-prisma">Prisma</span>
+					</span>
+				</header>
+
+				<p>
+
+Proof-of-concept social media to share travel pictures. Features all the usual goodies: follow, like, comment, infinite scroll, etc.
+</p>
+
+				<footer>
+					<a href="https://github.com/D10f/react-graphql-prisma" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+		<li>
+			<article>
+				<header>
+					<h3>Bytes And Pipes</h3>
+					<span aria-describedby="bytes-vue">
+						<SvgIcon iconName="vue" />
+						<span class="tooltip" role="tooltip" id="bytes-vue" >
+							Vue
+						</span>
+					</span>
+					<span aria-describedby="bytes-node">
+						<SvgIcon iconName="nodejs" />
+						<span class="tooltip" role="tooltip" id="bytes-node">
+							Node.js
+						</span>
+					</span>
+				</header>
+
+				<p>
+
+Efficient file-sharing web application with end-to-end encryption with support for files of any size, not limited by the device’s available memory.
+</p>
+
+				<footer>
+					<a href="https://github.com/D10f/bytes-and-pipes" target="_blank">See More</a>
+				</footer>
+			</article>
+		</li>
+	</ul>
+</Layout>
+
+<style>
+.preamble {
+	color: var(--subtitles);
+}
+article {
+	background-color: var(--background-color-2);
+	padding: 1em;
+	margin-top: 1em;
+	border-radius: var(--border-radius);
+
+	p {
+		margin-block: 0.5em;
+	}
+}
+header {
+
+	h3 {
+		margin-bottom: 0.5em;
+	}
+
+	span[aria-describedby] {
+		display: inline;
+
+		&:hover .tooltip {
+			opacity: 1;
+			translate: calc(-50% - 1em) calc(-125% - 0.75em);
+			transition:
+				opacity 250ms ease 500ms,
+				translate 200ms linear(0, 0.008 1.1%, 0.034 2.3%, 0.134 4.9%, 0.264 7.3%, 0.683 14.3%, 0.797 16.5%, 0.89 18.6%, 0.967 20.7%, 1.027 22.8%, 1.073 25%, 1.104 27.3%, 1.123 30.6%, 1.119 34.3%, 1.018 49.5%, 0.988 58.6%, 0.985 65.2%, 1 84.5%, 1) 500ms;
+		}
+
+		svg {
+			display: inline;
+			width: 1.25em;
+			aspect-ratio: 1;
+		}
+	}
+}
+footer a {
+	font-size: 0.9em;
+	color: var(--accent-color);
+
+	&:focus,
+	&:hover {
+		background-color: var(--accent-color);
+		color: var(--background-color-2);
+	}
+}
+</style>
