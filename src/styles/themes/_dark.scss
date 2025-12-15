@@ -1,10 +1,48 @@
 html.dark {
-	--accent-color: light-dark(var(--ctp-frappe-peach), var(--ctp-latte-peach));
+	--accent-color: var(--ctp-frappe-peach);
 	--foreground-color: light-dark(var(--light-color), var(--dark-color));
 	--background-color: light-dark(var(--dark-color), var(--light-color));
 	--background-color-2: hsl(from var(--background-color) h s calc(l + 5));
 	--subtitles: light-dark(color-mix(in srgb, var(--light-color), black 20%),
 			color-mix(in srgb, var(--dark-color), white 20%));
+
+	.shiki,
+	.shiki span:not([class~="conum"]) {
+		background-color: var(--shiki-dark-bg) !important;
+		color: var(--shiki-dark) !important;
+	}
+
+	.shiki span.line.diff {
+		&.add {
+			background-color: hsl(from var(--ctp-frappe-green) h s l / 0.2) !important;
+			color: var(--ctp-frappe-green) !important;
+
+			span {
+				background-color: unset !important;
+			}
+		}
+
+		&.remove {
+			background-color: hsl(from var(--ctp-frappe-red) h s l / 0.2) !important;
+			color: var(--ctp-frappe-red) !important;
+
+			span {
+				background-color: unset !important;
+			}
+		}
+	}
+
+	.shiki span.line.highlighted {
+		background-color: hsl(from var(--ctp-frappe-blue) h s l / 0.2) !important;
+
+		span {
+			background-color: unset !important;
+		}
+
+		&.error {
+			background-color: hsl(from var(--ctp-frappe-red) h s l / 0.2) !important;
+		}
+	}
 
 	.admonitionblock {
 		color: var(--background-color);
