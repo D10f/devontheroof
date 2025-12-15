@@ -1,0 +1,70 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+import SvgIcon from './SvgIcon.astro';
+import { generateId } from '../scripts/utils';
+
+interface Props {
+	post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+---
+
+<article>
+	<header>
+		<h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+		<FormattedDate date={post.data.createdAt} />
+	</header>
+
+	<aside>
+		{post.data.technologies.map(tech => {
+			const tooltipId = generateId(tech);
+			return (
+				<span aria-describedby={tooltipId}>
+					<SvgIcon iconName={tech} />
+					<span
+						class="tooltip"
+						role="tooltip"
+						id={tooltipId}
+					>
+						{tech}
+					</span>
+				</span>
+			)}
+		)}
+	</aside>
+</article>
+
+<style>
+article {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+aside {
+	padding-block: 0.25em;
+	min-width: max-content;
+}
+h2 a {
+	&:focus,
+	&:hover {
+		color: var(--accent-color);
+	}
+}
+span[aria-describedby] {
+	position: relative;
+
+	svg {
+		width: 1em;
+		aspect-ratio: 1;
+	}
+}
+span[aria-describedby]:hover .tooltip {
+	opacity: 1;
+	translate: calc(-50% - 1em) calc(-125% - 0.75em);
+	transition:
+		opacity 250ms ease 500ms,
+		translate 200ms linear(0, 0.008 1.1%, 0.034 2.3%, 0.134 4.9%, 0.264 7.3%, 0.683 14.3%, 0.797 16.5%, 0.89 18.6%, 0.967 20.7%, 1.027 22.8%, 1.073 25%, 1.104 27.3%, 1.123 30.6%, 1.119 34.3%, 1.018 49.5%, 0.988 58.6%, 0.985 65.2%, 1 84.5%, 1) 500ms;
+}
+</style>

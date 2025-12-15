@@ -1,19 +1,12 @@
 ---
 import SvgIcon from '../components/SvgIcon.astro';
+import { generateId } from '../scripts/utils';
 
 interface Props {
 	iconName: string;
 	label: string;
 	to: string;
 }
-
-const generateId = (tag: string) => {
-	let s = '';
-	crypto.getRandomValues(new Uint8Array(16)).forEach(byte => {
-		s += byte.toString(36);
-	});
-	return s.slice(0, 10) + "_" + tag;
-};
 
 const tooltipId = generateId(Astro.props.iconName);
 

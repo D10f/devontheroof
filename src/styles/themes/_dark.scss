@@ -6,6 +6,13 @@ html.dark {
 	--subtitles: light-dark(color-mix(in srgb, var(--light-color), black 20%),
 			color-mix(in srgb, var(--dark-color), white 20%));
 
+	--red: var(--ctp-frappe-red);
+	--yellow: var(--ctp-frappe-yellow);
+	--green: var(--ctp-frappe-green);
+	--blue: var(--ctp-frappe-blue);
+	--purple: var(--ctp-frappe-mauve);
+	--orange: var(--ctp-frappe-peach);
+
 	.shiki,
 	.shiki span:not([class~="conum"]) {
 		background-color: var(--shiki-dark-bg) !important;

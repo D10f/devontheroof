@@ -4,6 +4,14 @@
 	--light-color: var(--ctp-latte-mantle);
 	--dark-color: var(--ctp-frappe-mantle);
 
+	/* highlight colors */
+	--red: var(--ctp-latte-red);
+	--yellow: var(--ctp-latte-yellow);
+	--green: var(--ctp-latte-green);
+	--blue: var(--ctp-latte-blue);
+	--purple: var(--ctp-latte-mauve);
+	--orange: var(--ctp-latte-peach);
+
 	--foreground-color: light-dark(var(--dark-color), var(--light-color));
 	--background-color: light-dark(var(--light-color), var(--dark-color));
 	--background-color-2: hsl(from var(--background-color) h s calc(l + 5));
