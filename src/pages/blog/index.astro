@@ -9,6 +9,13 @@ const blogPosts = (await getCollection('blog')).sort(
 ---
 
 <Layout>
+	<header>
+		<h1>Blog</h1>
+		<p class="preamble">Here you will find some of my notes dedicated to my future self.</p>
+		<p class="preamble">They are mostly about miscellaneous topics that I find interesting, like web development, system administration and open source in general.</p>
+		<p class="preamble">Hopefully you will find them useful too.</p>
+	</header>
+
 	<ul>
 		{blogPosts.map(post => (
 			<li><PostCard post={post} /></li>
@@ -17,6 +24,10 @@ const blogPosts = (await getCollection('blog')).sort(
 </Layout>
 
 <style>
+p.preamble {
+	color: var(--subtitles);
+	margin-bottom: 1em;
+}
 ul {
 	margin-top: 2rem;
 }
