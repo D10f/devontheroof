@@ -11,9 +11,7 @@ const currentPath = Astro.url.pathname;
 	:class="{ 'hidden': scrollingDownwards }"
 >
 	<div class="navbar__brand">
-		<h1>
-			<a href="/">D10f</a>
-		</h1>
+		<a href="/">D10f</a>
 	</div>
 
 	<menu class="navbar__links">
@@ -70,6 +68,10 @@ const currentPath = Astro.url.pathname;
 	li {
 		margin-inline: 1em;
 	}
+}
+.navbar__brand a {
+	font-family: var(--font-head);
+	font-size: 2em;
 }
 .navbar__brand a,
 .navbar__links a {
