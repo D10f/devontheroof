@@ -1,6 +1,10 @@
+---
+import SvgIcon from './SvgIcon.astro';
+---
+
 <div x-data="scroll" @scroll.window.throttle.100ms="handleScroll" x-cloak>
 	<button @click="scrollToTop" :class="{ 'hidden': scrollingDownwards }">
-		&uarr;
+		<SvgIcon iconName='chevron' />
 	</button>
 </div>
 
@@ -24,6 +28,12 @@ button {
 
 	&.hidden {
 		transform: translateY(4rem) scale(0);
+	}
+
+	svg {
+		width: 2em;
+		aspect-ratio: 1;
+		stroke: var(--foreground-color);
 	}
 }
 </style>
