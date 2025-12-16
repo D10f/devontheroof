@@ -24,7 +24,7 @@ html.dark {
 			background-color: hsl(from var(--ctp-frappe-green) h s l / 0.2) !important;
 			color: var(--ctp-frappe-green) !important;
 
-			span {
+			span:not([class~="conum"]) {
 				background-color: unset !important;
 			}
 		}
@@ -33,7 +33,7 @@ html.dark {
 			background-color: hsl(from var(--ctp-frappe-red) h s l / 0.2) !important;
 			color: var(--ctp-frappe-red) !important;
 
-			span {
+			span:not([class~="conum"]) {
 				background-color: unset !important;
 			}
 		}
@@ -42,7 +42,7 @@ html.dark {
 	.shiki span.line.highlighted {
 		background-color: hsl(from var(--ctp-frappe-blue) h s l / 0.2) !important;
 
-		span {
+		span:not([class~="conum"]) {
 			background-color: unset !important;
 		}
 

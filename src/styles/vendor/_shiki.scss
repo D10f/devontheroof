@@ -8,11 +8,11 @@
 /* transformerNotationDiff */
 
 .shiki span.line.diff {
-	position: relative;
+	// position: relative;
 
 	&::before {
-		position: absolute;
-		left: 0.25em;
+		position: relative;
+		right: 0.75em;
 	}
 
 	&.add {
