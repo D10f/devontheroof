@@ -5,12 +5,12 @@
 	--dark-color: var(--ctp-frappe-mantle);
 
 	/* highlight colors */
-	--red: var(--ctp-latte-red);
-	--yellow: var(--ctp-latte-yellow);
-	--green: var(--ctp-latte-green);
-	--blue: var(--ctp-latte-blue);
-	--purple: var(--ctp-latte-mauve);
-	--orange: var(--ctp-latte-peach);
+	--red: hsl(from var(--ctp-frappe-red) h calc(s + 10) calc(l - 10));
+	--yellow: hsl(from var(--ctp-frappe-yellow) h calc(s + 10) calc(l - 10));
+	--green: hsl(from var(--ctp-frappe-green) h calc(s + 10) calc(l - 10));
+	--blue: hsl(from var(--ctp-frappe-blue) h calc(s + 10) calc(l - 10));
+	--purple: hsl(from var(--ctp-frappe-mauve) calc(h + 10) calc(s + 10) calc(l - 10));
+	--orange: hsl(from var(--ctp-frappe-peach) h calc(s + 20) calc(l - 10));
 
 	--foreground-color: light-dark(var(--dark-color), var(--light-color));
 	--background-color: light-dark(var(--light-color), var(--dark-color));

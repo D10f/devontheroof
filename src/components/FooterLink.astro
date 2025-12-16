@@ -33,27 +33,41 @@ const { iconName, label, to } = Astro.props;
 a {
 	height: 100%;
 	display: inline-block;
+
+	svg {
+		width: 32px;
+		aspect-ratio: 1;
+
+		/* Enforce links (with icons, especially) are only highlighted when hovered over */
+		--red: var(--foreground-color);
+		--orange: var(--foreground-color);
+		--yellow: var(--foreground-color);
+		--green: var(--foreground-color);
+		--blue: var(--foreground-color);
+		--purple: var(--foreground-color);
+	}
+
+	&:focus,
+	&:hover {
+		color: var(--accent-color);
+
+		& svg {
+			--red: var(--accent-color);
+			--orange: var(--accent-color);
+			--yellow: var(--accent-color);
+			--green: var(--accent-color);
+			--blue: var(--accent-color);
+			--purple: var(--accent-color);
+			--foreground-color: var(--accent-color);
+		}
+
+		& .tooltip {
+			opacity: 1;
+			translate: calc(-50% - 1em) calc(-125% - 0.75em);
+			transition:
+				opacity 250ms ease 500ms,
+				translate 200ms linear(0, 0.008 1.1%, 0.034 2.3%, 0.134 4.9%, 0.264 7.3%, 0.683 14.3%, 0.797 16.5%, 0.89 18.6%, 0.967 20.7%, 1.027 22.8%, 1.073 25%, 1.104 27.3%, 1.123 30.6%, 1.119 34.3%, 1.018 49.5%, 0.988 58.6%, 0.985 65.2%, 1 84.5%, 1) 500ms;
+		}
+	}
 }
-a:focus .tooltip,
-a:hover .tooltip {
-	opacity: 1;
-	translate: calc(-50% - 1em) calc(-125% - 0.75em);
-	transition:
-		opacity 250ms ease 500ms,
-		translate 200ms linear(0, 0.008 1.1%, 0.034 2.3%, 0.134 4.9%, 0.264 7.3%, 0.683 14.3%, 0.797 16.5%, 0.89 18.6%, 0.967 20.7%, 1.027 22.8%, 1.073 25%, 1.104 27.3%, 1.123 30.6%, 1.119 34.3%, 1.018 49.5%, 0.988 58.6%, 0.985 65.2%, 1 84.5%, 1) 500ms;
-}
-/* span { */
-/* 	position: absolute; */
-/* 	opacity: 0; */
-/* 	user-select: none; */
-/* 	pointer-events: none; */
-/* 	background: var(--background-color); */
-/* 	box-shadow: var(--shadow); */
-/* 	border-radius: var(--border-radius); */
-/* 	translate: calc(-75%) -125%; */
-/* 	transition: translate 150ms ease 500ms, opacity 150ms ease 500ms; */
-/* 	padding: 0.25em 0.5em; */
-/* 	text-rendering: optimizeLegibility; */
-/* 	will-change: opacity; */
-/* } */
 </style>

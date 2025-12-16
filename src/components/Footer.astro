@@ -4,45 +4,52 @@ import FooterLink from './FooterLink.astro';
 
 <footer>
 	<section class="footer__links">
-		<p>This site is built with:</p>
-		<ul>
-			<li>
-				<FooterLink to='https://astro.build' iconName='astro' label='Astro' />
-			</li>
+		<div>
+			<p>This site is built with:</p>
+			<ul>
+				<li>
+					<FooterLink to='https://astro.build' iconName='astro' label='Astro' />
+				</li>
 
-			<li>
-				<FooterLink to='https://asciidoc.org' iconName='asciidoc' label='AsciiDoc' />
-			</li>
-		</ul>
+				<li>
+					<FooterLink to='https://asciidoc.org' iconName='asciidoc' label='AsciiDoc' />
+				</li>
+			</ul>
+		</div>
 
-		<p>Find more about me:</p>
-		<ul>
-			<li>
-				<FooterLink to='https://codeberg.org' iconName='codeberg' label='Codeberg' />
-			</li>
-			<li>
-				<FooterLink to='https://github.com' iconName='github' label='GitHub' />
-			</li>
-			<li>
-				<FooterLink to='https://codepen.io' iconName='codepen' label='Codepen' />
-			</li>
-			<li>
-				<FooterLink to='https://exercism.org' iconName='exercism' label='Exercism' />
-			</li>
-			<li>
-				<FooterLink to='https://codewars.com' iconName='codewars' label='Codewars' />
-			</li>
-		</ul>
+		<div>
 
-		<p>Get in touch:</p>
-		<ul>
-			<li>
-				<FooterLink to='email:devsojourn@pm.me' iconName='email' label='Email' />
-			</li>
-			<li>
-				<FooterLink to='/' iconName='gpg-key' label='GPG' />
-			</li>
-		</ul>
+			<p>Find more about me:</p>
+			<ul>
+				<li>
+					<FooterLink to='https://codeberg.org' iconName='codeberg' label='Codeberg' />
+				</li>
+				<li>
+					<FooterLink to='https://github.com' iconName='github' label='GitHub' />
+				</li>
+				<li>
+					<FooterLink to='https://codepen.io' iconName='codepen' label='Codepen' />
+				</li>
+				<li>
+					<FooterLink to='https://exercism.org' iconName='exercism' label='Exercism' />
+				</li>
+				<li>
+					<FooterLink to='https://codewars.com' iconName='codewars' label='Codewars' />
+				</li>
+			</ul>
+		</div>
+
+		<div>
+			<p>Get in touch:</p>
+			<ul>
+				<li>
+					<FooterLink to='email:devsojourn@pm.me' iconName='email' label='Email' />
+				</li>
+				<li>
+					<FooterLink to='/' iconName='gpg-key' label='GPG' />
+				</li>
+			</ul>
+		</div>
 	</section>
 
 	<section class="footer__copyright">
@@ -78,8 +85,38 @@ ul {
 li {
 	/* display: inline-block; */
 }
-:global(footer svg) {
-	height: 48px;
-	aspect-ratio: 1;
+.footer__links {
+	width: 100%;
+}
+.footer__copyright a {
+	border-bottom: 2px solid var(--accent-color);
+
+	&:visited {
+		color: var(--ctp-latte-mauve);
+	}
+
+	&:focus,
+	&:hover {
+		color: var(--accent-color);
+	}
+}
+@media screen and (min-width: 768px) {
+	footer {
+		gap: 2em;
+		width: var(--content-width);
+		margin-inline: auto;
+	}
+	section.footer__links {
+		display: flex;
+		justify-content: space-between;
+	}
+	ul {
+		gap: 1em;
+	}
+}
+@media screen and (min-width: 1280px) {
+	footer {
+		width: var(--max-width);
+	}
 }
 </style>
