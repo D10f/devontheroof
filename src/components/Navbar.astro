@@ -43,8 +43,17 @@ const currentPath = Astro.url.pathname;
 	padding: calc(var(--padder-size) / 2) var(--padder-size);
 	transition: translate 250ms ease;
 	z-index: 99;
+	display: grid;
+	grid-template:
+		"brand actions" 1fr
+		"links links" /
+		1fr min-content;
 
 	@media screen and (min-width: 768px) {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 		left: 50%;
 		transform: translate(-50%, 0);
 		width: min(calc(100vw - var(--padder-size) * 2), var(--max-width));
@@ -55,7 +64,6 @@ const currentPath = Astro.url.pathname;
 .navbar.hidden {
 	translate: 0 calc(-100% - 4em);
 }
-.navbar,
 .navbar__links,
 .navbar__actions {
 	display: flex;
@@ -66,12 +74,17 @@ const currentPath = Astro.url.pathname;
 .navbar__links,
 .navbar__actions {
 	li {
-		margin-inline: 1em;
+		margin-right: 1em;
+
+		@media screen and (min-width: 768px) {
+			margin-inline: 1em;
+		}
 	}
 }
 .navbar__brand a {
 	font-family: var(--font-head);
 	font-size: 2em;
+	grid-area: brand;
 }
 .navbar__brand a,
 .navbar__links a {
@@ -82,11 +95,15 @@ const currentPath = Astro.url.pathname;
 }
 .navbar__links {
 	margin-right: auto;
-	margin-left: 1em;
+	/* margin-left: 1em; */
 	font-family: var(--font-head);
+	grid-area: links;
 
 	a.active {
 		color: var(--accent-color);
 	}
+}
+.navbar__actions {
+	grid-area: actions;
 }
 </style>

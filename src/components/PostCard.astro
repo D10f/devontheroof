@@ -39,8 +39,14 @@ const { post } = Astro.props;
 <style>
 article {
 	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
 	justify-content: space-between;
 	align-items: flex-start;
+
+	@media screen and (min-width: 768px) {
+		flex-direction: row;
+	}
 }
 aside {
 	padding-block: 0.25em;
