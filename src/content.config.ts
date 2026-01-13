@@ -37,14 +37,19 @@ const blog = defineCollection({
 			},
 		},
 	}),
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		preamble: z.string().optional(),
-		createdAt: z.coerce.date(),
-		keywords: z.string().transform((t) => t.split(', ')),
-		technologies: z.string().transform((t) => t.split(' ')),
-	}),
+	schema: z
+		.object({
+			doctitle: z.string(),
+			description: z.string(),
+			revdate: z.coerce.date(),
+			keywords: z.string().transform((t) => t.split(', ')),
+			technologies: z.string().transform((t) => t.split(' ')),
+		})
+		.transform(({ doctitle, revdate, ...rest }) => ({
+			title: doctitle,
+			createdAt: revdate,
+			...rest,
+		})),
 });
 
 export const collections = { blog };

@@ -42,6 +42,8 @@
 	kbd {
 		@extend %inline-code;
 		min-width: 2em;
+		padding: unset;
+		padding-inline: 0.2em;
 		display: inline-block;
 		text-align: center;
 		border: 1px solid color-mix(in srgb, var(--accent-color) 25%, var(--background-color));

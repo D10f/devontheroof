@@ -9,7 +9,8 @@
 		background-color: var(--background-color-2);
 		border-bottom-left-radius: var(--border-radius);
 		border-bottom-right-radius: var(--border-radius);
-		border: 1px solid var(--foreground-color);
+		border: 1px solid var(--background-color);
+		filter: sepia(0.4);
 
 		&:hover::before {
 			opacity: 0;
