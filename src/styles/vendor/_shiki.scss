@@ -12,7 +12,8 @@
 
 	&::before {
 		position: relative;
-		right: 0.75em;
+		margin-right: -0.6em; // Offsets the displaced letters a bit
+		// right: 1em;
 	}
 
 	&.add {
