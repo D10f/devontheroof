@@ -6,26 +6,29 @@
 	position: relative;
 
 	&.output {
+		padding-top: 2em;
 		background-color: var(--background-color-2);
 		border-bottom-left-radius: var(--border-radius);
 		border-bottom-right-radius: var(--border-radius);
 		border: 1px solid var(--background-color);
-		filter: sepia(0.4);
+		// filter: sepia(0.4);
 
-		&:hover::before {
-			opacity: 0;
-		}
+		// &:hover::before {
+		// 	opacity: 0;
+		// }
 
 		&::before {
 			content: 'output';
 			text-transform: uppercase;
 			position: absolute;
+			font-size: 0.8em;
 			top: 0.5em;
-			right: 0.5em;
-			padding: 0.2em 0.5em;
-			background-color: hsl(from var(--background-color-2) h s calc(l - 10));
+			// right: 0.5em;
+			// padding: 0.2em 0.5em;
+			// background-color: hsl(from var(--background-color-2) h s calc(l - 10));
+			// color: var(--background-color);
 			border-radius: calc(var(--border-radius) / 2);
-			opacity: 1;
+			opacity: 0.25;
 			transition: opacity 200ms ease;
 		}
 	}

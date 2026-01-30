@@ -1,5 +1,5 @@
 html.dark {
-	--accent-color: var(--ctp-frappe-peach);
+	--accent-color: var(--ctp-frappe-yellow);
 	--foreground-color: light-dark(var(--light-color), var(--dark-color));
 	--background-color: light-dark(var(--dark-color), var(--light-color));
 	--background-color-2: hsl(from var(--background-color) h s calc(l + 5));
@@ -87,7 +87,7 @@ html.dark {
 	.literalblock.output {
 		border-color: var(--background-color);
 		background-color: color-mix(in srgb, var(--background-color) 90%, white);
-		filter: sepia(0.3);
+		// filter: sepia(0.3);
 	}
 
 	.copy-btn svg {
