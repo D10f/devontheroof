@@ -28,6 +28,9 @@ const blog = defineCollection({
 				transformerPrompt({
 					langs: {
 						console: '$',
+						prolog: {
+							hideBreak: true,
+						},
 					},
 					cssClasses: 'unselectable mr-2 opacity-50',
 				}),
