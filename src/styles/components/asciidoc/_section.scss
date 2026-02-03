@@ -1,8 +1,8 @@
-section.sect1 header,
-section.sect2 header,
-section.sect3 header {
+section.sect1>header,
+section.sect2>header,
+section.sect3>header {
 	position: relative;
-	margin-top: 1em;
+	margin-block: 2em 0.5em;
 	line-height: 1.25;
 	display: inline-block;
 
