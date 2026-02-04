@@ -16,7 +16,7 @@ const currentPath = Astro.url.pathname;
 
 	<menu class="navbar__links">
 		<li>
-			<a class={currentPath.startsWith('/blog') ? 'active' : '' } href="/blog">Blog</a>
+			<a class={currentPath.match(/^\/(?:blog|categories)/) ? 'active' : '' } href="/blog">Blog</a>
 		</li>
 		<li>
 			<a class={currentPath.startsWith('/projects') ? 'active' : '' } href="/projects">Projects</a>

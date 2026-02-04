@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from "../../layouts/Layout.astro"
+import PostCard from '../../components/PostCard.astro';
+import { normalizeBrandName } from '../../scripts/utils';
+
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async () => {
@@ -12,16 +15,43 @@ export const getStaticPaths = (async () => {
 	return Array.from(blogCategories).map(category => {
 		const filteredPosts = blogPosts.filter(post => post.data.technologies.includes(category));
 		return {
-			params: { category },
-			props: { posts: filteredPosts }
+			params: {
+				category: normalizeBrandName(category),
+			},
+			props: { posts: filteredPosts, category }
 		}
 	});
 }) satisfies GetStaticPaths;
 
-const { category } = Astro.params;
-const { posts } = Astro.props;
+const { posts, category } = Astro.props;
 ---
 
 <Layout>
-	{category}
+	<header>
+		<h1>Category: {category}</h1>
+		<p class="preamble">Showing all posts under this category.</p>
+	</header>
+	<ul>
+		{posts.map(post => (
+			<li><PostCard post={post} /></li>
+		))}
+	</ul>
 </Layout>
+
+<style>
+p.preamble {
+	color: var(--subtitles);
+	margin-bottom: 1em;
+}
+ul {
+	margin-top: 2rem;
+}
+li {
+	/* margin-top: 1em; */
+	padding: 0.5em;
+
+	&:hover {
+		background-color: var(--background-color-2);
+	}
+}
+</style>
