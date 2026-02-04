@@ -29,7 +29,7 @@ const { posts, category } = Astro.props;
 <Layout>
 	<header>
 		<h1>Category: {category}</h1>
-		<p class="preamble">Showing all posts under this category.</p>
+		<p class="preamble">Showing {posts.length} {category} post.</p>
 	</header>
 	<ul>
 		{posts.map(post => (
@@ -53,5 +53,8 @@ li {
 	&:hover {
 		background-color: var(--background-color-2);
 	}
+}
+hr {
+	color: var(--subtitles);
 }
 </style>
