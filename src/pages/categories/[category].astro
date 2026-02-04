@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro"
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
+	const blogPosts = (await getCollection('blog')).sort(
+		(a, b) => b.data.createdAt.valueOf() - a.data.createdAt.valueOf()
+	);
+	const blogCategories = new Set([...blogPosts.map(blog => blog.data.technologies).flat()]);
+
+	return Array.from(blogCategories).map(category => {
+		const filteredPosts = blogPosts.filter(post => post.data.technologies.includes(category));
+		return {
+			params: { category },
+			props: { posts: filteredPosts }
+		}
+	});
+}) satisfies GetStaticPaths;
+
+const { category } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Layout>
+	{category}
+</Layout>

@@ -21,7 +21,7 @@ const { post } = Astro.props;
 		{post.data.technologies.map(tech => {
 			const tooltipId = generateId(tech);
 			return (
-				<span aria-describedby={tooltipId}>
+				<a href=`/categories/${tech}` aria-describedby={tooltipId}>
 					<SvgIcon iconName={tech} />
 					<span
 						class="tooltip"
@@ -30,7 +30,7 @@ const { post } = Astro.props;
 					>
 						{tech}
 					</span>
-				</span>
+				</a>
 			)}
 		)}
 	</aside>
@@ -58,7 +58,7 @@ h2 a {
 		color: var(--accent-color);
 	}
 }
-span[aria-describedby] {
+a[aria-describedby] {
 	position: relative;
 
 	svg {
@@ -66,9 +66,9 @@ span[aria-describedby] {
 		aspect-ratio: 1;
 	}
 }
-span[aria-describedby]:hover .tooltip {
+a[aria-describedby]:hover .tooltip {
 	opacity: 1;
-	translate: calc(-50% - 1em) calc(-125% - 0.75em);
+	translate: calc(-50% - 0.8em) calc(-125% - 0.75em);
 	transition:
 		opacity 250ms ease 500ms,
 		translate 200ms linear(0, 0.008 1.1%, 0.034 2.3%, 0.134 4.9%, 0.264 7.3%, 0.683 14.3%, 0.797 16.5%, 0.89 18.6%, 0.967 20.7%, 1.027 22.8%, 1.073 25%, 1.104 27.3%, 1.123 30.6%, 1.119 34.3%, 1.018 49.5%, 0.988 58.6%, 0.985 65.2%, 1 84.5%, 1) 500ms;
