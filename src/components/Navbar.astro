@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname;
 
 <nav
 	x-data="scroll"
-	@scroll.window.throttle.100ms="handleScroll"
+	@scroll.window.throttle.70ms="handleScroll"
 	class="navbar"
 	:class="{ 'hidden': scrollingDownwards }"
 >
@@ -60,6 +60,9 @@ const currentPath = Astro.url.pathname;
 		top: 1em;
 		border-radius: var(--border-radius);
 	}
+}
+.navbar:focus-within {
+	translate: initial !important;
 }
 .navbar.hidden {
 	translate: 0 calc(-100% - 4em);
