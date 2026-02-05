@@ -22,7 +22,7 @@ const { post } = Astro.props;
 			const tooltipId = generateId(tech);
 			const techNormalized = normalizeBrandName(tech);
 			return (
-				<a href=`/categories/${techNormalized}` aria-describedby={tooltipId}>
+				<a href={`/categories/${techNormalized}`} aria-describedby={tooltipId}>
 					<SvgIcon iconName={techNormalized} />
 					<span
 						class="tooltip"
