@@ -1,8 +1,8 @@
 @use "inline-code" as *;
 
 %paragraph {
-	margin-top: 1em;
-	line-height: 1.75;
+	margin-block: 1em;
+	line-height: 1.6;
 
 	code {
 		@extend %inline-code;
