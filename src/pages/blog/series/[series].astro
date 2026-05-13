@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from "../../../layouts/Layout.astro"
+import PostCard from '../../../components/PostCard.astro';
+
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
+
+	const series = new Set<string>();
+
+	const posts = (await getCollection('blog'))
+		.filter(({ data }) => data.hasOwnProperty('series'))
+		.sort((a, b) => a.data.createdAt.valueOf() - b.data.createdAt.valueOf());
+
+	posts.forEach(({ data }) => series.add(data.series));
+
+	return Array.from(series).map(series => {
+		const filteredPosts = posts.filter(({ data }) => data.series === series);
+		return {
+			params: {
+				series: series.toLowerCase().replaceAll(/\s+/g, '-')
+			},
+			props: {
+				posts: filteredPosts,
+				series
+			}
+		};
+	});
+
+}) satisfies GetStaticPaths;
+
+const { posts, series } = Astro.props;
+---
+
+<Layout>
+	<header>
+		<h1>Series: {series}</h1>
+		<p class="preamble">Showing {posts.length} {series} post.</p>
+	</header>
+	<ul>
+		{posts.map(post => (
+			<li><PostCard post={post} /></li>
+		))}
+	</ul>
+</Layout>
+
+<style>
+p.preamble {
+	color: var(--subtitles);
+	margin-bottom: 1em;
+}
+ul {
+	margin-top: 2rem;
+}
+li {
+	/* margin-top: 1em; */
+	padding: 0.5em;
+
+	&:hover {
+		background-color: var(--background-color-2);
+	}
+}
+hr {
+	color: var(--subtitles);
+}
+</style>
