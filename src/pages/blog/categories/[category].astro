@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from "../../layouts/Layout.astro"
-import PostCard from '../../components/PostCard.astro';
-import { normalizeBrandName } from '../../scripts/utils';
+import Layout from "../../../layouts/Layout.astro"
+import PostCard from '../../../components/PostCard.astro';
+import { normalizeBrandName, slugify } from '../../../scripts/utils';
 
 import type { GetStaticPaths } from "astro";
 
@@ -16,7 +16,7 @@ export const getStaticPaths = (async () => {
 		const filteredPosts = blogPosts.filter(post => post.data.technologies.includes(category));
 		return {
 			params: {
-				category: normalizeBrandName(category),
+				category: slugify(category),
 			},
 			props: { posts: filteredPosts, category }
 		}
