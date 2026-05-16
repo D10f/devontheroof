@@ -2,16 +2,17 @@
 import { getCollection } from "astro:content";
 import Layout from '../../layouts/Layout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
+import { slugify } from '../../scripts/utils';
 
 import type { GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
 
 export const getStaticPaths = (async () => {
-    const posts = await getCollection('blog');
-    return posts.map(post => ({
-        params: { slug: post.id },
-        props: post
-    }))
+	const posts = await getCollection('blog');
+	return posts.map(post => ({
+		params: { slug: post.id },
+		props: post
+	}))
 }) satisfies GetStaticPaths;
 
 type Props = CollectionEntry<'blog'>;
@@ -20,19 +21,141 @@ const post = Astro.props;
 ---
 
 <Layout>
-    <article>
-        <header>
-            <h1>{post.data.title}</h1>
-            <FormattedDate date={post.data.createdAt}/>
-        </header>
-        <div class="asciidoc" set:html={post.rendered?.html} />
-    </article>
+	{post.data.series && (
+	<aside class="banner">
+		<p>
+			This post is part of the
+			<a href={`series/${slugify(post.data.series)}`}>"{post.data.series}"</a>
+			series.
+		</p>
+	</aside>
+	)}
+
+	<article>
+		<header>
+			<h1>{post.data.title}</h1>
+			<FormattedDate date={post.data.createdAt}/>
+		</header>
+		<div class="asciidoc" set:html={post.rendered?.html} />
+	</article>
+
+	{(post.data["series-prev"] || post.data["series-next"]) && (
+	<footer>
+		{post.data["series-prev"] && (
+		<div class="prev-post">
+			<p>Previous post in series</p>
+			<a href={slugify(post.data['series-prev'])}>{post.data['series-prev']}</a>
+		</div>
+		)}
+
+		{post.data["series-next"] && (
+		<div class="next-post">
+			<p>Next post in series</p>
+			<a href={slugify(post.data['series-next'])}>{post.data['series-next']}</a>
+		</div>
+		)}
+	</footer>
+	)}
 </Layout>
 
 <style>
-    h1 {
-        font-weight: bold;
-        text-wrap: balance;
-        line-height: 1.3;
-    }
+footer {
+	margin-block: 1em;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1em;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template:
+		"prev"
+		"next" /
+		1fr;
+
+	@media screen and (min-width: 768px) {
+		grid-template:
+			"prev next" 1fr /
+			1fr 1fr;
+		}
+}
+
+.prev-post,
+.next-post {
+	background-color: var(--background-color-2);
+	box-shadow: var(--shadow);
+	padding: 1em;
+	border-radius: var(--border-radius);
+
+	p {
+		font-weight: bold;
+		font-size: 0.8em;
+	}
+
+	a {
+		border-bottom: 2px solid var(--accent-color);
+
+		&:hover {
+			color: var(--accent-color);
+		}
+
+		&:visited {
+			color: light-dark(var(--ctp-latte-mauve), var(--ctp-frappe-mauve));
+			border-color: currentColor;
+		}
+
+		&:visited:hover,
+		&:visited:focus {
+			color: color-mix(in srgb, light-dark(var(--ctp-latte-mauve),
+						var(--ctp-frappe-mauve)) 75%, white);
+			border-color: currentColor;
+		}
+	}
+}
+.prev-post {
+	grid-area: prev;
+}
+.next-post {
+	grid-area: next;
+}
+
+.banner {
+	/* Taken from _admonition.scss */
+	--admonition-icon-color: light-dark(var(--ctp-latte-yellow),
+		var(--ctp-frappe-yellow));
+	--admonition-bg-color: light-dark(hsl(from var(--ctp-latte-yellow) h s calc(l + 30)),
+		hsl(from var(--ctp-frappe-yellow) h s l));
+	background-color: var(--admonition-bg-color);
+	border: 1px solid var(--admonition-icon-color);
+	color: var(--dark-color);
+	padding: 0.2em 0.5em;
+	border-radius: var(--border-radius);
+	display: inline-block;
+	margin-bottom: 1em;
+	/* box-shadow: var(--shadow); */
+
+	a {
+		border-bottom: 2px solid currentColor;
+
+		&:hover,
+		&:focus {
+			color: var(--accent-color);
+		}
+
+		&:visited {
+			color: light-dark(var(--ctp-latte-mauve), var(--ctp-frappe-mauve));
+			border-color: currentColor;
+		}
+
+		&:visited:hover,
+		&:visited:focus {
+			color: color-mix(in srgb, light-dark(var(--ctp-latte-mauve), var(--ctp-frappe-mauve)) 75%, white);
+			border-color: currentColor;
+		}
+	}
+}
+
+h1 {
+	font-weight: bold;
+	text-wrap: balance;
+	line-height: 1.3;
+}
 </style>

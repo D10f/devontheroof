@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { asciidocLoader, transformerPrompt } from '@d10f/asciidoc-astro-loader';
 import {
 	transformerNotationDiff,
@@ -47,6 +48,10 @@ const blog = defineCollection({
 			revdate: z.coerce.date(),
 			keywords: z.string().transform((t) => t.split(', ')),
 			technologies: z.string().transform((t) => t.split(' ')),
+			series: z.string().optional(),
+			'series-prev': z.string().optional(),
+			'series-next': z.string().optional(),
+			'series-description': z.string().optional(),
 		})
 		.transform(({ doctitle, revdate, ...rest }) => ({
 			title: doctitle,

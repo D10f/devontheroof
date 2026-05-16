@@ -2,41 +2,40 @@
 import { getCollection } from 'astro:content';
 import Layout from "../../../layouts/Layout.astro"
 import PostCard from '../../../components/PostCard.astro';
+import { slugify } from '../../../scripts/utils';
 
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async () => {
 
-	const series = new Set<string>();
-
-	const posts = (await getCollection('blog'))
+	const blogPosts = (await getCollection('blog'))
 		.filter(({ data }) => data.hasOwnProperty('series'))
 		.sort((a, b) => a.data.createdAt.valueOf() - b.data.createdAt.valueOf());
 
-	posts.forEach(({ data }) => series.add(data.series));
+	const groupedBySeries = Map.groupBy(blogPosts, ({ data }) => data.series!);
 
-	return Array.from(series).map(series => {
-		const filteredPosts = posts.filter(({ data }) => data.series === series);
-		return {
-			params: {
-				series: series.toLowerCase().replaceAll(/\s+/g, '-')
-			},
-			props: {
-				posts: filteredPosts,
-				series
-			}
-		};
-	});
+	return groupedBySeries.entries().map(([ series, posts ]) => ({
+		params: {
+			series: slugify(series)
+		},
+		props: {
+			posts,
+			series,
+			description: posts[0].data['series-description']
+		}
+	})).toArray();
 
 }) satisfies GetStaticPaths;
 
-const { posts, series } = Astro.props;
+const { posts, series, description } = Astro.props;
 ---
 
 <Layout>
 	<header>
-		<h1>Series: {series}</h1>
-		<p class="preamble">Showing {posts.length} {series} post.</p>
+		<h1>{series}</h1>
+		{description && description.split('\\n\\n').map(paragraph => (
+			<p class="preamble">{paragraph}</p>
+		))}
 	</header>
 	<ul>
 		{posts.map(post => (
