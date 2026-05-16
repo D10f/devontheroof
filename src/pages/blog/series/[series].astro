@@ -2,43 +2,53 @@
 import { getCollection } from 'astro:content';
 import Layout from "../../../layouts/Layout.astro"
 import PostCard from '../../../components/PostCard.astro';
-import { slugify } from '../../../scripts/utils';
+import { generateId, slugify } from '../../../scripts/utils';
 
 import type { GetStaticPaths } from "astro";
+import SvgIcon from '../../../components/SvgIcon.astro';
 
 export const getStaticPaths = (async () => {
+
+	const blogSeries = await getCollection('blogSeries');
 
 	const blogPosts = (await getCollection('blog'))
 		.filter(({ data }) => data.hasOwnProperty('series'))
 		.sort((a, b) => a.data.createdAt.valueOf() - b.data.createdAt.valueOf());
 
-	const groupedBySeries = Map.groupBy(blogPosts, ({ data }) => data.series!);
+	const groupedBySeries = Map.groupBy(blogPosts, (post) => {
+		const series = blogSeries.find(series => series.data.title === post.data.series);
+		if (!series) {
+			throw new Error(`No match found for post series ${post.data.series}`);
+		}
+		return series.data.title;
+	});
 
-	return groupedBySeries.entries().map(([ series, posts ]) => ({
+	return blogSeries.map((series) => ({
 		params: {
-			series: slugify(series)
+			series: slugify(series.data.title)
 		},
 		props: {
-			posts,
 			series,
-			description: posts[0].data['series-description']
+			posts: groupedBySeries.get(series.data.title),
 		}
-	})).toArray();
+	}));
 
 }) satisfies GetStaticPaths;
 
-const { posts, series, description } = Astro.props;
+const { posts, series } = Astro.props;
 ---
 
 <Layout>
 	<header>
-		<h1>{series}</h1>
-		{description && description.split('\\n\\n').map(paragraph => (
-			<p class="preamble">{paragraph}</p>
-		))}
+		<h1>{series.data.title}</h1>
 	</header>
+
+	<article>
+		<div class="asciidoc" set:html={series.rendered?.html} />
+	</article>
+
 	<ul>
-		{posts.map(post => (
+		{posts!.map(post => (
 			<li><PostCard post={post} /></li>
 		))}
 	</ul>

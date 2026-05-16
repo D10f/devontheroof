@@ -18,8 +18,8 @@ export function slugify(text: string) {
 		.normalize()
 		.toLowerCase()
 		.replace(/\s+/g, '-')
-		.replace(/--+/g, '-')
 		.replace(/[^\w-]+/g, '')
+		.replace(/--+/g, '-')
 		.replace(/^-+/, '')
 		.replace(/-+$/, '');
 }

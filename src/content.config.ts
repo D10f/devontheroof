@@ -60,4 +60,28 @@ const blog = defineCollection({
 		})),
 });
 
-export const collections = { blog };
+const blogSeries = defineCollection({
+	loader: asciidocLoader({
+		base: 'src/content/series',
+		syntaxHighlighting: {
+			theme: {
+				light: 'catppuccin-latte',
+				dark: 'catppuccin-frappe',
+			},
+		},
+	}),
+	schema: z
+		.object({
+			doctitle: z.string(),
+			description: z.string(),
+			revdate: z.coerce.date(),
+			keywords: z.string().transform((t) => t.split(', ')),
+			technologies: z.string().transform((t) => t.split(' ')),
+		})
+		.transform(({ doctitle, ...rest }) => ({
+			title: doctitle,
+			...rest,
+		})),
+});
+
+export const collections = { blog, blogSeries };
