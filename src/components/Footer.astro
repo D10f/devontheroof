@@ -1,5 +1,6 @@
 ---
 import FooterLink from './FooterLink.astro';
+import SvgIcon from './SvgIcon.astro';
 ---
 
 <footer>
@@ -54,7 +55,7 @@ import FooterLink from './FooterLink.astro';
 
 	<section class="footer__copyright">
 		<p>
-			All content by me &copy; 2025 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0</a>
+			All content by me <SvgIcon iconName='cc-logo' /><SvgIcon iconName='cc-at' /><SvgIcon iconName='cc-sa' /> 2026 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0</a>
 		</p>
 	</section>
 
@@ -67,6 +68,14 @@ import FooterLink from './FooterLink.astro';
 		</span>
 	</section>
 </footer>
+
+<style is:global>
+.footer__copyright svg {
+	width: 1em;
+	aspect-ratio: 1;
+	fill: currentColor;
+}
+</style>
 
 <style>
 footer {
