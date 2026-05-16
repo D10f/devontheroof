@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const blogPosts = (await getCollection('blog')).sort(
+		(a, b) => b.data.createdAt.valueOf() - a.data.createdAt.valueOf()
+	);
+
+	return paginate(blogPosts, { pageSize: 10 });
+
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+<Layout>
+	<header>
+		<h1>Blog</h1>
+		<p class="preamble">Here you will find some of my notes dedicated to my future self.</p>
+		<p class="preamble">They are mostly about miscellaneous topics that I find interesting, like web development, system administration and open source in general.</p>
+		<p class="preamble">Hopefully you will find them useful too.</p>
+	</header>
+
+	<ul>
+		{page.data.map(post => (
+			<li><PostCard post={post} /></li>
+		))}
+	</ul>
+
+	<footer>
+		<div class="backwards-nav">
+			{page.url.first && (<a class="nav-btn" href={page.url.first}>First</a>)}
+			{page.url.prev  && (<a class="nav-btn" href={page.url.prev}>&lt;&lt;</a>)}
+		</div>
+		<div class="forwards-nav">
+			{page.url.next  && (<a class="nav-btn" href={page.url.next}>&gt;&gt;</a>)}
+			{page.url.last  && (<a class="nav-btn" href={page.url.last}>Last</a>)}
+		</div>
+	</footer>
+</Layout>
+
+<style>
+p.preamble {
+	color: var(--subtitles);
+	margin-bottom: 1em;
+}
+ul {
+	margin-top: 2rem;
+}
+li {
+	/* margin-top: 1em; */
+	padding: 0.5em;
+
+	&:hover {
+		background-color: var(--background-color-2);
+	}
+}
+footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.5em;
+	margin-block: 2em;
+	max-width: 60%;
+	margin-inline: auto;
+}
+a.nav-btn {
+	background-color: var(--background-color-2);
+	box-shadow: var(--shadow);
+	border: 2px solid transparent;
+	border-radius: var(--border-radius);
+	padding: 0.4em 0.7em;
+
+	&:hover,
+	&:focus {
+		background-color: var(--background-color);
+		border: 2px solid var(--accent-color);
+		/* color: var(--background-color-2); */
+	}
+}
+</style>
