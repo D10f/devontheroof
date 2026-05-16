@@ -10,13 +10,16 @@ export const generateId = (tag: string) => {
 };
 
 /**
- * Transforms the given string (presumably a popular technology brand
- * name) into a Unicode-normalized, lowercase form, removing any
- * punctuation and other special characters. For example:
- *
- * Node.js -> nodejs
- * NestJS  -> nestjs
+ * Converts the given string to a slug to be used in a URL.
  */
-export const normalizeBrandName = (brand: string) => {
-	return brand.toLowerCase().replaceAll(/\./g, '').normalize();
-};
+export function slugify(text: string) {
+	return text
+		.trim()
+		.normalize()
+		.toLowerCase()
+		.replace(/\s+/g, '-')
+		.replace(/--+/g, '-')
+		.replace(/[^\w-]+/g, '')
+		.replace(/^-+/, '')
+		.replace(/-+$/, '');
+}

@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import SvgIcon from './SvgIcon.astro';
-import { generateId, normalizeBrandName } from '../scripts/utils';
+import { generateId, slugify } from '../scripts/utils';
 
 interface Props {
 	post: CollectionEntry<'blog'>;
@@ -20,10 +20,10 @@ const { post } = Astro.props;
 	<aside>
 		{post.data.technologies.map(tech => {
 			const tooltipId = generateId(tech);
-			const techNormalized = normalizeBrandName(tech);
+			const techSlug = slugify(tech);
 			return (
-				<a href={`/categories/${techNormalized}`} aria-describedby={tooltipId}>
-					<SvgIcon iconName={techNormalized} />
+				<a href={`/blog/categories/${techSlug}`} aria-describedby={tooltipId}>
+					<SvgIcon iconName={techSlug} />
 					<span
 						class="tooltip"
 						role="tooltip"
