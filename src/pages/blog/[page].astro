@@ -7,9 +7,11 @@ import Pagination from '../../components/Pagination.astro';
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const blogPosts = (await getCollection('blog')).sort(
-		(a, b) => b.data.createdAt.valueOf() - a.data.createdAt.valueOf()
-	);
+	const blogPosts = (await getCollection('blog'))
+		.filter(({ data }) => !data.hasOwnProperty('series'))
+		.sort(
+			(a, b) => b.data.createdAt.valueOf() - a.data.createdAt.valueOf()
+		);
 
 	return paginate(blogPosts, { pageSize: 15 });
 
@@ -21,9 +23,9 @@ const { page } = Astro.props;
 <Layout>
 	<header>
 		<h1>Blog</h1>
-		<p class="preamble">Here you will find some of my notes dedicated to my future self.</p>
-		<p class="preamble">These are mostly about miscellaneous topics that I find interesting, like web development, system administration and open source in general.</p>
-		<p class="preamble">Hopefully you will find them useful too.</p>
+		<p class="preamble">Here you will find some of my notes dedicated to my future self. These are mostly about miscellaneous topics that I find interesting, e.g. web development, system administration and open source software.</p>
+		<p class="preamble">Some posts make more sense when read sequentially or with some context. I've moved those into their own <a href="series">series of posts</a> to keep things organized.</p>
+		<p class="preamble">Hopefully you will find something useful in here.</p>
 	</header>
 
 	<ul>
@@ -41,6 +43,19 @@ const { page } = Astro.props;
 p.preamble {
 	color: var(--subtitles);
 	margin-bottom: 1em;
+
+	a {
+		border-bottom: 2px solid var(--accent-color);
+
+		&:visited {
+			color: var(--ctp-latte-mauve);
+		}
+
+		&:focus,
+		&:hover {
+			color: var(--accent-color);
+		}
+	}
 }
 ul {
 	margin-top: 2rem;
