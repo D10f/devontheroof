@@ -1,0 +1,86 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SvgIcon from './SvgIcon.astro';
+import { generateId, slugify } from '../scripts/utils';
+
+interface Props {
+	post: CollectionEntry<'blogSeries'>;
+}
+
+const { post } = Astro.props;
+---
+
+<article>
+	<header>
+		<h2><a href={`series/${post.id}`}>{post.data.title}</a></h2>
+		{post.data.technologies.map(t => {
+			const tech = slugify(t);
+			const techId = generateId(tech);
+			return (
+				<span aria-describedby={techId}>
+					<SvgIcon iconName={tech} />
+					<span class="tooltip" role="tooltip" id={techId}>
+						{tech}
+					</span>
+				</span>
+			);
+		})}
+	</header>
+
+	<p>{post.data.description}</p>
+</article>
+
+<style>
+article {
+	background-color: var(--background-color-2);
+	padding: 1em;
+	margin-top: 1em;
+	border-radius: var(--border-radius);
+
+	p {
+		margin-block: 0.5em;
+	}
+}
+header {
+
+	h2 {
+		margin-bottom: 0.5em;
+
+		a {
+			transition: color 200ms ease;
+			&:focus,
+			&:hover {
+				color: var(--accent-color);
+			}
+		}
+	}
+
+	span[aria-describedby] {
+		display: inline;
+
+		&:hover .tooltip {
+			opacity: 1;
+			translate: calc(-50% - 1em) calc(-125% - 0.75em);
+			transition:
+				opacity 250ms ease 500ms,
+				translate 200ms linear(0, 0.008 1.1%, 0.034 2.3%, 0.134 4.9%, 0.264 7.3%, 0.683 14.3%, 0.797 16.5%, 0.89 18.6%, 0.967 20.7%, 1.027 22.8%, 1.073 25%, 1.104 27.3%, 1.123 30.6%, 1.119 34.3%, 1.018 49.5%, 0.988 58.6%, 0.985 65.2%, 1 84.5%, 1) 500ms;
+		}
+
+		svg {
+			display: inline;
+			width: 1.25em;
+			aspect-ratio: 1;
+		}
+	}
+}
+footer a {
+	font-size: 0.9em;
+	color: var(--accent-color);
+
+	&:focus,
+	&:hover {
+		background-color: var(--accent-color);
+		color: var(--background-color-2);
+	}
+}
+</style>

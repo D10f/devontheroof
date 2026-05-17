@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../../../layouts/Layout.astro"
+import SeriesCard from '../../../components/SeriesCard.astro';
+
+const blogSeries = (await getCollection('blogSeries')).sort(
+	(a, b) => a.data.title < b.data.title
+);
+
+---
+
+<Layout>
+	<header>
+		<h1>Blog Series</h1>
+		<p class="preamble">These are the blog posts that I've compiled into self-contained series, either because they are best read sequentially or reference each other often.</p>
+	</header>
+
+	<ul>
+		{blogSeries.map(post => (
+			<li><SeriesCard post={post} /></li>
+		))}
+	</ul>
+</Layout>
+
+<style>
+p.preamble {
+	color: var(--subtitles);
+	margin-bottom: 1em;
+}
+ul {
+	margin-top: 2rem;
+}
+li {
+	padding: 0.5em;
+}
+</style>

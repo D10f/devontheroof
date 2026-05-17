@@ -1,13 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from "../../../layouts/Layout.astro"
-import PostCard from '../../../components/PostCard.astro';
-import { generateId, slugify } from '../../../scripts/utils';
+import Layout from "../../../../layouts/Layout.astro"
+import PostCard from '../../../../components/PostCard.astro';
+import Pagination from '../../../../components/Pagination.astro';
+import { slugify } from '../../../../scripts/utils';
 
 import type { GetStaticPaths } from "astro";
-import SvgIcon from '../../../components/SvgIcon.astro';
 
-export const getStaticPaths = (async () => {
+export const getStaticPaths = (async ({ paginate }) => {
 
 	const blogSeries = await getCollection('blogSeries');
 
@@ -23,35 +23,41 @@ export const getStaticPaths = (async () => {
 		return series.data.title;
 	});
 
-	return blogSeries.map((series) => ({
-		params: {
-			series: slugify(series.data.title)
-		},
-		props: {
-			series,
-			posts: groupedBySeries.get(series.data.title),
-		}
-	}));
-
+	return blogSeries.flatMap((series) => {
+		return paginate(groupedBySeries.get(series.data.title)!, {
+			params: {
+				series: slugify(series.data.title)
+			},
+			props: {
+				series
+			},
+			pageSize: 15
+		})
+	});
 }) satisfies GetStaticPaths;
 
-const { posts, series } = Astro.props;
+const { page, series: { data, rendered } } = Astro.props;
+const { series } = Astro.params;
 ---
 
 <Layout>
 	<header>
-		<h1>{series.data.title}</h1>
+		<h1>{data.title}</h1>
 	</header>
 
 	<article>
-		<div class="asciidoc" set:html={series.rendered?.html} />
+		<div class="asciidoc" set:html={rendered?.html} />
 	</article>
 
 	<ul>
-		{posts!.map(post => (
+		{page.data.map(post => (
 			<li><PostCard post={post} /></li>
 		))}
 	</ul>
+
+	<footer>
+		<Pagination base={`blog/series/${series}`} page={page} />
+	</footer>
 </Layout>
 
 <style>
