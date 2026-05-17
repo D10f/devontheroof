@@ -13,13 +13,13 @@ const { post } = Astro.props;
 <article>
 	<header>
 		<h2><a href={`series/${post.id}`}>{post.data.title}</a></h2>
-		{post.data.technologies.map(t => {
-			const tech = slugify(t);
-			const techId = generateId(tech);
+		{post.data.technologies.map(tech => {
+			const tooltipId = generateId(tech);
+			const techSlug = slugify(tech);
 			return (
-				<span aria-describedby={techId}>
-					<SvgIcon iconName={tech} />
-					<span class="tooltip" role="tooltip" id={techId}>
+				<span aria-describedby={tooltipId}>
+					<SvgIcon iconName={techSlug} />
+					<span class="tooltip" role="tooltip" id={tooltipId}>
 						{tech}
 					</span>
 				</span>
