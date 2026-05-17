@@ -12,11 +12,11 @@ const { base, page } = Astro.props;
 <nav>
 	{Array.from(Array(page.lastPage)).map((_, idx) => {
 		const pageNum = idx + 1;
-		const currentPage = page.currentPage === pageNum;
+		const isCurrentPage = page.currentPage === pageNum;
 		const href = pageNum > 1 ? `/${base}/${pageNum}` : `/${base}`;
 		return (
 			<a
-				class:list={[ "nav-btn", { active: currentPage} ]}
+				class:list={[ "nav-btn", { active: isCurrentPage} ]}
 				href={href}>
 				{idx + 1}
 			</a>
