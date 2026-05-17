@@ -34,9 +34,11 @@ const { page } = Astro.props;
 		))}
 	</ul>
 
-	<footer>
-		<Pagination base="blog" page={page} />
-	</footer>
+	{page.lastPage > 1 && (
+		<footer>
+			<Pagination base="blog" page={page} />
+		</footer>
+	)}
 </Layout>
 
 <style>

@@ -55,9 +55,11 @@ const { series } = Astro.params;
 		))}
 	</ul>
 
-	<footer>
-		<Pagination base={`blog/series/${series}`} page={page} />
-	</footer>
+	{page.lastPage > 1 && (
+		<footer>
+			<Pagination base={`blog/series/${series}`} page={page} />
+		</footer>
+	)}
 </Layout>
 
 <style>
