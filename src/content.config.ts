@@ -12,6 +12,9 @@ import { admonitionConverter } from './converters/admonitionConverter';
 const blog = defineCollection({
 	loader: asciidocLoader({
 		base: 'src/content/blog',
+		images: {
+			imageUrl: '/',
+		},
 		document: {
 			template: './src/templates',
 			converters: [admonitionConverter()],
