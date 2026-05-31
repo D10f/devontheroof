@@ -23,3 +23,16 @@ export function slugify(text: string) {
 		.replace(/^-+/, '')
 		.replace(/-+$/, '');
 }
+
+/**
+ * Decomposes a filename into it's base name and extension, if any. Does
+ * not work with filenames that start with a period.
+ */
+export function splitFilenameComponents(filename: string) {
+	const match = filename.match(/^(?<path>.*\/)*(?<name>[^\.]+)\.(?<ext>.*)$/);
+	return {
+		filepath: match?.groups?.path ?? null,
+		filename: match?.groups?.name ?? null,
+		extension: match?.groups?.ext ?? null,
+	};
+}
