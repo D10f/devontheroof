@@ -103,4 +103,8 @@
 	.colist {
 		@extend %colist;
 	}
+
+	img {
+		border-radius: var(--border-radius);
+	}
 }
