@@ -8,7 +8,9 @@ export default (node: List) => {
 		return `<li><p>${text}</p></li>`;
 	});
 
+	const startCounter = node.getAttribute('start') ?? 1;
+
 	return `<div class="olist ${node.getStyle()}">
-		<ol>${items.join('')}</ol>
+		<ol start="${startCounter}">${items.join('')}</ol>
 	</div>`;
 };
