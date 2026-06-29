@@ -66,6 +66,12 @@ const blog = defineCollection({
 const blogSeries = defineCollection({
 	loader: asciidocLoader({
 		base: 'src/content/series',
+		images: {
+			imageUrl: '/',
+		},
+		document: {
+			template: './src/templates',
+		},
 		syntaxHighlighting: {
 			theme: {
 				light: 'catppuccin-latte',
