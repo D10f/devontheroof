@@ -75,6 +75,12 @@ li {
 	list-style: none;
 }
 
+.olist {
+	li {
+		list-style: auto;
+	}
+}
+
 button {
 	background: none;
 	border: none;
