@@ -8,6 +8,7 @@ import {
 	transformerNotationHighlight,
 } from '@shikijs/transformers';
 import { admonitionConverter } from './converters/admonitionConverter';
+import { xrefConverter } from './converters/xrefConverter';
 
 const blog = defineCollection({
 	loader: asciidocLoader({
@@ -17,7 +18,7 @@ const blog = defineCollection({
 		},
 		document: {
 			template: './src/templates',
-			converters: [admonitionConverter()],
+			converters: [admonitionConverter(), xrefConverter()],
 		},
 		syntaxHighlighting: {
 			theme: {
