@@ -12,6 +12,7 @@ export const admonitionConverter: CustomConverterFactoryFn<object> = () => {
 					.getSourceLines()
 					.join('')
 					.replace(/`([^`]+?)`/g, '<code>$1</code>')
+					.replace(/_([^_]+?)_/g, '<em>$1</em>')
 					.replace(
 						/([^\[\s]+)\[([^\]]+)\]/g,
 						'<a href="$1" target="_blank">$2</a>',
