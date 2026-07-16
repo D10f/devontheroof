@@ -10,10 +10,13 @@ type TocEntry = {
 const MAX_TOC_LEVEL = 3;
 
 export default (node: AbstractBlock) => {
+	const doc = node.getDocument();
+	const tocLevels = doc.getAttribute('toclevels');
+
 	const toc = node
 		.getDocument()
 		.getSections()
-		.map((s) => buildToc(s))
+		.map((s) => buildToc(s, tocLevels))
 		.map((t) => buildTocHtml(t))
 		.join('');
 
@@ -29,7 +32,7 @@ export default (node: AbstractBlock) => {
 		</section>`;
 };
 
-function buildToc(section: Section): TocEntry {
+function buildToc(section: Section, tocLevels = MAX_TOC_LEVEL): TocEntry {
 	const node = {
 		id: section.getId(),
 		title: section.getTitle(),
@@ -37,7 +40,7 @@ function buildToc(section: Section): TocEntry {
 		children: [],
 	} as TocEntry;
 
-	return node.level < MAX_TOC_LEVEL
+	return node.level < tocLevels
 		? { ...node, children: section.getSections().map(buildToc) }
 		: node;
 }
