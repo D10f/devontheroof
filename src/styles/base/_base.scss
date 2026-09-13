@@ -103,3 +103,8 @@ img {
 em {
 	font-style: italic;
 }
+
+picture+figcaption {
+	font-size: 0.8em;
+	font-family: var(--font-mono);
+}
