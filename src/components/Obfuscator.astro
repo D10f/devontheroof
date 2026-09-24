@@ -1,0 +1,116 @@
+---
+import { obfuscateEmail } from '../scripts/utils';
+
+interface Props {
+	ciphertext: string;
+	iv: string;
+	salt: string;
+	tag: string;
+	nonce: string;
+	iterations: number;
+}
+
+const challenge = Astro.props;
+---
+
+<div x-data=`obfuscate(${JSON.stringify(challenge)})`>
+	<div
+		class="flex"
+		x-show="!isSolved"
+		x-transition.opacity.duration.550ms
+	>
+		<button
+			class="reveal-btn"
+			@click=`reveal()`
+			:disabled="!isIdle"
+		>
+			<template x-if="isIdle">
+				<span>Click to reveal</span>
+			</template>
+
+			<template x-if="showSuccess">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1024 1024">
+					<path fill="var(--background-color)" d="M512 64a448 448 0 1 1 0 896a448 448 0 0 1 0-896zm-55.808 536.384l-99.52-99.584a38.4 38.4 0 1 0-54.336 54.336l126.72 126.72a38.272 38.272 0 0 0 54.336 0l262.4-262.464a38.4 38.4 0 1 0-54.272-54.336L456.192 600.384z"/>
+				</svg>
+			</template>
+
+			<template x-if="showError">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+					<path fill="var(--background-color)" d="M12 17q.425 0 .713-.288T13 16q0-.425-.288-.713T12 15q-.425 0-.713.288T11 16q0 .425.288.713T12 17Zm-1-4h2V7h-2v6Zm1 9q-2.075 0-3.9-.788t-3.175-2.137q-1.35-1.35-2.137-3.175T2 12q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 2q2.075 0 3.9.788t3.175 2.137q1.35 1.35 2.138 3.175T22 12q0 2.075-.788 3.9t-2.137 3.175q-1.35 1.35-3.175 2.138T12 22Z"/>
+				</svg>
+			</template>
+
+			<template x-if="showSpinner">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+					<g stroke="currentColor">
+						<circle cx="12" cy="12" r="9.5" fill="none" stroke-linecap="round" stroke-width="3">
+							<animate attributeName="stroke-dasharray" calcMode="spline" dur="1.5s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0 150;42 150;42 150;42 150"/>
+							<animate attributeName="stroke-dashoffset" calcMode="spline" dur="1.5s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0;-16;-59;-59"/>
+						</circle>
+						<animateTransform attributeName="transform" dur="2s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/>
+					</g>
+				</svg>
+			</template>
+		</button>
+
+		<template x-if="showError">
+			<span class="error-msg">
+				<span class="msg" x-text="errorMsg"></span>
+				<button class="btn" @click=`reveal()`>Retry?</button>
+			</span>
+		</template>
+	</div>
+
+	<pre
+		x-cloak
+		x-show="isSolved"
+		x-text="cleartext"
+		x-transition.delay.500ms.duration.100ms
+	/>
+</div>
+
+<style>
+pre {
+	font-size: 18px;
+}
+.flex {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1em;
+}
+.reveal-btn {
+	background-color: var(--foreground-color);
+	color: var(--background-color);
+	border-radius: var(--border-radius);
+	padding: 0.25em 1em;
+	width: 192px;
+	height: calc(24px + 0.5em);
+	overflow: hidden;
+	font-size: 18px;
+
+	&:hover {
+		background-color: var(--foreground-color);
+	}
+}
+svg {
+	display: block;
+	margin-inline: auto;
+}
+
+.error-msg {
+	font-size: 0.8em;
+
+	.btn {
+		background: none;
+		padding: 0;
+
+		&:hover,
+		&:focus,
+		&:target {
+			color: var(--accent-color);
+		}
+	}
+}
+
+</style>

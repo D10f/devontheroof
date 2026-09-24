@@ -1,3 +1,5 @@
+import obfuscate from './obfuscate';
+
 import type { Alpine } from 'alpinejs';
 
 export default (Alpine: Alpine) => {
@@ -71,4 +73,6 @@ export default (Alpine: Alpine) => {
 			document.body.scrollIntoView({ behavior: 'smooth' });
 		},
 	}));
+
+	Alpine.data('obfuscate', obfuscate);
 };
