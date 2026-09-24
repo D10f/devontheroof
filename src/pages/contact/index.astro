@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Email from '../../components/Email.astro';
+---
+
+<Layout>
+	<header>
+		<h1>Let's talk</h1>
+		<p class="preamble">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur perspiciatis nam minus, id consectetur voluptate a vel quaerat laborum facilis?</p>
+	</header>
+
+	<section>
+		<article>
+			<h3>Email Address</h3>
+			<Email email="test@example.com.br" />
+		</article>
+
+		<article>
+			<h3>Public Key</h3>
+			<Email email="test@example.com.br" />
+		</article>
+	</section>
+
+	<section>
+		<h2>What's that?</h2>
+	</section>
+</Layout>
+
+<style>
+	p.preamble {
+		margin-bottom: 1em;
+		color: var(--subtitles);
+
+		a {
+			border-bottom: 2px solid var(--accent-color);
+
+			&:visited {
+				color: var(--ctp-latte-mauve);
+			}
+
+			&:focus,
+			&:hover {
+				color: var(--accent-color);
+			}
+		}
+	}
+
+	article {
+		background-color: var(--background-color-2);
+		border-radius: var(--border-radius);
+		padding: 1em;
+		margin-block: 1em;
+	}
+
+	h3 {
+		margin-bottom: 1em;
+	}
+</style>
