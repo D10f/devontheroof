@@ -1,11 +1,9 @@
 ---
-import { obfuscateEmail } from '../scripts/utils';
-
 interface Props {
 	ciphertext: string;
+	timeout?: number;
 	iv: string;
 	salt: string;
-	tag: string;
 	nonce: string;
 	iterations: number;
 }
@@ -91,6 +89,10 @@ pre {
 
 	&:hover {
 		background-color: var(--foreground-color);
+	}
+
+	&[disabled] {
+		pointer-events: none;
 	}
 }
 svg {

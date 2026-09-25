@@ -2,20 +2,26 @@ import type { AlpineComponent } from 'alpinejs';
 
 type Challenge = {
 	ciphertext: string;
+	timeout?: number;
 	iv: string;
 	salt: string;
-	tag: string;
 	iterations: number;
 	nonce: string;
 };
 
 type AlpineCallback = AlpineComponent<{
 	cleartext?: string;
+	timeout?: number;
 	errorMsg?: string;
 	loading: boolean;
 	solved: boolean;
 	error: boolean;
 	reveal(): void;
+	showSpinner: boolean;
+	showError: boolean;
+	showSuccess: boolean;
+	isIdle: boolean;
+	isSolved: boolean;
 }>;
 
 const hexToBytes = (hex: string) => {
@@ -25,12 +31,24 @@ const hexToBytes = (hex: string) => {
 	return bytes;
 };
 
+/**
+ * Concatenates two Uint8Arrays into a new buffer.
+ * @credit altcha
+ */
+export function concatBuffers(a: Uint8Array, b: Uint8Array) {
+	const out = new Uint8Array(a.length + b.length);
+	out.set(a, 0);
+	out.set(b, a.length);
+	return out;
+}
+
 const delay = (timeout: number) =>
 	new Promise((resolve) => setTimeout(resolve, timeout));
 
-export default function (challenge: Challenge) {
+export default function (challenge: Challenge): AlpineCallback {
 	return {
 		cleartext: undefined,
+		timeout: (challenge.timeout || 10_000) as number,
 		errorMsg: undefined,
 		loading: false,
 		solved: false,
@@ -66,63 +84,74 @@ export default function (challenge: Challenge) {
 			this.solved = false;
 			this.loading = true;
 
-			await delay(1000);
+			const start = performance.now();
+			let iterations =
+				Math.floor(Math.random() * (220_500 - 220_000 + 1)) + 220_000;
+			let decryptedBuff;
 			let tmp = '';
 
-			try {
-				const passwordKey = await window.crypto.subtle.importKey(
-					'raw',
-					hexToBytes(challenge.nonce),
-					{ name: 'PBKDF2' },
-					false,
-					['deriveKey'],
-				);
+			const passwordKey = await window.crypto.subtle.importKey(
+				'raw',
+				hexToBytes(challenge.nonce),
+				{ name: 'PBKDF2' },
+				false,
+				['deriveKey'],
+			);
 
-				const decryptionKey = await window.crypto.subtle.deriveKey(
-					{
-						name: 'PBKDF2',
-						salt: hexToBytes(challenge.salt),
-						iterations: challenge.iterations,
-						hash: 'SHA-256',
-					},
-					passwordKey,
-					{
-						name: 'AES-GCM',
-						length: 256,
-					},
-					true,
-					['decrypt'],
-				);
+			while (!decryptedBuff) {
+				await delay(0);
+				try {
+					const decryptionKey = await window.crypto.subtle.deriveKey(
+						{
+							name: 'PBKDF2',
+							salt: hexToBytes(challenge.salt),
+							iterations,
+							hash: 'SHA-256',
+						},
+						passwordKey,
+						{
+							name: 'AES-GCM',
+							length: 256,
+						},
+						true,
+						['decrypt'],
+					);
 
-				const decyptedBuff = await window.crypto.subtle.decrypt(
-					{
-						name: 'AES-GCM',
-						iv: hexToBytes(challenge.iv),
-					},
-					decryptionKey,
-					hexToBytes(challenge.ciphertext + challenge.tag),
-				);
-
-				tmp = new TextDecoder().decode(decyptedBuff);
-				this.solved = true;
-				this.loading = false;
-				await delay(400);
-			} catch (e) {
-				this.error = true;
-				this.errorMsg = (e as Error).message;
-			} finally {
-				this.loading = false;
-
-				if (this.solved) {
-					this.cleartext = '';
-					await delay(600);
-					const typeInterval = Math.ceil(1000 / tmp.length);
-					for (const letter of tmp) {
-						this.cleartext += letter;
-						await delay(typeInterval);
+					decryptedBuff = await window.crypto.subtle.decrypt(
+						{
+							name: 'AES-GCM',
+							iv: hexToBytes(challenge.iv),
+						},
+						decryptionKey,
+						hexToBytes(challenge.ciphertext),
+					);
+				} catch {
+					if (performance.now() - start >= (this.timeout as number)) {
+						this.error = true;
+						this.loading = false;
+						this.errorMsg = 'Challenge timed out.';
+						return;
 					}
+
+					iterations =
+						iterations + 1 > 220_500 ? 220_000 : iterations + 1;
+				}
+			}
+
+			tmp = new TextDecoder().decode(decryptedBuff);
+
+			this.solved = true;
+			this.loading = false;
+
+			if (this.solved) {
+				this.cleartext = '';
+				await delay(1000); // let the success icon show for a bit
+				const typeInterval = Math.ceil(1000 / tmp.length);
+				for (const letter of tmp) {
+					this.cleartext += letter;
+					await delay(typeInterval);
 				}
 			}
 		},
-	} as AlpineCallback;
+	};
 }

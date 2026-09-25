@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Email from '../../components/Email.astro';
+import Obfuscator from '../../components/Obfuscator.astro';
 ---
 
 <Layout>
@@ -10,19 +10,29 @@ import Email from '../../components/Email.astro';
 	</header>
 
 	<section>
+		<h2>Email Address</h2>
 		<article>
-			<h3>Email Address</h3>
-			<Email email="test@example.com.br" />
-		</article>
-
-		<article>
-			<h3>Public Key</h3>
-			<Email email="test@example.com.br" />
+			<Obfuscator
+				ciphertext='dddc6c18c51b53781f481ecd02b00c0249ae71cfb15be5e9d2f6a7aed3b6978dfb5708'
+				iv='9a210da985a6634d77be5032'
+				salt='1bb6c1f47b9cd9b6cfaaa17a47d70fce'
+				iterations={220062}
+				nonce='c717b949cb3309f3661c49ea9fd4ec2f'
+			/>
 		</article>
 	</section>
 
 	<section>
-		<h2>What's that?</h2>
+		<h2>Public Key</h2>
+		<article>
+			<Obfuscator
+				ciphertext='5bd4d670dd0f82a18f117d481917008f8ed47a1d2a73033c354467c1a36753b515655f268dcc86a2564a52fd3b4e1f9a3baf3c792375b42bb298e9c3714024e0666447799179a048c2247d0a0b5b7c9a1dc63fd9b2b3c9437a2d169fdcb3f78cf4df843d384ffafdffd32a09d0f436cd4ae7ad9928de4fd44595e92d3607c9f0173d7c29c1a36faba1d8be9da803a12bca9a93d63a5b58b7de917f6b53afa6b790e2fe856bc100345eabee328748ef03bcc3d9c0e3ac04c5029100a9c612defad4c3842dbe41e50f6bb1ad4f8b5c280155ed09e2e025bacc1786e5dec0a8004177aafe8c0ac67355ffe3b44449b9a61776bb6d4bc7e5bda7c074a60e0e331fa563552d62186b0e1878559c50442120b5eea8af34a2082c0772863033707081617e807160c5a11e6b75200f8ec387985671bcd5b0c3d8b50f2e3645e7980568dad616897b6129578e8332b5e32d08363c23eb29238c1683a768bcc3bbc1fbec3e2bc10b6a37779f21bd37671c3274bb8de7f408d5def1b1cbd01c157812f5d910f15ba54b86e5dd3e0abfb9e371d0120d7b97baefa44a582681b8098eec6a8edd1f82b8947340cf247e5a500b35782ee43db741417a329c0b50292108e56be60ab2e4121f25985fd785e5f18bf02e8ef3fe7a272673208c1849d31c11f1eb09de9b4ef0f6c69d354a733047c1343faa979acc0f2bc21febd67f8ed809c8070b506a3ebde95475b978e67160cbebee6a9a575caa620089f9eeee7f61a984d5c497c5b293861dbf39f6a739b09c9a53a5d0a92bee380f81e66a52ad94df7c788a2dc85c7c16956f99192ecfd4773a4e5d2fa01ec703779119440af5547e0a201bf373332bf5aaf6b3125637fba20c4cc4037f45fe317c166add8e592e41c72b1bd468ca737bfc2dd4ccd490bc67f608508c754be78a5612818f3b3f57160f706b284017acbd030131f874ba224804a7f2996fcfd604bbd959cc8bbadd908a67ac20c691d82ec5cd60f589af88b7c2644510566121e48a5c981994ff3ba5b2e56cb8b5aac0d74641cbf713321d2520e2c228a96397a9a69d310a66f3c31321cedd8029b9f8a7016109b87a8e592d5cb3a904bf675b6d1e59528e20bcb91205dee6cb3b1dff266dffcc5a3c200cf7715b9ec45ab9790ebf00c5d5cf5a952203a19d645d4f1da180898e97b4120ff49ce284498e36c33cc9eb8e92799ec9abcb80114d562b0e65b2794deb3a2aa0'
+				iv='3b854bc2c5d7aea626bdaeff'
+				salt='29a61c8fd0f9458f0e776698a591ae83'
+				iterations={220045}
+				nonce='7de11592a4fbd5279d73d2372bcfeff9'
+			/>
+		</article>
 	</section>
 </Layout>
 
@@ -45,11 +55,24 @@ import Email from '../../components/Email.astro';
 		}
 	}
 
+	h2 {
+		margin-block: 1em 0.25em;
+	}
+
+	p {
+		margin-block: 0.5em;
+	}
+
 	article {
 		background-color: var(--background-color-2);
 		border-radius: var(--border-radius);
 		padding: 1em;
 		margin-block: 1em;
+		overflow: scroll;
+	}
+
+	summary ~ * {
+		margin-left: 1em;
 	}
 
 	h3 {
