@@ -54,7 +54,7 @@ const challenge = Astro.props;
 		<template x-if="showError">
 			<span class="error-msg">
 				<span class="msg" x-text="errorMsg"></span>
-				<button class="btn" @click=`reveal()`>Retry?</button>
+				<button class="btn" @click='reveal()'>Retry?</button>
 			</span>
 		</template>
 	</div>
