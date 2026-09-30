@@ -57,6 +57,13 @@ const challenge = Astro.props;
 				<button class="btn" @click='reveal()'>Retry?</button>
 			</span>
 		</template>
+
+		<template x-if="showTakingTooLong">
+			<span class="too-long-msg">
+				<span class="msg" x-text="(time / 1000).toFixed(1) + 's '"></span>
+				<button class="btn" @click='abort()'>Cancel?</button>
+			</span>
+		</template>
 	</div>
 
 	<pre
@@ -100,7 +107,8 @@ svg {
 	margin-inline: auto;
 }
 
-.error-msg {
+.error-msg,
+.too-long-msg {
 	font-size: 0.8em;
 
 	.btn {
@@ -113,6 +121,11 @@ svg {
 			color: var(--accent-color);
 		}
 	}
+}
+
+.too-long-msg {
+	font-size: 0.7em;
+	font-family: var(--font-mono);
 }
 
 </style>

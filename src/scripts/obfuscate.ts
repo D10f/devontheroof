@@ -22,9 +22,14 @@ type AlpineCallback = AlpineComponent<{
 	fail(reason: string): void;
 	spawnWorker(n: number): void;
 	reveal(): void;
+	abort(): void;
+	time: number;
+	stopwatch: ReturnType<typeof setInterval>;
+	countdown: ReturnType<typeof setTimeout>;
 	showSpinner: boolean;
 	showError: boolean;
 	showSuccess: boolean;
+	showTakingTooLong: boolean;
 	isIdle: boolean;
 	isSolved: boolean;
 }>;
@@ -36,11 +41,16 @@ function delay(timeout: number) {
 export default function (challenge: Challenge): AlpineCallback {
 	return {
 		cleartext: undefined,
-		timeout: challenge.timeout || 10_000,
+		timeout: challenge.timeout || 30_000,
 		errorMsg: undefined,
 		loading: false,
 		solved: false,
 		error: false,
+		time: 0,
+		// @ts-expect-error type of interval
+		stopwatch: 0,
+		// @ts-expect-error type of timeout
+		countdown: 0,
 
 		get showSpinner() {
 			return this.loading;
@@ -52,6 +62,10 @@ export default function (challenge: Challenge): AlpineCallback {
 
 		get showSuccess() {
 			return this.solved && !this.cleartext;
+		},
+
+		get showTakingTooLong() {
+			return this.time > this.timeout / 3;
 		},
 
 		get isIdle() {
@@ -70,9 +84,12 @@ export default function (challenge: Challenge): AlpineCallback {
 		workers: [],
 
 		cleanup() {
+			clearInterval(this.stopwatch);
+			clearTimeout(this.countdown);
 			this.workers.forEach((worker) => {
 				worker.terminate();
 			});
+			this.time = 0;
 		},
 
 		success(cleartext) {
@@ -100,6 +117,10 @@ export default function (challenge: Challenge): AlpineCallback {
 			this.error = true;
 			this.loading = false;
 			this.errorMsg = reason;
+		},
+
+		abort() {
+			this.fail('Operation cancelled.');
 		},
 
 		spawnWorker(n) {
@@ -137,9 +158,13 @@ export default function (challenge: Challenge): AlpineCallback {
 			this.solved = false;
 			this.loading = true;
 
-			this.spawnWorker(1);
+			this.spawnWorker(navigator.hardwareConcurrency);
 
-			setTimeout(() => {
+			this.stopwatch = setInterval(() => {
+				this.time += 100;
+			}, 100);
+
+			this.countdown = setTimeout(() => {
 				if (this.solved) return;
 				this.fail('Challenge timed out.');
 			}, this.timeout);

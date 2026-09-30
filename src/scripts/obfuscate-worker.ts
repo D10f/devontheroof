@@ -16,11 +16,11 @@ const hexToBytes = (hex: string) => {
 	return bytes;
 };
 
-self.addEventListener('message', async (ctx: MessageEvent<Challenge>) => {
-	const salt = hexToBytes(ctx.data.salt);
-	const iv = hexToBytes(ctx.data.iv);
-	const ciphertext = hexToBytes(ctx.data.ciphertext);
-	const nonce = hexToBytes(ctx.data.nonce);
+self.addEventListener('message', async ({ data }: MessageEvent<Challenge>) => {
+	const salt = hexToBytes(data.salt);
+	const iv = hexToBytes(data.iv);
+	const ciphertext = hexToBytes(data.ciphertext);
+	const nonce = hexToBytes(data.nonce);
 
 	const saltBuffer = new Uint8Array(2 + salt.length);
 	const saltBufferView = new DataView(saltBuffer.buffer);
@@ -34,14 +34,14 @@ self.addEventListener('message', async (ctx: MessageEvent<Challenge>) => {
 		['deriveKey'],
 	);
 
-	for (let i = ctx.data.start; i < ctx.data.end; i++) {
+	for (let i = data.start; i < data.end; i++) {
 		saltBufferView.setUint16(0, i);
 		try {
 			const decryptionKey = await crypto.subtle.deriveKey(
 				{
 					name: 'PBKDF2',
 					salt: saltBuffer,
-					iterations: ctx.data.iterations,
+					iterations: data.iterations,
 					hash: 'SHA-256',
 				},
 				passwordKey,
