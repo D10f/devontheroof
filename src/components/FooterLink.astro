@@ -57,9 +57,13 @@ a {
 		--green: var(--accent-color);
 		--blue: var(--accent-color);
 		--purple: var(--accent-color);
+		--original-foreground: var(--foreground-color);
 		--foreground-color: var(--accent-color);
 
 		& .tooltip {
+			--foreground-color: var(--dark-color);
+			--background-color: var(--light-color);
+
 			opacity: 1;
 			translate: calc(-50% - 1em) calc(-125% - 0.75em);
 			transition:
