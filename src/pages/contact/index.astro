@@ -1,6 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Obfuscator from '../../components/Obfuscator.astro';
+import { obfuscate } from '../../scripts/utils';
+
+const emailChallenge = obfuscate(import.meta.env.EMAIL.trim());
+const pgpKeyChallenge = obfuscate(import.meta.env.PGP_KEY.trim());
 ---
 
 <Layout>
@@ -12,26 +16,14 @@ import Obfuscator from '../../components/Obfuscator.astro';
 	<section>
 		<h2>Email Address</h2>
 		<article>
-			<Obfuscator
-				ciphertext='c3ed4b7d47267578c55270546c276df148c50f5b210696db8d82b9875c03ccff8b0308'
-				iv='6e2d526ab3783dac3f9dafec'
-				salt='29a20f9e55f8bfb05c5be3732386'
-				iterations={1000}
-				nonce='19ddec9b507dc3af4723e52bc1cc60c5'
-			/>
+			<Obfuscator challenge={emailChallenge} />
 		</article>
 	</section>
 
 	<section>
 		<h2>Public Key</h2>
 		<article>
-			<Obfuscator
-				ciphertext='6b9e07ec0e5a650129a36a3ee7f1e1010dc347270c83d65861c16e7cbbf2965a03e55b7c197739e14e6b95d229fc6b90cac13715bd1bc30a4e8a17b3687eab3a1bec8327e09b616c2669e464e80dd20fa706083bdba1a52ac735de7b46aae73238bd333d60712c6d5d45d679b47e3d93069c7503c0c01835c8b21ed3747575b02b8e77899d7840e8036720eac0ca7456dfaaf1da962d6f5cdf2198128de210a80193c1017534582162e4be299db9f126b166a0bb4876be179f3768d564197136487fa0d2f77a60010b42b0bc61c61cf4e5bf1e6a09de77256aa11ed7880aa396f646d1f482fb5bfd3630b7ecfa7ed631b50f3d4a44d15a373a1d49cffceced6f005fd343f1b6d7b962ea81cba56242b324e0273193215033cb06dbaed008ee5b7881eff33c76f50fffce29531fc5d7d69e2fb96d662c0d3148e34bb61fd5eed5cb5adf31366a06bb68807998b3f5705c44b38c5223da46537c88b21717bdab46a8078740a7ae6790a2504ccee87340e39dd8580c65073f75b971ee47103e43ea560e045dbb475bbd418ff52df3087335b484e7cb2b9ada0ac1e108132a1081c763169ada6b7edd80bd14507e173bdb197ccf6a9b7bb441852ba62cf009e3fd38e3d0cc3c0eb6c46bfe18b3b627eef5049170b51eddcb16ab2b59b8b5ba3aa481c379f2b3715e4f9a0192cdde143c2e9cb9ffcd16068798b058d59c2678ea952aab86bf47b7c5511b949527a1520173c4f0c4d0954c90f0604f6da77fd54a2ac831eb8c8e502017f3b5d06c5bdca4413ce6312e4012ec37f652c5850390334a896e561352020a2702a81e5ceb481364c7d2f121d2f9cf51398f447c3f23d378f3d7f13baf69c4935b128d6820a4449c1faec833f9ebbfea8252387ca7f3b8726ebf26bed1966dc03c4ee9e419ebfd3899ad995c1ff44b3756e2415c8a2508eefdfbd32ecf026d92bfed57cf25d610fec8cf03dc8a6ec649425ef5a56373f7bc878711dbb1cd3f8c57aa7a38d054abfa5e2f1a5bcfc7ff2c4aec045ffa564e27c15fe41c4d28855ebb3b8e4db8cb5fcdc756407db1d3c22ef9d5d64250b628dde69850c3ed7d0a16ac192c158214ad433e55b566b5951dfbc504b00420f80f4d9e062a4df4a0ef0544bc220cf66a94dd48810beb708b6544fc902441c3b0d5d9f354e82213f6651af3b0c8e8811b1f145cc7f1467c8e82b58ad5cf27167a0e1fce0cfd73a5775cba9568980c'
-				iv='a9550a97871a06b82dc5bc11'
-				salt='ecac7a62a74d8e36dfda3b5348aa'
-				iterations={1000}
-				nonce='2b459bba3e7d99dffb586d40bb80fd0c'
-			/>
+			<Obfuscator challenge={pgpKeyChallenge} />
 		</article>
 	</section>
 </Layout>

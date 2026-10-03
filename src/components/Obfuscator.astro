@@ -1,15 +1,17 @@
 ---
 interface Props {
-	ciphertext: string;
-	keyPrefix: string;
-	timeout?: number;
-	iv: string;
-	salt: string;
-	nonce: string;
-	iterations: number;
+	challenge: {
+		ciphertext: string;
+		keyPrefix: string;
+		timeout?: number;
+		iv: string;
+		salt: string;
+		nonce: string;
+		iterations: number;
+	}
 }
 
-const challenge = Astro.props;
+const { challenge } = Astro.props;
 ---
 
 <div x-data=`obfuscate(${JSON.stringify(challenge)})`>

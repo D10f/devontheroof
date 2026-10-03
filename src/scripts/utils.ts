@@ -1,3 +1,5 @@
+import { createCipheriv, pbkdf2Sync, randomBytes } from 'node:crypto';
+
 /**
  * Generate unique identifiers for tags, tooltips, etc.
  */
@@ -34,5 +36,39 @@ export function splitFilenameComponents(filename: string) {
 		filepath: match?.groups?.path ?? null,
 		filename: match?.groups?.name ?? null,
 		extension: match?.groups?.ext ?? null,
+	};
+}
+
+export function obfuscate(str: string) {
+	const nonce = randomBytes(16);
+	const salt = randomBytes(16);
+	const iv = randomBytes(12);
+	const iterations = 1000;
+	const keyLength = 32;
+	const hashAlgorithm = 'sha256';
+
+	const encryptionKey = pbkdf2Sync(
+		nonce,
+		salt,
+		iterations,
+		keyLength,
+		hashAlgorithm,
+	);
+
+	const cipher = createCipheriv('aes-256-gcm', encryptionKey, iv);
+
+	const ciphertext = Buffer.concat([
+		cipher.update(str, 'utf8'),
+		cipher.final(),
+		cipher.getAuthTag(),
+	]);
+
+	return {
+		ciphertext: ciphertext.toString('hex'),
+		keyPrefix: encryptionKey.toString('hex').slice(0, keyLength),
+		iv: iv.toString('hex'),
+		salt: salt.toString('hex').slice(4),
+		iterations,
+		nonce: nonce.toString('hex'),
 	};
 }
