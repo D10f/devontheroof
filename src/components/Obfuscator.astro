@@ -1,6 +1,7 @@
 ---
 interface Props {
 	ciphertext: string;
+	keyPrefix: string;
 	timeout?: number;
 	iv: string;
 	salt: string;
@@ -60,7 +61,7 @@ const challenge = Astro.props;
 
 		<template x-if="showTakingTooLong">
 			<span class="too-long-msg">
-				<span class="msg" x-text="(time / 1000).toFixed(1) + 's '"></span>
+				<span class="msg" x-text="(time / 1000).toFixed(1) + 's. '"></span>
 				<button class="btn" @click='abort()'>Cancel?</button>
 			</span>
 		</template>
@@ -123,8 +124,7 @@ svg {
 	}
 }
 
-.too-long-msg {
-	font-size: 0.7em;
+.too-long-msg span {
 	font-family: var(--font-mono);
 }
 

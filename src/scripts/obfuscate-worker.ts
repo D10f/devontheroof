@@ -1,5 +1,6 @@
 type Challenge = {
 	ciphertext: string;
+	keyPrefix: string;
 	timeout: number;
 	iv: string;
 	salt: string;
@@ -22,7 +23,7 @@ self.addEventListener('message', async ({ data }: MessageEvent<Challenge>) => {
 	const ciphertext = hexToBytes(data.ciphertext);
 	const nonce = hexToBytes(data.nonce);
 
-	const saltBuffer = new Uint8Array(2 + salt.length);
+	const saltBuffer = new Uint8Array(16);
 	const saltBufferView = new DataView(saltBuffer.buffer);
 	saltBuffer.set(salt, 2);
 
@@ -36,28 +37,35 @@ self.addEventListener('message', async ({ data }: MessageEvent<Challenge>) => {
 
 	for (let i = data.start; i < data.end; i++) {
 		saltBufferView.setUint16(0, i);
-		try {
-			const decryptionKey = await crypto.subtle.deriveKey(
-				{
-					name: 'PBKDF2',
-					salt: saltBuffer,
-					iterations: data.iterations,
-					hash: 'SHA-256',
-				},
-				passwordKey,
-				{ name: 'AES-GCM', length: 256 },
-				true,
-				['decrypt'],
-			);
 
-			const decryptedBuff = await crypto.subtle.decrypt(
-				{ name: 'AES-GCM', iv },
-				decryptionKey,
-				ciphertext,
-			);
+		const decryptionKey = await crypto.subtle.deriveKey(
+			{
+				name: 'PBKDF2',
+				salt: saltBuffer,
+				iterations: data.iterations,
+				hash: 'SHA-256',
+			},
+			passwordKey,
+			{ name: 'AES-GCM', length: 256 },
+			true,
+			['decrypt'],
+		);
 
-			postMessage(new TextDecoder().decode(decryptedBuff));
-		} catch {}
+		const bytes = new Uint8Array(
+			await crypto.subtle.exportKey('raw', decryptionKey),
+		);
+
+		if (!bytes.toHex().startsWith(data.keyPrefix)) {
+			continue;
+		}
+
+		const decryptedBuff = await crypto.subtle.decrypt(
+			{ name: 'AES-GCM', iv },
+			decryptionKey,
+			ciphertext,
+		);
+
+		postMessage(new TextDecoder().decode(decryptedBuff));
 	}
 
 	postMessage(null);

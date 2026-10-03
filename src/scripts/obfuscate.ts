@@ -2,6 +2,7 @@ import type { AlpineComponent } from 'alpinejs';
 
 type Challenge = {
 	ciphertext: string;
+	keyPrefix: string;
 	timeout?: number;
 	iv: string;
 	salt: string;
@@ -124,7 +125,7 @@ export default function (challenge: Challenge): AlpineCallback {
 		},
 
 		spawnWorker(n) {
-			const domain = 65536 / n;
+			const domain = 2 ** 16 / n;
 
 			for (let i = 0; i < n; ++i) {
 				const worker = new Worker(
