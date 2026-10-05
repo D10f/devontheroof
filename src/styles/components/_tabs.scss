@@ -1,0 +1,33 @@
+@use '../abstract/mixins' as *;
+
+.listingblock-tabs {
+	--tabs-padding: 0.5em;
+
+	ul {
+		display: flex;
+		gap: 1em;
+	}
+
+	li {
+		padding-block: var(--tabs-padding);
+		transform: translateY(calc(var(--tabs-padding) / 2));
+
+		&.active {
+			background-color: #303446;
+		}
+	}
+
+	li.active button {
+		@include unselectable;
+	}
+
+	button {
+		font-family: var(--font-mono);
+		padding: 0.25em 1em;
+		font-size: 0.75em;
+
+		&:hover {
+			color: var(--accent-color);
+		}
+	}
+}

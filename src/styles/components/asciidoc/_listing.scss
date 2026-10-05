@@ -4,6 +4,16 @@
 	margin-top: 1em;
 	position: relative;
 
+	// This happens when Alpine.js has grouped together multiple codeblocks
+	&[x-show] {
+
+		margin-top: 0;
+
+		figcaption {
+			@include visually-hidden;
+		}
+	}
+
 	&:hover button.copy-btn {
 		opacity: 1;
 	}
