@@ -6,6 +6,9 @@ html.dark {
 	--subtitles: light-dark(color-mix(in srgb, var(--light-color), black 20%),
 			color-mix(in srgb, var(--dark-color), white 20%));
 
+	--editor-background: light-dark(var(--ctp-frappe-base),
+			var(--ctp-latte-base));
+
 	--red: var(--ctp-frappe-red);
 	--yellow: var(--ctp-frappe-yellow);
 	--green: var(--ctp-frappe-green);

@@ -8,16 +8,18 @@
 		gap: 1em;
 	}
 
-	li {
+	.listingblock-tabs__item {
 		padding-block: var(--tabs-padding);
+		border-top-left-radius: var(--border-radius);
+		border-top-right-radius: var(--border-radius);
 		transform: translateY(calc(var(--tabs-padding) / 2));
 
 		&.active {
-			background-color: #303446;
+			background-color: var(--editor-background);
 		}
 	}
 
-	li.active button {
+	.listingblock-tabs__item.active button {
 		@include unselectable;
 	}
 
