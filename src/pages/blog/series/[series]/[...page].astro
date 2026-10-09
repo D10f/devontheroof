@@ -40,7 +40,7 @@ const { page, series: { data, rendered } } = Astro.props;
 const { series } = Astro.params;
 ---
 
-<Layout>
+<Layout title={data.title}>
 	<header>
 		<h1>{data.title}</h1>
 	</header>
