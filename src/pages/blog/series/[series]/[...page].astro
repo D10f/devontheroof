@@ -41,6 +41,11 @@ const { series } = Astro.params;
 ---
 
 <Layout title={data.title}>
+
+	<aside>
+		<a href="/blog/series">&larr; Back</a>
+	</aside>
+
 	<header>
 		<h1>{data.title}</h1>
 	</header>
@@ -80,5 +85,8 @@ li {
 }
 hr {
 	color: var(--subtitles);
+}
+aside a:hover {
+	color: var(--accent-color);
 }
 </style>
