@@ -7,6 +7,10 @@ table.tableblock {
 	text-align: center;
 	font-family: var(--font-mono);
 
+	// Remove the default cell spacing
+	border-collapse: collapse;
+	border-spacing: 0;
+
 	colgroup {
 		display: none;
 	}
