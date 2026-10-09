@@ -2,7 +2,6 @@ table.tableblock {
 	min-width: 100%;
 	max-width: max-content;
 	background-color: var(--background-color-2);
-	border-radius: var(--border-radius);
 	font-size: 0.9em;
 	text-align: center;
 	font-family: var(--font-mono);
@@ -15,8 +14,17 @@ table.tableblock {
 		display: none;
 	}
 
+	thead tr {
+		border-bottom: 2px solid currentColor;
+	}
+
 	tbody tr:nth-child(odd) {
 		background-color: var(--background-color);
+	}
+
+	th,
+	td {
+		height: 2em;
 	}
 
 	p {
