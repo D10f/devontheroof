@@ -1,6 +1,7 @@
 .tableblock-wrapper {
 	border: 1px solid var(--foreground-color);
 	border-radius: var(--border-radius);
+	overflow: scroll;
 }
 
 table.tableblock {
@@ -10,6 +11,7 @@ table.tableblock {
 	font-size: 0.9em;
 	text-align: center;
 	font-family: var(--font-mono);
+	border-radius: var(--border-radius);
 
 	// Remove the default cell spacing
 	border-collapse: collapse;
@@ -30,6 +32,7 @@ table.tableblock {
 	th,
 	td {
 		height: 2em;
+		padding-inline: 1em;
 	}
 
 	p {
