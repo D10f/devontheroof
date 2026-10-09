@@ -1,12 +1,22 @@
-.tableblock {
-	margin-top: 1em;
-	background-color: var(--background-color-2);
-	font-size: 1rem;
-	padding: 0.5em 0.25em;
-	border-radius: var(--border-radius);
-}
-
 table.tableblock {
-	width: 100%;
-	text-align: left;
+	min-width: 100%;
+	max-width: max-content;
+	background-color: var(--background-color-2);
+	border-radius: var(--border-radius);
+	font-size: 0.9em;
+	text-align: center;
+	font-family: var(--font-mono);
+
+	colgroup {
+		display: none;
+	}
+
+	tbody tr:nth-child(odd) {
+		background-color: var(--background-color);
+	}
+
+	p {
+		padding: 0;
+		margin: 0;
+	}
 }
