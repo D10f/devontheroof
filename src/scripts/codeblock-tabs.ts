@@ -4,6 +4,11 @@ export default () => {
 		previous.appendChild(colist);
 	});
 
+	document.querySelectorAll('.literalblock.output').forEach((colist) => {
+		const previous = colist.previousElementSibling as HTMLElement;
+		previous.appendChild(colist);
+	});
+
 	const blocks = document.querySelectorAll('.listingblock');
 
 	const tabGroups = [];
