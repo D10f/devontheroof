@@ -1,12 +1,11 @@
 ---
 import { getCollection } from "astro:content"
-import Layout from "../../../layouts/Layout.astro"
-import SeriesCard from '../../../components/SeriesCard.astro';
+import Layout from "../../layouts/Layout.astro"
+import SeriesCard from '../../components/SeriesCard.astro';
 
-const blogSeries = (await getCollection('blogSeries')).sort(
-	(a, b) => a.data.title < b.data.title
+const series = (await getCollection('series')).filter(post =>
+	!post.data['series-prev'] && !post.data['series-next']
 );
-
 ---
 
 <Layout class="Blog series">
@@ -16,7 +15,7 @@ const blogSeries = (await getCollection('blogSeries')).sort(
 	</header>
 
 	<ul>
-		{blogSeries.map(post => (
+		{series.map(post => (
 			<li><SeriesCard post={post} /></li>
 		))}
 	</ul>

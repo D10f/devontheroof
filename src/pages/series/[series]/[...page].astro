@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+import { slugify, sortByDate, separateIndex } from "../../../scripts/utils";
+import Layout from "../../../layouts/Layout.astro"
+import PostCard from "../../../components/PostCard.astro";
+import Pagination from "../../../components/Pagination.astro";
+
+import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+
+export const getStaticPaths = (async ({ paginate }) => {
+
+	const grouped = Map.groupBy(await getCollection('series'), post => {
+		return post.data.series;
+	});
+
+	return [...grouped.keys()].flatMap(series => {
+
+		const seriesPosts = grouped.get(series) as CollectionEntry<'series'>[];
+
+		const { posts, index } = separateIndex(seriesPosts);
+
+		if (!index) {
+			throw new Error('This is unacceptable!!');
+		}
+
+		return paginate(posts.toSorted(sortByDate), {
+			params: {
+				series: slugify(series),
+			},
+			props: {
+				index
+			},
+			pageSize: 15
+		});
+	});
+}) satisfies GetStaticPaths;
+
+const { series } = Astro.params;
+const { page, index } = Astro.props;
+---
+
+<Layout>
+	<aside>
+		<a href="/series">&larr; Back</a>
+	</aside>
+
+	<header>
+		<h1>{index.data.title}</h1>
+	</header>
+
+	<article>
+		<div class="asciidoc" set:html={index.rendered?.html} />
+	</article>
+
+	<ul>
+		{page.data.map(post => (
+			<li><PostCard post={post} /></li>
+		))}
+	</ul>
+
+	{page.lastPage > 1 && (
+	<footer>
+		<Pagination base={`series/${series}`} page={page} />
+	</footer>
+	)}
+
+</Layout>
