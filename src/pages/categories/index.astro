@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import SvgIcon from "../../components/SvgIcon.astro";
+
+const categoryCount = [
+	await getCollection('blog'),
+	(await getCollection('series')).filter(post =>
+		post.data['series-prev'] || post.data['series-next']
+	)
+]
+.flat()
+.reduce((acc, curr) => {
+	curr.data.technologies.forEach(t => {
+		acc.set(t, acc.has(t) ? acc.get(t)! + 1 : 1);
+	});
+	return acc;
+}, new Map<string, number>());
+---
+
+<Layout>
+	<header>
+		<h1>Post Categories</h1>
+		<p class="preamble">These are all the categories.</p>
+	</header>
+	<ul class="category-list">
+		{categoryCount.entries().map(([category, count]) => (
+			<li>
+				<SvgIcon iconName={category} />
+				<p>{count}</p>
+			</li>
+		))}
+	</ul>
+</Layout>
+
+<style>
+p.preamble {
+	color: var(--subtitles);
+	margin-bottom: 1em;
+}
+ul {
+	margin-top: 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
+}
+li {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1em 2em;
+
+	&:hover {
+		background-color: var(--background-color-2);
+	}
+}
+hr {
+	color: var(--subtitles);
+}
+</style>
+
+<style is:global>
+.category-list svg {
+	/* width: 2em; */
+	aspect-ratio: 1;
+}
+</style>
