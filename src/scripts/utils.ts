@@ -1,4 +1,5 @@
 import { createCipheriv, pbkdf2Sync, randomBytes } from 'node:crypto';
+import type { CollectionEntry } from 'astro:content';
 
 /**
  * Generate unique identifiers for tags, tooltips, etc.
@@ -71,4 +72,38 @@ export function obfuscate(str: string) {
 		iterations,
 		nonce: nonce.toString('hex'),
 	};
+}
+
+/**
+ * Utility function to sort collection entries
+ */
+export function sortByDate<T extends CollectionEntry<'series' | 'blog'>>(
+	a: T,
+	b: T,
+) {
+	return a.data.createdAt.valueOf() - b.data.createdAt.valueOf();
+}
+
+/**
+ * Each of the series have an index file that describes that particular
+ * series. It's the /series/<series-name> URL. However, all AsciiDoc
+ * files are stored together and are part of the same Astro Collection.
+ * This utility function separates the posts from the index.
+ */
+export function separateIndex(posts: CollectionEntry<'series'>[]) {
+	return posts.reduce(
+		(acc, curr) => {
+			if (!curr.data['series-prev'] && !curr.data['series-next']) {
+				acc.index = curr;
+			} else {
+				acc.posts.push(curr);
+			}
+
+			return acc;
+		},
+		{ posts: [], index: undefined } as {
+			posts: CollectionEntry<'series'>[];
+			index?: CollectionEntry<'series'>;
+		},
+	);
 }

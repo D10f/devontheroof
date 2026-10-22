@@ -1,19 +1,24 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import SvgIcon from './SvgIcon.astro';
 import { generateId, slugify } from '../scripts/utils';
 
+import type { CollectionEntry, CollectionKey } from 'astro:content';
+
 interface Props {
-	post: CollectionEntry<'blog'>;
+	post: CollectionEntry<CollectionKey>;
 }
 
 const { post } = Astro.props;
+
+const route = post.collection === 'blog'
+	? `/blog/${post.id}`
+	: `/series/${slugify(post.data.series)}/${post.id}`
 ---
 
 <article>
 	<header>
-		<h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+		<h2><a href={route}>{post.data.title}</a></h2>
 		<FormattedDate date={post.data.createdAt} />
 	</header>
 
@@ -22,7 +27,7 @@ const { post } = Astro.props;
 			const tooltipId = generateId(tech);
 			const techSlug = slugify(tech);
 			return (
-				<a href={`/blog/categories/${techSlug}`} aria-describedby={tooltipId}>
+				<a href={`/categories/${techSlug}`} aria-describedby={tooltipId}>
 					<SvgIcon iconName={techSlug} />
 					<span
 						class="tooltip"

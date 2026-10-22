@@ -14,9 +14,12 @@ const currentPath = Astro.url.pathname;
 		<a href="/">D10f</a>
 	</div>
 
-	<menu class="navbar__links">
+	<nav class="navbar__links">
 		<li>
 			<a class={currentPath.match(/^\/(?:blog|categories)/) ? 'active' : '' } href="/blog">Blog</a>
+		</li>
+		<li>
+			<a class={currentPath.startsWith('/series') ? 'active' : '' } href="/series">Series</a>
 		</li>
 		<li>
 			<a class={currentPath.startsWith('/projects') ? 'active' : '' } href="/projects">Projects</a>
@@ -24,7 +27,7 @@ const currentPath = Astro.url.pathname;
 		<li>
 			<a class={currentPath.startsWith('/uses') ? 'active' : '' } href="/uses">Uses</a>
 		</li>
-	</menu>
+	</nav>
 
 	<menu class="navbar__actions">
 		<li>
