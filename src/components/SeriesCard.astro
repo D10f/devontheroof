@@ -1,10 +1,11 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import SvgIcon from './SvgIcon.astro';
 import { generateId, slugify } from '../scripts/utils';
 
+import type { CollectionEntry } from 'astro:content';
+
 interface Props {
-	post: CollectionEntry<'blogSeries'>;
+	post: CollectionEntry<'series'>;
 }
 
 const { post } = Astro.props;
