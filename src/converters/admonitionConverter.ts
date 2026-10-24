@@ -11,10 +11,10 @@ export const admonitionConverter: CustomConverterFactoryFn<object> = () => {
 				const content = node
 					.getSourceLines()
 					.join('')
-					.replace(/`([^`]+?)`/g, '<code>$1</code>')
+					.replace(/`((?:\\`|[^`])+)`/g, '<code>$1</code>')
 					.replace(/_([^_]+?)_/g, '<em>$1</em>')
 					.replace(
-						/([^\[\s]+)\[([^\]]+)\]/g,
+						/(https?:\/\/[^\[\s]+?)\[([^\]]+)\]/,
 						'<a href="$1" target="_blank">$2</a>',
 					);
 
